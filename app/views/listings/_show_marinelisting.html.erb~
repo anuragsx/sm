@@ -1,0 +1,144 @@
+<table width="100%" border="0" cellpadding="1" cellspacing="0">
+	<tr>
+		<td width="20%" align="right">
+			<b>Year:</b>
+		</td>
+		<td align="left">
+			<%=h @listing.year %>
+		</td>
+	<tr>
+		<td colspan="2">
+			<%= image_tag "divider_line.png", :size => "267x2" %>
+		</td>
+	</tr>
+	<tr>
+		<td width="20%" align="right">
+			<b>Category:</b>
+		</td>
+		<td align="left">
+			<%=h @listing.category %>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2">
+			<%= image_tag "divider_line.png", :size => "267x2" %>
+		</td>
+	</tr>
+	<tr>
+		<td width="20%" align="right">
+			<b>Subcategory:</b>
+		</td>
+		<td align="left">
+			<%=h @listing.subcategory %>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2">
+			<%= image_tag "divider_line.png", :size => "267x2" %>
+		</td>
+	</tr>
+	<tr>
+		<td width="20%" align="right">
+			<b>Make:</b>
+		</td>
+		<td align="left">
+			<%=h @listing.make %>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2">
+			<%= image_tag "divider_line.png", :size => "267x2" %>
+		</td>
+	</tr>
+	<tr>
+		<td width="20%" align="right">
+			<b>Mileage:</b>
+		</td>
+		<td align="left">
+			<%=h @listing.mileage %>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2">
+			<%= image_tag "divider_line.png", :size => "267x2" %>
+		</td>
+	</tr>
+	<tr>
+		<td width="20%" align="right">
+			<b>Length:</b>
+		</td>
+		<td align="left">
+			<%=h @listing.length %>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2">
+			<%= image_tag "divider_line.png", :size => "267x2" %>
+		</td>
+	</tr>
+	<tr>
+		<td width="20%" align="right">
+			<b>Fuel:</b>
+		</td>
+		<td align="left">
+			<%=h @listing.fuel %>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2">
+			<%= image_tag "divider_line.png", :size => "267x2" %>
+		</td>
+	</tr>
+	<tr>
+		<td width="20%" align="right">
+			<b>Engine:</b>
+		</td>
+		<td align="left">
+			<%=h @listing.engine %>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2">
+			<%= image_tag "divider_line.png", :size => "267x2" %>
+		</td>
+	</tr>
+	<tr>
+		<td width="20%" align="right">
+			<b>Hull:</b>
+		</td>
+		<td align="left">
+			<%=h @listing.hull %>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2">
+			<%= image_tag "divider_line.png", :size => "267x2" %>
+		</td>
+	</tr>
+	<tr>
+		<td width="20%" align="right">
+			<b>Price:</b>
+		</td>
+		<td align="left">
+			<%=h number_to_currency(@listing.price, :precision => 0) %>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2">
+			<%= image_tag "divider_line.png", :size => "267x2" %>
+		</td>
+	</tr>
+	<tr>
+		<td width="20%" align="right">
+			<b>Description:</b>
+		</td>
+		<td align="left">
+			<%=h @listing.desc %>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2">
+			<%= image_tag "divider_line.png", :size => "267x2" %>
+		</td>
+	</tr>
+</table>

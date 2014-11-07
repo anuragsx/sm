@@ -1,0 +1,11 @@
+class ChopMotomakes < ActiveRecord::Migration
+  def self.up
+  	@motomakes = Motomakes.find(:first, :conditions => {:make => 'Rucker Performance Motorcycles'})
+  	Motomakes.each do
+  		@motomakes.make = 'Rucker Performance Cycle'
+  	end
+  end
+
+  def self.down
+  end
+end

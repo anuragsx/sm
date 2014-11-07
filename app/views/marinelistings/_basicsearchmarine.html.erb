@@ -1,0 +1,51 @@
+<%= form_tag(marinelistingsresults_marinelistings_path) do |f| %>
+	<fieldset class="RefineSearch">
+		<legend style="font-weight:bold; font-size:1.2em;">Refine Search</legend>
+		<table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<div class="blackCategoryText">
+					<%# f.fields_for @search.conditions do |listings| %>
+						<td align="left" valign="top">
+							<%= label_tag "Category:" %>
+							<br/>
+                          <%= select_tag(:category, options_for_select(@marinecategories.map {|s| [s.category, s.category]},:selected => params[:category]),
+                                         {:prompt => "-Select a Category"})%><br />
+						</td>
+						<td>
+							<%= label_tag "Subcategory:" %>
+							<br/>
+							<div id="marinesubcategoriesdiv">
+                              <%= select_tag(:sub_category, options_for_select(@marinesubcategories.map {|s| [s.subcategory, s.subcategory]},:selected => params[:sub_category]),
+                                             :prompt => "-Select a Category First")  %>
+
+							</div>
+						</td>
+						<td>
+							<%= label_tag "Make:" %>
+							<br/>
+                          <%= select_tag :make, options_for_select(@marinemakes.map {|s| [s.make, s.make]},:selected => params[:make]),
+                                         {prompt: "Select a Make"} %>
+						</td>
+						<td>
+							<%= label_tag "Max Price($):" %>
+							<br/>
+							<%= text_field_tag :price_lt, '', :size => 6, :value => params[:price_lt] %>
+						</td>
+						<%# listings.fields_for @search.conditions.owner do |owner| %>
+						<td>
+							<%= label_tag "State:" %>
+							<br/>
+                          <%= select_tag(:state,options_for_select(Listing::STATES,:selected => params[:state]) , {:prompt => "-Select State"}) %>
+						</td>
+						<%# end %>
+						<td>
+                          <%= hidden_field_tag :listing_type, "marine" %>
+							<br/>
+							<%= submit_tag "Basic Search", :id => "Submit" %>
+						</td>
+					<%# end %>
+				</div>
+			</tr>
+		</table>
+	</fieldset>
+<% end %>

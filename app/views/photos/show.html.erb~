@@ -1,0 +1,12 @@
+<h1>Photo for <%= @listing.model %></h1>
+
+<p>
+	<%= image_tag listing_photo_path(@listing, @photo, :jpg), :alt => @photo.name %>
+</p>
+<p>
+  <b>Name:</b>
+  <%=h @photo.name %>
+</p>
+<br />
+<%= link_to 'Edit', edit_listing_photo_path(@listing, @photo) %> |
+<%= link_to 'Back', listing_photos_path(@listing) %>

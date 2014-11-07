@@ -1,0 +1,37 @@
+<table width="883" border="0" cellpadding="20" cellspacing="0">
+	<tr>
+		<td align="left" valign="top">
+			<table width="100%" border="0" cellspacing="0" cellpadding="0">
+				<tr>
+					<td>
+						<%= link_to image_tag("envelope_icon.png", :alt => "inbox", :size => "19x17", :border => 0, :align => "absbottom"), inbox_url %>
+						<span class="formText">
+							<%= link_to "Inbox", :class => "smallBlackLinks", inbox_url %>
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							<span class="greenText">
+								<%= link_to image_tag("envelope_icon.png", :alt => "inbox", :size => "19x17", :border => 0, :align => "absbottom"), sent_url %>
+							</span>
+							<%= link_to "Inbox", :class => "smallBlackLinks", inbox_url %>
+							<br />
+							<br />
+						</span>
+					</td>
+				</tr>
+				<tr>
+					<td class="greenText">
+						<%= image_tag "email_listing_bar.png", :size => "842x26", :border => 0, :usemap => "#Map" %>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<p>&nbsp;</p>
+						<p>&nbsp;</p>
+						<p>&nbsp;</p>
+						<p>&nbsp;</p>
+						<p>&nbsp;</p>
+					</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+</table>

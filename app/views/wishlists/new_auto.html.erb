@@ -1,0 +1,107 @@
+<div id="content">
+  <div class="page">
+    <div class="rightcontent">
+      <div class="ad1"> <img src="/assets/ad1.jpg" width="300" height="125" /> </div>
+      <div class="ad2"> <img src="/assets/ad2.jpg" width="300" height="125" /> </div>
+      <div class="ad3"> <img src="/assets/ad3.jpg" width="300" height="250" /> </div>
+    </div>
+    <div class="leftcontent"> <span>Create new Auto wishlist item</span>
+      <div class="lsitarea">
+        <div class="pagination">
+
+        </div>
+        <p>
+          <% if flash[:notice] %>
+            <div class="notice"><%= flash[:notice] %></div>
+        <% end %>
+        </p>
+        <div class="contactwidget">
+          <%= form_for(@wishlist, :html => { :multipart => true }) do |f| %>
+          <% if @wishlist.errors.any? %>
+              <div id="errorExplanation">
+                <h2><%= pluralize(@wishlist.errors.count, "error") %> prohibited this post from being saved:</h2>
+
+                <ul>
+                  <% @wishlist.errors.full_messages.each do |message| %>
+                      <li><%= message %></li>
+                  <% end %>
+                </ul>
+              </div>
+          <% end %>
+          <%= f.hidden_field :listingtype, :value=>'auto' %>
+
+              <form action="#">
+                <div class="year">
+                  <%= f.label 'Year from:' %>
+                  <%= f.text_field :min_year, :size => 10 %>
+                </div>
+                <div class="year_to">
+                  <%= f.label 'Year to:' %>
+                  <%= f.text_field :max_year, :size => 10 %>
+                </div>
+                <div class="category">
+                  <%= f.label "Category:" %>
+                  <%= f.collection_select :body, @autocategories, :category, :category, {:prompt => "-Select a Category"} %>
+                </div>
+                <div class="make">
+                  <%= f.label "Make:" %>
+                  <%= f.collection_select :make, @automakes, :make, :make, {:prompt => "-Select a Make-"} %>
+                </div>
+                <div class="model">
+                  <%= f.label "Model:" %>
+                  <%= render :partial => 'automodels_select' %>
+                </div>
+                <div class="price">
+                  <%= f.label 'Price Min:' %>
+                  <%= f.text_field :min_price, :size => 10 %>
+                </div>
+                <div class="price_max">
+                  <%= f.label 'Price Max:' %>
+                  <%= f.text_field :max_price, :size => 10 %>
+                </div>
+                <p>
+                  <%= image_submit_tag "create_button.jpg", :alt => "Create", :size => "69x29", :border => 0 %>
+                </p>
+              </form>
+          <% end %>
+        </div>
+      </div>
+      <div class="clear"></div>
+    </div>
+  </div>
+  <div class="clear"></div>
+</div>
+
+
+<script>
+    $( document ).ready(function() {
+
+        $('#wishlist_make').change(function() {
+            if ($(this).val() == '')
+            {
+                $('#wishlist_model').html( $('<option>No model provided for your make</option>'));
+            }
+            else {
+                $.ajax({
+                    type: "GET",
+                    url: "/autolistings/get_automodels?make=" + $(this).val(),
+                    success: function(data){
+                        if (data.content == 'None')  //handle the case where no state related to country selected
+                        {
+                            $('#wishlist_model').empty();
+                            $('#wishlist_model').append( $('<option>No model provided for your make</option>'));
+                        }
+                        else
+                        {
+                            $('#wishlist_model').empty();
+                            $('#wishlist_model').append( $('<option>Select your Model</option>'));
+                            jQuery.each(data,function(i, v) {
+                                $('#wishlist_model').append( $('<option value="'+ data[i][1] +'">'+data[i][0] +'</option>'));
+                            });
+                        }
+                    }
+                });
+            }
+        });
+    });
+</script>

@@ -1,0 +1,48 @@
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+	<tr>
+		<td align="center">
+			<%= image_tag("marine.gif", :alt => "marine", :size => "57x22", :vspace => "1", :border => "0") %>
+		</td>
+	</tr>
+	<tr>
+		<td height="241" align="center" valign="top">
+			<p>
+				<%= image_tag("marine_pic2.jpg", :alt => "Watercraft For Trade", :size => "193x142", :border => "0") %>
+			</p>
+			<% form_for @search, :url => {:controller => "marinelistings", :action => "marinelistingsresults"} do |f| %>
+				<% f.fields_for @search.conditions do |listings| %>
+					<div class="categoryText">
+						<%= listings.label "Category:" %><br/>
+						<%= listings.collection_select :category_is, @marinecategories, :category, :category, {:prompt => "-Select a Category"}, {:onChange => remote_function(:url => {:action => 'get_marinesubcategories'}, :with => "'category=' + this.value")} %><br/>
+						<br/>
+						<%= listings.label "Sub-Category:" %><br/>
+						<div id="marinesubcategoriesdiv">
+							<%= render :partial => "marinesubcategories_select" %>
+						</div>
+						<br/>
+						<%= listings.label "Make:" %><br/>
+						<%= listings.collection_select :make_is, @marinemakes, :make, :make, :prompt => "-Select a Make", :size => 15 %><br/>
+						<br/>
+						<%= listings.label "Max Price:" %><br/>
+						<%= listings.text_field :price_lt, :size => 15 %><br/>
+						<br/>
+						<% listings.fields_for @search.conditions.owner do |owner| %>
+							<%= owner.label "State:" %>
+							<br/>
+							<%= owner.select(:state_is, ['AK','AL','AR','AZ','CA','CO','CT','DE','FL','GA','HI','IA','ID','IL','IN','KS','KY','LA','MA','MD','ME','MI','MN','MO','MS','MT','NC','ND','NE','NH','NJ','NM','NV','NY','OH','OK','OR','PA','RI','SC','SD','TN','TX','UT','VA','VT','WA','WI','WV','WY'], {:prompt => "-Select State"}) %>
+							<br/>
+							<br/>
+						<% end %>
+						<%= listings.hidden_field :listingtype_is, :value => "marine" %>
+						<%= listings.hidden_field :expired_at_gte, :value => Date.today %>
+						<%= f.submit "Basic Search" %>
+						<br />
+						<br />
+						<%= link_to "Advanced Search", searchmarine_url %>
+					</div>
+				<% end %>
+			<% end %>
+			
+		</td>
+	</tr>
+</table>

@@ -1,0 +1,338 @@
+@charset "utf-8";
+/* CSS Document */
+
+
+.emailpage .white_content p.ssubject {
+    color: #649D4A;
+    float: left;
+    font-size: 20px;
+    width: 87px !important;
+	margin:0px !important;
+}
+.emailpage .white_content p.fc {
+    color: #649D4A;
+    float: left;
+    font-size: 20px;
+    width: 36px;
+}
+
+.emailpage .white_content p.sc {
+    border-bottom: 2px solid #649D4A;
+    color: #252525;
+    font-size: 19px;
+    font-weight: bold;
+    padding-bottom: 13px;
+}
+
+.emailpage span {
+/*    float: left;*/
+}
+
+.emailpage .sortbydate div {
+    background-image: url("images/emailpage_selectarrow.png");
+    background-position: right 9px;
+    background-repeat: no-repeat;
+    line-height: normal !important;
+    padding: 0 20px 0 11px;
+    width: 81px;
+}
+.emailpage .sortbydate {
+    background-color: #94D079 !important;
+    font-size: 14px !important;
+    height: 23px !important;
+	 width: 301px !important;
+    line-height: 23px !important;
+	padding-left:0px !important;
+   
+}
+
+.emailpage .folder {
+    background-color: #649D4A;
+    color: #FFFFFF;
+    float: left;
+    font-size: 24px;
+    height: 60px;
+    line-height: 60px;
+    padding-left: 20px;
+ width: 230px;
+}
+.emailpage #description2 p
+{
+	margin-bottom:0px !important;
+	padding-bottom:20px !important;
+}
+
+.emailpage #description2 p.emailsubject, .emailpage #description2 p.nametime, .emailpage #description2 p.samname {
+    padding-bottom: 0 !important;
+}
+
+.emailpage #description2 .TabbedPanelsContent div {
+    padding: 17px 23px;
+}
+
+.emailpage p.samname {
+    float: left;
+    font-size: 17px;
+    font-weight: bold;
+}
+
+.emailpage p.nametime {
+    color: #649D4A;
+    float: right;
+    font-size: 16px;
+    margin: 12px 0 0 !important;
+}
+
+.emailpage p.emailsubject {
+    clear: both;
+    font-size: 16px;
+}
+
+.emailpage #description1 p {
+    margin: 10px 0 0;
+    padding-left: 10px;
+    padding-right: 10px;
+	
+}
+.emailpage #description1 p.lastp {
+border-bottom: 3px solid #FFFFFF;
+padding-bottom:8px;
+}
+
+
+
+.emailpage #description1 li {
+    border-right: 17px solid #94D079;
+    padding: 0 0 0px 0 !important;
+    width: 285px;
+}
+
+.emailpage .mainpannel
+{
+	border:solid 1px #000;
+	border-radius:6px 6px 0 0;
+}
+.emailpage .firsttab li.TabbedPanelsTabSelected
+{
+	 background-color: #94D079;
+	 color: #FFFFFF;
+}
+
+.emailpage .firsttab li.inbox
+{
+	background-image:url(images/emailpage_inboxicon_black.png);
+	background-repeat:no-repeat;
+	
+}
+.emailpage .firsttab li.TabbedPanelsTabSelected.inbox
+{
+	background-image:url(images/emailpage_inboxicon_white.png);
+	background-repeat:no-repeat;
+	
+}
+
+.emailpage .firsttab li.starred
+{
+	background-image:url(images/emailpage_starredicon_black.png);
+	background-repeat:no-repeat;
+}
+.emailpage .firsttab li.TabbedPanelsTabSelected.starred
+{
+	background-image:url(images/emailpage_starredicon_white.png);
+	background-repeat:no-repeat;
+}
+
+.emailpage .firsttab li.flagged
+{
+	background-image:url(images/emailpage_flaggedicon_black.png);
+	background-repeat:no-repeat;
+}
+.emailpage .firsttab li.TabbedPanelsTabSelected.flagged
+{
+	background-image:url(images/emailpage_flaggedicon_white.png);
+	background-repeat:no-repeat;
+}
+
+
+
+.emailpage .firsttab li.sent
+{
+	background-image:url(images/emailpage_senticon_black.png);
+	background-repeat:no-repeat;
+}
+.emailpage .firsttab li.TabbedPanelsTabSelected.sent
+{
+	background-image:url(images/emailpage_senticon_white.png);
+	background-repeat:no-repeat;
+}
+
+
+.emailpage .firsttab li.deleted
+{
+	background-image:url(images/emailpage_deleteicon_black.png);
+	background-repeat:no-repeat;
+}
+
+.emailpage .firsttab li.TabbedPanelsTabSelected.deleted
+{
+	background-image:url(images/emailpage_deleteicon_white.png);
+	background-repeat:no-repeat;
+}
+
+.emailpage .inner2part div {
+    font-size: 13px;
+	color:#252525;
+}
+
+.emailpage .inner2part input {
+    background-color: #649D4A;
+    border: medium none;
+    border-radius: 5px 5px 5px 5px;
+    color: #FFFFFF;
+    display: block;
+    float: right;
+    font-size: 19px;
+    height: 37px;
+    width: 113px;
+}
+
+.emailpage .firsttab li {
+    background-color: #FFFFFF;
+    background-position: 26px center;
+    color: #252525;
+    font-size: 17px;
+    font-weight: normal;
+    height: 45px;
+    line-height: 45px;
+    padding-left: 50px;
+	padding-right: 23px;
+}
+
+
+
+.emailpage .firsttab li.TabbedPanelsTabSelected span {
+    background-color: #649D4A;
+    border-radius: 42px 42px 42px 42px;
+    color: #FFFFFF;
+    height: 36px;
+    line-height: 36px;
+    margin: 4px 8px 4px 0 !important;
+    text-align: center;
+    width: 36px;
+}
+.emailpage .firsttab li span {
+    color: #7c7c7c;
+    font-family:'Open Sans',sans-serif;
+    font-size: 16px;
+	  margin-right: 13px;
+    text-transform: uppercase;
+	float: right;
+}
+.emailpage .buttons {
+    float: right;
+}
+
+.emailpage .buttons li {
+    display: inline;
+    list-style: none outside none;
+}
+
+.emailpage .buttons img {
+    border: 1px solid #929292;
+    border-radius: 6px 6px 6px 6px;
+}
+body.fullwidth .leftcontent {
+    float: none !important;
+    width: 100%;
+}
+
+
+body.fullwidth .uppercontent {
+    border-bottom: none !important;
+    margin-top: 20px !important;
+    padding-bottom: 19px;
+}
+
+body.fullwidth .contact {
+    background-color: #252525;
+    border-radius: 5px 5px 5px 5px;
+    float: left;
+    margin: 16px 28px;
+    padding: 8px 20px 0;
+    position: inherit !important;
+   
+    width: 260px;
+}
+body.fullwidth p {
+    color: #252525;
+    font-size: 13px;
+    margin-bottom: 15px;
+    margin-top: 8px;
+}
+
+body.fullwidth .contactwidget
+{
+	float:left;
+	width:500px;
+ margin-bottom: 20px;
+}
+
+
+
+body.fullwidth .contactwidget label {
+    color: #252525;
+    display: block;
+    float: left;
+	    text-transform: capitalize;
+    font-size: 13px;
+    width: 140px;
+}
+
+
+body.fullwidth .contactwidget .sub {
+    float: right;
+    font-size: 14px;
+    margin-right: 32px;
+}
+body.fullwidth .contactwidget input[type='text'] {
+    background-color: #ECECEC;
+    border: medium none;
+    border-radius: 4px 4px 4px 4px;
+    box-shadow: 1px 1px 1px 1px rgba(170, 170, 170, 0.1) inset;
+    float: left;
+    height: 29px;
+    margin-bottom: 12px;
+    width: 65%;
+}
+body.fullwidth .contactwidget textarea {
+    background-color: #ECECEC;
+    border: medium none;
+    border-radius: 4px 4px 4px 4px;
+    box-shadow: 1px 1px 1px 1px rgba(170, 170, 170, 0.1) inset;
+    float: left;
+    height: 150px;
+    margin-bottom: 12px;
+    width: 65%;
+}
+
+body.fullwidth .contactwidget div {
+    clear: both;
+}
+body.fullwidth .rightwidget {
+    float: left;
+    margin-left: 100px;
+    width: 400px;
+}
+body.fullwidth .rightwidget span
+{
+text-transform:capitalize;
+}
+body.fullwidth .info span
+{
+	color: #649D4A;
+    font-family: 'Open Sans',sans-serif;
+    font-size: 14px !important;
+	float:left;
+	width:140px;
+}
+

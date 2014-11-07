@@ -1,0 +1,24 @@
+<tr>
+  <td width="8%" valign="top"><p>From:</p></td>
+  <td width="92%">
+  	<p><%=h @message.name %></p>
+  	<p><%=h @message.email %></p>
+  </td>
+</tr>
+<tr>
+  <td valign="top"><p>Date:</p></td>
+  <td><p><%=h @message.created_at %></p></td>
+</tr>
+<tr>
+  <td valign="top"><p>Phone:</p></td>
+  <td><p><%=h @message.phone %></p></td>
+</tr>
+<tr>
+  <td valign="top"><p>Subject:</p></td>
+  <td><p><%=h @message.subject %></p></td>
+</tr>
+<tr>
+  <td valign="top"><p>Message:</p></td>
+  <td><p><%=h @message.body %></p></td>
+</tr>
+

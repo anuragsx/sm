@@ -1,0 +1,129 @@
+<div class="contactwidget">
+  <%= form_for([@user, @listing]) do |f| %>
+      <% if @listing.errors.any? %>
+          <div id="errorExplanation">
+            <h2><%= pluralize(@listing.errors.count, "error") %> prohibited this post from being saved:</h2>
+
+            <ul>
+              <% @listing.errors.full_messages.each do |message| %>
+                  <li><%= message %></li>
+              <% end %>
+            </ul>
+          </div>
+      <% end %>
+      <div class="year">
+        <label>Year:</label>
+        <%= f.text_field :year, :size => 15 %>
+      </div>
+      <div class="make">
+      <label>Make:</label>
+      <%= f.collection_select :make, @automakes, :make, :make, {:prompt => "-Select a Make-"} %>
+      </div>
+      <div>
+        <label>Model:</label>
+        <%= render :partial => 'automodels_select' %>
+      </div>
+      <div class="Category">
+        <label>Category:</label>
+        <%= f.collection_select :body, @autocategories, :category, :category, {:prompt => "-Select a Category"} %>
+      </div>
+      <div>
+        <label>Category:</label>
+        <%= f.collection_select :body, @autocategories, :category, :category, {:prompt => "-Select a Category"} %>
+      </div>
+
+      <div>
+        <label>Exterior Color:</label>
+        <%= f.text_field :exterior_color, :size => 15 %>
+      </div>
+
+      <div>
+        <label>Interior Color:</label>
+        <%= f.text_field :interior_color, :size => 15 %>
+      </div>
+      <div>
+        <label>Doors:</label>
+        <%= f.select(:doors, [2,3,4,5], {:prompt => "-Select Doors"}) %>
+      </div>
+
+      <div>
+        <label>Engine:</label>
+        <%= f.select(:engine, ['3 Cylinder','4 Cylinder','5 Cylinder','6 Cylinder','7 Cylinder','8 Cylinder','9 Cylinder','10 Cylinder','11 Cylinder','12 Cylinder','Rotary','Alternative'], {:prompt => "-Select Engine"}) %>
+      </div>
+      <div>
+        <label>Transmission:</label>
+        <%= f.select(:transmission, ['Auto','Manual'], {:prompt => "-Select Transmission"}) %>
+      </div>
+      <div>
+        <label>Drive:</label>
+        <%= f.select(:drive, ['2WD','4WD','AWD'], {:prompt => "-Select Drive"}) %>
+      </div>
+
+      <div>
+        <label>Fuel:</label>
+        <%= f.select(:fuel, ['Gasoline','Diesel','Alternative'], {:prompt => "-Select Fuel"}) %>
+      </div>
+       <div>
+         <label>Mileage:</label>
+         <%= f.text_field :mileage, :size => 15 %>
+       </div>
+       <div>
+         <label>VIN:</label>
+         <% if @listing.vin.blank? %>
+             <%= f.text_field :vin, :size => 20 %>
+         <% else %>
+             <%= f.text_field :vin, :size => 20, :disabled => true %>
+         <% end %>
+       </div>
+      <div>
+        <label>Price:</label>
+        <%= f.text_field :price, :size => 15 %>
+      </div>
+      <div>
+        <label>Description:</label>
+        <%= f.text_area :desc, :columns => 15, :rows => 20 %>
+      </div>
+      <div>
+        <%= f.submit 'Submit Changes', :id => "Submit" %>
+      </div>
+  <%end%>
+
+</div>
+
+
+
+<script>
+    $( document ).ready(function() {
+
+        $('#listing_make').change(function() {
+            alert('hi');
+            alert($(this).val());
+            if ($(this).val() == '')
+            {
+                $('#listing_model').html( $('<option>No model provided for your make</option>'));
+            }
+            else {
+                $.ajax({
+                    type: "GET",
+                    url: "/autolistings/get_automodels?make=" + $(this).val(),
+                    success: function(data){
+                        if (data.content == 'None')  //handle the case where no state related to country selected
+                        {
+                            $('#listing_model').empty();
+                            $('#listing_model').append( $('<option>No model provided for your make</option>'));
+                        }
+                        else
+                        {
+                            $('#listing_model').empty();
+                            $('#listing_model').append( $('<option>Select your Model</option>'));
+                            jQuery.each(data,function(i, v) {
+                                $('#listing_model').append( $('<option value="'+ data[i][1] +'">'+data[i][0] +'</option>'));
+                            });
+                        }
+                    }
+                });
+            }
+        });
+    });
+</script>
+

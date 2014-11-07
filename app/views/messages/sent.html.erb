@@ -1,0 +1,148 @@
+<div id="content">
+  <div class="page"> <img class="p_img" src="/assets/fullwidth.jpg" width="1050" />
+    <div class="leftcontent">
+      <div class="uppercontent"> <span>Mailbox</span>
+        <div class="buttons">
+          <style>
+              .black_overlay{
+                  display: none;
+                  position: absolute;
+                  top: 0%;
+                  left: 0%;
+                  width: 100%;
+                  height: 100%;
+                  background-color: black;
+                  z-index:1001;
+                  -moz-opacity: 0.8;
+                  opacity:.80;
+                  filter: alpha(opacity=80);
+                  position:fixed;
+              }
+              .white_content {
+                  background-color: #FFFFFF;
+                  display: none;
+                  height: auto;
+                  left: 25%;
+                  position: fixed;
+                  top: 25%;
+                  width: 50%;
+                  z-index: 1002;
+                  /*padding: 16px;*/
+                  /*border: 16px solid #fff;*/
+
+              }
+              .white_content a {
+                  background-image: url("close.png");
+                  background-repeat: no-repeat;
+                  height: 38px;
+                  position: absolute;
+                  right: -19px;
+                  top: -24px;
+                  width: 39px;
+                  z-index: 999999;
+              }
+
+
+              .white_content .innerpart .inner2part {
+                  padding:30px;
+              }
+          </style>
+          <div id="light" class="white_content">
+            <div class="innerpart">
+              <div class="inner2part">
+                <p class="fc">To:</p>
+                <p class="sc">Sample Member</p>
+                <p class="ssubject">Subject:</p>
+                <p class="sc">RE: 2006 Corvette</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </p>
+                <hr style=" border-top:4px dotted #AAAAAA" />
+                <div>From: Sample Member</div>
+                <div>To: Sample Recipient</div>
+                <div>Date: Saturday, July 13, 2013 at 4:15pm</div>
+                <div>Subject: 2006 Corvette</div>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt. mollit anim id est laborum. </p>
+                <form action="#">
+                  <input type="submit" value="Send" />
+                </form>
+                <div class="clear"></div>
+              </div>
+            </div>
+            <a style=" color:#000" href = "javascript:void(0)" onclick = "document.getElementById('light').style.display='none';document.getElementById('fade').style.display='none'"></a></div>
+          <div id="fade" class="black_overlay"></div>
+        </div>
+        <div>
+          <!-- panel -->
+
+          <!-- panel -->
+        </div>
+        <div class="clear"></div>
+      </div>
+      <div class="mainpannel">
+        <table width="883" border="0" cellpadding="20" cellspacing="0">
+          <% if flash[:notice] %>
+              <div class="notice"><%= flash[:notice] %></div>
+          <% end %>
+          <tr>
+            <td align="left" valign="top">
+              <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                  <td>
+                    <span class="formText">
+							<%= link_to "Inbox", inbox_url, {:style=>'color:#649D4A'} %>
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                      <%= link_to "Sent", sent_url, {:style=>'color:#649D4A'} %>
+                      <br />
+							<br />
+						</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                      <tr class="messageBar">
+                        <th height="26"><p>Sent</p></td>
+                        <th height="26"><p>Recipient</p></td>
+                        <th height="26"><p>Listing</p></td>
+                        <th height="26"><p>Read</p></td>
+                        <th height="26"><p>Subject</p></td>
+                      </tr>
+
+                      <% @messages.each do |message| %>
+                          <tr>
+                            <td><p><%=h message.created_at %></p></td>
+                            <td><p><%=h message.recipient.username %></p></td>
+                            <td>
+                              <% if message.listing %>
+                                  <% if message.listing.model.blank? %>
+                                      <%= link_to message.listing.year.to_s + " " + message.listing.make, message.listing, {:style=>'color:#649D4A'}%>
+                                  <% else %>
+                                      <%= link_to message.listing.year.to_s + " " + message.listing.make + " " + message.listing.model, message.listing , {:style=>'color:#649D4A'}%>
+                                  <% end %>
+                              <% end %>
+                            </td>
+                            <td><p><%=h message.read_at %></p></td>
+                            <td><b><%= link_to message.subject, message, {:style=>'color:#649D4A'} %></b></td>
+                            <td><p><%= link_to "Delete", message_path(message, :inbox => "1"), {:method => :delete,:style=>'color:#649D4A'} %></p></td>
+                          </tr>
+                      <% end %>
+
+                    </table>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+        </table>
+
+        <div class="clear"></div>
+      </div>
+      <script type="text/javascript">
+          <!--
+          var TabbedPanels1 = new Spry.Widget.TabbedPanels("TabbedPanels1");
+          var TabbedPanels2 = new Spry.Widget.TabbedPanels("TabbedPanels2");
+          //-->
+      </script>
+    </div>
+    <div class="clear"></div>
+  </div>
+</div>

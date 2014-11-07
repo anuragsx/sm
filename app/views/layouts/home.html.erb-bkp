@@ -1,0 +1,310 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="google-site-verification" content="-1v_oJBySkmqdxuu4vCTICpfZBAkw6NJL6RRYsRM3_Y" />
+	<title>Swap My Whip - Vehicle Trading &amp; Purchasing</title>
+	<%= javascript_include_tag 'prototype', 'swfobject_modified.js' %>
+	<%= stylesheet_link_tag 'main_template' %>
+</head>
+
+<body>
+	<center>
+		<table width="1024" border="0" cellpadding="0" cellspacing="0">
+			<tr>
+				<td valign="top">
+					<table width="883" border="0" cellpadding="0" cellspacing="0">
+						<tr>
+							<td id="topNav">
+								<table width="100%" border="0" cellpadding="0" cellspacing="0" id="topLinks">
+									<tr>
+										<td width="20%" align="center">
+											<%= link_to("Home", root_url) %>
+										</td>
+										<td width="10%">&nbsp;</td>
+										<td width="40%" align="center">
+										<td width="25%" align="right">
+											<% if current_user %>
+												<%= link_to "Inbox", inbox_path %> <%= link_to "("+ unread_messages.to_s + ")", inbox_path %> | 
+												<%= link_to "Sent", sent_path %> | 
+												<%= link_to "Edit Profile", edit_user_path(:current) %> | 
+												<%= link_to "Logout", logout_path %>
+											<% else %>
+												<%= link_to "Register", new_user_path %> | 
+												<%= link_to "Login", login_path %>
+											<% end %>
+										</td>
+										<td width="5%">
+										</td>
+									</tr>
+								</table>
+							</td>
+						</tr>
+					</table>
+	
+					<div id="container">
+						<table width="883" border="0" cellspacing="0" cellpadding="0">
+							<tr>
+								<td id="header" colspan="4">
+									<%= image_tag "home_banner.jpg", :size => "883x146", :style => "margin: 2px 0px;", :border => "0", :id => "home_banner", :alt => "", :usemap => "#m_home_banner" %>
+									<map name="m_home_banner" id="m_home_banner">
+										<area shape="rect" coords="33,0,308,146" href="/home/index" title="Return to the Swap My Whip home page." alt="Return to the Swap My Whip home page." />
+									</map>
+								</td>
+							</tr>
+							<tr>
+								<td id="mainNav" colspan="4">
+									<table width="883" height="30" border="0" cellspacing="0" cellpadding="0">
+										<tr>
+											<td width="60">&nbsp;</td>
+											<td width="790">
+												<% if current_user %>
+													<%= link_to("What I Have", listings_url) %>
+												<% else %>
+													<%= link_to("What I Have", new_user_path) %>
+												<% end %>
+												<%= link_to("Wishlist", wishlists_url) %>
+												<%= link_to("Find A Whip", whatiwant_url) %>
+												<%= link_to("Favorites", favorites_path) %>
+												<%= link_to("About Us", about_url) %>
+												<%= link_to("FAQ's", faq_url) %>
+												<%= link_to("Contact Us", contact_url) %>
+											</td>
+											<td width="33">&nbsp;</td>
+										</tr>
+									</table>
+								</td>
+							</tr>
+							<tr>
+								<td colspan="4">
+									<div id="pageContent">
+										<%= yield %>
+									</div>
+								</td>
+							</tr>
+							<tr id="category-row">
+								<td class="category">
+									<table width="100%" border="0" cellspacing="0" cellpadding="0">
+										<tr>
+											<td align="center">
+										      <%#= link_to "Automobiles", searchautos_url, :style => "font-family: 'Myriad Pro'; font-size: 14px;" %>
+                                              <%= link_to "Automobiles", autolistingsresults_new_autolistings_path(:listing_type => 'auto'), :style => "font-family: 'Myriad Pro'; font-size: 14px;" %>
+                                             <%# unless @search.blank?%>
+												<%#= form_for @search, :url => {:controller => :autolistings, :action => "autolistingsresults"} do |f| %>
+													<%#= f.hidden_field :order_by, :value => "created_at" %>
+													<%#= f.hidden_field :order_as, :value => "DESC" %>
+													<%# f.fields_for @search.conditions do |listings| %>
+														<%#= listings.hidden_field :listingtype_is, :value => "auto" %>
+														<%#= f.submit "Automobiles", :class => "categoryLinkFormSubmit" %>
+													<%# end %>
+												<%# end %>
+                                               <%#end%>
+											</td>
+										</tr>
+										<tr>
+											<td height="241" align="center" valign="top">
+												<p>
+
+                                                        <% if @featuredauto %>
+														<% @featuredauto.photos.all(:limit => 1).each do |photo| %>
+															<%= link_to image_tag(smallphoto_path(photo, :jpg), :alt => photo.name, :border => 0), @featuredauto %>
+														<% end %>
+													<% end %>
+												</p>
+												<p>
+													<span class="categoryText">
+														<% if @featuredauto %>
+														<strong>
+															<%= @featuredauto.year %> <%= @featuredauto.make %> <%= @featuredauto.model %>
+														</strong>
+														<br/>
+														<%= @featuredauto.desc[0,120] %>...
+														<% end %>
+													</span>
+												</p>
+											</td>
+										</tr>
+									</table>
+								</td>
+								<td class="category">
+									<table width="100%" border="0" cellspacing="0" cellpadding="0">
+										<tr>
+											<td align="center">
+											  <%#= link_to "Motorcycles", searchmotos_url, :style => "font-family: 'Myriad Pro'; font-size: 14px;" %>
+                                              <%= link_to "Motorcycles", motolistingsresults_motolistings_path(:listing_type => 'moto'), :style => "font-family: 'Myriad Pro'; font-size: 14px;" %>
+                                                <%# unless @search.blank?%>
+												<%#= form_for @search, :url => {:controller => :motolistings, :action => "motolistingsresults"} do |f| %>
+													<%#= f.hidden_field :order_by, :value => "created_at" %>
+													<%#= f.hidden_field :order_as, :value => "DESC" %>
+													<%# f.fields_for @search.conditions do |listings| %>
+														<%#= listings.hidden_field :listingtype_is, :value => "moto" %>
+														<%#= f.submit "Motorcycles", :class => "categoryLinkFormSubmit" %>
+													<%# end %>
+												<%# end %>
+                                               <%#end%>
+											</td>
+										</tr>
+										<tr>
+											<td height="241" align="center" valign="top">
+												<p>
+													<% if @featuredmoto %>
+														<% @featuredmoto.photos.all(:limit => 1).each do |photo| %>
+															<%= link_to image_tag(smallphoto_path(photo, :jpg), :alt => photo.name, :border => 0), @featuredmoto %>
+														<% end %>
+													<% end %>
+												</p>
+												<p>
+													<span class="categoryText">
+														<% if @featuredmoto %>
+														<strong>
+															<%= @featuredmoto.year %> <%= @featuredmoto.category %> <%= @featuredmoto.make %>
+														</strong>
+														<br/>
+														<%= @featuredmoto.desc[0,120] %>...
+														<% end %>
+													</span>
+												</p>
+											</td>
+										</tr>
+									</table>
+								</td>
+								<td class="category">
+									<table width="100%" border="0" cellspacing="0" cellpadding="0">
+										<tr>
+											<td align="center">
+											  <%#= link_to "Marine", searchmarine_url, :style => "font-family: 'Myriad Pro'; font-size: 14px;" %>
+                                              <%= link_to "Marine", marinelistingsresults_marinelistings_path(:listing_type => 'marine'), :style => "font-family: 'Myriad Pro'; font-size: 14px;" %>
+                                                <%# unless @search.blank?%>
+												<%#= form_for @search, :url => {:controller => :marinelistings, :action => "marinelistingsresults"} do |f| %>
+													<%#= f.hidden_field :order_by, :value => "created_at" %>
+													<%#= f.hidden_field :order_as, :value => "DESC" %>
+													<%# f.fields_for @search.conditions do |listings| %>
+														<%#= listings.hidden_field :listingtype_is, :value => "marine" %>
+														<%#= f.submit "Marine", :class => "categoryLinkFormSubmit" %>
+													<%# end %>
+												<%# end %>
+                                                 <%#end%>
+											</td>
+										</tr>
+										<tr>
+											<td height="241" align="center" valign="top">
+												<p>
+													<% if @featuredmarine %>
+														<% @featuredmarine.photos.all(:limit => 1).each do |photo| %>
+															<%= link_to image_tag(smallphoto_path(photo, :jpg), :alt => photo.name, :border => 0), @featuredmarine %>
+														<% end %>
+													<% end %>
+												</p>
+												<p>
+													<span class="categoryText">
+														<% if @featuredmarine %>
+														<strong>
+															<%= @featuredmarine.year %> <%= @featuredmarine.make %> <%= @featuredmarine.category %>
+														</strong>
+														<br/>
+														<%= @featuredmarine.desc[0,120] %>...
+														<% end %>
+													</span>
+												</p>
+											</td>
+										</tr>
+									</table>
+								</td>
+								<td class="category" style="border-right-width:5px;">
+									<table width="100%" border="0" cellspacing="0" cellpadding="0">
+										<tr>
+											<td align="center">
+											  <%#= link_to "Powersports", searchpower_url, :style => "font-family: 'Myriad Pro'; font-size: 14px;" %>
+                                              <%= link_to "Powersports", marinelistingsresults_marinelistings_path(:listing_type => 'power'), :style => "font-family: 'Myriad Pro'; font-size: 14px;" %>
+                                                <%# unless @search.blank?%>
+												<%#= form_for @search, :url => {:controller => :powerlistings, :action => "powerlistingsresults"} do |f| %>
+													<%#= f.hidden_field :order_by, :value => "created_at" %>
+													<%#= f.hidden_field :order_as, :value => "DESC" %>
+													<%# f.fields_for @search.conditions do |listings| %>
+														<%#= listings.hidden_field :listingtype_is, :value => "power" %>
+														<%#= f.submit "Powersports", :class => "categoryLinkFormSubmit" %>
+													<%# end %>
+												<%# end %>
+                                               <%#end%>
+											</td>
+										</tr>
+										<tr>
+											<td height="241" align="center" valign="top">
+												<p>
+													<% if @featuredpower %>
+														<% @featuredpower.photos.all(:limit => 1).each do |photo| %>
+															<%= link_to image_tag(smallphoto_path(photo, :jpg), :alt => photo.name, :border => 0), @featuredpower %>
+														<% end %>
+													<% end %>
+												</p>
+												<p>
+													<span class="categoryText">
+														<% if @featuredpower %>
+														<strong>
+															<%= @featuredpower.year %> <%= @featuredpower.make %> <%= @featuredpower.category %>
+														</strong>
+														<br/>
+														<%= @featuredpower.desc[0,120] %>...
+														<% end %>
+													</span>
+												</p>
+											</td>
+										</tr>
+									</table>
+								</td>
+							</tr>
+							<tr>
+								<td id="footer" colspan="4">
+									<table width="100%" border="0" cellpadding="0" cellspacing="0">
+										<tr>
+											<td width="50%" height="30" align="left">
+												<%= link_to("Terms of Service", visitoragreement_url) %>
+												<span class="dividerLine"> | </span>
+												<%= link_to("Privacy Policy", privacypolicy_url) %>
+											</td>
+											<td width="50%" height="30" align="right">
+												<%= link_to("Contact Us", contact_url) %>
+											</td>
+										</tr>
+									</table>
+								</td>
+							</tr>
+							<tr>
+								<td colspan="4" id="copyright">
+									<table width="100%" border="0" cellspacing="0" cellpadding="0">
+										<tr>
+											<td width="50%">&trade;2009-2012 Krause Capital, LLC. All rights reserved.</td>
+										</tr>
+									</table>
+								</td>
+							</tr>
+						</table>
+					</div>
+				</td>
+				<td width="141" valign="top" align="center">
+<!--					<a href="http://www.jdoqocy.com/click-3732474-10392855" target="_blank">
+<img src="http://www.tqlkg.com/image-3732474-10392855" width="120" height="600" alt="Get your FREE extended auto warranty quote! " border="0"/></a>
+-->
+<!--					<%= link_to image_tag("AIM-120x600.jpg", :alt => "AIM Mobile Inspections", :border => 0), "http://www.aimmobileinspections.com/SwapMyWhip-car-inspections.php", :popup => true %>
+-->
+					<a href='http://woundedwarriorproject.org' title='' ><img src='http://d2ysc6lw6qcd4g.cloudfront.net/120x600-proudly-support-v2.jpg' alt='Wounded Warrior Project' title='' width="120" height="600" border="0"/></a>
+					<br />
+					<br />
+					<a href="http://www.kqzyfj.com/click-3732474-10733598">
+<img src="http://www.tqlkg.com/image-3732474-10733598" width="120" height="240" alt="Save Up To 20% at Advance Auto Parts w/Code DEC1" border="0"/></a>
+				</td>
+			</tr>
+		</table>
+	</center>
+	<script type="text/javascript">
+		var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+		document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+	</script>
+	<script type="text/javascript">
+		try{
+			var pageTracker = _gat._getTracker("UA-12415208-1");
+			pageTracker._trackPageview();
+		} catch(err) {}
+	</script>
+</body>
+</html>

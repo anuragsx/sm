@@ -1,0 +1,46 @@
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+	<tr>
+		<td align="center">
+			<%= image_tag("motorcycles.gif", :alt => "motorcycles", :size => "104x24", :border => "0") %>
+		</td>
+	</tr>
+	<tr>
+		<td height="241" align="center" valign="top">
+			<p>
+				<%= image_tag("motorcycle_pic2.jpg", :alt => "Motorcycles For Trade", :size => "193x142", :border => "0") %>
+			</p>
+			<%= form_tag(motolistingsresults_motolistings_path(:listing_type => 'moto')) do |f| %>
+				<%# f.fields_for @search.conditions do |listings| %>
+					<div class="categoryText">
+						<%= label_tag "Category:" %><br/>
+                        <%= select_tag("category", options_from_collection_for_select(@motocategories,"id", "category",:selected => params[:category]),
+                                     :prompt => "-Select a Category")%><br/>
+						<br/>
+						<%= label_tag "Make:" %><br/>
+                        <%= select_tag :make, options_for_select(@motomakes.map {|s| [s.make, s.make]},:selected => params[:make]),
+                                     {prompt: "Select a Make"} %>
+						<br/>
+						<%= label_tag "Max Price:" %><br/>
+                        <%= text_field_tag :price_lt, '', :size => 6, :value => params[:price_lt] %>
+						<br/>
+						<%# listings.fields_for @search.conditions.owner do |owner| %>
+							<%= label_tag "State:" %>
+							<br/>
+                        <%= select_tag("state_is",options_from_collection_for_select(Listing::STATES, 'to_s' , 'to_s',:selected => params[:state_is]) , {:prompt => "-Select State"}) %>
+							<br/>
+							<br/>
+						<%# end %>
+                        <%= hidden_field_tag :listing_type, "moto" %>
+						<%= hidden_field_tag :expired_at_gte, Date.today %>
+						<%= submit_tag "Basic Search" %>
+						<br />
+						<br />
+						<%= link_to "Advanced Search", searchmotos_url %>
+					</div>
+				<%# end %>
+			<% end %>
+			<br />
+
+		</td>
+	</tr>
+</table>

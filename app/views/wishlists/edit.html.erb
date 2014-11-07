@@ -1,0 +1,32 @@
+<h1>Editing wishlist</h1>
+
+<%= form_for(@wishlist) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :listingtype %><br />
+    <%= f.text_field :listingtype %>
+  </p>
+  <p>
+    <%= f.label :make %><br />
+    <%= f.text_field :make %>
+  </p>
+  <p>
+    <%= f.label :model %><br />
+    <%= f.text_field :model %>
+  </p>
+  <p>
+    <%= f.label :category %><br />
+    <%= f.text_field :category %>
+  </p>
+  <p>
+    <%= f.label :subcategory %><br />
+    <%= f.text_field :subcategory %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @wishlist %> |
+<%= link_to 'Back', wishlists_path %>

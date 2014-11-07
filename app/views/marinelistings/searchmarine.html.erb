@@ -1,0 +1,50 @@
+<table width="883" border="0" cellpadding="20" cellspacing="0">
+	<tr>
+		<td width="100%" align="left" valign="top">
+
+			<%= form_tag(marinelistingsresults_marinelistings_path(:listing_type => 'marine')) do |f| %>
+
+					<%# f.fields_for @search.conditions do |listings| %>
+						<%= label_tag "Year Between:" %><br/>
+						<%= text_field_tag :year_gte, '', :size => 7 %> and <%= text_field_tag :year_lte, '', :size => 7 %><br/>
+						<%= label_tag "Category:" %><br/>
+                        <%= select_tag(:category, options_for_select(@marinecategories.map {|s| [s.category, s.category]},:selected => params[:category]),
+                             {:prompt => "-Select a Category"})%><br />
+						<%= label_tag "Subcategory:" %><br/>
+                        <div id="marinesubcategoriesdiv">
+                            <%= select_tag(:sub_category, options_for_select(@marinesubcategories.map {|s| [s.subcategory, s.subcategory]},:selected => params[:sub_category]),
+                               :prompt => "-Select a Category First")  %><br />
+
+                        </div>
+						<%= label_tag "Make:" %><br/>
+                        <%= select_tag :make, options_for_select(@marinemakes.map {|s| [s.make, s.make]},:selected => params[:make]),
+                             {prompt: "Select a Make"} %><br/>
+						<%= label_tag "Price Between:" %><br/>
+						<%= text_field_tag :price_gte, '', :size => 7 %> and <%= text_field_tag :price_lte, '', :size => 7 %><br/>
+						
+						<%# listings.fields_for @search.conditions.owner do |owner| %>
+							<%= label_tag "State:" %><br/>
+                            <%= select_tag(:state,options_for_select(Listing::STATES,:selected => params[:state]) , {:prompt => "-Select State"}) %><br />
+						<%# end %>
+						
+						<%= label_tag "Length:" %><br/>
+						<%= text_field_tag :length_is, '', :size => 15 %><br/>
+						<%= label_tag "Fuel:" %><br/>
+						<%= select_tag(:fuel_is, options_for_select(['Gasoline','Diesel','Electric','Other']), {:prompt => "-Select Fuel"}) %><br/>
+						<%= label_tag "Engine:" %><br/>
+						<%= select_tag(:engine_is, options_for_select(['Direct Drive','Jet Drive','None','Other','Single','Single I/O','Twin','Twin I/O','Twin Outboard','Triple I/O','Triple Outboard','V-Drive']), {:prompt => "-Select Engine"}) %><br/>
+						<%= label_tag "Hull:" %><br/>
+						<%= select_tag(:hull_is, options_for_select(['Aluminum','Ferro-Cement','Fiberglass/Composite','Fiberglass-Reinforced','Inflatable','Plastic','Rigid Inflatable','Steel','Wood','Other']), {:prompt => "-Select Hull"}) %><br/>
+						<%= label_tag "Description:" %><br/>
+						<%= text_field_tag :desc_contains %><br/>
+						<%= hidden_field_tag :listing_type, "marine" %>
+						<br/>
+						<%= submit_tag "Search Marine", :id => "Submit" %>
+						
+					<%#` end %>
+
+			<% end %>
+
+		</td>
+	</tr>
+</table>

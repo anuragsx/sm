@@ -1,0 +1,33 @@
+<% if flash[:notice] %>
+	<div class="notice"><%= flash[:notice] %></div>
+<% end %>
+<table width="100%" border="0" cellpadding="20" cellspacing="0">
+	<tr>
+		<td align="left" valign="top">
+			<% if @user.admin %>
+				<h3>New Marine Category</h3>
+				<p>Make sure you spell/capitalize the CATEGORY exactly like the existing Category in the current drop-down or you will see duplicates in the Category drop-down!</p>
+				
+				<%= form_for(@marinecategory) do |f| %>
+					<%= f.error_messages %>
+
+					<p>
+						<%= f.label :category %><br />
+						<%= f.text_field :category %>
+					</p>
+					<p>
+						<%= f.label :subcategory %><br />
+						<%= f.text_field :subcategory %>
+					</p>
+					<p>
+						<%= f.submit 'Create' %>
+					</p>
+				<% end %>
+
+				<%= link_to 'Back', marinecategories_path %>
+			<% else %>
+				<p>This page is for Administrators only!</p>
+			<% end %>
+		</td>
+	</tr>
+</table>

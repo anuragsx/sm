@@ -1,0 +1,193 @@
+<div id="content">
+  <div class="page">
+    <div class="rightcontent">
+      <div class="ad1"> <img src="/assets/ad1.jpg" width="300" height="125" /> </div>
+      <div class="ad2"> <img src="/assets/ad2.jpg" width="300" height="125" /> </div>
+      <div class="ad3"> <img src="/assets/ad3.jpg" width="300" height="250" /> </div>
+    </div>
+    <div class="leftcontent"> <span>My Whips</span>
+      <div class="lsitarea">
+        <div class="pagination">
+          <div class="paging">
+            <span class="font">Page 01 of 06</span> <img width="171" height="24" src="/assets/pagination.png">
+          </div>
+
+
+          <div class="short_by">
+            <span class="sort font">Sort by:</span>
+            <form class="float_left" action="#">
+              <select>
+                <option>Date Added</option>
+                <option>No Availability</option>
+              </select>
+            </form>
+          </div>
+
+          <!--
+          <div class="list_map">
+            <span class="sort">List</span><img src="/assets/list.png" class="list" width="42" height="17" /> <span class="sort">Map</span>
+          </div>
+           -->
+          <div class="clear"></div>
+
+          <% if flash[:notice] %>
+              <div class="notice"><%= flash[:notice] %></div>
+          <% end %>
+        </div>
+
+        <% unless  @listings.blank?%>
+            <% @listings.each do |listing| %>
+                <div class="post">
+                  <div class="leftpost"> <img class="pos_img" src="/assets/innersmallsliderimage2.png" width="114" height="91" />
+                    <div class="middilepost">
+                      <div class="inline">
+                        <h2>
+                          <% if listing.listingtype == "auto" %>
+                              <%= listing.year %> <%= listing.make %> <%= listing.model %>
+                          <% else %>
+                             <%= listing.year %> <%= listing.make %> <%= listing.category %>
+                          <% end %>
+                        </h2>
+                        <span class="mileage">Milage : <%=h listing.mileage %></span> </div>
+                      <% if listing.owner.city && listing.owner.state %>
+                          <span><%=h listing.owner.city %>, <%=h listing.owner.state %></span> <img src="/assets/bubble.png" width="13" height="15" />
+                      <%end%>
+                      <p class="description"><%=h listing.desc %></p>
+                      <table>
+                        <tr>
+                          <td><span><%= link_to "Edit", edit_user_listing_path(current_user,listing)%>&nbsp;&nbsp;|</span></td>
+                          <td><span><%= link_to "Manage Photos", listing_photos_path(listing)%>&nbsp;&nbsp;|</span></td>
+                          <td><span><%= link_to "Delete", user_listing_path(current_user,listing), :method=>:delete%></span></td>
+                        </tr>
+                      </table>
+
+
+
+                    </div>
+                  </div>
+                  <div class="swap"> <span><sup>$</sup><%=h listing.price %></span> </div>
+                  <div class="clear"></div>
+                </div>
+            <%end%>
+        <%end%>
+
+        <div class="paginationextra"> <span>Page 01 of 06</span> <img src="images/pagination.png" width="171" height="24" /> </div>
+      </div>
+      <div class="clear"></div>
+    </div>
+  </div>
+  <div class="clear"></div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--
+
+
+
+
+
+
+<table width="883" border="0" cellpadding="20" cellspacing="0">
+	<tr>
+		<td align="left" valign="top">
+			<%# if flash[:notice] %>
+      	<div class="notice"><%#= flash[:notice] %></div>
+	    <%# end %>
+			<table width="100%" border="0" cellpadding="0" cellspacing="0" id="myListings">
+				<tr>
+					<td width="25%">
+						<h3>My Listings
+							<br />
+							<br />
+						</h3>
+					</td>
+					<td width="75%" align="right" valign="middle">
+						<%= link_to image_tag("create_new_listing_button.jpg", :alt => "Create New Listing", :size => "108x32", :border => 0), newmain_url %>
+					</td>
+				</tr>
+				
+				<% if @listings_count > 0 %>
+					<% @listings.each do |listing| %>
+				
+						<tr>
+							<td width="15%" align="left">
+								<p>
+									<% if listing.listingtype == "auto" %>
+										<strong><%= listing.year %> <%= listing.make %> <%= listing.model %></strong>
+									<% else %>
+										<strong><%= listing.year %> <%= listing.make %> <%= listing.category %></strong>
+									<% end %>
+								</p>
+								<p>
+									<strong>
+										<% if listing.photos.all.count == 0 %>
+											<%#= image_tag "no-photo-small.jpg", :alt => "No Photo Available", :border => 0 %>
+										<% else %>
+											<% listing.photos.all(:limit => 1).each do |photo| %>
+												<%#= image_tag smallphoto_path(photo, :jpg), :alt => photo.name %>
+											<% end %>
+										<% end %>
+									</strong>
+									<br />
+									<br />
+									<span class="formText"><%= link_to "Edit", edit_user_listing_path(@user, listing) %> | <%= link_to "Manage Photos", listing_photos_path(listing) %> | <%= link_to 'Delete', user_listing_path(@user, listing), :confirm => 'Are you sure?', :method => :delete %></span>
+								</p>
+							</td>
+							<td width="85%" align="left" valign="middle">
+							
+								<% if listing.listingtype == "auto" %>
+									<%#= render :partial => "mylistings_auto", :locals => { :listing => listing } %>
+								<% elsif listing.listingtype == "moto" %>
+									<%#= render :partial => "mylistings_moto", :locals => { :listing => listing } %>
+								<% elsif listing.listingtype == "marine" %>
+									<%#= render :partial => "mylistings_marine", :locals => { :listing => listing } %>
+								<% elsif listing.listingtype == "power" %>
+									<%#= render :partial => "mylistings_power", :locals => { :listing => listing } %>
+								<% end %>
+									       	
+							</td>
+						</tr>
+						<tr>
+							<td colspan="2">
+								<p>
+									<br />
+									<%#= image_tag "listing_divider1.png", :size => "596x11" %>
+								</p>
+							</td>
+						</tr>
+	
+					<% end %>
+					
+				<% else %>
+					
+					<tr>
+						<td width="100%">This page allows you to add your vehicle(s) to the site.  Simply click on the "Create A New Listing" button to get started!</td>
+					</tr>
+					
+				<% end %>
+				
+			</table>	
+		</td>
+	</tr>
+</table>
+-->

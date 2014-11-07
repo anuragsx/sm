@@ -1,0 +1,11 @@
+class AddAutomakes < ActiveRecord::Migration
+  def self.up
+  	['Acura','Aston Martin','Audi','Bentley','BMW','Buick','Cadillac','Chevrolet','Chrysler','Daewoo','Dodge','Eagle','Ferrari','Ford','Geo','GMC','Honda','Hummer','Hyundai','Infiniti','Isuzu','Jaguar','Jeep','Kia','Lamborghini','Land Rover','Lexus','Lincoln','Lotus','Maserati','Maybach','Mazda','Mercedes-Benz','Mercury','Mini','Mitsubishi','Nissan','Oldsmobile','Panoz','Plymouth','Ponitac','Porsche','Rolls-Royce','Saab','Saturn','Scion','Smart','Subaru','Suzuki','Tesla','Toyota','Volkswagen','Volvo'].each do |s|
+  		Automakes.new(:make => s).save
+ 		end
+  end
+
+  def self.down
+  	Automakes.destroy_all
+  end
+end

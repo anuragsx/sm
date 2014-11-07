@@ -1,0 +1,133 @@
+<table width="100%" border="0" cellpadding="20" cellspacing="0">
+	<tr>
+		<td align="left" valign="top">
+			<h3>Edit User Profile<br /></h3>
+			
+			<% form_for(@user) do |f| %>
+				<table width="830" border="0" cellspacing="1" cellpadding="1">
+					<tr>
+						<%= f.error_messages %>
+
+						<td width="16%" height="20" class="formText">
+							<%= f.label :email %>
+						</td>
+            <td>
+            	<%= f.text_field :email %>
+            </td>
+            <td width="25%" rowspan="14" align="center" valign="top">
+            	<%= image_tag "formPics1.png", :alt => "Register To Swap Your Whip!", :size => "151x250" %>
+            </td>
+          </tr>
+          <tr>
+						<td width="16%" height="20" class="formText">
+							<%= f.label :first_name %>
+						</td>
+						<td>
+							<%= f.text_field :firstname %>
+						</td>
+					</tr>
+					<tr>
+						<td width="16%" height="20" class="formText">
+							<%= f.label :last_name %>
+						</td>
+						<td>
+							<%= f.text_field :lastname %>
+						</td>
+					</tr>
+					<tr>
+						<td width="16%" height="20" class="formText">
+							<%= f.label :phone %>
+						</td>
+						<td>
+							<%= f.text_field :phone %>
+						</td>
+					</tr>
+					<tr>
+						<td width="16%" height="20" class="formText">
+							<%= f.label :address %>
+						</td>
+						<td>
+							<%= f.text_field :address %>
+						</td>
+					</tr>
+					<tr>
+						<td width="16%" height="20" class="formText">
+							<%= f.label :address2 %>
+						</td>
+						<td>
+							<%= f.text_field :address2 %>
+						</td>
+					</tr>
+					<tr>
+						<td width="16%" height="20" class="formText">
+							<%= f.label :city %>
+						</td>
+						<td>
+							<%= f.text_field :city %>
+						</td>
+					</tr>
+					<tr>
+						<td width="16%" height="20" class="formText">
+							<%= f.label "State/Postal Code" %>
+						</td>
+						<td>
+							<%= f.select(:state, ['AK','AL','Alberta','AR','AZ','British Columbia','CA','CO','CT','DE','FL','GA','HI','IA','ID','IL','IN','KS','KY','LA','MA','Manitoba','MD','ME','MI','MN','MO','MS','MT','NC','ND','NE','New Brunswick','Newfoundland and Labrador','NH','NJ','NM','Nova Scotia','NV','NY','OH','OK','Ontario','OR','PA','Prince Edward Island','Quebec','RI','Saskatchewan','SC','SD','TN','TX','UT','VA','VT','WA','WI','WV','WY'], {:prompt => "-Select State/Province"}) %>
+						</td>
+					</tr>
+					<tr>
+						<td width="16%" height="20" class="formText">
+							<%= f.label "Zip/Postal Code" %>
+						</td>
+						<td>
+							<%= f.text_field :zip %>
+						</td>
+					</tr>
+					<tr>
+						<td width="16%" height="20" class="formText">
+							<%= f.label :username %>
+						</td>
+						<td>
+							<%= f.text_field :username %>
+						</td>
+					</tr>
+					<tr>
+						<td width="16%" height="20" class="formText">
+							<%= f.label :password %>
+						</td>
+						<td>
+							<%= f.password_field :password %>
+						</td>
+					</tr>
+					<tr>
+						<td width="16%" height="20" class="formText">
+							<%= f.label :password_confirmation %>
+						</td>
+						<td>
+							<%= f.password_field :password_confirmation %>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="2">&nbsp;</td>
+					</tr>
+					<tr>
+						<td>
+							<%= image_submit_tag("update_button.jpg", :alt => "Update", :size => "79x28", :border => 0) %>
+						</td>
+						<td>&nbsp;</td>
+          </tr>
+          <tr>
+            <td colspan="2">&nbsp;</td>
+            <td align="center" valign="top">&nbsp;</td>
+          </tr>
+          <tr>
+            <td colspan="3" class="infoText">
+            	<%= link_to 'Create Listing', new_user_listing_path(@user) %>
+            </td>
+          </tr>
+				</table>
+
+			<% end %>
+
+		</td>
+	</tr>
+</table>

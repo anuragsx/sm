@@ -1,0 +1,85 @@
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+	<tr>
+		<td align="center">
+			<%= image_tag("powersports.gif", :alt => "power sports", :size => "113x24", :border => "0") %>
+		</td>
+	</tr>
+	<tr>
+		<td height="241" align="center" valign="top">
+			<p>
+				<%= image_tag("powersports_pic2.jpg", :alt => "Power Sports For Trade", :size => "193x142", :border => "0") %>
+			</p>
+			<%= form_tag(powerlistingsresults_powerlistings_path(:listing_type => 'power')) do |f| %>
+				<%# f.fields_for @search.conditions do |listings| %>
+					<div class="categoryText">
+						<%= label_tag "Category:" %><br/>
+                      <%= select_tag(:category, options_for_select(@powercategories.map {|s| [s.category, s.category]},:selected => params[:category]),
+                                     :prompt => "-Select a Category", :id => 'power_category')%>
+						<br/>
+						<%= label_tag "Sub-Category:" %><br/>
+
+                        <%= select_tag :subcategory, options_for_select(@powersubcategories.map {|s| [s.subcategory, s.subcategory]}, :selected => params[:subcategory]), {:prompt => "-Select a Category First-", :id => 'power_subcategory'} %>
+
+
+						<br/>
+						<%= label_tag "Make:" %><br/>
+                        <%= select_tag :make, options_for_select(@powermakes.map {|s| [s.make, s.make]},:selected => params[:make]),
+                                     {prompt: "Select a Make"} %>
+						<br/>
+						<%= label_tag "Max Price:" %><br/>
+                        <%= text_field_tag :price_lt %>
+						<br/>
+						<%# listings.fields_for @search.conditions.owner do |owner| %>
+							<%= label_tag "State:" %>
+							<br/>
+                        <%= select_tag(:state,options_for_select(Listing::STATES,:selected => params[:state]) , {:prompt => "-Select State"}) %>
+							<br/>
+							<br/>
+						<%# end %>
+                        <%= hidden_field_tag :listing_type, "power" %>
+                        <%= hidden_field_tag :listing_type, Date.today %>
+						<%= submit_tag "Basic Search" %>
+						<br />
+						<br />
+						<%= link_to "Advanced Search", searchpower_url %>
+					</div>
+				<% end %>
+			<%# end %>
+			<br />
+
+		</td>
+	</tr>
+</table>
+
+<script>
+    $( document ).ready(function() {
+
+        $('#power_category').change(function() {
+            if ($(this).val() == '')
+            {
+                $('#power_subcategory').html( $('<option>No model provided for your make</option>'));
+            }
+            else {
+                $.ajax({
+                    type: "GET",
+                    url: "/whatiwant/get_powersubcategories?category=" + $(this).val(),
+                    success: function(data){
+                        if (data.content == 'None')  //handle the case where no state related to country selected
+                        {
+                            $('#power_subcategory').empty();
+                            $('#power_subcategory').append( $('<option>No Subcategory provided for your Category</option>'));
+                        }
+                        else
+                        {
+                            $('#power_subcategory').empty();
+                            $('#power_subcategory').append( $('<option>Select your Subcategory</option>'));
+                            jQuery.each(data,function(i, v) {
+                                $('#power_subcategory').append( $('<option value="'+ data[i][1] +'">'+data[i][0] +'</option>'));
+                            });
+                        }
+                    }
+                });
+            }
+        });
+    });
+</script>

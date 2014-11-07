@@ -1,0 +1,105 @@
+<table width="100%" border="0" cellpadding="20" cellspacing="0">
+	<tr>
+		<td align="left" valign="top">
+			<h3>Register Now FREE to see all your potential Swaps!<br /></h3>
+				<p>Plus save your search criteria to your personal Wish List.<br />
+					Get email alerts when a Swap match is found.<br />
+					Get a free mailbox to correspond with other buyers, sellers and traders.
+				</p>
+
+				<% form_for(@user) do |f| %>
+					<%= f.error_messages %>
+					
+					<table width="830" border="0" cellspacing="1" cellpadding="1">
+						<tr>
+							<td width="20%" class="formText">
+								<%= f.label :first_name %>
+							</td>
+							<td width="55%">
+								<%= f.text_field :firstname %>
+								<span class="infoText">
+									<a href="#">Why do we need your email?</a>
+								</span>
+							</td>
+							<td width="25%" rowspan="8" align="center" valign="top">
+								<%= image_tag "registrationimages.png", :alt => "Register To Swap Your Whip!", :size => "151x250" %>
+							</td>
+					<p>
+						<%= f.label :last_name %><br />
+						<%= f.text_field :lastname %>
+					</p>
+					<p>
+						<%= f.label :phone %><br />
+						<%= f.text_field :phone %>
+					</p>
+					<p>
+						<%= f.label :username %><br />
+						<%= f.text_field :username %>
+					</p>
+					<p>
+						<%= f.label :email %><br />
+						<%= f.text_field :email %>
+					</p>
+					<p>
+						<%= f.label :password %><br />
+						<%= f.password_field :password %>
+					</p>
+					<p>
+						<%= f.label :password_confirmation %><br />
+						<%= f.password_field :password_confirmation %>
+					</p>
+					<p>
+						<%= f.submit 'Create' %>
+					</p>
+				<% end %>
+
+        <table width="830" border="0" cellspacing="1" cellpadding="1">
+          <tr>
+            <td width="20%" class="formText">Email Address:</td>
+            <td width="55%">
+              <input name="email" type="text" id="email" tabindex="1" />
+              <span class="infoText"><a href="#">Why do we need your email?</a></span></td>
+            <td width="25%" rowspan="8" align="center" valign="top"><img src="images/formPics1.png" alt="Register To Swap Your Whip!" width="151" height="250" /></td>
+          </tr>
+          <tr>
+            <td width="20%" class="formText">Confirm Email Address:</td>
+            <td width="55%">
+              <input name="emailConfirm" type="text" id="emailConfirm" tabindex="2" />
+            </td>
+            </tr>
+          <tr>
+            <td width="20%" class="formText">Password:</td>
+            <td width="55%"><p>
+              <input name="password" type="password" id="password" tabindex="3" />
+              <span class="infoText"><a href="#">Get password tips.</a><br />
+              </span><span class="formText">Enter 5-20 letters or numbers, case sensitive.</span></p></td>
+            </tr>
+          <tr>
+            <td width="20%" class="formText">Confirm Password:</td>
+            <td width="55%"><input name="passwordConfirm" type="password" id="passwordConfirm" tabindex="4" /></td>
+          </tr>
+          <tr>
+            <td colspan="2"><p><b>We respect your privacy.<br />
+              </b><span class="formText">We'll never send you emails unless you tell us it's okay. Please review our <span class="infoText"><a href="#">Privacy Statement.</a></span></span></p></td>
+          </tr>
+          <tr>
+            <td colspan="2" valign="middle"><input type="checkbox" name="rememberMe" id="rememberMe" tabindex="5" />
+              <span class="formText">              Remember me on this computer.</span></td>
+          </tr>
+          <tr>
+            <td colspan="2" class="formText">By clicking on &quot;Submit&quot; I agree to SwapMyWhip.com's User Agreement.</td>
+          </tr>
+          <tr>
+            <td width="20%">&nbsp;</td>
+            <td width="55%">&nbsp;</td>
+            </tr>
+          <tr>
+            <td colspan="3"><input name="Submit" type="submit" id="Submit" tabindex="6" onclick="MM_validateForm('email','','RisEmail','emailConfirm','','RisEmail','password','','R','passwordConfirm','','R');return document.MM_returnValue" value="Submit" />
+              <input type="reset" name="Reset" id="Reset" value="Reset" tabindex="7" /></td>
+            </tr>
+        </table>
+      </form>
+     </td>
+    </tr>
+</table>
+

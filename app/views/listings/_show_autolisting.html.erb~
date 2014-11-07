@@ -1,0 +1,186 @@
+<table width="100%" border="0" cellpadding="1" cellspacing="1">
+	<tr>
+		<td width="20%" align="right">
+			<b>Year:</b>
+		</td>
+		<td align="left">
+			<%=h @listing.year %>
+		</td>
+	<tr>
+		<td colspan="2">
+			<%= image_tag "divider_line.png", :size => "267x2" %>
+		</td>
+	</tr>
+	<tr>
+		<td width="20%" align="right">
+			<b>Make:</b>
+		</td>
+		<td align="left">
+			<%=h @listing.make %>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2">
+			<%= image_tag "divider_line.png", :size => "267x2" %>
+		</td>
+	</tr>
+	<tr>
+		<td width="20%" align="right">
+			<b>Model:</b>
+		</td>
+		<td align="left">
+			<%=h @listing.model %>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2">
+			<%= image_tag "divider_line.png", :size => "267x2" %>
+		</td>
+	</tr>
+	<tr>
+		<td width="20%" align="right">
+			<b>Exterior Color:</b>
+		</td>
+		<td align="left">
+			<%=h @listing.exterior_color %>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2">
+			<%= image_tag "divider_line.png", :size => "267x2" %>
+		</td>
+	</tr>
+	<tr>
+		<td width="20%" align="right">
+			<b>Interior Color:</b>
+		</td>
+		<td align="left">
+			<%=h @listing.interior_color %>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2">
+			<%= image_tag "divider_line.png", :size => "267x2" %>
+		</td>
+	</tr>
+	<tr>
+		<td width="20%" align="right">
+			<b>Doors:</b>
+		</td>
+		<td align="left">
+			<%=h @listing.doors %>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2">
+			<%= image_tag "divider_line.png", :size => "267x2" %>
+		</td>
+	</tr>
+	<tr>
+		<td width="20%" align="right">
+			<b>Engine:</b>
+		</td>
+		<td align="left">
+			<%=h @listing.engine %>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2">
+			<%= image_tag "divider_line.png", :size => "267x2" %>
+		</td>
+	</tr>
+	<tr>
+		<td width="20%" align="right">
+			<b>Transmission:</b>
+		</td>
+		<td align="left">
+			<%=h @listing.transmission %>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2">
+			<%= image_tag "divider_line.png", :size => "267x2" %>
+		</td>
+	</tr>
+	<tr>
+		<td width="20%" align="right">
+			<b>Drive:</b>
+		</td>
+		<td align="left">
+			<%=h @listing.drive %>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2">
+			<%= image_tag "divider_line.png", :size => "267x2" %>
+		</td>
+	</tr>
+	<tr>
+		<td width="20%" align="right">
+			<b>Fuel:</b>
+		</td>
+		<td align="left">
+			<%=h @listing.fuel %>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2">
+			<%= image_tag "divider_line.png", :size => "267x2" %>
+		</td>
+	</tr>
+	<tr>
+		<td width="20%" align="right">
+			<b>Mileage:</b>
+		</td>
+		<td align="left">
+			<%=h @listing.mileage %>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2">
+			<%= image_tag "divider_line.png", :size => "267x2" %>
+		</td>
+	</tr>
+	<tr>
+		<td width="20%" align="right">
+			<b>VIN:</b>
+		</td>
+		<td align="left">
+			<%=h @listing.vin %>
+			<% if @listing.vin.nil? %>
+				&nbsp;&nbsp;&nbsp;<%= link_to "Get an AutoCheck Report", "http://www.autocheck.com", :popup => true %>
+			<% end %>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2">
+			<%= image_tag "divider_line.png", :size => "267x2" %>
+		</td>
+	</tr>
+	<tr>
+		<td width="20%" align="right">
+			<b>Price:</b>
+		</td>
+		<td align="left">
+			<%=h number_to_currency(@listing.price, :precision => 0) %>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2">
+			<%= image_tag "divider_line.png", :size => "267x2" %>
+		</td>
+	</tr>
+	<tr>
+		<td width="20%" align="right">
+			<b>Description:</b>
+		</td>
+		<td align="left">
+			<%=h @listing.desc %>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2">
+			<%= image_tag "divider_line.png", :size => "267x2" %>
+		</td>
+	</tr>
+</table>

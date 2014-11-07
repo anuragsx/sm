@@ -1,0 +1,9 @@
+class AddDashesToMotomakes < ActiveRecord::Migration
+  def self.up
+  	Motomakes.create(:make => '--------------------', :sort_order => 999)
+  end
+
+  def self.down
+	  Motomakes.destroy(:make => '--------------------', :sort_order => 999)
+  end
+end

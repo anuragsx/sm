@@ -1,0 +1,70 @@
+<% form_for([@user, @listing]) do |f| %>
+				<%= f.error_messages %>
+	
+				<p>
+					<%= f.label "Year" %><br />
+					<%= f.text_field :year %>
+				</p>
+				<p>
+					<%= f.label "Make:" %><br />
+						<%= f.collection_select :make, @automakes, :make, :make, {:prompt => "-Select a Make-"}, {:onChange => remote_function(:url => {:action => 'get_automodels'}, :with => "'make=' + this.value")} %>
+<!--					<%= select_tag 'my[select]', options_from_collection_for_select(Automodels.find(:all, :order => 'make ASC', :select => 'distinct make'), "make", "make", @make) %>
+-->
+				</p>
+				<p>
+					<%= f.label "Model:" %><br/>
+					<%= select_tag 'my[select]', options_from_collection_for_select(Automodels.find_by_make(params[:make]), "model", "model") %>
+				</p>
+				<p>
+					<%= f.label "Body Style:" %><br />
+					<%= f.text_field :body %>
+				</p>
+				<p>
+					<%= f.label "Exterior Color:" %><br />
+					<%= f.text_field :exterior_color %>
+				</p>
+				<p>
+					<%= f.label "Interior Color:" %><br />
+					<%= f.text_field :interior_color %>
+				</p>
+				<p>
+					<%= f.label "Doors:" %><br />
+					<%= f.text_field :doors %>
+				</p>
+				<p>
+					<%= f.label "Engine:" %><br />
+					<%= f.text_field :engine %>
+				</p>
+				<p>
+					<%= f.label "Transmission:" %><br />
+					<%= f.text_field :transmission %>
+				</p>
+				<p>
+					<%= f.label "Drive:" %><br />
+					<%= f.text_field :drive %>
+				</p>
+				<p>
+					<%= f.label "Fuel:" %><br />
+					<%= f.text_field :fuel %>
+				</p>
+				<p>
+					<%= f.label "Mileage:" %><br />
+					<%= f.text_field :mileage %>
+				</p>
+				<p>
+					<%= f.label "VIN:" %><br />
+					<%= f.text_field :vin %>
+				</p>
+				<p>
+					<%= f.label "Price:" %><br />
+					<%= f.text_field :price %>
+				</p>
+				<p>
+					<%= f.label "Description:" %><br />
+					<%= f.text_area :desc %>
+				</p>
+				<%= f.hidden_field :listingtype, :value => "auto" %>
+				<p>
+					<%= f.submit 'Create' %>
+				</p>
+			<% end %>

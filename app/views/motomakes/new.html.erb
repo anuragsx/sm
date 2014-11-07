@@ -1,0 +1,33 @@
+<% if flash[:notice] %>
+	<div class="notice"><%= flash[:notice] %></div>
+<% end %>
+<table width="100%" border="0" cellpadding="20" cellspacing="0">
+	<tr>
+		<td align="left" valign="top">
+			<% if @user.admin %>
+				<h3>New Moto Make</h3>
+				<p>Make sure you fill out the correct Sort Order to ensure the make shows where you want it to show up in the drop-down!</p>
+				
+				<%= form_for(@motomake) do |f| %>
+					<%= f.error_messages %>
+
+					<p>
+						<%= f.label 'Sort Order' %><br />
+						<%= f.text_field :sort_order %>
+					</p>
+					<p>
+						<%= f.label :make %><br />
+						<%= f.text_field :make %>
+					</p>
+					<p>
+						<%= f.submit 'Create' %>
+					</p>
+				<% end %>
+
+				<%= link_to 'Back', motomakes_path %>
+			<% else %>
+				<p>This page is for Administrators only!</p>
+			<% end %>
+		</td>
+	</tr>
+</table>

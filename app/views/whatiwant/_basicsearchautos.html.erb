@@ -1,0 +1,87 @@
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+	<tr>
+		<td align="center">
+			<%= image_tag("autos.gif", :alt => "autos", :size => "48x23", :border => "0") %>
+		</td>
+	</tr>
+	<tr>
+		<td height="241" align="center" valign="top">
+			<p>
+				<%= image_tag("auto_pic2.jpg", :alt => "Autos For Trade", :size => "193x142", :border => "0") %>
+			</p>
+			<%= form_tag(autolistingsresults_new_autolistings_path)  do |f| %>
+				<div class="categoryText">
+					<%# f.fields_for @q.conditions do |listings| %>
+						<%= label_tag "Make:" %>
+						<br/>
+                            <%= select_tag :make, options_for_select(@automakes.map {|s| [s.make, s.make]},:selected => params[:make]),
+                                 {prompt: "Select a Make"} %>
+						<br/>
+						<br/>
+						<%= label_tag "Model:" %>
+						<br/>
+                          <%= select_tag :model, options_for_select(@automodels.map {|s| [s.model, s.model]}, :selected => params[:model]),
+                                         {:prompt => "-Select a Make First-"} %>
+						<br/>
+						<%= label_tag "Category:" %>
+						<br/>
+                        <%= select_tag(:category, options_for_select(@autocategories.map {|s| [s.category, s.category]},:selected => params[:category]),
+                                 :prompt => "-Select a Category")%>
+						<br/>
+						<br/>
+						<%= label_tag "Max Price:" %>
+						<br/>
+						<%= text_field_tag :price_lt, '', :size => 15 %>
+						<br/>
+						<br/>
+						<%= label_tag "State:" %>
+						<br/>
+                        <%= select_tag(:state,options_for_select(Listing::STATES,:selected => params[:state]) , {:prompt => "-Select State"}) %>
+						<br/>
+						<br/>
+                        <%= hidden_field_tag :listing_type, "auto" %>
+                        <%= hidden_field_tag :expired_at_gte, Date.today %>
+
+						<%= submit_tag "Basic Search" %>
+					<br />
+					<br />
+					<%= link_to "Advanced Search", searchautos_url %>
+				</div>
+			<% end %>
+
+		</td>
+	</tr>
+</table>
+
+<script>
+    $( document ).ready(function() {
+
+        $('#make').change(function() {
+            if ($(this).val() == '')
+            {
+                $('#model').html( $('<option>No model provided for your make</option>'));
+            }
+            else {
+                $.ajax({
+                    type: "GET",
+                    url: "/whatiwant/get_automodels?make=" + $(this).val(),
+                    success: function(data){
+                        if (data.content == 'None')  //handle the case where no state related to country selected
+                        {
+                            $('#model').empty();
+                            $('#model').append( $('<option>No model provided for your make</option>'));
+                        }
+                        else
+                        {
+                            $('#model').empty();
+                            $('#model').append( $('<option>Select your Model</option>'));
+                            jQuery.each(data,function(i, v) {
+                                $('#model').append( $('<option value="'+ data[i][1] +'">'+data[i][0] +'</option>'));
+                            });
+                        }
+                    }
+                });
+            }
+        });
+    });
+</script>

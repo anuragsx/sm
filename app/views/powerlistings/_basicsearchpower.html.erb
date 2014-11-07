@@ -1,0 +1,51 @@
+<%= form_tag(powerlistingsresults_powerlistings_path(:listing_type => 'power')) do |f| %>
+	<fieldset class="RefineSearch">
+		<legend style="font-weight:bold; font-size:1.2em;">Refine Search</legend>
+		<table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<div class="blackCategoryText">
+					<%# f.fields_for @search.conditions do |listings| %>
+						<td align="left" valign="top">
+							<%= label_tag "Category:" %>
+							<br/>
+							<%#= select_tag :category_is, @powercategories, :category, :category, {:prompt => "-Select a Category"}, {:onChange => remote_function(:url => {:action => 'get_powersubcategories'}, :with => "'category=' + this.value")} %>
+                            <%= select_tag(:category, options_for_select(@powercategories.map {|s| [s.category, s.category]},:selected => params[:category]),
+                                         :prompt => "-Select a Category")%>
+						</td>
+						<td>
+							<%= label_tag "Subcategory:" %>
+							<br/>
+							<div id="powersubcategoriesdiv">
+								<%= select_tag :subcategory, options_for_select(@powersubcategories.map {|s| [s.subcategory, s.subcategory]}, :selected => params[:subcategory]), :prompt => "-Select a Category First-" %>
+
+							</div>
+						</td>
+						<td>
+							<%= label_tag "Make:" %>
+							<br/>
+                          <%= select_tag :make, options_for_select(@powermakes.map {|s| [s.make, s.make]},:selected => params[:make]),
+                                         {prompt: "Select a Make"} %>
+						</td>
+						<td>
+							<%= label_tag "Max Price($):" %>
+							<br/>
+							<%= text_field_tag :price_lt, '', :size => 6 %>
+						</td>
+						<%# listings.fields_for @search.conditions.owner do |owner| %>
+						<td>
+							<%= label_tag "State:" %>
+							<br/>
+                          <%= select_tag(:state,options_for_select(Listing::STATES,:selected => params[:state]) , {:prompt => "-Select State"}) %>
+						</td>
+						<% #end %>
+						<td>
+                          <%= hidden_field_tag :listing_type, "power" %>
+							<br/>
+							<%= submit_tag "Basic Search", :id => "Submit" %>
+						</td>
+					<% end %>	
+				</div>
+			</tr>
+		</table>
+	</fieldset>
+<%# end %>

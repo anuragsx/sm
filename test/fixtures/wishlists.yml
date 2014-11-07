@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  listingtype: MyString
+  make: MyString
+  model: MyString
+  category: MyString
+  subcategory: MyString
+
+two:
+  listingtype: MyString
+  make: MyString
+  model: MyString
+  category: MyString
+  subcategory: MyString

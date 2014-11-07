@@ -1,0 +1,347 @@
+@charset "utf-8";
+/* CSS Document */
+
+
+
+body.wishresult .leftpost {
+    border-bottom: 2px dashed #DDDDDD;
+    float: left;
+    padding: 22px 0 19px;
+    width: 732px;
+}
+body.wishresult .post h2 {
+    font-size: 18px;
+}
+
+
+body.wishresult .inline {
+    height: 28px;
+}
+
+body.wishresult .middilepost p {
+    color: #6EA456;
+    font-size: 16px;
+    margin: 0;
+}
+
+body.wishresult img.third {
+    margin-left:8px !important;
+}
+body.wishresult .middilepost span {
+    display: block;
+    float: none;
+    line-height: 24px;
+}
+body.wishresult .smalllightbx span {
+    color: #649D4A;
+    font-family: 'Oswald',sans-serif;
+    font-size: 28px;
+    text-transform: uppercase;
+}
+
+
+body.wishresult .smalllightbx {
+    float: right;
+    margin-top: 60px;
+    width: 734px;
+}
+z
+
+body.wishresult .middilepost {
+    margin-left: 145px;
+}
+body.register .contactwidget .yearbetween select {
+    width: 100px;
+}
+body.register .contactwidget .yearbetween p {
+    margin: 0;
+}
+body.register .contactwidget .yearbetween p input
+{
+width: 124px;
+}
+body.register .contactwidget .model select, body.register .contactwidget .make select, body.register .contactwidget .category select
+{
+ padding: 6px;
+}
+
+body.register .boldheadings p {
+    font-family: oswald;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 0;
+    margin-top: 5px;
+    text-transform: uppercase;
+}
+body.register .contactwidget
+{
+	float:left;
+	width:500px;
+	margin-top:60px;
+}
+body.register .scroller
+{
+overflow-y: scroll;
+height: 160px;
+background-color: rgb(236, 236, 236);
+border-radius: 7px 7px 7px 7px;
+margin: 8px 0px 30px;
+overflow-x: auto;
+}
+
+body.register .scroller p {
+    margin: 0;
+    padding: 10px 14px;
+}
+body.register .scroller ol li
+{ 
+color: #252525;
+    font-size: 13px;
+    margin-bottom: 15px;
+    margin-top: 8px;
+}
+body.register .contactwidget .stateandzipcode p {
+    margin: 0;
+}
+
+
+body.register .contactwidget .stateandzipcode select {
+    width: 100px;
+}
+
+
+body.register .contactwidget .password p {
+    clear: both;
+    color: #649D4A !important;
+    margin-left: 140px;
+}
+
+body.register .contactwidget label {
+    color: #252525;
+    display: block;
+    float: left;
+	    text-transform: capitalize;
+    font-size: 13px;
+    width: 140px;
+}
+
+
+body.register .sub {
+    float: right;
+    font-size: 14px;
+    
+}
+
+body.register .contactwidget input[type="text"], body.register .contactwidget input[type="password"] {
+    background-color: #ECECEC;
+    border: medium none;
+    border-radius: 4px 4px 4px 4px;
+    box-shadow: 1px 1px 1px 1px rgba(170, 170, 170, 0.1) inset;
+    float: left;
+    height: 29px;
+    margin-bottom: 12px;
+    width: 358px;
+}
+
+
+body.register .contactwidget select {
+    background-color: #ECECEC;
+    border: medium none;
+    border-radius: 4px 4px 4px 4px;
+    box-shadow: 1px 1px 1px 1px rgba(170, 170, 170, 0.1) inset;
+    color: #649D4A;
+    height: 29px;
+    margin-bottom: 12px;
+    width: 358px;
+}
+body.register .contactwidget .stateandzipcode p input
+{
+width: 133px;
+}
+
+body.register .contactwidget textarea {
+    background-color: #ECECEC;
+    border: medium none;
+    border-radius: 4px 4px 4px 4px;
+    box-shadow: 1px 1px 1px 1px rgba(170, 170, 170, 0.1) inset;
+    float: left;
+    height: 150px;
+    margin-bottom: 12px;
+    width: 65%;
+}
+
+body.register .contactwidget div {
+    clear: both;
+}
+body.whipdetails .rightcontent .contact
+{
+	margin: 0 0 21px 0 !important;
+}
+
+body.whipdetails .contact {
+    background-color: #252525;
+    border-radius: 5px 5px 5px 5px;
+    float: left;
+    margin:  0 0 21px 0 !important;
+    padding: 8px 20px 0;
+    position:inherit !important;
+   
+    width: 260px;
+} 
+
+body.whipdetails .rightcontent {
+    float: left !important;
+    width: 300px !important;
+}
+
+
+body.whipdetails .leftcontent {
+    float: right !important;
+    width: 734px !important;
+}
+
+body.whipdetails #slider
+{
+	height:418px !important;
+	margin-bottom:13px !important;
+}
+
+
+
+.topbar {
+    background-color: #EFEFEF;
+    border-radius: 6px 6px 6px 6px;
+    box-shadow: 1px 0 0 1px #CCCCCC;
+    height: 39px;
+    margin: 9px 0 16px;
+}
+
+
+
+#gallery img {
+    margin-bottom: 21px;
+    margin-right: 3px;
+}
+
+
+#gallery img.last {
+    margin-right: 0px !important;
+}
+
+.topbar .sep span {
+    background: url("images/arrow.png") no-repeat scroll center center transparent;
+   
+    display: block;
+    float: left;
+    height: 12px;
+    padding: 14px;
+    width: 8px;
+}
+
+
+.topbar .sep
+{
+	background:url(images/sep_03.png) no-repeat right center;
+	float:left;
+
+	
+}
+
+
+.topbar b {
+    color: #535353;
+    line-height: 37px;
+    margin-left: 14px;
+}
+
+
+.rightsep
+{
+	float:right;
+}
+
+.rightsep b
+{
+	color:#649d4a !important;
+	float:left;
+}
+.seprator {
+    background: url("images/sep_03.png") no-repeat scroll 0 0 transparent;
+    float: left;
+    height: 27px;
+    margin: 6px 10px 0 11px;
+    width: 2px;
+}
+body..whipdetails #slider img
+{
+	height:418px;
+}
+
+
+.rightsep ul {
+    float: left;
+    margin-right: 5px;
+    margin-top: 8px;
+}
+.rightsep ul li {
+    color: #649D4A !important;
+    display: inline;
+    font-size: 13px;
+    list-style: none outside none;
+    margin-right: 8px;
+}
+
+.rightsep img {
+    position: relative;
+    top: 2px;
+}
+
+
+.TabbedPanelsContent ul li {
+    font-size: 14px;
+	list-style:none;
+	color:#2d2d2d;
+}
+
+
+.none
+{
+	width:auto !important;
+}
+
+
+.TabbedPanelsContent ul {
+    float: left;
+    margin-top: 19px;
+    width: 192px;
+}
+
+
+body.whipdetails .head .boldclass {
+    color: #252525;
+    font-size: 19px;
+}
+
+body.whipdetails p {
+    color: #252525;
+	}
+	
+	.matter p.boldclass
+	{
+		margin-bottom:0px;
+		float:left;
+		margin-top:0px;
+	
+	}
+	
+	
+.TabbedPanelsContent form {
+    float: right;
+    margin-top: 9px;
+}
+
+body.whipdetails #footer
+{
+margin-top: 25px;
+}
+

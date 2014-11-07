@@ -1,0 +1,33 @@
+<% if flash[:notice] %>
+	<div class="notice"><%= flash[:notice] %></div>
+<% end %>
+<table width="100%" border="0" cellpadding="20" cellspacing="0">
+	<tr>
+		<td align="left" valign="top">
+			<% if @user.admin %>
+				<h3>New Auto Make/Model</h3>
+				<p>Make sure you spell/capitalize the MAKE exactly like the existing Make in the current drop-down!</p>
+
+				<% form_for(@automodel) do |f| %>
+					<%= f.error_messages %>
+
+					<p>
+						<%= f.label :make %><br />
+						<%= f.text_field :make %>
+					</p>
+					<p>
+						<%= f.label :model %><br />
+						<%= f.text_field :model %>
+					</p>
+					<p>
+						<%= f.submit 'Create' %>
+					</p>
+				<% end %>
+
+				<%= link_to 'Back', automodels_path %>
+			<% else %>
+				<p>This page is for Administrators only!</p>
+			<% end %>
+		</td>
+	</tr>
+</table>

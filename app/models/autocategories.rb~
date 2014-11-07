@@ -1,0 +1,2 @@
+class Autocategories < ActiveRecord::Base
+end

@@ -1,0 +1,57 @@
+<table width="883" border="0" cellpadding="20" cellspacing="0">
+	<tr>
+		<td width="100%" align="left" valign="top">
+			<h3>Advanced Search for Autos</h3>
+			
+			<% form_for @search, :url => {:action => "autolistingsresults"} do |f| %>
+					
+					<% f.fields_for @search.conditions do |listings| %>
+						<%= listings.label "Year Between:" %><br/>
+						<%= listings.text_field :year_gte, :size => 7 %> and <%= listings.text_field :year_lte, :size => 7 %><br/>
+						<%= listings.label "Body Style:" %><br/>
+						<%= listings.collection_select :body_is, @autocategories, :category, :category, {:prompt => "-Select a Category"} %><br/>
+						<%= listings.label "Make:" %><br/>
+						<%= listings.collection_select :make_is, @automakes, :make, :make, {:prompt => "-Select a Make-"}, {:onChange => remote_function(:url => {:action => 'get_automodels', :object => :listings}, :with => "'make=' + this.value")} %><br/>
+						<%= listings.label "Model:" %><br/>
+
+						<div id='automodelsdiv'>
+							<%= render :partial => "automodels_search_select" %>
+						</div>
+
+						<%= listings.label "Price Between:" %><br/>
+						<%= listings.text_field :price_gte, :size => 7 %> and <%= listings.text_field :price_lte, :size => 7 %><br/>
+						
+						<% listings.fields_for @search.conditions.owner do |owner| %>
+							<%= owner.label "State:" %><br/>
+							<%= owner.select(:state_is, ['AK','AL','AR','AZ','CA','CO','CT','DE','FL','GA','HI','IA','ID','IL','IN','KS','KY','LA','MA','MD','ME','MI','MN','MO','MS','MT','NC','ND','NE','NH','NJ','NM','NV','NY','OH','OK','OR','PA','RI','SC','SD','TN','TX','UT','VA','VT','WA','WI','WV','WY'], {:prompt => "-Select State"}) %><br/>
+						<% end %>
+						
+						<%= listings.label "Mileage:" %><br/>
+						<%= listings.text_field :mileage_is, :size => 15 %><br/>
+						<%= listings.label "Exterior Color:" %><br/>
+						<%= listings.text_field :exterior_color_is, :size => 15 %><br/>
+						<%= listings.label "Interior Color:" %><br/>
+						<%= listings.text_field :interior_color_is, :size => 15 %><br/>
+						<%= listings.label "Doors:" %><br/>
+						<%= listings.select(:doors_is, [2,3,4,5], {:prompt => "-Select Doors"}) %><br/>
+						<%= listings.label "Engine:" %><br/>
+						<%= listings.select(:engine_is, ['3 Cylinder','4 Cylinder','5 Cylinder','6 Cylinder','7 Cylinder','8 Cylinder','9 Cylinder','10 Cylinder','11 Cylinder','12 Cylinder','Rotary','Alternative'], {:prompt => "-Select Engine"}) %><br/>
+						<%= listings.label "Transmission:" %><br/>
+						<%= listings.select(:transmission_is, ['Auto','Manual'], {:prompt => "-Select Transmission"}) %><br/>
+						<%= listings.label "Drive:" %><br/>
+						<%= listings.select(:drive_is, ['2WD','4WD','AWD'], {:prompt => "-Select Drive"}) %><br/>
+						<%= listings.label "Fuel:" %><br/>
+						<%= listings.select(:fuel_is, ['Gasoline','Diesel','Alternative'], {:prompt => "-Select Fuel"}) %><br/>
+						<%= listings.label "Description:" %><br/>
+						<%= listings.text_field :desc_contains %><br/>
+						<%= listings.hidden_field :listingtype_is, :value => "auto" %>
+						<br/>
+						<%= f.submit "Search Autos", :id => "Submit" %>
+						
+					<% end %>	
+
+			<% end %>
+
+		</td>
+	</tr>
+</table>

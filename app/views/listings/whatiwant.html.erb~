@@ -1,0 +1,94 @@
+<h3>Please select the category of vehicle you would like to search</h3>
+<table width="100%">
+	<tr>
+		<td>
+			<%= link_to image_tag("autos.gif"), searchautos_url %>
+		</td>
+		<td>
+			<%= link_to image_tag("motorcycles.gif"), searchmotorcycles_url %>
+		</td>
+		<td>
+			<%= link_to image_tag("marine.gif"), searchmarine_url %>
+		</td>
+		<td>
+			<%= link_to image_tag("powersports.gif"), searchpowersports_url %>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<% remote_form_for @search, :url => {:action => "whatiwant"} do |f| %>
+				<fieldset>
+					<legend>Basic Search</legend>
+					
+					<% f.fields_for @search.conditions do |listings| %>
+						<%= listings.label "Make:" %><br/>
+						<%= listings.collection_select :make_is, Automakes.all, :make, :make, :prompt => "-Select a Make" %><br/>
+						<br/>
+						<%= listings.label "Price Less Than:" %><br/>
+						<%= listings.text_field :price_lt, :size => 15 %><br/>
+						<br/>
+						<%= listings.hidden_field :listingtype_is, :value => "auto" %>
+						<%= f.submit "Search Autos" %>
+					<% end %>	
+				</fieldset>
+			<% end %>
+		</td>
+		<td>
+			<% remote_form_for @search, :url => {:action => "whatiwant"} do |f| %>
+				<fieldset>
+					<legend>Basic Search</legend>
+					
+					<% f.fields_for @search.conditions do |listings| %>
+						<%= listings.label "Make:" %><br/>
+						<%= listings.text_field :make_is, :size => 15 %><br/>
+						<br/>
+						<%= listings.label "Price Less Than:" %><br/>
+						<%= listings.text_field :price_lt, :size => 15 %><br/>
+						<br/>
+						<%= listings.hidden_field :listingtype_is, :value => "motorcycle" %>
+						<%= f.submit "Search Motorcycles" %>
+					<% end %>	
+				</fieldset>
+			<% end %>
+		</td>
+		<td>
+			<% remote_form_for @search, :url => {:action => "whatiwant"} do |f| %>
+				<fieldset>
+					<legend>Basic Search</legend>
+					
+					<% f.fields_for @search.conditions do |listings| %>
+						<%= listings.label "Make:" %><br/>
+						<%= listings.text_field :make_is, :size => 15 %><br/>
+						<br/>
+						<%= listings.label "Price Less Than:" %><br/>
+						<%= listings.text_field :price_lt, :size => 15 %><br/>
+						<br/>
+						<%= listings.hidden_field :listingtype_is, :value => "marine" %>
+						<%= f.submit "Search Marine" %>
+					<% end %>	
+				</fieldset>
+			<% end %>
+		</td>
+		<td>
+			<% remote_form_for @search, :url => {:action => "whatiwant"} do |f| %>
+				<fieldset>
+					<legend>Basic Search</legend>
+					
+					<% f.fields_for @search.conditions do |listings| %>
+						<%= listings.label "Make:" %><br/>
+						<%= listings.text_field :make_is, :size => 15 %><br/>
+						<br/>
+						<%= listings.label "Price Less Than:" %><br/>
+						<%= listings.text_field :price_lt, :size => 15 %><br/>
+						<br/>
+						<%= listings.hidden_field :listingtype_is, :value => "powersports" %>
+						<%= f.submit "Search Powersports" %>
+					<% end %>	
+				</fieldset>
+			<% end %>
+		</td>
+	</tr>
+</table>
+
+<div id="listingsresults">
+</div>

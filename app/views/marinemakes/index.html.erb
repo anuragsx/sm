@@ -1,0 +1,27 @@
+<% if flash[:notice] %>
+	<div class="notice"><%= flash[:notice] %></div>
+<% end %>
+
+<table width="100%" border="1" cellpadding="0" cellspacing="0" bordercolor="#823416" class="searchResultsTable">
+	<h1>Marine Makes</h1>
+	
+	<%= link_to "Create New Marine Make", new_marinemake_path %>
+	<tr>
+		<th height="25" align="left">Make</th>
+		<th height="25" align="left"></th>
+	</tr>
+	<br/>
+
+	<% @marinemakes.each do |marinemake| %>
+	<tr>
+		<td align="center" valign="middle">
+			<%=h marinemake.make %>
+		</td>
+		<td>
+			<%= link_to "Remove", marinemake, :confirm => 'Are you sure?', :method => :delete %>
+	</tr>
+
+	<% end %>
+
+</table>
+

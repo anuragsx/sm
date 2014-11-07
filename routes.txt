@@ -1,0 +1,228 @@
+                                    root        /                                                                 home#index
+                                                /home/:id(.:format)                                               home#admin
+                                                /admin_edit_listing/:id(.:format)                                 listings#admin_edit
+                                                /listings_admin/:id(.:format)                                     listings#admin
+                                   login        /login(.:format)                                                  user_sessions#new
+                                  logout        /logout(.:format)                                                 user_sessions#destroy
+                             searchautos        /searchautos(.:format)                                            autolistings#searchautos
+                             searchmotos        /searchmotos(.:format)                                            motolistings#searchmotos
+                            searchmarine        /searchmarine(.:format)                                           marinelistings#searchmarine
+                             searchpower        /searchpower(.:format)                                            powerlistings#searchpower
+                                   about        /about(.:format)                                                  home#about
+                                 contact        /contact(.:format)                                                home#contact
+                                     faq        /faq(.:format)                                                    home#faq
+                               whatiwant        /whatiwant(.:format)                                              whatiwant#whatiwant
+                             basicsearch        /basicsearch(.:format)                                            listings#basicsearch
+                                 newmain        /newmain(.:format)                                                listings#newmain
+                                 newmain        /newmain(.:format)                                                listings#newmain
+                              largephoto        /photos/:id(.:format)                                             photos#showlarge
+                                medphoto        /medphoto/:id(.:format)                                           photos#showmedium
+                              smallphoto        /smallphoto/:id(.:format)                                         photos#showsmall
+                                   inbox        /inbox(.:format)                                                  messages#inbox
+                                    sent        /sent(.:format)                                                   messages#sent
+                      deletesent_message DELETE /messages/:id/deletesent(.:format)                                messages#deletesent
+                           reply_message GET    /messages/:id/reply(.:format)                                     messages#reply
+                    create_reply_message POST   /messages/:id/create_reply(.:format)                              messages#create_reply
+                                messages GET    /messages(.:format)                                               messages#index
+                                         POST   /messages(.:format)                                               messages#create
+                             new_message GET    /messages/new(.:format)                                           messages#new
+                            edit_message GET    /messages/:id/edit(.:format)                                      messages#edit
+                                 message GET    /messages/:id(.:format)                                           messages#show
+                                         PUT    /messages/:id(.:format)                                           messages#update
+                                         DELETE /messages/:id(.:format)                                           messages#destroy
+                           privacypolicy        /privacypolicy(.:format)                                          home#privacypolicy
+                        visitoragreement        /visitoragreement(.:format)                                       home#visitoragreement
+                      new_auto_wishlists GET    /wishlists/new_auto(.:format)                                     wishlists#new_auto
+                      new_moto_wishlists GET    /wishlists/new_moto(.:format)                                     wishlists#new_moto
+                    new_marine_wishlists GET    /wishlists/new_marine(.:format)                                   wishlists#new_marine
+                     new_power_wishlists GET    /wishlists/new_power(.:format)                                    wishlists#new_power
+                               wishlists GET    /wishlists(.:format)                                              wishlists#index
+                                         POST   /wishlists(.:format)                                              wishlists#create
+                            new_wishlist GET    /wishlists/new(.:format)                                          wishlists#new
+                           edit_wishlist GET    /wishlists/:id/edit(.:format)                                     wishlists#edit
+                                wishlist GET    /wishlists/:id(.:format)                                          wishlists#show
+                                         PUT    /wishlists/:id(.:format)                                          wishlists#update
+                                         DELETE /wishlists/:id(.:format)                                          wishlists#destroy
+                               favorites GET    /favorites(.:format)                                              favorites#index
+                                         POST   /favorites(.:format)                                              favorites#create
+                            new_favorite GET    /favorites/new(.:format)                                          favorites#new
+                           edit_favorite GET    /favorites/:id/edit(.:format)                                     favorites#edit
+                                favorite GET    /favorites/:id(.:format)                                          favorites#show
+                                         PUT    /favorites/:id(.:format)                                          favorites#update
+                                         DELETE /favorites/:id(.:format)                                          favorites#destroy
+                                   users GET    /users(.:format)                                                  users#index {:has_many=>:listings}
+                                         POST   /users(.:format)                                                  users#create {:has_many=>:listings}
+                                new_user GET    /users/new(.:format)                                              users#new {:has_many=>:listings}
+                               edit_user GET    /users/:id/edit(.:format)                                         users#edit {:has_many=>:listings}
+                                    user GET    /users/:id(.:format)                                              users#show {:has_many=>:listings}
+                                         PUT    /users/:id(.:format)                                              users#update {:has_many=>:listings}
+                                         DELETE /users/:id(.:format)                                              users#destroy {:has_many=>:listings}
+                           user_listings GET    /users/:user_id/listings(.:format)                                listings#index
+                                         POST   /users/:user_id/listings(.:format)                                listings#create
+                        new_user_listing GET    /users/:user_id/listings/new(.:format)                            listings#new
+                       edit_user_listing GET    /users/:user_id/listings/:id/edit(.:format)                       listings#edit
+                            user_listing GET    /users/:user_id/listings/:id(.:format)                            listings#show
+                                         PUT    /users/:user_id/listings/:id(.:format)                            listings#update
+                                         DELETE /users/:user_id/listings/:id(.:format)                            listings#destroy
+                                         GET    /users(.:format)                                                  users#index
+                                         POST   /users(.:format)                                                  users#create
+                                         GET    /users/new(.:format)                                              users#new
+                                         GET    /users/:id/edit(.:format)                                         users#edit
+                                         GET    /users/:id(.:format)                                              users#show
+                                         PUT    /users/:id(.:format)                                              users#update
+                                         DELETE /users/:id(.:format)                                              users#destroy
+                          listing_photos GET    /listings/:listing_id/photos(.:format)                            photos#index
+                                         POST   /listings/:listing_id/photos(.:format)                            photos#create
+                       new_listing_photo GET    /listings/:listing_id/photos/new(.:format)                        photos#new
+                      edit_listing_photo GET    /listings/:listing_id/photos/:id/edit(.:format)                   photos#edit
+                           listing_photo GET    /listings/:listing_id/photos/:id(.:format)                        photos#show
+                                         PUT    /listings/:listing_id/photos/:id(.:format)                        photos#update
+                                         DELETE /listings/:listing_id/photos/:id(.:format)                        photos#destroy
+                                listings GET    /listings(.:format)                                               listings#index
+                                         POST   /listings(.:format)                                               listings#create
+                             new_listing GET    /listings/new(.:format)                                           listings#new
+                            edit_listing GET    /listings/:id/edit(.:format)                                      listings#edit
+                                 listing GET    /listings/:id(.:format)                                           listings#show
+                                         PUT    /listings/:id(.:format)                                           listings#update
+                                         DELETE /listings/:id(.:format)                                           listings#destroy
+                           user_sessions GET    /user_sessions(.:format)                                          user_sessions#index
+                                         POST   /user_sessions(.:format)                                          user_sessions#create
+                        new_user_session GET    /user_sessions/new(.:format)                                      user_sessions#new
+                       edit_user_session GET    /user_sessions/:id/edit(.:format)                                 user_sessions#edit
+                            user_session GET    /user_sessions/:id(.:format)                                      user_sessions#show
+                                         PUT    /user_sessions/:id(.:format)                                      user_sessions#update
+                                         DELETE /user_sessions/:id(.:format)                                      user_sessions#destroy
+                                         GET    /listings/:listing_id/photos(.:format)                            photos#index {:name_prefix=>nil}
+                                         POST   /listings/:listing_id/photos(.:format)                            photos#create {:name_prefix=>nil}
+                                         GET    /listings/:listing_id/photos/new(.:format)                        photos#new {:name_prefix=>nil}
+                              edit_photo GET    /photos/:id/edit(.:format)                                        photos#edit {:name_prefix=>nil}
+                                   photo GET    /photos/:id(.:format)                                             photos#show {:name_prefix=>nil}
+                                         PUT    /photos/:id(.:format)                                             photos#update {:name_prefix=>nil}
+                                         DELETE /photos/:id(.:format)                                             photos#destroy {:name_prefix=>nil}
+                                         GET    /users/:user_id/listings(.:format)                                listings#index {:name_prefix=>nil}
+                                         POST   /users/:user_id/listings(.:format)                                listings#create {:name_prefix=>nil}
+                                         GET    /users/:user_id/listings/new(.:format)                            listings#new {:name_prefix=>nil}
+                                         GET    /listings/:id/edit(.:format)                                      listings#edit {:name_prefix=>nil}
+                                         GET    /listings/:id(.:format)                                           listings#show {:name_prefix=>nil}
+                                         PUT    /listings/:id(.:format)                                           listings#update {:name_prefix=>nil}
+                                         DELETE /listings/:id(.:format)                                           listings#destroy {:name_prefix=>nil}
+                          user_wishlists GET    /users/:user_id/wishlists(.:format)                               wishlists#index
+                                         POST   /users/:user_id/wishlists(.:format)                               wishlists#create
+                       new_user_wishlist GET    /users/:user_id/wishlists/new(.:format)                           wishlists#new
+                                         GET    /wishlists/:id/edit(.:format)                                     wishlists#edit
+                                         GET    /wishlists/:id(.:format)                                          wishlists#show
+                                         PUT    /wishlists/:id(.:format)                                          wishlists#update
+                                         DELETE /wishlists/:id(.:format)                                          wishlists#destroy
+                          user_favorites GET    /users/:user_id/favorites(.:format)                               favorites#index
+                                         POST   /users/:user_id/favorites(.:format)                               favorites#create
+                       new_user_favorite GET    /users/:user_id/favorites/new(.:format)                           favorites#new
+                                         GET    /favorites/:id/edit(.:format)                                     favorites#edit
+                                         GET    /favorites/:id(.:format)                                          favorites#show
+                                         PUT    /favorites/:id(.:format)                                          favorites#update
+                                         DELETE /favorites/:id(.:format)                                          favorites#destroy
+                                         GET    /users(.:format)                                                  users#index
+                                         POST   /users(.:format)                                                  users#create
+                                         GET    /users/new(.:format)                                              users#new
+                                         GET    /users/:id/edit(.:format)                                         users#edit
+                                         GET    /users/:id(.:format)                                              users#show
+                                         PUT    /users/:id(.:format)                                              users#update
+                                         DELETE /users/:id(.:format)                                              users#destroy
+                         password_resets GET    /password_resets(.:format)                                        password_resets#index
+                                         POST   /password_resets(.:format)                                        password_resets#create
+                      new_password_reset GET    /password_resets/new(.:format)                                    password_resets#new
+                     edit_password_reset GET    /password_resets/:id/edit(.:format)                               password_resets#edit
+                          password_reset GET    /password_resets/:id(.:format)                                    password_resets#show
+                                         PUT    /password_resets/:id(.:format)                                    password_resets#update
+                                         DELETE /password_resets/:id(.:format)                                    password_resets#destroy
+                          autocategories GET    /autocategories(.:format)                                         autocategories#index
+                                         POST   /autocategories(.:format)                                         autocategories#create
+                        new_autocategory GET    /autocategories/new(.:format)                                     autocategories#new
+                       edit_autocategory GET    /autocategories/:id/edit(.:format)                                autocategories#edit
+                            autocategory GET    /autocategories/:id(.:format)                                     autocategories#show
+                                         PUT    /autocategories/:id(.:format)                                     autocategories#update
+                                         DELETE /autocategories/:id(.:format)                                     autocategories#destroy
+                              automodels GET    /automodels(.:format)                                             automodels#index
+                                         POST   /automodels(.:format)                                             automodels#create
+                           new_automodel GET    /automodels/new(.:format)                                         automodels#new
+                          edit_automodel GET    /automodels/:id/edit(.:format)                                    automodels#edit
+                               automodel GET    /automodels/:id(.:format)                                         automodels#show
+                                         PUT    /automodels/:id(.:format)                                         automodels#update
+                                         DELETE /automodels/:id(.:format)                                         automodels#destroy
+get_marinesubcategories_marinecategories GET    /marinecategories/get_marinesubcategories(.:format)               marinecategories#get_marinesubcategories
+                        marinecategories GET    /marinecategories(.:format)                                       marinecategories#index
+                                         POST   /marinecategories(.:format)                                       marinecategories#create
+                      new_marinecategory GET    /marinecategories/new(.:format)                                   marinecategories#new
+                     edit_marinecategory GET    /marinecategories/:id/edit(.:format)                              marinecategories#edit
+                          marinecategory GET    /marinecategories/:id(.:format)                                   marinecategories#show
+                                         PUT    /marinecategories/:id(.:format)                                   marinecategories#update
+                                         DELETE /marinecategories/:id(.:format)                                   marinecategories#destroy
+                             marinemakes GET    /marinemakes(.:format)                                            marinemakes#index
+                                         POST   /marinemakes(.:format)                                            marinemakes#create
+                          new_marinemake GET    /marinemakes/new(.:format)                                        marinemakes#new
+                         edit_marinemake GET    /marinemakes/:id/edit(.:format)                                   marinemakes#edit
+                              marinemake GET    /marinemakes/:id(.:format)                                        marinemakes#show
+                                         PUT    /marinemakes/:id(.:format)                                        marinemakes#update
+                                         DELETE /marinemakes/:id(.:format)                                        marinemakes#destroy
+                          motocategories GET    /motocategories(.:format)                                         motocategories#index
+                                         POST   /motocategories(.:format)                                         motocategories#create
+                        new_motocategory GET    /motocategories/new(.:format)                                     motocategories#new
+                       edit_motocategory GET    /motocategories/:id/edit(.:format)                                motocategories#edit
+                            motocategory GET    /motocategories/:id(.:format)                                     motocategories#show
+                                         PUT    /motocategories/:id(.:format)                                     motocategories#update
+                                         DELETE /motocategories/:id(.:format)                                     motocategories#destroy
+                               motomakes GET    /motomakes(.:format)                                              motomakes#index
+                                         POST   /motomakes(.:format)                                              motomakes#create
+                            new_motomake GET    /motomakes/new(.:format)                                          motomakes#new
+                           edit_motomake GET    /motomakes/:id/edit(.:format)                                     motomakes#edit
+                                motomake GET    /motomakes/:id(.:format)                                          motomakes#show
+                                         PUT    /motomakes/:id(.:format)                                          motomakes#update
+                                         DELETE /motomakes/:id(.:format)                                          motomakes#destroy
+  get_powersubcategories_powercategories GET    /powercategories/get_powersubcategories(.:format)                 powercategories#get_powersubcategories
+                         powercategories GET    /powercategories(.:format)                                        powercategories#index
+                                         POST   /powercategories(.:format)                                        powercategories#create
+                       new_powercategory GET    /powercategories/new(.:format)                                    powercategories#new
+                      edit_powercategory GET    /powercategories/:id/edit(.:format)                               powercategories#edit
+                           powercategory GET    /powercategories/:id(.:format)                                    powercategories#show
+                                         PUT    /powercategories/:id(.:format)                                    powercategories#update
+                                         DELETE /powercategories/:id(.:format)                                    powercategories#destroy
+                              powermakes GET    /powermakes(.:format)                                             powermakes#index
+                                         POST   /powermakes(.:format)                                             powermakes#create
+                           new_powermake GET    /powermakes/new(.:format)                                         powermakes#new
+                          edit_powermake GET    /powermakes/:id/edit(.:format)                                    powermakes#edit
+                               powermake GET    /powermakes/:id(.:format)                                         powermakes#show
+                                         PUT    /powermakes/:id(.:format)                                         powermakes#update
+                                         DELETE /powermakes/:id(.:format)                                         powermakes#destroy
+        autolistingsresults_autolistings POST   /autolistings/autolistingsresults(.:format)                       autolistings#autolistingsresults
+             get_automodels_autolistings GET    /autolistings/get_automodels(.:format)                            autolistings#get_automodels
+    autolistingsresults_new_autolistings GET    /autolistings/autolistingsresults_new(.:format)                   autolistings#autolistingsresults_new
+                            autolistings GET    /autolistings(.:format)                                           autolistings#index
+                                         POST   /autolistings(.:format)                                           autolistings#create
+                         new_autolisting GET    /autolistings/new(.:format)                                       autolistings#new
+                        edit_autolisting GET    /autolistings/:id/edit(.:format)                                  autolistings#edit
+                             autolisting GET    /autolistings/:id(.:format)                                       autolistings#show
+                                         PUT    /autolistings/:id(.:format)                                       autolistings#update
+                                         DELETE /autolistings/:id(.:format)                                       autolistings#destroy
+         motolisting_motolistingsresults POST   /motolistings/:motolisting_id/motolistingsresults(.:format)       motolistings#motolistingsresults
+                            motolistings GET    /motolistings(.:format)                                           motolistings#index
+                                         POST   /motolistings(.:format)                                           motolistings#create
+                         new_motolisting GET    /motolistings/new(.:format)                                       motolistings#new
+                        edit_motolisting GET    /motolistings/:id/edit(.:format)                                  motolistings#edit
+                             motolisting GET    /motolistings/:id(.:format)                                       motolistings#show
+                                         PUT    /motolistings/:id(.:format)                                       motolistings#update
+                                         DELETE /motolistings/:id(.:format)                                       motolistings#destroy
+     marinelisting_marinelistingsresults POST   /marinelistings/:marinelisting_id/marinelistingsresults(.:format) marinelistings#marinelistingsresults
+                          marinelistings GET    /marinelistings(.:format)                                         marinelistings#index
+                                         POST   /marinelistings(.:format)                                         marinelistings#create
+                       new_marinelisting GET    /marinelistings/new(.:format)                                     marinelistings#new
+                      edit_marinelisting GET    /marinelistings/:id/edit(.:format)                                marinelistings#edit
+                           marinelisting GET    /marinelistings/:id(.:format)                                     marinelistings#show
+                                         PUT    /marinelistings/:id(.:format)                                     marinelistings#update
+                                         DELETE /marinelistings/:id(.:format)                                     marinelistings#destroy
+       powerlisting_powerlistingsresults POST   /powerlistings/:powerlisting_id/powerlistingsresults(.:format)    powerlistings#powerlistingsresults
+                           powerlistings GET    /powerlistings(.:format)                                          powerlistings#index
+                                         POST   /powerlistings(.:format)                                          powerlistings#create
+                        new_powerlisting GET    /powerlistings/new(.:format)                                      powerlistings#new
+                       edit_powerlisting GET    /powerlistings/:id/edit(.:format)                                 powerlistings#edit
+                            powerlisting GET    /powerlistings/:id(.:format)                                      powerlistings#show
+                                         PUT    /powerlistings/:id(.:format)                                      powerlistings#update
+                                         DELETE /powerlistings/:id(.:format)                                      powerlistings#destroy

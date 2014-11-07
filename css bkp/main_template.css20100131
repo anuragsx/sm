@@ -1,0 +1,868 @@
+@charset "utf-8";
+body {
+	border-top-width: 0px;
+	border-right-width: 0px;
+	border-bottom-width: 0px;
+	border-left-width: 0px;
+	display: block;
+	text-align: center;
+}
+.smallBlackLinks {
+	font-family: "Myriad Pro";
+	font-size: 12px;
+	font-weight: bolder;
+	color: #000;
+	text-decoration: none;
+}
+
+#container {
+	display: inline;
+	width: 1024px;
+	border-top-width: 0px;
+	border-right-width: 0px;
+	border-bottom-width: 0px;
+	border-left-width: 0px;
+	visibility: visible;
+	
+}
+
+#topLinks {
+	font-family: "Myriad Pro";
+	font-size: 16px;
+	color: #FFF;
+	margin: 0px;
+	padding: 0px;
+	height: 30px;
+	text-align: right;
+}
+
+#callout {
+	font-family: "Myriad Pro";
+	font-style: italic;
+	color: #823416;
+	font-size: 12px;
+	font-weight: bold;
+}
+
+#topNav {
+	background-color: #823416;
+	text-align: left;
+	margin: 0px;
+	padding: 0px;
+	border-top-width: 0px;
+	border-right-width: 0px;
+	border-bottom-width: 0px;
+	border-left-width: 0px;
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: none;
+	color: #FFF;
+	font-family: "Myriad Pro";
+	vertical-align: middle;
+	display: block;
+	height: 30px;
+	width: 883px;
+}
+
+#extras {
+	text-align: center;
+	vertical-align: middle;
+	display: block;
+	margin: 0px;
+	padding: 0px;
+	float: left;
+	width: 883px;
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: none;
+}
+
+#header {
+	margin: 0px;
+	padding: 0px;
+	height: 146px;
+	width: 883px;
+	display: block;
+	border-top-width: 0px;
+	border-right-width: 0px;
+	border-bottom-width: 0px;
+	border-left-width: 0px;
+	float: left;
+	clear: none;
+	background-repeat: no-repeat;
+	background-position: left top;
+}
+
+#adSpace {
+	display: block;
+	margin: 0px;
+	padding: 5px;
+	float: right;
+	border-top-width: 0px;
+	border-right-width: 0px;
+	border-bottom-width: 0px;
+	border-left-width: 0px;
+	text-align: left;
+	overflow: auto;
+	width: 131px;
+}
+
+#mainNav {
+	background-color: #823416;
+	display: block;
+	padding: 0px;
+	float: left;
+	height: 30px;
+	width: 855px;
+	border-top-width: 0px;
+	border-right-width: 0px;
+	border-bottom-width: 0px;
+	border-left-width: 0px;
+	clear: none;
+	font-family: "Myriad Pro";
+	font-size: 12px;
+	color:#FFF;
+	margin-top: 10px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	margin-left: 0px;
+}
+
+#pageContent {
+	background-image: url(../images/maincontentbg.png);
+	background-repeat: no-repeat;
+	text-align: left;
+	display: block;
+	margin: 0px;
+	padding: 0px;
+	border-top-width: 0px;
+	border-right-width: 0px;
+	border-bottom-width: 0px;
+	border-left-width: 0px;
+	width: 883px;
+	overflow: visible;
+	font-family: "Myriad Pro";
+	color: #000;
+	font-size: .8em;
+	float: left;
+}
+
+.category {
+	background-color: #000;
+	display: block;
+	width: 214px;
+	text-align: left;
+	float: left;
+	border-top-width: 0px;
+	border-right-width: 0px;
+	border-bottom-width: 0px;
+	border-left-width: 0px;
+	height: 260px;
+	margin-top: 0px;
+	margin-right: 3px;
+	margin-bottom: 6px;
+	margin-left: 3px;
+	padding-top: 10px;
+	padding-right: 0px;
+	padding-bottom: 0px;
+	padding-left: 0px;
+}
+.greenText {
+	font-weight: bold;
+	color: #747b35;
+	display: inline;
+	font-family: "Myriad Pro";
+	font-size: 18px;
+}
+
+#footer {
+	background-color: #823416;
+	display: block;
+	margin: 0px;
+	padding: 0px;
+	float: left;
+	width: 883px;
+	border-top-width: 0px;
+	border-right-width: 0px;
+	border-bottom-width: 0px;
+	border-left-width: 0px;
+	clear: left;
+}
+
+#copyright {
+	text-align: left;
+	display: block;
+	margin: 0px;
+	float: left;
+	height: 15px;
+	width: 863px;
+	border-top-width: 0px;
+	border-right-width: 0px;
+	border-bottom-width: 0px;
+	border-left-width: 0px;
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 8px;
+	color: #000;
+	padding: 10px;
+}
+
+#footer a:link {
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 10px;
+	color: #FFF;
+	text-decoration: none;
+	background-color: #823416;
+}
+
+#footer a:hover {
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 10px;
+	color: #FFF;
+	text-decoration: underline;
+	background-color: #823416;
+}
+
+#footer a:active {
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 10px;
+	color: #FFF;
+	background-color: #823416;
+	text-decoration: none;
+}
+
+#footer a:visited {
+	font-family: "Myriad Pro";
+	font-size: 10px;
+	color: #FFF;
+	background-color: #823416;
+	text-decoration: none;
+}
+
+#container table tr .category table {
+	color: #FFF;
+	text-align: left;
+	font-size: small;
+}
+
+#mainNav table tr td a {
+	font-family: "Myriad Pro";
+	font-size: 12px;
+	color: #FFF;
+	text-decoration: none;
+	background-color: #823416;
+	text-align: center;
+	vertical-align: middle;
+	display: block;
+	margin: 0px;
+	float: left;
+	height: 22px;
+	width: 107px;
+	padding-top: 7px;
+	padding-right: 0px;
+	padding-bottom: 0px;
+	padding-left: 0px;
+	border-top-width: 0px;
+	border-right-width: 2px;
+	border-bottom-width: 0px;
+	border-left-width: 0px;
+	border-right-style: solid;
+	border-right-color: #57230f;
+}
+
+#mainNav table tr td a:hover {
+	font-family: "Myriad Pro";
+	font-size: 12px;
+	color: #FFF;
+	text-decoration: none;
+	background-color: #000;
+	text-align: center;
+	vertical-align: middle;
+	display: block;
+	margin: 0px;
+	float: left;
+	height: 22px;
+	width: 107px;
+	padding-top: 7px;
+	padding-right: 0px;
+	padding-bottom: 0px;
+	padding-left: 0px;
+	border-top-width: 0px;
+	border-right-width: 2px;
+	border-bottom-width: 0px;
+	border-left-width: 0px;
+	border-right-style: solid;
+	border-right-color: #57230f;
+}
+#mainNav table tr td a:active {
+	font-family: "Myriad Pro";
+	font-size: 12px;
+	color: #FFF;
+	text-decoration: none;
+	background-color: #000;
+	text-align: center;
+	vertical-align: middle;
+	display: block;
+	margin: 0px;
+	float: left;
+	height: 22px;
+	width: 107px;
+	padding-top: 7px;
+	padding-right: 0px;
+	padding-bottom: 0px;
+	padding-left: 0px;
+	border-top-width: 0px;
+	border-right-width: 2px;
+	border-bottom-width: 0px;
+	border-left-width: 0px;
+	border-right-style: solid;
+	border-right-color: #57230f;
+}
+#mainNav table tr td a:visited {
+	font-family: "Myriad Pro";
+	font-size: 12px;
+	color: #FFF;
+	text-decoration: none;
+	text-align: center;
+	vertical-align: middle;
+	display: block;
+	margin: 0px;
+	float: left;
+	height: 22px;
+	width: 107px;
+	padding-top: 7px;
+	padding-right: 0px;
+	padding-bottom: 0px;
+	padding-left: 0px;
+	border-top-width: 0px;
+	border-right-width: 2px;
+	border-bottom-width: 0px;
+	border-left-width: 0px;
+	border-right-style: solid;
+	border-right-color: #57230f;
+}
+
+.blogButton {
+	font-family: "Myriad Pro";
+	font-size: 12px;
+	color: #FFF;
+	text-decoration: none;
+	background-color: #823416;
+	text-align: center;
+	vertical-align: middle;
+	display: block;
+	margin: 0px;
+	float: left;
+	height: 22px;
+	width: 107px;
+	padding-top: 7px;
+	padding-right: 0px;
+	padding-bottom: 0px;
+	padding-left: 0px;
+	border-top-width: 0px;
+	border-right-width: 0px;
+	border-bottom-width: 0px;
+	border-left-width: 0px;
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: none;
+}
+
+.emptyTableCell {
+	display: block;
+	margin: 0px;
+	padding: 0px;
+	border: 0px solid #000;
+}
+
+.searchResults {
+	background-color: #FFF;
+	text-align: left;
+	vertical-align: top;
+	display: block;
+	margin: 0px;
+	padding: 10px;
+	width: 863px;
+	border-top-width: 0px;
+	border-right-width: 0px;
+	border-bottom-width: 0px;
+	border-left-width: 0px;
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: none;
+	visibility: visible;
+}
+
+#container table tr #header table tr td {
+	color: #FFF;
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 14px;
+	font-weight: bold;
+}
+
+#copyright table tr td a {
+	color: #823416;
+	background-color: #FFF;
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 10px;
+	text-decoration: none;
+}
+
+#copyright table tr td a:hover {
+	color: #823416;
+	background-color: #FFF;
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 10px;
+	text-decoration: underline;
+}
+
+#copyright table tr td a:active {
+	color: #823416;
+	background-color: #FFF;
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 10px;
+	text-decoration: none;
+}
+
+#copyright table tr td a:visited {
+	color: #823416;
+	background-color: #FFF;
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 10px;
+	text-decoration: none;
+}
+
+#topNav #topLinks tr td a {
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 10px;
+	color: #FFF;
+	text-decoration: none;
+	background-color: #823416;
+}
+
+#topNav #topLinks tr td a:hover {
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 10px;
+	color: #FFF;
+	text-decoration: underline;
+	background-color: #823416;
+}
+
+#topNav #topLinks tr td a:active {
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 10px;
+	color: #FFF;
+	text-decoration: none;
+	background-color: #823416;
+}
+
+#topNav #topLinks tr td a:visited {
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 10px;
+	color: #FFF;
+	text-decoration: none;
+	background-color: #823416;
+	text-align: center;
+}
+.categoryText {
+	text-align: left;
+	font-size: small;
+	color: #FFF;
+	display: block;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+.blackCategoryText {
+	text-align: left;
+	font-size: small;
+	color: #000;
+	display: block;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+#container table tr #mainNav table tr td .activePage {
+	font-weight: normal;
+	float: left;
+	margin: 0px;
+	height: 21px;
+	width: 107px;
+	padding-top: 7px;
+	padding-right: 0px;
+	padding-bottom: 0px;
+	padding-left: 0px;
+	border: 2px outset #000;
+	text-align: center;
+	background-color: #000;
+}
+.formText {
+	font-size: 10px;
+	font-family: Verdana, Geneva, sans-serif;
+	color: #000;
+	font-weight: bold;
+}
+.formTextNonBold {
+	font-size: 10px;
+	font-family: Verdana, Geneva, sans-serif;
+	color: #000;
+	font-style: normal;
+	font-weight: normal;
+}
+.infoText {
+	font-size: x-small;
+	color: #00C;
+	font-weight: bold;
+}
+#Submit {
+	color: #FFF;
+	background-color: #823416;
+	border: medium groove #999;
+}
+#Reset {
+	color: #FFF;
+	background-color: #823416;
+	display: inline;
+	border: medium groove #999;
+}
+.searchResultsTable {
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: small;
+	color: #000;
+	background-color: #e2ceb3;
+	display: block;
+	margin: 0px;
+	padding: 2px;
+	width: 660px;
+	border: 1px solid #823416;
+}
+.vehicleName {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 24px;
+	font-style: normal;
+	font-weight: bold;
+	color: #000;
+	background-color: #FFF;
+	display: block;
+	height: 30px;
+}
+.listingDetails {
+	display: block;
+	float: left;
+}
+.whatiwantcategory {
+	background-color: #000;
+	display: block;
+	width: 214px;
+	text-align: left;
+	float: left;
+	border-top-width: 0px;
+	border-right-width: 0px;
+	border-bottom-width: 0px;
+	border-left-width: 0px;
+	height: 570px;
+	margin-top: 0px;
+	margin-right: 3px;
+	margin-bottom: 6px;
+	margin-left: 3px;
+	padding-top: 10px;
+	padding-right: 0px;
+	padding-bottom: 0px;
+	padding-left: 0px;
+}.basicsearchresultscategory {
+	background-color: #823416;
+	display: block;
+	width: 215px;
+	text-align: left;
+	float: left;
+	border-top-width: 0px;
+	border-right-width: 0px;
+	border-bottom-width: 0px;
+	border-left-width: 0px;
+	height: 600px;
+	margin-top: 10px;
+	margin-right: 7px;
+	margin-bottom: 5px;
+	margin-left: 0px;
+	padding-top: 10px;
+	padding-right: 0px;
+	padding-bottom: 0px;
+	padding-left: 0px;
+}
+.contactOwnerBox {
+	display: block;
+	margin: 0px;
+	height: 460px;
+	width: 250px;
+	border: 1px solid #000;
+	background-image: url(../images/contact_box_bg.png);
+	background-repeat: no-repeat;
+	float: right;
+	padding: 0px;
+	text-indent: 10px;
+}
+.contactBoxHeader {
+	background-color: #000;
+	background-repeat: no-repeat;
+	display: block;
+	margin: 0px;
+	padding: 0px;
+	height: 20px;
+	width: 250px;
+	border-top-width: 0px;
+	border-right-width: 0px;
+	border-bottom-width: 0px;
+	border-left-width: 0px;
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: none;
+}
+.dividerLine {
+	color: #FFF;
+	font-size: x-small;
+	font-weight: normal;
+}
+.smwText {
+	color: #96431d;
+	font-weight: bold;
+}
+#mainMenu {
+	font-family: "Myriad Pro";
+	font-size: 10px;
+	color: #FFF;
+	text-decoration: none;
+	background-color: #823416;
+	text-align: center;
+	vertical-align: middle;
+	display: block;
+	float: left;
+	width: 100%;
+	border-top-width: 0px;
+	border-right-width: 0px;
+	border-bottom-width: 0px;
+	border-left-width: 0px;
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: none;
+	height: 30px;
+}
+#container table tr #header #mainMenu tr #mainLink1 {
+	font-family: "Myriad Pro";
+	font-size: 10px;
+	color: #FFF;
+	text-decoration: none;
+	background-color: #823416;
+	text-align: center;
+	vertical-align: text-top;
+	display: block;
+	float: left;
+	height: 30px;
+	padding-top: 7px;
+	padding-right: 0px;
+	padding-bottom: 0px;
+	padding-left: 0px;
+}#contactOwnerForm {
+	font-family: "Myriad Pro";
+	color: #000;
+	text-decoration: none;
+	background-image: url(../images/contact_owner_bg2.png);
+	background-repeat: no-repeat;
+	display: block;
+	margin: 0px;
+	width: 217px;
+	border-top-width: 0px;
+	border-right-width: 0px;
+	border-bottom-width: 1px;
+	border-left-width: 0px;
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: solid;
+	border-left-style: none;
+	padding-top: 0px;
+	padding-right: 0px;
+	padding-bottom: 0px;
+	padding-left: 10px;
+	border-bottom-color: #000;
+}
+.asterix {
+	color: #F00;
+	font-weight: bold;
+}
+.messageBar {
+	font-family: Verdana, Geneva, sans-serif;
+	color: #FFF;
+	background-image: url(../images/email_listing_bar.png);
+	background-repeat: no-repeat;
+	margin: 0px;
+	padding: 0px;
+	height: 26px;
+	border-top-width: 0px;
+	border-right-width: 0px;
+	border-bottom-width: 0px;
+	border-left-width: 0px;
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: none;
+	text-decoration: none;
+}
+#messageCategories {
+	text-align: center;
+	vertical-align: middle;
+	display: block;
+	height: 26px;
+}
+.emailMessage {
+	display: block;
+	border: 2px solid #823416;
+}
+.notice {
+	background: #FFF6BF;
+	border-top: 2px solid #FFD324;
+	border-bottom: 2px solid #FFD324;
+	text-align: center;
+	margin: 10px auto;
+	padding: 5px 20px;
+}
+#quicklinks {
+	display: block;
+	margin: 0px;
+	padding: 0px;
+	float: left;
+	height: 373px;
+	width: 222px;
+	border-top-width: 0px;
+	border-right-width: 0px;
+	border-bottom-width: 0px;
+	border-left-width: 0px;
+	background-image: url(../images/brown_box1.jpg);
+	font-size: 12px;
+}
+.fieldWithErrors {
+  padding: 2px;
+  background-color: red;
+  display: table;
+}
+#errorExplanation {
+  width: 400px;
+  border: 2px solid red;
+  padding: 7px;
+  padding-bottom: 12px;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+}
+
+#errorExplanation h2 {
+  text-align: left;
+  font-weight: bold;
+  padding: 5px 5px 5px 15px;
+  font-size: 12px;
+  margin: -7px;
+  background-color: #c00;
+  color: #fff;
+}
+
+#errorExplanation p {
+  color: #333;
+  margin-bottom: 0;
+  padding: 5px;
+}
+
+#errorExplanation ul li {
+  font-size: 12px;
+  list-style: square;
+}
+.leftColumn {
+	background-image: url(../images/brown_box1.jpg);
+	background-repeat: no-repeat;
+	display: block;
+	padding: 5px;
+	height: 363px;
+	width: 207px;
+	float: left;
+	border-top-width: 0px;
+	border-right-width: 0px;
+	border-bottom-width: 0px;
+	border-left-width: 0px;
+	border-top-style: solid;
+	border-right-style: solid;
+	border-bottom-style: solid;
+	border-left-style: solid;
+	font-size: 13px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	margin-left: -2px;
+}
+.rightColumn {
+	background-repeat: no-repeat;
+	display: block;
+	margin: 0px;
+	padding: 0px;
+	float: right;
+	height: 120px;
+	width: 250px;
+	border-top-width: 0px;
+	border-right-width: 0px;
+	border-bottom-width: 0px;
+	border-left-width: 0px;
+	border-top-style: solid;
+	border-right-style: solid;
+	border-bottom-style: solid;
+	border-left-style: solid;
+	text-align: center;
+}
+.centerColumn {
+	background-image: url(../images/maincontentbg.png);
+	background-repeat: no-repeat;
+	display: block;
+	margin: 0px;
+	float: left;
+	width: 392px;
+	padding-top: 0px;
+	border-top-width: 0px;
+	border-right-width: 0px;
+	border-bottom-width: 0px;
+	border-left-width: 0px;
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: none;
+	color: #823416;
+	text-align: left;
+	padding-right: 7px;
+	padding-left: 7px;
+	font-family: "Myriad Pro";
+	font-size: .95em;
+}
+.centerColumn h2 {
+	padding-top:0px;
+	margin-top:0px;
+	padding-bottom:0px;
+}
+#container table tr .category table tr td a:hover {
+	font-family: "Myriad Pro";
+	font-size: 14px;
+	color: #616827;
+	text-decoration: none;
+	font-weight: bold;
+}
+#container table tr .category table tr td a {
+	font-family: "Myriad Pro";
+	font-size: 14px;
+	color: #FFF;
+	text-decoration: underline;
+	font-weight: bold;
+}
+.order_by
+{
+	color: #FFF;
+}
+.RefineSearch
+{
+	background-color: #e2ceb3;
+	padding:5px;
+}

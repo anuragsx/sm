@@ -1,0 +1,35 @@
+<table width="883" border="0" cellpadding="20" cellspacing="0">
+	<tr>
+		<td width="100%" align="left" valign="top">
+
+			<% form_for @search, :url => {:action => "powerlistingsresults"} do |f| %>
+<!--				<fieldset>
+					<legend>Advanced Autos Search</legend>
+-->		
+					<% f.fields_for @search.conditions do |listings| %>
+						<%= listings.label "Year Between:" %><br/>
+						<%= listings.text_field :year_gte, :size => 7 %> and <%= listings.text_field :year_lte, :size => 7 %><br/>
+						<%= listings.label "Category:" %><br/>
+						<%= listings.collection_select :category_is, @powercategories, :category, :category, {:prompt => "-Select a Category"}, {:onChange => remote_function(:url => {:action => 'get_powersubcategories', :object => :listings}, :with => "'category=' + this.value")} %><br/>
+						<%= listings.label "Subcategory:" %><br/>
+						<div id='powersubcategoriesdiv'>
+							<%= render :partial => "powersubcategories_search_select" %>
+						</div>
+						<%= listings.label "Make:" %><br/>
+						<%= listings.collection_select :make_is, @powermakes, :make, :make, {:prompt => "-Select a Make-"} %><br/>
+						<%= listings.label "Price Between:" %><br/>
+						<%= listings.text_field :price_gte, :size => 7 %> and <%= listings.text_field :price_lte, :size => 7 %><br/>
+						<%= listings.label "Description:" %><br/>
+						<%= listings.text_field :desc_contains %><br/>
+						<%= listings.hidden_field :listingtype_is, :value => "power" %>
+						<br/>
+						<%= f.submit "Search Powersports", :id => "Submit" %>
+						
+					<% end %>	
+<!--				</fieldset>
+-->
+			<% end %>
+
+		</td>
+	</tr>
+</table>

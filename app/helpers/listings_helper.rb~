@@ -1,0 +1,9 @@
+module ListingsHelper
+	def FirstPhoto(listing)
+		if listing.photo
+			link_to image_tag listing_photo_path(listing, photo, :jpg), :alt => photo.name
+		else
+			image_tag("faq")
+		end
+	end
+end

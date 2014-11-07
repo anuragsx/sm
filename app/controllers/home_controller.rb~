@@ -1,0 +1,43 @@
+class HomeController < ApplicationController
+	layout "application", :except => :index
+  def index
+  	@featuredauto = Listing.first(:conditions => {:featured => true, :listingtype => 'auto'})
+  	@featuredmoto = Listing.first(:conditions => {:featured => true, :listingtype => 'moto'})
+  	@featuredmarine = Listing.first(:conditions => {:featured => true, :listingtype => 'marine'})
+  	@featuredpower = Listing.first(:conditions => {:featured => true, :listingtype => 'power'})
+  	
+  	#@automakes = Automodels.find(:all, :order => 'make ASC', :select => 'distinct make')
+  	#@automodels = ""
+  	#@autocategories = Autocategories.all
+  	@search = Listing.new_search(params[:search])
+  	@listings = @search.all
+  	@listings_count = @search.count
+  	
+  	render :action => "index", :layout => "home"
+  end
+
+  def faq
+  end
+
+  def about
+  end
+
+  def contact
+  	@message = Message.new
+  end
+  
+  def admin
+  	if @user
+  		if @user.admin
+  			render :action => "admin"
+  		else
+  			flash[:notice] = 'Restricted Page'
+  			redirect_to(root_url)
+  		end
+  	else
+  		flash[:notice] = 'Restricted Page'
+ 			redirect_to(root_url)
+ 		end
+  end
+  
+end

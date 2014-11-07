@@ -1,0 +1,101 @@
+<% if flash[:notice] %>
+	<div class="notice"><%= flash[:notice] %></div>
+<% end %>
+<% if @user %>
+	<table width="100%" border="1" cellpadding="0" cellspacing="0" bordercolor="#823416" class="searchResultsTable">
+		<h3>My Favorites</h3>
+		<tr>
+			<th height="25" align="left" bgcolor="#823416"></th>
+			<th height="25" align="left" bgcolor="#823416">Year</th>
+			<th height="25" align="left" bgcolor="#823416">Make</th>
+			<th height="25" align="left" bgcolor="#823416">Model</th>
+			<th height="25" align="left" bgcolor="#823416">Trans</th>
+			<th height="25" align="left" bgcolor="#823416">Mileage</th>
+			<th height="25" align="left" bgcolor="#823416">Price</th>
+			<th height="25" align="left" bgcolor="#823416"></th>
+		</tr>
+		<br/>
+
+		<% @favorites.each do |favorite| %>
+		<tr>
+			<td align="center">
+				<% favorite.listing.photos.all(:limit => 1).each do |photo| %>
+					<%= link_to image_tag(smallphoto_url(photo, :jpg), :alt => photo.name, :border => 0), listing_path(favorite.listing) %><br/>
+				<% end %>
+				<%=h favorite.listing.photos.all.count %>
+				<% if favorite.listing.photos.all.count == 1 %>
+					&nbsp;Photo<br/>
+				<% elsif favorite.listing.photos.all.count == 0 %>
+					&nbsp;Photos<br/>
+				<% else %>
+					&nbsp;Photos<br/>
+					<%= link_to image_tag("more_photos.png", :alt => "more photos", :size => "74x10", :border => "0"), favorite %>
+					</a>
+				<% end %>
+			</td>
+			<td align="center" valign="middle">
+				<%=h favorite.listing.year %>
+			</td>
+			<td align="center" valign="middle">
+				<%=h favorite.listing.make %>
+			</td>
+			<td align="center" valign="middle">
+				<%=h favorite.listing.model %>
+			</td>
+			<td align="center" valign="middle">
+				<%=h favorite.listing.transmission %>
+			</td>
+			<td align="center" valign="middle">
+				<%=h favorite.listing.mileage %>
+			</td>
+			<td align="center" valign="middle">
+				<%=h favorite.listing.price %>
+			</td>
+			<td align="center" valign="middle">
+				<%=h favorite.listing.owner.username %>
+			</td>
+			<td>
+				<%= link_to "Remove", favorite, :confirm => 'Are you sure?', :method => :delete %>
+		</tr>
+		
+		<% end %>
+		
+	</table>
+	
+	<p>&nbsp;</p>
+
+	<div align="center">
+		<a href="http://www.camaroforumz.com" target="_blank">
+			<img src="../images/Ads/Camaro-forumAd.jpg" width="382" height="60" alt="camaroforumz.com" border="0" />
+		</a>
+		<a href="http://www.dpbolvw.net/click-3732474-10518038" target="_blank">
+<img src="http://www.awltovhc.com/image-3732474-10518038" width="468" height="60" alt="$100 Mail-in Rebate on Mickey Thompson Tires & Whe" border="0"/></a>
+	</div>
+
+	<br />
+	
+<% else %>
+
+	<table width="883" border="0" cellpadding="10" cellspacing="0">
+		<tr>
+			<td align="center" valign="top">
+				<p><%= link_to "Register", new_user_path %> or <%= link_to "Log in", login_url %> to set up your "Favorites" list - this will help you track the vehicles you like.<br/>
+				</p>
+			</td>
+		</tr>
+		<tr align="center">
+			<td>
+<!--				<a href="http://www.camaroforumz.com" target="_blank">
+					<img src="../images/Ads/Camaro-forumAd.jpg" width="382" height="60" alt="camaroforumz.com" border="0" />
+				</a>
+-->
+				<a href="javascript:gotoshow()">
+					<img src="../images/banners/MoparNation.jpg" name="slide" border=0 style="filter:blendTrans(duration=3)" width=382 height=60>
+				</a>
+				<a href="http://www.dpbolvw.net/click-3732474-10518038" target="_blank">
+<img src="http://www.awltovhc.com/image-3732474-10518038" width="468" height="60" alt="$100 Mail-in Rebate on Mickey Thompson Tires & Whe" border="0"/></a>
+			</td>
+		</tr>
+	</table>
+	
+<% end %>

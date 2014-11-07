@@ -1,0 +1,11 @@
+class AddAutoCategories < ActiveRecord::Migration
+  def self.up
+  	['Coupe/Compact','Convertible','Sport','Van','Wagon','SUV','Luxury','Truck','Sedan','Hybrid','Commercial'].each do |s|
+  		AutoCategories.new(:category => s).save
+ 		end
+  end
+
+  def self.down
+  	AutoCategories.destroy_all
+  end
+end

@@ -1,0 +1,64 @@
+<table width="883" border="0" cellpadding="10" cellspacing="0">
+	<% if flash[:notice] %>
+		<div class="notice"><%= flash[:notice] %></div>
+	<% end %>
+	<tr>
+		<td align="left" valign="top">
+			<table width="100%" border="0" cellspacing="0" cellpadding="0">
+		    <tr>
+		      <td>
+		      	<h3>New Photo</h3>
+		      	
+						<% form_for [@listing, @photo], :html => { :multipart => true } do |f| %>
+							<%= f.error_messages %>
+	
+							 <tr>
+							      <td>
+							      	<b>You may upload up to 4 images per listing.  Please keep the files under 3 Megabytes in size.</b>
+							      </td>
+							    </tr>
+							    <tr>
+							      <td>
+							      	<%= f.label "Description:" %>
+							      </td>
+							    </tr>
+							    <tr>
+							      <td>
+							      	<%= f.text_field :name, :size => 25 %>
+								     </td>
+							    </tr>
+							    <tr>
+							      <td>
+							      	<%= f.label "Image:" %>
+							      </td>
+							    </tr>
+							    <tr>
+							      <td>
+							      	<%= f.file_field :image_file, :size => 15 %>
+							      </td>
+							    </tr>
+							    <tr>
+							    	<td>
+							    		<i>* Depending on file size, pictures may take a few moments to load</i>
+							    	</td>
+							    </tr>
+							    <tr>
+							      <td align="left" valign="center">
+							      	<% if @listing.photos.count > 4 %>
+							      		<%= f.submit 'Upload Image', :id => "Submit", :disabled => true %> <span style="color: red;">You already have 4 images.  You must delete one before attempting to upload another.</span>
+							      	<% else %>
+								      	<%= f.submit 'Upload Image', :id => "Submit" %>
+								      <% end %>
+							      </td>
+							    </tr>
+						    	<tr>
+						    		<td>&nbsp;</td>
+						    	</tr>
+						<% end %>
+					</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+</table>
+

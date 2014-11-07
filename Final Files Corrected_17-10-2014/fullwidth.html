@@ -1,0 +1,265 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<title>::Welcome::</title>
+<link href="style.css" rel="stylesheet" type="text/css" />
+<link href="innerstyle.css" rel="stylesheet" type="text/css" />
+<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Oswald:300' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Oswald:700' rel='stylesheet' type='text/css'>
+<script src="SpryAssets/SpryMenuBar.js" type="text/javascript"></script>
+<link href="SpryAssets/SpryMenuBarHorizontal.css" rel="stylesheet" type="text/css" />
+<script src="SpryAssets/SpryCollapsiblePanel.js" type="text/javascript"></script>
+<link href="SpryAssets/SpryCollapsiblePanel.css" rel="stylesheet" type="text/css" />
+
+<!--accordianjs-->
+<link rel="stylesheet" href="css/highlight.css" type="text/css" />
+<link rel="stylesheet" href="css/accordion.css" type="text/css" />
+<script type="text/javascript" src="javascript/jquery.min.js"></script>
+<script type="text/javascript" src="javascript/highlight.pack.js"></script>
+<script type="text/javascript" src="javascript/jquery.cookie.js"></script>
+<script type="text/javascript" src="javascript/jquery.accordion.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+
+	//syntax highlighter
+	hljs.tabReplace = '    ';
+	hljs.initHighlightingOnLoad();
+
+	//accordion
+	$('.accordion').accordion({
+		defaultOpen: 'section1',
+		cookieName: 'accordion_nav',
+		speed: 'slow',
+		animateOpen: function (elem, opts) { //replace the standard slideUp with custom function
+			elem.next().slideFadeToggle(opts.speed);
+		},
+		animateClose: function (elem, opts) { //replace the standard slideDown with custom function
+			elem.next().slideFadeToggle(opts.speed);
+		}
+	});
+
+	//custom animation for open/close
+	$.fn.slideFadeToggle = function(speed, easing, callback) {
+		return this.animate({opacity: 'toggle', height: 'toggle'}, speed, easing, callback);
+	};
+
+});
+</script>
+<style type="text/css">
+#body {
+	width: 90%
+}
+</style>
+
+<link href="css/responsive.css" rel="stylesheet" type="text/css">
+
+<!--accordianjs-->
+
+<!-- NAVIGATION RESPONSIVE JS AND CSS START-->
+   <link rel="stylesheet" href="css/responsive_nav.css">
+   <script src="js/jquery-latest.min.js" type="text/javascript"></script>
+   <script src="js/script.js"></script>
+<!-- NAVIGATION RESPONSIVE JS AND CSS END-->
+
+
+</head>
+
+<body class="fullwidth">
+<div id="wrapper">
+  <div id="header">
+    <div class="page">
+      <div class="logo"> <img src="images/logo.png" width="177" height="87" class="logo"/> <img src="images/headerlogotext.png" width="435" height="29" class="logotext" /> </div>
+      <div class="social">
+        <ul>
+          <li><a href="#"><img src="images/facebook.png" width="57" height="31"  /></a></li>
+          <li><a href="#"><img src="images/twitter.png" width="57" height="31"  /></a></li>
+        </ul>
+        <div class="login_p">
+          <form action="#">
+            <a href="#">
+            <input type="submit" class="sub" value="Sign in"/>
+            </a> <a href="#">
+            <input type="submit" class="sub" value="Register"/>
+            </a>
+          </form>
+        </div>
+      </div>
+      
+      <div class="clear"></div>
+      
+      
+      <div id="toplinks">
+        <div class="rg_head_top_div"> 
+          
+          <!--NAVIGATION START-->
+          <nav>
+            
+            <div id='cssmenu'>
+<ul>
+   <li><a href='#'><span>Home</span></a></li>
+   <li class='active has-sub'><a href='#'><span>Find A Whip</span></a>
+      <ul>
+         <li class='has-sub'><a href='#'><span>Product 1</span></a>
+            <ul>
+               <li><a href='#'><span>Sub Product</span></a></li>
+               <li class='last'><a href='#'><span>Sub Product</span></a></li>
+            </ul>
+         </li>
+         <li class='has-sub'><a href='#'><span>Product 2</span></a>
+            <ul>
+               <li><a href='#'><span>Sub Product</span></a></li>
+               <li class='last'><a href='#'><span>Sub Product</span></a></li>
+            </ul>
+         </li>
+      </ul>
+   </li>
+   <li><a href='#'><span>Wishlist</span></a></li>
+   <li><a href='#'><span>My Whip</span></a></li>
+   <li><a href='#'><span>Favorites</span></a></li>
+   <li><a href='#'><span>About Us</span></a></li>
+   <li><a href='#'><span>How it Works</span></a></li>
+   <li class='last'><a href='#'><span>Contact Us</span></a></li>
+</ul>
+</div>  
+            
+          </nav>
+          <!--NAVIGATION ENTER--> 
+          
+        </div>
+        <div class="clear"></div>
+        <script type="text/javascript">
+var MenuBar1 = new Spry.Widget.MenuBar("MenuBar1", {imgDown:"SpryAssets/SpryMenuBarDownHover.gif", imgRight:"SpryAssets/SpryMenuBarRightHover.gif"});
+</script> 
+      </div>
+    </div>
+  </div>
+  <div id="content">
+    <div class="page"> <img class="p_img" src="images/fullwidth.jpg" width="1050" />
+      <div class="leftcontent">
+        <div class="uppercontent"> <span>A Little Bit</span><span class="boldclass"> More Information</span>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+          <div> 
+            <!-- panel -->
+            
+            <div id="CollapsiblePanel1" class="CollapsiblePanel">
+              <div class="CollapsiblePanelTab" tabindex="0"><strong>How does this site work?</strong></div>
+              <div class="CollapsiblePanelContent">
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+              </div>
+            </div>
+            <div id="CollapsiblePanel2" class="CollapsiblePanel">
+              <div class="CollapsiblePanelTab" tabindex="0"><strong>How much does this cost?</strong></div>
+              <div class="CollapsiblePanelContent">Content</div>
+            </div>
+            <div id="CollapsiblePanel3" class="CollapsiblePanel">
+              <div class="CollapsiblePanelTab" tabindex="0"><strong>What is a "whip?</strong></div>
+              <div class="CollapsiblePanelContent">Content</div>
+            </div>
+            <div id="CollapsiblePanel4" class="CollapsiblePanel">
+              <div class="CollapsiblePanelTab" tabindex="0"><strong>Where did the term "whip" originate?</strong></div>
+              <div class="CollapsiblePanelContent">Content</div>
+            </div>
+            <div id="CollapsiblePanel5" class="CollapsiblePanel">
+              <div class="CollapsiblePanelTab" tabindex="0"><strong>Can I sell my vehicle on this site, or is this only for swapping?</strong></div>
+              <div class="CollapsiblePanelContent">Content</div>
+            </div>
+            <div id="CollapsiblePanel6" class="CollapsiblePanel">
+              <div class="CollapsiblePanelTab" tabindex="0"><strong>What if I'm dissatisfied with my swap?</strong></div>
+              <div class="CollapsiblePanelContent">Content</div>
+            </div>
+            <div id="CollapsiblePanel7" class="CollapsiblePanel">
+              <div class="CollapsiblePanelTab" tabindex="0"><strong>Do I have to be a member to swap a vehicle?</strong></div>
+              <div class="CollapsiblePanelContent">Content</div>
+            </div>
+            <div id="CollapsiblePanel8" class="CollapsiblePanel">
+              <div class="CollapsiblePanelTab" tabindex="0"><strong>How do I contact an owner once I've found a vehicle I want to swap for?</strong></div>
+              <div class="CollapsiblePanelContent">Content</div>
+            </div>
+            <script type="text/javascript">
+var CollapsiblePanel1 = new Spry.Widget.CollapsiblePanel("CollapsiblePanel1", {contentIsOpen:false});
+var CollapsiblePanel2 = new Spry.Widget.CollapsiblePanel("CollapsiblePanel2", {contentIsOpen:false});
+var CollapsiblePanel3 = new Spry.Widget.CollapsiblePanel("CollapsiblePanel3", {contentIsOpen:false});
+var CollapsiblePanel4 = new Spry.Widget.CollapsiblePanel("CollapsiblePanel4", {contentIsOpen:false});
+var CollapsiblePanel5 = new Spry.Widget.CollapsiblePanel("CollapsiblePanel5", {contentIsOpen:false});
+var CollapsiblePanel6 = new Spry.Widget.CollapsiblePanel("CollapsiblePanel6", {contentIsOpen:false});
+var CollapsiblePanel7 = new Spry.Widget.CollapsiblePanel("CollapsiblePanel7", {contentIsOpen:false});
+var CollapsiblePanel8 = new Spry.Widget.CollapsiblePanel("CollapsiblePanel8", {contentIsOpen:false});
+</script> 
+            <!-- panel --> 
+          </div>
+          
+          <!--	<p><strong>How does this site work?</strong></p>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+	<p><strong>How much does this cost?</strong></p>
+	<p><strong>What is a "whip?</strong></p>
+	<p><strong>Where did the term "whip" originate?</strong></p>
+	<p><strong>Can I sell my vehicle on this site, or is this only for swapping?</strong></p>
+	<p><strong>What if I'm dissatisfied with my swap?</strong></p>
+	<p><strong>Do I have to be a member to swap a vehicle?</strong></p>
+	<p><strong>How do I contact an owner once I've found a vehicle I want to swap for?</strong></p>-->
+          <div class="clear"></div>
+        </div>
+      </div>
+      <div class="clear"></div>
+    </div>
+  </div>
+</div>
+<div class="clear"></div>
+<div id="footer">
+  <div class="page">
+    <div class="footerpart">
+      <ul>
+        <h2>My Whip</h2>
+        <li><a href="#">My Account</a></li>
+        <li><a href="#">My Listings</a></li>
+        <li><a href="#">My Favorites</a></li>
+      </ul>
+    </div>
+    <div class="footerpart">
+      <ul>
+        <h2>Support & Help</h2>
+        <li><a href="#">FAQ</a></li>
+        <li><a href="#">Support</a></li>
+        <li><a href="#">Contact Us</a></li>
+      </ul>
+    </div>
+    <div class="footerpart">
+      <ul>
+        <h2>Legal</h2>
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Terms of Use</a></li>
+      </ul>
+    </div>
+    <div class="footerpart last">
+      <ul>
+        <h2>Newsletter</h2>
+        <p>Lorem emphasised est dolor sit ams...</p>
+        <form action="#">
+          <input type="text" value="Enter your email..." class="textbox"/>
+          <input type="image" src="images/submit.png" width="36" height="29" />
+        </form>
+      </ul>
+    </div>
+    <div class="clear"></div>
+  </div>
+  <div class="clear"></div>
+</div>
+<div class="clear"></div>
+<div id="downfooter">
+  <div class="page">
+    <p class="leftp"> &copy; 2013 Swapmywhip.com, Inc. All Rights Reserved. <br />
+      "Swapmywhip.com" is a registered trademark of Krause Capital, LLC used under exclusive license </p>
+    <ul>
+      <li><a href="#">Privacy policy</a></li>
+      <li><a href="#">Terms Of Use</a></li>
+      <li class="last"><a href="#">Contact Us</a></li>
+    </ul>
+    <div class="clear"></div>
+  </div>
+</div>
+</body>
+</html>

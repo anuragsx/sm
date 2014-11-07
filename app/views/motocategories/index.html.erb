@@ -1,0 +1,27 @@
+<% if flash[:notice] %>
+	<div class="notice"><%= flash[:notice] %></div>
+<% end %>
+
+<table width="100%" border="1" cellpadding="0" cellspacing="0" bordercolor="#823416" class="searchResultsTable">
+	<h1>Motocategories</h1>
+	
+	<%= link_to "Create New Motocategory", new_motocategory_path %>
+	<tr>
+		<th height="25" align="left">Category</th>
+		<th height="25" align="left"></th>
+	</tr>
+	<br/>
+
+	<% @motocategories.each do |motocategory| %>
+	<tr>
+		<td align="center" valign="middle">
+			<%=h motocategory.category %>
+		</td>
+		<td>
+			<%= link_to "Remove", motocategory, :confirm => 'Are you sure?', :method => :delete %>
+	</tr>
+
+	<% end %>
+
+</table>
+

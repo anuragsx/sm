@@ -1,0 +1,124 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Swap My Whip - Vehicle Trading &amp; Purchasing</title>
+<link href="css/main_template.css" rel="stylesheet" type="text/css" media="screen" />
+</head>
+
+<body>
+<table width="1024" border="0" cellpadding="0" cellspacing="0">
+  <tr>
+    <td width="883" id="topNav"><table width="100%" border="0" cellpadding="0" cellspacing="0" id="topLinks">
+      <tr>
+        <td width="20%" align="center">Home</td>
+        <td width="60%">&nbsp;</td>
+        <td width="20%" align="center"><a href="#">Register</a> | <a href="#">Login</a></td>
+      </tr>
+    </table></td>
+    <td></td>
+  </tr>
+</table>
+
+<div id="container"><table width="1024" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td id="header" colspan="4">&nbsp;</td>
+    <td rowspan="7" valign="top" id="adSpace">&nbsp;</td>
+  </tr>
+  <tr>
+    <td id="mainNav" colspan="4">
+    <table width="883" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td bgcolor="#823416">&nbsp;</td>
+            <td bgcolor="#823416" class="link"><span><a href="#">What I Have</a></span></td>
+            <td bgcolor="#823416" class="link"><a href="#">What I Want</a></td>
+            <td bgcolor="#823416" class="link"><a href="#">What It's Worth</a></td>
+            <td bgcolor="#823416" class="link"><a href="#">About Us</a></td>
+            <td bgcolor="#823416" class="link"><a href="#">FAQ's</a></td>
+            <td bgcolor="#823416" class="link"><a href="#">Contact Us</a></td>
+            <td bgcolor="#823416" class="link"><a href="#">Blog</a></td>
+            <td bgcolor="#823416">&nbsp;</td>
+          </tr>
+        </table>
+    </td>
+    </tr>
+  <tr>
+    <td id="pageContent" colspan="4"><table width="100%" border="0" cellpadding="20" cellspacing="0">
+  <tr>
+    <td align="left" valign="top"><p>Utilizing an “apples-to-apples” approach, Swap My Whip provides users with a fair trade environment where they can list the vehicle(s) they have to offer, and create a “wish list” of vehicles they’d be willing to trade for. By limiting transactions to private parties only, Swap My Whip bypasses the overpriced auto market, and dealers with only their own interests in mind, and allows users to conduct swaps on a level playing field they establish themselves. If you’re ready to get the most for your money, give us a try!</p>
+      <p>Swap My Whip was founded by a group of individuals who were tired of paying more for less. By creating a fair trade market, Swap My Whip offers its users the chance to get exactly what they want for a price they’re willing to pay.</p></td>
+    <td align="left" valign="top"><p>So skip the high volume dealerships only out Cras tempus nisl tempor nibh ultricies rutrum. Donec mollis ornare dapibus. Nam a suscipit massa. Curabitur eros libero, luctus quis imperdiet id, ultricies viverra turpis. Maecenas nec quam eu ante scelerisque ultricies. Morbi aliquam hendrerit sapien, vel aliquet tellus sodales vitae. Morbi non tortor sit amet sapien sodales tempus. Nunc cursus nulla eu mi pharetra a venenatis mauris mollis. Sed sed magna vel felis adipiscing aliquam.</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vel quam sed leo fringilla molestie. Integer at velit quis nulla fringilla varius. Aliquam massa magna, elementum ut egestas eu, vestibulum vel quam.</p></td>
+  </tr>
+</table>
+</td>
+    </tr>
+  <tr>
+    <td colspan="4" align="center" valign="middle" id="contentExtras"><p><img src="images/ready.png" alt="Ready, Set, Swap" width="185" height="24" hspace="0" vspace="10" border="0" /><br />
+        <span id="callout">The Swap Your Whip Team is  looking for those extra special whips… <br />
+      Submit YOUR whip for a chance to be featured below and YOU could win a FREE Swap My Whip T!!</span><br />
+      <br />
+      </p></td>
+    </tr>
+  <tr>
+    <td class="category"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td align="center"><a href="autos.html"><img src="images/autos.gif" alt="autos" width="48" height="22" vspace="1" border="0" /></a></td>
+      </tr>
+      <tr>
+        <td height="241" valign="top"><br />
+          Preferred listings go in this area.<br />
+          This information will probably be manually entered, unless we can come up with a way to dynamically generate preferred listings and descriptions.</td>
+      </tr>
+    </table>      <a href="autos.html"></a></td>
+    <td class="category"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td align="center"><a href="motorcycles.html"><img src="images/motorcycles.gif" alt="motorcycles" width="104" height="24" border="0" /></a></td>
+      </tr>
+      <tr>
+        <td height="241" valign="top"><br />
+          Preferred listings go in this area. <br />
+This information will probably be manually entered, unless we can come up with a way to dynamically generate preferred listings and descriptions.</td>
+      </tr>
+    </table>      <a href="motorcycles.html"></a></td>
+    <td class="category"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td align="center"><a href="marine.html"><img src="images/marine.gif" alt="marine" width="57" height="22" vspace="1" border="0" /></a></td>
+      </tr>
+      <tr>
+        <td height="241" valign="top"><br />
+          Preferred listings go in this area.<br />
+          This information will probably be manually entered, unless we can come up with a way to dynamically generate preferred listings and descriptions.</td>
+      </tr>
+    </table>      <a href="marine.html"></a></td>
+    <td class="category"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td align="center"><a href="powersports.html"><img src="images/powersports.gif" alt="power sports" width="113" height="24" border="0" /></a></td>
+      </tr>
+      <tr>
+        <td height="241" valign="top"><br />
+          Preferred listings go in this area.<br />
+          This information will probably be manually entered, unless we can come up with a way to dynamically generate preferred listings and descriptions.</td>
+      </tr>
+    </table>      <a href="powersports.html"></a></td>
+    </tr>
+  <tr>
+    <td id="footer" colspan="4"><table width="100%" border="0" cellpadding="5" cellspacing="0">
+          <tr>
+            <td width="50%" height="30" align="left"><a href="#">Terms of Use</a> | <a href="#">Privacy Policy</a></td>
+            <td width="50%" height="30" align="right"><a href="#">Sitemap</a> | <a href="#">Contact Us</a></td>
+          </tr>
+      </table></td>
+    </tr>
+  <tr>
+    <td colspan="4" id="copyright"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td width="50%">Copyright &copy;2009 Krause Capital, LLC. All rights reserved.</td>
+        <td width="50%" align="right">Site design by <a href="http://www.dinataledesign.com/" target="_blank">Di Natale Design</a><a href="http://www.dinataledesign.com/" target="_blank">.</a></td>
+      </tr>
+    </table></td>
+    </tr>
+</table>
+</div>
+</body>
+</html>

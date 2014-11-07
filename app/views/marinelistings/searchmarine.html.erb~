@@ -1,0 +1,49 @@
+<table width="883" border="0" cellpadding="20" cellspacing="0">
+	<tr>
+		<td width="100%" align="left" valign="top">
+
+			<% form_for @search, :url => {:action => "marinelistingsresults"} do |f| %>
+<!--				<fieldset>
+					<legend>Advanced Autos Search</legend>
+-->		
+					<% f.fields_for @search.conditions do |listings| %>
+						<%= listings.label "Year Between:" %><br/>
+						<%= listings.text_field :year_gte, :size => 7 %> and <%= listings.text_field :year_lte, :size => 7 %><br/>
+						<%= listings.label "Category:" %><br/>
+						<%= listings.collection_select :category_is, @marinecategories, :category, :category, {:prompt => "-Select a Category"}, {:onChange => remote_function(:url => {:action => 'get_marinesubcategories', :object => :listings}, :with => "'category=' + this.value")} %><br/>
+						<%= listings.label "Subcategory:" %><br/>
+						<div id='marinesubcategoriesdiv'>
+							<%= render :partial => "marinesubcategories_select" %>
+						</div>
+						<%= listings.label "Make:" %><br/>
+						<%= listings.collection_select :make_is, @marinemakes, :make, :make, {:prompt => "-Select a Make-"} %><br/>
+						<%= listings.label "Price Between:" %><br/>
+						<%= listings.text_field :price_gte, :size => 7 %> and <%= listings.text_field :price_lte, :size => 7 %><br/>
+						
+						<% listings.fields_for @search.conditions.owner do |owner| %>
+							<%= owner.label "State:" %><br/>
+							<%= owner.select(:state_is, ['AK','AL','AR','AZ','CA','CO','CT','DE','FL','GA','HI','IA','ID','IL','IN','KS','KY','LA','MA','MD','ME','MI','MN','MO','MS','MT','NC','ND','NE','NH','NJ','NM','NV','NY','OH','OK','OR','PA','RI','SC','SD','TN','TX','UT','VA','VT','WA','WI','WV','WY'], {:prompt => "-Select State"}) %><br/>
+						<% end %>
+						
+						<%= listings.label "Length:" %><br/>
+						<%= listings.text_field :length_is, :size => 15 %><br/>
+						<%= listings.label "Fuel:" %><br/>
+						<%= listings.select(:fuel_is, ['Gasoline','Diesel','Electric','Other'], {:prompt => "-Select Fuel"}) %><br/>
+						<%= listings.label "Engine:" %><br/>
+						<%= listings.select(:engine_is, ['Direct Drive','Jet Drive','None','Other','Single','Single I/O','Twin','Twin I/O','Twin Outboard','Triple I/O','Triple Outboard','V-Drive'], {:prompt => "-Select Engine"}) %><br/>
+						<%= listings.label "Hull:" %><br/>
+						<%= listings.select(:hull_is, ['Aluminum','Ferro-Cement','Fiberglass/Composite','Fiberglass-Reinforced','Inflatable','Plastic','Rigid Inflatable','Steel','Wood','Other'], {:prompt => "-Select Hull"}) %><br/>
+						<%= listings.label "Description:" %><br/>
+						<%= listings.text_field :desc_contains %><br/>
+						<%= listings.hidden_field :listingtype_is, :value => "marine" %>
+						<br/>
+						<%= f.submit "Search Marine", :id => "Submit" %>
+						
+					<% end %>	
+<!--				</fieldset>
+-->
+			<% end %>
+
+		</td>
+	</tr>
+</table>

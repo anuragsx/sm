@@ -1,0 +1,45 @@
+<table width="883" border="0" cellpadding="0" cellspacing="0">
+	<tr>
+		<td align="left" valign="top">
+			<table width="883" border="0" cellpadding="0" cellspacing="0">
+				<tr>
+					<td width="25%" align="left" valign="top">
+						<%= image_tag "homepg_quicklinks.jpg", :alt => "quick links", :size => "222x373", :border => "0", :usemap="#Map" %>
+						<map name="Map" id="Map">
+							<area shape="rect" coords="37,73,103,87" href="/whatiwant" alt="register now" />
+							<area shape="rect" coords="61,241,147,260" href="/whatiwant" alt="automobiles" />
+							<area shape="rect" coords="63,270,143,289" href="/whatiwant" alt="motorcycles" />
+							<area shape="rect" coords="63,329,143,350" href="/whatiwant" alt="powersports" />
+						</map>
+					</td>
+					<td width="50%" valign="top">
+						<blockquote>
+							<p>
+								<span style="font-size: 22px; color: #823416;">The Vehicle Trading Marketplace</span><br />
+								<br />
+								We know what you're going through. Tired of the old way of  finding a vehicle? Don't enjoy getting ripped off at a dealership, or using  Internet sites that are really dealerships in disguise? Then this is the place  for you!<br />
+								<br />
+								We took matters into our own hands, and created a site for  people wanting value for their hard earned dollar! Dealers are discouraged from  using our site, so you'll find individuals, just like you, at Swap My Whip.com.<br />
+								<br />
+								Have a motorcycle or boat collecting dust? Swap it for that  first car for your teenager. New baby on the way? Swap your sports car for a  sport sedan or a crossover. Just tired of driving? Swap it for something fresh!  Swap it as often as you life, because unlike a conventional trade-in, you'll  get value when you swap.<br />
+								<br />
+								Simply register, list your vehicle(s), and hit the Wishlist  page to let our search engine find the swap you're looking for. If the perfect  vehicle isn't listed, we'll shoot you an email when the vehicle you're looking  for is listed.<br />
+								<br />
+								Don't have a vehicle to trade? That's fine - simply browse  the listings, and make an offer when you find something you like. Come check us  out!
+							</p>
+						</blockquote>
+							<p style="text-align: center">
+								<span class="greenText">Ready, Set, Swap!<br />
+								</span>
+								<span class="formText">Just click on a category below.</span>
+							</p>
+					</td>
+					<td width="25%" align="left" valign="top">
+						<%= image_tag "homepg_callout.jpg", :alt => "win a free swapmywhip t!", :size => "258x120", :border => "0", :usemap="#Map2" %>
+					</td>
+				</tr>
+			</table>
+		</td>
+</tr>
+</table>
+

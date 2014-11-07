@@ -1,0 +1,48 @@
+<div class="contactwidget">
+  <%= form_for(@listing) do |f| %>
+      <% if @listing.errors.any? %>
+          <div id="errorExplanation">
+            <h2><%= pluralize(@listing.errors.count, "error") %> prohibited this post from being saved:</h2>
+
+            <ul>
+              <% @listing.errors.full_messages.each do |message| %>
+                  <li><%= message %></li>
+              <% end %>
+            </ul>
+          </div>
+      <% end %>
+      <div class="year">
+        <label>Year:</label>
+        <%= f.text_field :year, :size => 15 %>
+      </div>
+      <div class="make">
+        <label>Category:</label>
+        <%= f.collection_select :category, @powercategories, :category, :category, {:prompt => "-Select a Category"} %>
+      </div>
+      <div>
+        <label>Make:</label>
+        <%= f.collection_select :make, @powermakes, :make, :make, :prompt => "-Select a Make", :size => 15 %>
+      </div>
+      <div class="model">
+        <label>Model:</label>
+          <%= select :listing, :subcategory, @powersubcategories, {:size => 10, :prompt => "-Select a Category First-"} %>
+      </div>
+      <div>
+        <label>VIN:</label>
+        <%= f.text_field :vin, :size => 20 %>
+      </div>
+
+      <div>
+        <label>Price:</label>
+        <%= f.text_field :price, :size => 15 %>
+      </div>
+
+      <div>
+        <label>Description:</label>
+        <%= f.text_area :desc, :columns => 15, :rows => 20 %>
+      </div>
+      <div>
+        <%= f.submit 'Submit Changes', :id => "Submit" %>
+      </div>
+  <%end%>
+</div>

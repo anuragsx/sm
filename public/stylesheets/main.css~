@@ -1,0 +1,151 @@
+@charset "utf-8";
+/* CSS Document */
+body {
+	background-color: #ffffff;
+	font-family:verdana;
+	font-size:12px;
+	text-align: right;
+	padding: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	margin-left: 0px;
+}
+#container {
+	display: block;
+	padding: 0px;
+	float: left;
+	width: 883px;
+	border-top-width: 0px;
+	border-right-width: 0px;
+	border-bottom-width: 0px;
+	border-left-width: 0px;
+	margin: 0px;
+}
+.category {
+	display: block;
+	border-top-width: 0px;
+	border-right-width: 0px;
+	border-bottom-width: 0px;
+	border-left-width: 0px;
+	width: 215px;
+	padding-top: 10px;
+	padding-right: 0px;
+	padding-bottom: 0px;
+	padding-left: 0px;
+	height: 265px;
+	background-color: #000;
+	float: left;
+	margin-top: 0px;
+	margin-right: 3px;
+	margin-bottom: 0px;
+	margin-left: 0px;
+}
+
+#header {
+	display: block;
+	margin: 0px;
+	padding: 0px;
+	height: 146px;
+	width: 883px;
+	border-top-width: 0px;
+	border-right-width: 0px;
+	border-bottom-width: 0px;
+	border-left-width: 0px;
+}
+#footer {
+	font-family: "Myriad Pro";
+	font-size: 1em;
+	background-color: #823416;
+	vertical-align: middle;
+	display: block;
+	margin: 0px;
+	height: 30px;
+	width: 863px;
+	padding-top: 0px;
+	padding-right: 10px;
+	padding-bottom: 0px;
+	padding-left: 10px;
+	border-top-width: 0px;
+	border-right-width: 0px;
+	border-bottom-width: 0px;
+	border-left-width: 0px;
+	color: #FFF;
+	text-align: right;
+	font-weight: bold;
+}
+#copyright {
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: .75em;
+	color: #000;
+	text-align: left;
+	display: block;
+}
+#footer a:link {
+	font-family: "Myriad Pro";
+	font-size: 1em;
+	font-weight: bold;
+	color: #FFF;
+	text-decoration: none;
+}
+#footer a:hover {
+	color: #000000;
+}
+.link {
+	font-family: "Myriad Pro";
+	font-size: 10px;
+	color: #FFF;
+	background-color: 823416;
+	margin: 0px;
+	padding: 0px;
+	height: 30px;
+	width: 107px;
+	border: 1px solid #000;
+	text-align: center;
+	vertical-align: middle;
+	font-weight: bold;
+}
+.link:hover {
+	background-color: #000;
+}
+a:link {
+	font-family: "Myriad Pro";
+	font-size: 14px;
+	color: #FFF;
+	text-decoration: none;
+}
+a:active {
+	font-family: "Myriad Pro";
+	font-size: 14px;
+	color: #FFF;
+	text-decoration: none;
+}
+#mainContent {
+	background-image: url(maincontentbg.png);
+	background-repeat: no-repeat;
+	display: block;
+	margin: 0px;
+	padding: 0px;
+	width: 883px;
+	border-top-width: 0px;
+	border-right-width: 0px;
+	border-bottom-width: 0px;
+	border-left-width: 0px;
+	height: 350px;
+}
+.scrollable {
+	font-family: Verdana, Geneva, sans-serif;
+	text-align: left;
+	vertical-align: middle;
+	display: block;
+	padding: 5px;
+	width: 190px;
+	overflow: auto;
+	background-color: #000;
+	color: #FFF;
+	height: 200px;
+	margin-top: 0px;
+	margin-right: auto;
+	margin-bottom: 0px;
+	margin-left: auto;
+}

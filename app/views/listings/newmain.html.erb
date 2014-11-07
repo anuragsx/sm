@@ -1,0 +1,83 @@
+<table width="883" border="0" cellpadding="20" cellspacing="0">
+	<tr>
+		<td align="center" valign="top">
+			<h1>Create A Listing</h1>
+			<p>
+				Please select a category:<br />
+			</p>
+			<table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
+				<tr>
+					<td width="25%" align="center" valign="top">
+						<%= link_to image_tag("car_button.png", :mouseover => "car_bw.png", :alt => "Autos", :name => "automobiles",
+                                              :size => "66x66", :border => "0", :id => "automobiles"), new_autolisting_path %>
+					</td>
+					<td width="25%" align="center" valign="top">
+						<%= link_to image_tag("motorcycle_button.png", :mouseover => "motorcycle_bw.png", :alt => "Motorcycles",
+                                              :name => "motorcycles", :size => "66x66", :border => "0", :id => "motorcycles"),
+                                    new_motolisting_path %>
+					</td>
+					<td width="25%" align="center" valign="top">
+						<%= link_to image_tag("marine_button.png", :mouseover => "marine_bw.png", :alt => "Marine",
+                                              :name => "marine", :size => "67x66", :border => "0", :id => "marine"),
+                                               new_marinelisting_path %>
+					</td>
+					<td width="25%" align="center" valign="top">
+						<%= link_to image_tag("powersports_button.png", :mouseover => "powersports_bw.png", :alt => "Power Sports",
+
+                                              :name => "power sports", :size => "67x66", :border => "0", :id => "power sports"),
+                                    new_powerlisting_path %>
+					</td>
+				</tr>
+				<tr>
+					<td align="center" valign="top">
+						<strong>
+							<br />
+							AUTOS<br />
+						</strong>
+						Automobiles<br />
+						Pickup Trucks<br />
+						Sports Cars<br />
+						Classic Cars &amp; Trucks<br />
+						Other Vehicles
+						<br />
+					</td>
+					<td align="center" valign="top">
+						<strong>
+							<br />
+							MOTORCYCLES
+						</strong>
+						<br />
+						Road Bikes<br />
+						Dirts Bikes<br />
+						Mopeds &amp; Scooters<br />
+						Other Motorcycles
+					</td>
+					<td align="center" valign="top">
+						<strong>
+							<br />
+		          MARINE<br />
+						</strong>
+						Runabouts<br />
+						Sailboats<br />
+						Yachts<br />
+						Seadoo's<br />
+						Other Marine
+					</td>
+					<td align="center" valign="top">
+						<strong>
+							<br />
+							POWER SPORTS
+						</strong>
+						<br />
+						ATV's<br />
+						Gators<br />
+						Rock Crawlers<br />
+						Snow Mobiles<br />
+						Other All Terrain
+					</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+</table>
+

@@ -1,0 +1,9 @@
+class AddPwcToMarinecategories < ActiveRecord::Migration
+  def self.up
+  	Marinecategories.create(:category => 'Power Boat', :subcategory => 'Personal Watercraft')
+  end
+
+  def self.down
+  	Marinecategories.destroy(:category => 'Power Boat', :subcategory => 'Personal Watercraft')
+  end
+end

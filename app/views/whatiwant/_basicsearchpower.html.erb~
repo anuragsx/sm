@@ -1,0 +1,48 @@
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+	<tr>
+		<td align="center">
+			<%= image_tag("powersports.gif", :alt => "power sports", :size => "113x24", :border => "0") %>
+		</td>
+	</tr>
+	<tr>
+		<td height="241" align="center" valign="top">
+			<p>
+				<%= image_tag("powersports_pic2.jpg", :alt => "Power Sports For Trade", :size => "193x142", :border => "0") %>
+			</p>
+			<% form_for @search, :url => {:controller => "powerlistings", :action => "powerlistingsresults"} do |f| %>
+				<% f.fields_for @search.conditions do |listings| %>
+					<div class="categoryText">
+						<%= listings.label "Category:" %><br/>
+						<%= listings.collection_select :category_is, @powercategories, :category, :category, {:prompt => "-Select a Category"}, {:onChange => remote_function(:url => {:action => 'get_powersubcategories'}, :with => "'category=' + this.value")} %><br/>
+						<br/>
+						<%= listings.label "Sub-Category:" %><br/>
+						<div id="powersubcategoriesdiv">
+							<%= render :partial => "powersubcategories_select" %>
+						</div>
+						<br/>
+						<%= listings.label "Make:" %><br/>
+						<%= listings.collection_select :make_is, @powermakes, :make, :make, {:prompt => "-Select a Make-"} %><br/>
+						<br/>
+						<%= listings.label "Max Price:" %><br/>
+						<%= listings.text_field :price_lt, :size => 15 %><br/>
+						<br/>
+						<% listings.fields_for @search.conditions.owner do |owner| %>
+							<%= owner.label "State:" %>
+							<br/>
+							<%= owner.select(:state_is, ['AK','AL','AR','AZ','CA','CO','CT','DE','FL','GA','HI','IA','ID','IL','IN','KS','KY','LA','MA','MD','ME','MI','MN','MO','MS','MT','NC','ND','NE','NH','NJ','NM','NV','NY','OH','OK','OR','PA','RI','SC','SD','TN','TX','UT','VA','VT','WA','WI','WV','WY'], {:prompt => "-Select State"}) %>
+							<br/>
+							<br/>
+						<% end %>
+						<%= listings.hidden_field :listingtype_is, :value => "power" %>
+						<%= listings.hidden_field :expired_at_gte, :value => Date.today %>
+						<%= f.submit "Basic Search" %>
+					</div>
+				<% end %>
+			<% end %>
+			<br />
+			<div class="categoryText">
+				<%= link_to "Advanced Search", searchpower_url %>
+			</div>
+		</td>
+	</tr>
+</table>

@@ -1,0 +1,5 @@
+<% fields_for @user do |fields| %>
+	<%= fields.collection_select :model, @automodels, :model, :model, {:prompt => "-Select a Make First-"} %>
+<% end %>
+
+<!--<%= f.collection_select :model, @automodels, :model, :model, {:prompt => "-Select a Make First-"} %>-->

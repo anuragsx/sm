@@ -1,0 +1,39 @@
+<div class="TabbedPanelsContentGroup">
+  <div class="TabbedPanelsContent">
+    <ul>
+      <li><b>Year</b>: <%= @listing.year %></li>
+      <li><b>Category</b>: <%=h @listing.category %></li>
+      <li></li>
+    </ul>
+    <ul>
+      <li><b>Sub Category</b>: <%=h @listing.subcategory %></li>
+      <li><b>Make</b>: <%=h @listing.make %></li>
+      <li></li>
+    </ul>
+    <ul>
+      <li><b>Milage</b>: <%=h @listing.mileage %></li>
+      <li><b>Length</b>: <%= @listing.length %></li>
+      <li></li>
+    </ul>
+    <ul class="none">
+      <li><b>Fuel</b>: <%= @listing.fuel %></li>
+      <li><b>Engine</b>: <%= @listing.engine %></li>
+      <li></li>
+    </ul>
+    <ul>
+      <li><b>Hull</b>: <%= @listing.hull %></li>
+      <li><b>Price</b>: <%=h number_to_currency(@listing.price, :precision => 0) %></li>
+      <li></li>
+    </ul>
+    <div class="clear"></div>
+    <div class="head">
+      <p class="boldclass">Owner Desription :</p>
+    </div>
+    <div class="matter">
+      <p><%= @listing.desc %></p>
+    </div>
+  </div>
+  <!--<div class="TabbedPanelsContent">Content 2</div>
+  <div class="TabbedPanelsContent">Content 3</div>-->
+</div>
+

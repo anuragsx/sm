@@ -1,0 +1,37 @@
+<div id="header">
+  <div class="page">
+    <div class="logo"> <img src="/assets/logo.png" width="177" height="87" class="logo"/> <img src="/assets/headerlogotext.png" width="435" height="29" class="logotext" /> </div>
+    <div class="social">
+      <ul>
+        <li><a href="#"><img src="/assets/facebook.png" width="57" height="31"  /></a></li>
+        <li><a href="#"><img src="/assets/twitter.png" width="57" height="31"  /></a></li>
+      </ul>
+      <div class="login_p">
+        <% if current_user %>
+            <%= link_to "Inbox", inbox_path %> <%= link_to "("+ unread_messages.to_s + ")", inbox_path %> |
+            <%= link_to "Sent", sent_path %> |
+            <%= link_to "Edit Profile", edit_user_path(:current) %> |
+            <%= link_to "Logout", logout_path %>
+        <% else %>
+            <%= link_to "Register", new_user_path%> |
+            <%= link_to "Login", login_path %>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="clear"></div>
+
+
+    <div id="toplinks">
+      <div class="rg_head_top_div">
+
+        <%= render :partial => 'menu'%>
+
+      </div>
+      <div class="clear"></div>
+      <script type="text/javascript">
+          var MenuBar1 = new Spry.Widget.MenuBar("MenuBar1", {imgDown:"SpryAssets/SpryMenuBarDownHover.gif", imgRight:"SpryAssets/SpryMenuBarRightHover.gif"});
+      </script>
+    </div>
+  </div>
+</div>

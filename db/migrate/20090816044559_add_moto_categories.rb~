@@ -1,0 +1,11 @@
+class AddMotoCategories < ActiveRecord::Migration
+  def self.up
+  	['Antique/Vintage','Classic'].each do |s|
+  		Motocategories.new(:category => s).save
+ 		end
+  end
+
+  def self.down
+  	Motocategories.destroy_all
+  end
+end

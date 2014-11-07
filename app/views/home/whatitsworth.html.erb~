@@ -1,0 +1,27 @@
+<table width="883" border="0" cellpadding="20" cellspacing="0">
+	<tr>
+		<td align="left" valign="top">
+			<p><strong><span class="smwText">Swap My Whip</span></strong> was founded on the principle of offering it's customers a value oriented method of vehicle exchange. The following websites have proven to be excellent sources for pricing and product reviews. If you find another site that you believe to be a great resource for vehicle values and reviews, please email us, and we'll list it here for everyone's benefit. Please use common sense, and do your due diligence - check prices on similar vehicles for sale using other sources, to determine "What it's worth".
+			</p>
+			<p>&nbsp;</p>
+      <p>&nbsp;</p>
+     	<table border="0" cellpadding="10" cellspacing="0">
+     		<tr>
+     			<td align="center">
+			      <%= link_to image_tag("nadaguideslink.jpg", :alt => "new & used car prices, values, ratings & buying guides", :size => "175x107", :border => 0), "http://www.nadaguides.com/home.aspx?l=1&w=28&p=0&f=5000&custID=11161", :popup => true %>
+	      		<br/>
+			  	  <font face="Arial" size="2"><strong>Used Recreation Vehicle Prices
+			  	  <br />
+			  	  at NADAguides.com</strong></font>
+			    </td>
+			    <td align="center">
+     	      <%= link_to image_tag("kelleybluebooklink.gif", :alt => "Kelley Blue Book", :size => "207x65", :border => 0), "http://kbb.com", :popup => true %>
+			    </td>
+			  </tr>
+			</table>
+		</td>
+    <td width="40%" align="right" valign="top">
+    	<%= image_tag "atv_boat.png", :size => "253x330", :alt => "atv and boat", :border => 0 %>
+    </td>
+	</tr>
+</table>

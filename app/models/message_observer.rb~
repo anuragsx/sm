@@ -1,0 +1,5 @@
+class MessageObserver < ActiveRecord::Observer
+	def after_create(message)
+		Automailer.deliver_new_message(message)
+	end
+end

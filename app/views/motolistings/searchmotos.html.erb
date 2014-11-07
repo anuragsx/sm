@@ -1,0 +1,38 @@
+<table width="883" border="0" cellpadding="20" cellspacing="0">
+	<tr>
+		<td width="100%" align="left" valign="top">
+
+			<%= form_tag(motolistingsresults_motolistings_path(:listing_type => 'moto')) do |f| %>
+
+					<%# f.fields_for @search.conditions do |listings| %>
+						<%= label_tag "Year Between:" %><br/>
+						<%= text_field_tag :year_gte, '', :size => 7 %> and <%= text_field_tag :year_lte, '', :size => 7 %><br/>
+						<%= label_tag "Category:" %><br/>
+                        <%= select_tag("category", options_from_collection_for_select(@motocategories,"id", "category",:selected => params[:category]),
+                             :prompt => "-Select a Category")%><br/>
+						<%= label_tag "Make:" %><br/>
+                        <%= select_tag :make, options_for_select(@motomakes.map {|s| [s.make, s.make]},:selected => params[:make]),
+                             {prompt: "Select a Make"} %><br/>
+						<%= label_tag "Price Between:" %><br/>
+						<%= text_field_tag :price_gte, '', :size => 7 %> and <%= text_field_tag :price_lte, '', :size => 7 %><br/>
+						
+						<%# listings.fields_for @search.conditions.owner do |owner| %>
+							<%= label_tag "State:" %><br/>
+							<%= select_tag(:state_is, options_for_select(['AK','AL','AR','AZ','CA','CO','CT','DE','FL','GA','HI','IA','ID','IL','IN','KS','KY','LA','MA','MD','ME','MI','MN','MO','MS','MT','NC','ND','NE','NH','NJ','NM','NV','NY','OH','OK','OR','PA','RI','SC','SD','TN','TX','UT','VA','VT','WA','WI','WV','WY']), {:prompt => "-Select State"}) %><br/>
+						<%# end %>
+						
+						<%= label_tag "Mileage:" %><br/>
+						<%= text_field_tag :mileage_is, '', :size => 15 %><br/>
+						<%= label_tag "Description:" %><br/>
+						<%= text_field_tag :desc_contains %><br/>
+						<%= hidden_field_tag :listingtype_is, "moto" %>
+						<br/>
+						<%= submit_tag "Search Motorcycles", :id => "Submit" %>
+						
+					<%# end %>
+
+			<% end %>
+
+		</td>
+	</tr>
+</table>

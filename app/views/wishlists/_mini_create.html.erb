@@ -1,0 +1,21 @@
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+	<tr align="right" bgcolor="#E4DECE">
+		<td width="100%" >
+			<p>
+				<%= image_tag "tan_box_bg.jpg", :alt => "create another wishlist item", :size => "292x137", :hspace => "0", :vspace => "0", :border => "0", :align => "bottom" %>
+			</p>
+		</td>
+		<td>
+				<%= link_to image_tag("car_button.png", :mouseover => "car_bw.png", :alt => "Autos", :name => "automobiles", :size => "66x66", :border => "0", :id => "automobiles", :hspace => "10", :vspace => "10"), :controller => "wishlists", :action => "new_auto", :id => @user %>
+		</td>
+		<td>
+				<%= link_to image_tag("motorcycle_button.png", :mouseover => "motorcycle_bw.png", :alt => "Motorcycles", :name => "motorcycles", :size => "66x66", :border => "0", :id => "motorcycles", :hspace => "10", :vspace => "10"), :controller => "wishlists", :action => "new_moto", :id => @user %>
+		</td>
+		<td>
+				<%= link_to image_tag("marine_button.png", :mouseover => "marine_bw.png", :alt => "Marine", :name => "marine", :size => "67x66", :border => "0", :id => "marine", :hspace => "10", :vspace => "10"), :controller => "wishlists", :action => "new_marine", :id => @user %>
+		</td>
+		<td style="padding-right:60px;">
+				<%= link_to image_tag("powersports_button.png", :mouseover => "powersports_bw.png", :alt => "Power Sports", :name => "power sports", :size => "67x66", :border => "0", :id => "power sports", :hspace => "10", :vspace => "10"), :controller => "wishlists", :action => "new_power", :id => @user %>
+		</td>
+	</tr>
+</table>

@@ -1,0 +1,2 @@
+class Motocategories < ActiveRecord::Base
+end

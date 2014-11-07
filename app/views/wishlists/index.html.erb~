@@ -1,0 +1,88 @@
+<% if flash[:notice] %>
+	<div class="notice"><%= flash[:notice] %></div>
+<% end %>
+
+<% if current_user %>
+	<table width="883" border="0" cellpadding="20" cellspacing="0">
+		<tr>
+		  <td align="left" valign="top">
+				<table width="100%" border="0" cellspacing="0" cellpadding="0">
+				  <tr>
+				    <td>
+				    	<h2>My Wish List
+	 	      			<br />
+			   				<br />
+			    		</h2>
+			    	</td>
+			    </tr>
+			  	<tr>
+					  <td>
+					  	<table width="100%" border="0" cellpadding="0" cellspacing="0">
+					    	<tr class="messageBar">
+							    <th>Vehicle Type</th>
+							    <th>Min. Year</th>
+							    <th>Max. Year</th>
+							    <th>Auto Category</th>
+							    <th>Category</th>
+							    <th>Subcategory</th>
+							    <th>Make</th>
+							    <th>Model</th>
+							    <th>Min. Price</th>
+							    <th>Max. Price</th>
+							    <th>&nbsp;</th>
+							  </tr>
+							  
+								<% @wishlists.each do |wishlist| %>
+					
+								<tr>
+									<td style="background-image: transparent;"><%=h wishlist.listingtype %></td>
+									<td style="background-image: transparent;"><%=h wishlist.min_year %></td>
+									<td style="background-image: transparent;"><%=h wishlist.max_year %></td>
+									<td style="background-image: transparent;"><%=h wishlist.body %></td>
+									<td style="background-image: transparent;"><%=h wishlist.category %></td>
+									<td style="background-image: transparent;"><%=h wishlist.subcategory %></td>
+									<td style="background-image: transparent;"><%=h wishlist.make %></td>
+									<td style="background-image: transparent;"><%=h wishlist.model %></td>
+									<td style="background-image: transparent;"><%=h wishlist.min_price %></td>
+									<td style="background-image: transparent;"><%=h wishlist.max_price %></td>
+									<td style="background-image: transparent;" class="formText"><%= link_to 'Delete', wishlist, :confirm => 'Are you sure?', :method => :delete %></td>
+								</tr>
+					
+								<% end %>
+
+			    		</table>
+			    	</td>
+			  	</tr>
+			  	<tr>
+			    	<td>
+			    		<br/>
+			    	</td>
+				  </tr>
+				</table>
+				
+				<%= render :partial => "mini_create" %>
+												
+		  </td>
+		</tr>
+	</table>
+
+<% else %>
+
+	<table width="883" border="0" cellpadding="10" cellspacing="0">
+		<tr>
+			<td align="center" valign="top">
+				<p><%= link_to "Register", new_user_path %> or <%= link_to "Log in", login_url %> to set up a "Wishlist".
+					<br />A Wishlist will work for you while you're away - enabling our team to help you find a Perfect Swap.<br/>
+				</p>
+			</td>
+		</tr>
+		<tr align="center">
+			<td>
+				<%= link_to image_tag("468x60_imgad.jpg", :alt => "AIM Mobile Inspections", :border => 0), "http://www.aimmobileinspections.com/SwapMyWhip-car-inspections.php", :popup => true %>
+				<a href="http://www.dpbolvw.net/click-3732474-10737219" target="_blank">
+	<img src="http://www.tqlkg.com/image-3732474-10737219" width="468" height="60" alt="Save 10% on Auto Parts at Automotive Concepts!" border="0"/></a>
+			</td>
+		</tr>
+	</table>
+
+<% end %>

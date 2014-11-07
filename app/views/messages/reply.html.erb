@@ -1,0 +1,177 @@
+<div id="content">
+  <div class="page"> <img class="p_img" src="/assets/fullwidth.jpg" width="1050" />
+    <div class="leftcontent">
+      <div class="uppercontent"> <span>Mailbox</span>
+        <div class="buttons">
+          <style>
+              .black_overlay{
+                  display: none;
+                  position: absolute;
+                  top: 0%;
+                  left: 0%;
+                  width: 100%;
+                  height: 100%;
+                  background-color: black;
+                  z-index:1001;
+                  -moz-opacity: 0.8;
+                  opacity:.80;
+                  filter: alpha(opacity=80);
+                  position:fixed;
+              }
+              .white_content {
+                  background-color: #FFFFFF;
+                  display: none;
+                  height: auto;
+                  left: 25%;
+                  position: fixed;
+                  top: 25%;
+                  width: 50%;
+                  z-index: 1002;
+                  /*padding: 16px;*/
+                  /*border: 16px solid #fff;*/
+
+              }
+              .white_content a {
+                  background-image: url("close.png");
+                  background-repeat: no-repeat;
+                  height: 38px;
+                  position: absolute;
+                  right: -19px;
+                  top: -24px;
+                  width: 39px;
+                  z-index: 999999;
+              }
+
+
+              .white_content .innerpart .inner2part {
+                  padding:30px;
+              }
+          </style>
+          <div id="light" class="white_content">
+            <div class="innerpart">
+              <div class="inner2part">
+                <p class="fc">To:</p>
+                <p class="sc">Sample Member</p>
+                <p class="ssubject">Subject:</p>
+                <p class="sc">RE: 2006 Corvette</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </p>
+                <hr style=" border-top:4px dotted #AAAAAA" />
+                <div>From: Sample Member</div>
+                <div>To: Sample Recipient</div>
+                <div>Date: Saturday, July 13, 2013 at 4:15pm</div>
+                <div>Subject: 2006 Corvette</div>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt. mollit anim id est laborum. </p>
+                <form action="#">
+                  <input type="submit" value="Send" />
+                </form>
+                <div class="clear"></div>
+              </div>
+            </div>
+            <a style=" color:#000" href = "javascript:void(0)" onclick = "document.getElementById('light').style.display='none';document.getElementById('fade').style.display='none'"></a></div>
+          <div id="fade" class="black_overlay"></div>
+        </div>
+        <div>
+          <!-- panel -->
+
+          <!-- panel -->
+        </div>
+        <div class="clear"></div>
+      </div>
+      <div class="mainpannel">
+        <table width="883" border="0" cellpadding="20" cellspacing="0">
+          <tr>
+            <td align="left" valign="top">
+              <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                  <td>
+
+                    <span class="formText">
+							<%= link_to "Inbox", inbox_url, {:style=>'color:#649D4A'} %>
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                      <%= link_to "Sent", sent_url, {:style=>'color:#649D4A'} %>
+							<br />
+						</span>
+                  </td>
+                </tr>
+              </table>
+              <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                  <td>
+                    <table width="100%" border="0" cellpadding="3" cellspacing="3" class="emailMessage" id="messageContent">
+
+                      <%= form_for @message, :url => {:controller => "messages", :action => "create_reply"} do |f| %>
+                          <% if @message.errors.any? %>
+                              <div id="errorExplanation">
+                                <h2><%= pluralize(@message.errors.count, "error") %> prohibited this post from being saved:</h2>
+
+                                <ul>
+                                  <% @message.errors.full_messages.each do |message| %>
+                                      <li><%= message %></li>
+                                  <% end %>
+                                </ul>
+                              </div>
+                          <% end %>
+                          <%= f.hidden_field :sender_id, :value => @sender.id %>
+                          <%= f.hidden_field :recipient_id, :value => @original_message.sender_id %>
+                          <%= f.hidden_field :listing_id, :value => @original_message.listing_id %>
+
+                          <tr>
+                            <td width="10%" valign="top" class="formText"><p>Received:</p></td>
+                            <td width="90%"><p><%=h @original_message.created_at %></p></td>
+                          </tr>
+                          <tr>
+                            <td width="10%" valign="top" class="formText">To:</td>
+                            <td width="90%">
+                              <% if @original_message.sender %>
+                                  <p><%=h @original_message.sender.username %></p>
+                              <% else %>
+                                  <p><%=h @original_message.email %></p>
+                              <% end %>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td width="10%" valign="top" class="formText">Listing:</td>
+                            <td width="90%">
+                              <% if @original_message.listing %>
+                                  <p><%=h @original_message.listing.year %> <%=h @original_message.listing.make %> <%=h @original_message.listing.model %></p>
+                              <% else %>
+                                  <p>Listing has been removed or cannot be found.</p>
+                              <% end %>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td width="10%" valign="top" class="formText"><p>Subject:</p></td>
+                            <td width="90%"><p><%= f.text_field :subject, :value => "RE: " + @original_message.subject %></p>
+                          </tr>
+                          <tr>
+                            <td width="10%" valign="top" class="formText"><p>Message:</p></td>
+                            <td width="90%"><p><%= f.text_area :body %></p>
+                          </tr>
+                          <tr>
+                            <td><%= f.submit 'Send', :id => "Submit" %>
+                             <td><%= link_to "Cancel", inbox_url, {:style=>'color:#649D4A'} %></td>
+                          </tr>
+                      <% end %>
+                    </table>
+                  </td>
+                </tr>
+                <tr>
+                  <td>&nbsp;</td>
+                </tr>
+              </table>
+          </tr>
+          </td>
+        </table>
+
+        <div class="clear"></div>
+      </div>
+      <script type="text/javascript">
+          <!--
+          var TabbedPanels1 = new Spry.Widget.TabbedPanels("TabbedPanels1");
+          var TabbedPanels2 = new Spry.Widget.TabbedPanels("TabbedPanels2");
+          //-->
+      </script>
+    </div>
+    <div class="clear"></div>
+  </div>
+</div>

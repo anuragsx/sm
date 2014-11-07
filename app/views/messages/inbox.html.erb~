@@ -1,0 +1,60 @@
+<table width="883" border="0" cellpadding="20" cellspacing="0">
+	<% if flash[:notice] %>
+		<div class="notice"><%= flash[:notice] %></div>
+	<% end %>
+	<tr>
+		<td align="left" valign="top">
+			<table width="100%" border="0" cellspacing="0" cellpadding="0">
+				<tr>
+					<td>
+						<%= link_to image_tag("envelope_icon.png", :alt => "inbox", :size => "19x17", :border => 0, :align => "absbottom"), inbox_url %>
+						<span class="formText">
+							<%= link_to "Inbox", inbox_url, :class => "smallBlackLinks" %>
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							<span class="greenText">
+								<%= link_to image_tag("envelope_icon.png", :alt => "inbox", :size => "19x17", :border => 0, :align => "absbottom"), sent_url %>
+							</span>
+							<%= link_to "Sent", sent_url, :class => "smallBlackLinks" %>
+							<br />
+							<br />
+						</span>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<table width="100%" border="0" cellpadding="0" cellspacing="0">
+							<tr class="messageBar">
+								<th height="26">Received</td>
+								<th height="26">Sender</td>
+								<th height="26">Listing</td>
+								<th height="26">Read</td>
+								<th height="26">Subject</td>
+							</tr>
+									
+						<% @messages.each do |message| %>
+							<tr>
+								<td><%=h message.created_at %></td>
+								<td>
+									<% if message.sender %>
+										<%=h message.sender.username %>
+									<% else %>
+										<%=h message.name %>
+									<% end %>
+								<td>
+									<% if message.listing %>
+										<%= link_to message.listing.year.to_s + " " + message.listing.make + " " + message.listing.model, message.listing %>
+									<% end %>
+								</td>
+								<td><%=h message.read_at %></td>
+								<td><b><%= link_to message.subject, message %><b></td>
+								<td><%= link_to "Delete", message_path(message, :inbox => "1"), :confirm => "Are you sure?", :method => :delete %></td>
+							</tr>
+						<% end %>
+				
+						</table>
+					</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+</table>

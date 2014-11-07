@@ -1,0 +1,48 @@
+<% form_for @search, :url => {:controller => "marinelistings", :action => "marinelistingsresults"} do |f| %>
+	<fieldset class="RefineSearch">
+		<legend style="font-weight:bold; font-size:1.2em;">Refine Search</legend>
+		<table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<div class="blackCategoryText">
+					<% f.fields_for @search.conditions do |listings| %>
+						<td align="left" valign="top">
+							<%= listings.label "Category:" %>
+							<br/>
+							<%= listings.collection_select :category_is, @marinecategories, :category, :category, {:prompt => "-Select a Category"}, {:onChange => remote_function(:url => {:action => 'get_marinesubcategories'}, :with => "'category=' + this.value")} %>
+						</td>
+						<td>
+							<%= listings.label "Subcategory:" %>
+							<br/>
+							<div id="marinesubcategoriesdiv">
+								<%= select "search[conditions]", :subcategory_is, @marinesubcategories, {:selected => params[:search][:conditions][:subcategory_is], :size => 10, :prompt => "-Select a Category First-"} %>
+
+							</div>
+						</td>
+						<td>
+							<%= listings.label "Make:" %>
+							<br/>
+							<%= listings.collection_select :make_is, @marinemakes, :make, :make, {:prompt => "-Select a Make-"} %>
+						</td>
+						<td>
+							<%= listings.label "Max Price:" %>
+							<br/>
+							<%= listings.text_field :price_lt, :size => 6 %>
+						</td>
+						<% listings.fields_for @search.conditions.owner do |owner| %>
+						<td>
+							<%= owner.label "State:" %>
+							<br/>
+							<%= owner.select(:state_is, ['AK','AL','AR','AZ','CA','CO','CT','DE','FL','GA','HI','IA','ID','IL','IN','KS','KY','LA','MA','MD','ME','MI','MN','MO','MS','MT','NC','ND','NE','NH','NJ','NM','NV','NY','OH','OK','OR','PA','RI','SC','SD','TN','TX','UT','VA','VT','WA','WI','WV','WY'], {:prompt => "-Select State"}) %>
+						</td>
+						<% end %>
+						<td>
+							<%= listings.hidden_field :listingtype_is, :value => "marine" %>
+							<br/>
+							<%= f.submit "Basic Search", :id => "Submit" %>
+						</td>
+					<% end %>	
+				</div>
+			</tr>
+		</table>
+	</fieldset>
+<% end %>

@@ -1,0 +1,87 @@
+<table width="883" border="0" cellpadding="20" cellspacing="0">
+  <tr>
+    <td align="left" valign="top">
+    	<table width="100%" border="0" cellspacing="0" cellpadding="0">
+	      <tr>
+  	      <td>
+  	      	<%= link_to image_tag("envelope_icon.png", :alt => "inbox", :size => "19x17", :border => 0, :align => "absbottom"), inbox_url %>
+						<span class="formText">
+							<%= link_to "Inbox", inbox_url, :class => "smallBlackLinks" %>
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							<span class="greenText">
+								<%= link_to image_tag("envelope_icon.png", :alt => "inbox", :size => "19x17", :border => 0, :align => "absbottom"), sent_url %>
+							</span>
+							<%= link_to "Sent", sent_url, :class => "smallBlackLinks" %>
+							<br />
+							<br />
+						</span>
+					</td>
+				</tr>
+			</table>
+			<table width="100%" border="0" cellspacing="0" cellpadding="0">
+				<tr>
+					<td>
+						<table width="100%" border="0" cellpadding="3" cellspacing="3" class="emailMessage" id="messageContent">
+
+							<% form_for @message, :url => {:controller => "messages", :action => "create_reply"} do |f| %>
+								<%= f.error_messages %>
+								<%= f.hidden_field :sender_id, :value => @sender.id %>
+								<%= f.hidden_field :recipient_id, :value => @original_message.sender_id %>
+								<%= f.hidden_field :listing_id, :value => @original_message.listing_id %>
+								
+								<tr>
+									<td width="10%" valign="top" class="formText">Received:</td>
+									<td width="90%"><%=h @original_message.created_at %></td>
+								</tr>
+								<tr>
+									<td width="10%" valign="top" class="formText">To:</td>
+									<td width="90%"><%=h @original_message.sender.username %></td>
+								</tr>
+								<tr>
+									<td width="10%" valign="top" class="formText">Listing:</td>
+									<td width="90%">
+										<% if @original_message.listing %>
+											<%=h @original_message.listing.year %> <%=h @original_message.listing.make %> <%=h @original_message.listing.model %>
+										<% else %>
+											Listing has been removed or cannot be found.
+								  	<% end %>
+								  </td>
+								</tr>
+								<tr>
+									<td width="10%" valign="top" class="formText">Subject:</td>
+									<td width="90%"><%= f.text_field :subject, :value => "RE: " + @original_message.subject %>
+								</tr>
+								<tr>
+									<td width="10%" valign="top" class="formText">Message:</td>
+									<td width="90%"><%= f.text_area :body %>
+								</tr>
+								<tr>
+									<td><%= f.submit 'Send', :id => "Submit" %>
+								</tr>
+								<tr>
+									<td>&nbsp;</td>
+								</tr>
+							<% end %>
+  	        </table>
+          </td>
+        </tr>
+        <tr>
+        	<td>&nbsp;</td>
+        </tr>
+      	<tr>
+      	  <td class="messageBar">
+      	  	<table width="100%" border="0" cellpadding="0" cellspacing="0" id="messageCategories">
+      	    	<tr>
+      	      	<td width="25%" height="26" align="right">
+        	    		<%= link_to "Cancel", inbox_url, :class => "messageBar" %>
+	        	    </td>
+        	    	<td width="20%" height="26">&nbsp;</td>
+        	    	<td height="26">&nbsp;</td>
+        	  	</tr>
+        	  </table>
+        	</td>
+		    </tr>
+		  </table>
+		</tr>
+	</td>
+</table>

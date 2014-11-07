@@ -1,0 +1,38 @@
+<div class="TabbedPanelsContentGroup">
+  <div class="TabbedPanelsContent">
+    <ul>
+      <li><b>Year</b>: <%= @listing.year %></li>
+      <li><b>Exterior Color</b>: <%= @listing.exterior_color %></li>
+      <li></li>
+    </ul>
+    <ul>
+      <li><b>Make</b>: <%= @listing.make %></li>
+      <li><b>Interior Color</b>: <%= @listing.interior_color %></li>
+      <li></li>
+    </ul>
+    <ul>
+      <li><b>Model</b>: <%= @listing.model %></li>
+      <li><b>Transmission</b>: <%= @listing.transmission %></li>
+      <li></li>
+    </ul>
+    <ul class="none">
+      <li><b>Engine</b>: <%= @listing.engine %></li>
+      <li><b>Drive</b>: <%= @listing.drive %></li>
+      <li></li>
+    </ul>
+    <ul>
+      <li><b>Mileage</b>: <%= @listing.mileage %></li>
+      <li><b>VIN</b>: <%= @listing.vin %></li>
+      <li></li>
+    </ul>
+    <div class="clear"></div>
+    <div class="head">
+      <p class="boldclass">Owner Desription :</p>
+    </div>
+    <div class="matter">
+      <p><%= @listing.desc %></p>
+    </div>
+  </div>
+  <!--<div class="TabbedPanelsContent">Content 2</div>
+  <div class="TabbedPanelsContent">Content 3</div>-->
+</div>

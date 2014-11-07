@@ -1,0 +1,17 @@
+<table width="100%" border="0" align="left" cellpadding="3" cellspacing="3" class="listingDetails" id="listingDetails">
+	<tr>
+		<td align="left">Year: <%=h listing.year %></td>
+	</tr>
+	<tr>
+		<td align="left">Make: <%=h listing.make %></td>
+	</tr>
+	<tr>
+		<td align="left">Model: <%=h listing.model %></td>
+	</tr>
+	<tr>
+		<td align="left">Body Style: <%=h listing.body %></td>
+	</tr>
+	<tr>
+		<td align="left">Asking Price: <%=h number_to_currency(listing.price, :precision => 0) %></td>
+	</tr>
+</table>

@@ -1,0 +1,65 @@
+<tr>
+  <td colspan="2">
+  	<b>Year:</b>
+		<%=h @listing.year %>
+	</td>
+<tr>
+	<td colspan="2">
+		<%= image_tag "divider_line.png", :size => "267x2" %>
+	</td>
+</tr>
+<tr>
+	<td colspan="2">
+		<b>Category:</b>
+		<%=h @listing.category %>
+	</td>
+</tr>
+<tr>
+	<td colspan="2">
+		<%= image_tag "divider_line.png", :size => "267x2" %>
+	</td>
+</tr>
+<tr>
+	<td colspan="2">
+		<b>Subcategory:</b>
+		<%=h @listing.subcategory %>
+	</td>
+</tr>
+<tr>
+	<td colspan="2">
+		<%= image_tag "divider_line.png", :size => "267x2" %>
+	</td>
+</tr>
+<tr>
+	<td colspan="2">
+		<b>Make:</b>
+		<%=h @listing.make %>
+	</td>
+</tr>
+<tr>
+	<td colspan="2">
+		<%= image_tag "divider_line.png", :size => "267x2" %>
+	</td>
+</tr>
+<tr>
+	<td colspan="2">
+		<b>Price:</b>
+		<%=h number_to_currency(@listing.price, :precision => 0) %>
+	</td>
+</tr>
+<tr>
+	<td colspan="2">
+		<%= image_tag "divider_line.png", :size => "267x2" %>
+	</td>
+</tr>
+<tr>
+	<td colspan="2">
+		<b>Description:</b>
+		<%=h @listing.desc %>
+	</td>
+</tr>
+<tr>
+	<td colspan="2">
+		<%= image_tag "divider_line.png", :size => "267x2" %>
+	</td>
+</tr>

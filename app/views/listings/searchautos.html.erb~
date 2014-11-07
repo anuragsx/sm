@@ -1,0 +1,28 @@
+<% remote_form_for @search, :url => {:action => "searchautos"} do |f| %>
+	<fieldset>
+		<legend>Advanced Autos Search</legend>
+		
+		<% f.fields_for @search.conditions do |listings| %>
+			<%= listings.label "Year Between:" %><br/>
+			<%= listings.text_field :year_gt %> and <%= listings.text_field :year_lt %><br/>
+			<br/>
+			<%= listings.label "Make:" %><br/>
+			<%= listings.collection_select :make_is, @automakes, :make, :make, {:prompt => "-Select a Make-"}, {:onChange => remote_function(:url => {:action => 'get_automodels'}, :with => "'make=' + this.value")} %><br/>
+			<br/>
+			
+			<%= listings.label "Model:" %><br/>
+			<div id='automodelsdiv'>
+				<%= listings.text_field :model_is, :readonly => true %>
+			</div><br/>
+			<br/>
+			<%= listings.label "Price Between:" %><br/>
+			<%= listings.text_field :price_gt %> and <%= listings.text_field :price_lt %><br/>
+			<br/>
+			<%= listings.hidden_field :listingtype_is, :value => "auto" %>
+			<%= f.submit "Search Autos" %>
+		<% end %>	
+	</fieldset>
+<% end %>
+
+<div id="listingsresults">
+</div>

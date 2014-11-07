@@ -1,0 +1,4 @@
+class Wishlist < ActiveRecord::Base
+	belongs_to :users
+	validate_presence_of :listingtype
+end

@@ -1,0 +1,39 @@
+<table width="883" border="0" cellpadding="20" cellspacing="0">
+	<tr>
+		<td width="100%" align="left" valign="top">
+
+			<% form_for @search, :url => {:action => "motolistingsresults"} do |f| %>
+<!--				<fieldset>
+					<legend>Advanced Autos Search</legend>
+-->		
+					<% f.fields_for @search.conditions do |listings| %>
+						<%= listings.label "Year Between:" %><br/>
+						<%= listings.text_field :year_gte, :size => 7 %> and <%= listings.text_field :year_lte, :size => 7 %><br/>
+						<%= listings.label "Category:" %><br/>
+						<%= listings.collection_select :category_is, @motocategories, :category, :category, {:prompt => "-Select a Category"} %><br/>
+						<%= listings.label "Make:" %><br/>
+						<%= listings.collection_select :make_is, @motomakes, :make, :make, {:prompt => "-Select a Make-"} %><br/>
+						<%= listings.label "Price Between:" %><br/>
+						<%= listings.text_field :price_gte, :size => 7 %> and <%= listings.text_field :price_lte, :size => 7 %><br/>
+						
+						<% listings.fields_for @search.conditions.owner do |owner| %>
+							<%= owner.label "State:" %><br/>
+							<%= owner.select(:state_is, ['AK','AL','AR','AZ','CA','CO','CT','DE','FL','GA','HI','IA','ID','IL','IN','KS','KY','LA','MA','MD','ME','MI','MN','MO','MS','MT','NC','ND','NE','NH','NJ','NM','NV','NY','OH','OK','OR','PA','RI','SC','SD','TN','TX','UT','VA','VT','WA','WI','WV','WY'], {:prompt => "-Select State"}) %><br/>
+						<% end %>
+						
+						<%= listings.label "Mileage:" %><br/>
+						<%= listings.text_field :mileage_is, :size => 15 %><br/>
+						<%= listings.label "Description:" %><br/>
+						<%= listings.text_field :desc_contains %><br/>
+						<%= listings.hidden_field :listingtype_is, :value => "moto" %>
+						<br/>
+						<%= f.submit "Search Motorcycles", :id => "Submit" %>
+						
+					<% end %>	
+<!--				</fieldset>
+-->
+			<% end %>
+
+		</td>
+	</tr>
+</table>

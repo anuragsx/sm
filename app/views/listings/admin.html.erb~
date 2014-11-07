@@ -1,0 +1,80 @@
+<table width="883" border="0" cellpadding="20" cellspacing="0">
+	<tr>
+		<td align="left" valign="top">
+			<% if flash[:notice] %>
+      	<div class="notice"><%= flash[:notice] %></div>
+	    <% end %>
+			<table width="100%" border="0" cellpadding="0" cellspacing="0" id="myListings">
+				<tr>
+					<td width="25%">
+						<%= page_entries_info @listings %>
+					</td>
+					<td width="75%" align="right" valign="middle">
+						<%= will_paginate @listings %>
+					</td>
+				</tr>
+				
+				<% if @listings_count > 0 %>
+					<% @listings.each do |listing| %>
+				
+						<tr>
+							<td width="15%" align="left">
+								<p>
+									<% if listing.listingtype == "auto" %>
+										<strong><%= listing.year %> <%= listing.make %> <%= listing.model %></strong>
+									<% else %>
+										<strong><%= listing.year %> <%= listing.make %> <%= listing.category %></strong>
+									<% end %>
+								</p>
+								<p>
+									<strong>
+										<% if listing.photos.all.count == 0 %>
+											<%= image_tag "no-photo-small.jpg", :alt => "No Photo Available", :border => 0 %>
+										<% else %>
+											<% listing.photos.all(:limit => 1).each do |photo| %>
+												<%= image_tag smallphoto_path(photo, :jpg), :alt => photo.name %>
+											<% end %>
+										<% end %>
+									</strong>
+									<br />
+									<br />
+									<span class="formText"><%= link_to "Edit", admin_edit_listing_url %> | <%= link_to "Manage Photos", listing_photos_path(listing) %> | <%= link_to 'Delete', user_listing_path(@user, listing), :confirm => 'Are you sure?', :method => :delete %></span>
+								</p>
+							</td>
+							<td width="85%" align="left" valign="middle">
+							
+								<% if listing.listingtype == "auto" %>
+									<%= render :partial => "mylistings_auto", :locals => { :listing => listing } %>
+								<% elsif listing.listingtype == "moto" %>
+									<%= render :partial => "mylistings_moto", :locals => { :listing => listing } %>
+								<% elsif listing.listingtype == "marine" %>
+									<%= render :partial => "mylistings_marine", :locals => { :listing => listing } %>
+								<% elsif listing.listingtype == "power" %>
+									<%= render :partial => "mylistings_power", :locals => { :listing => listing } %>
+								<% end %>
+									       	
+							</td>
+						</tr>
+						<tr>
+							<td colspan="2">
+								<p>
+									<br />
+									<%= image_tag "listing_divider1.png", :size => "596x11" %>
+								</p>
+							</td>
+						</tr>
+	
+					<% end %>
+					
+				<% else %>
+					
+					<tr>
+						<td width="100%">This page allows you to add your vehicle(s) to the site.  Simply click on the "Create A New Listing" button to get started!</td>
+					</tr>
+					
+				<% end %>
+				
+			</table>	
+		</td>
+	</tr>
+</table>

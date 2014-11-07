@@ -1,0 +1,65 @@
+<p align="center">
+	<span style="font-size: 1.5em; font-weight:bold;">Set Up My Wishlist</span>
+	<br />
+	(or <%= link_to "View My Wishlist", user_wishlists_path(@user) %>)
+	<br />
+	Please select the category of vehicle you want to swap for:
+</p>
+<table width="100%" align="center" border="0" cellspacing="0" cellpadding="0">
+	<tr>
+		<td align="center" width="25%" valign="top">
+			<%= link_to image_tag("car_button.png", :mouseover => "car_bw.png", :alt => "Autos", :name => "automobiles", :size => "66x66", :border => "0", :id => "automobiles"), :controller => "wishlists", :action => "new_auto", :id => @user %>
+		</td>
+		<td align="center" width="25%" valign="top">
+			<%= link_to image_tag("motorcycle_button.png", :mouseover => "motorcycle_bw.png", :alt => "Motorcycles", :name => "motorcycles", :size => "67x66", :border => "0", :id => "motorcycles"), :controller => "wishlists", :action => "new_moto", :id => @user %>
+		</td>
+		<td align="center" width="25%" valign="top">
+			<%= link_to image_tag("marine_button.png", :mouseover => "marine_bw.png", :alt => "Marine", :name => "marine", :size => "66x66", :border => "0", :id => "marine"), :controller => "wishlists", :action => "new_marine", :id => @user %>
+		</td>
+		<td align="center" width="25%" valign="top">
+			<%= link_to image_tag("powersports_button.png", :mouseover => "powersports_bw.png", :alt => "Powersports", :name => "power sports", :size => "67x66", :border => "0", :id => "power sports"), :controller => "wishlists", :action => "new_power", :id => @user %>
+		</td>
+	</tr>
+	<tr>
+		<td>&nbsp;</td>
+	</tr>
+	<tr>
+		<td align="center" valign="top">
+			<strong>AUTOS<br /></strong>
+			Automobiles<br />
+			Pickup Trucks<br />
+			Sports Cars<br />
+			Classic Cars & Trucks<br />
+			Other Vehicles<br />
+		</td>
+		<td align="center" valign="top">
+			<strong>MOTORCYCLES</strong><br />
+			Road Bikes<br />
+			Dirts Bikes<br />
+			Mopeds &amp; Scooters<br />
+			Other Motorcycles
+		</td>
+		<td align="center" valign="top">
+			<strong>MARINE<br /></strong>
+			Runabouts<br />
+			Sailboats<br />
+			Yachts<br />
+			Seadoo's<br />
+			Other Marine
+		</td>
+		<td align="center" valign="top">
+			<strong>POWERSPORTS</strong><br />
+			ATV's<br />
+			Gators<br />
+			Rock Crawlers<br />
+			Snowmobiles<br />
+			Other All Terrain
+		</td>
+	</tr>
+</table>
+<p align="center" style="font-weight: bold;font-size: 1.25em;">
+	Or simply search for what you want below...
+</p>
+<p align="center">
+	TIP: To browse all listings in a category, leave all search fields blank and click 'Basic Search'
+</p>

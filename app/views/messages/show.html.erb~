@@ -1,0 +1,62 @@
+<table width="883" border="0" cellpadding="20" cellspacing="0">
+  <tr>
+    <td align="left" valign="top">
+    	<table width="100%" border="0" cellspacing="0" cellpadding="0">
+	      <tr>
+  	      <td>
+  	      	<%= link_to image_tag("envelope_icon.png", :alt => "inbox", :size => "19x17", :border => 0, :align => "absbottom"), inbox_url %>
+						<span class="formText">
+							<%= link_to "Inbox", inbox_url, :class => "smallBlackLinks" %>
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							<span class="greenText">
+								<%= link_to image_tag("envelope_icon.png", :alt => "inbox", :size => "19x17", :border => 0, :align => "absbottom"), sent_url %>
+							</span>
+							<%= link_to "Sent", sent_url, :class => "smallBlackLinks" %>
+							<br />
+							<br />
+						</span>
+					</td>
+				</tr>
+			</table>
+			<table width="100%" border="0" cellspacing="0" cellpadding="0">
+				<tr>
+					<td>
+  	      	<table width="100%" border="0" cellpadding="3" cellspacing="3" class="emailMessage" id="messageContent">
+  	      		<% if @message.sender %>
+  	      			<%= render :partial => 'show_normal' %>
+  	      		<% else %>
+  	      			<%= render :partial => 'show_admin' %>
+  	      		<% end %>
+  	        </table>
+          </td>
+        </tr>
+        <tr>
+        	<td>&nbsp;</td>
+        </tr>
+      	<tr>
+      	  <td class="messageBar">
+      	  	<table width="100%" border="0" cellpadding="0" cellspacing="0" id="messageCategories">
+      	    	<tr>
+      	      	<td width="25%" height="26" align="right">
+      	      		<% form_for @message, :url => {:controller => "messages", :action => "reply"} do |f| %>
+										
+										<%= f.hidden_field :id, :value => @message.id %>
+										<%= f.hidden_field :recipient_id, :value => @message.sender_id %>
+										<%= f.hidden_field :listing_id, :value => @message.listing_id %>
+										<%= f.hidden_field :subject, :value => "RE: " + @message.subject %>
+										
+										<%= image_submit_tag("return_arrow.png", :alt => "return", :size => "24x21", :align => "absmiddle", :border => 0) %> <%= f.submit "Reply", :class => "messageBar" %>
+<!--										 | <%= link_to "Delete", message_path(@message), :class => "messageBar", :confirm => "Are you sure you want to delete this message?", :method => :delete %>
+-->
+	        	    	<% end %>
+	        	    </td>
+        	    	<td width="20%" height="26">&nbsp;</td>
+        	    	<td height="26">&nbsp;</td>
+        	  	</tr>
+        	  </table>
+        	</td>
+		    </tr>
+		  </table>
+		</tr>
+	</td>
+</table>

@@ -1,0 +1,387 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <title>::Welcome::</title>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Oswald:300' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Oswald:700' rel='stylesheet' type='text/css'>
+
+
+
+
+    <!--emailtabbedpaneljs-->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
+      <%= stylesheet_link_tag 'style', 'innerstyle', 'application', 'SpryMenuBarHorizontal', 'SpryCollapsiblePanel', 'emailspryTabbedPanels',
+                              'perfect-scrollbar', 'responsive_nav'%>
+
+      <%= javascript_include_tag 'application', 'SpryMenuBar', 'SpryCollapsiblePanel', 'emailspryTabbedPanels', 'jquery.mousewheel',
+                                 'perfect-scrollbar', 'jquery-latest.min', 'script'%>
+    <style>
+#description1 {
+        /*border: 1px solid gray;*/
+        height:150px;
+ width: 400px;
+	overflow: hidden;
+	position: absolute;
+}
+#description2 {
+	overflow: hidden;
+	position: absolute;
+	top: -23px;
+	width: 495px;
+}
+</style>
+    <script type="text/javascript">
+        jQuery.noConflict()
+        jQuery(document).ready(function (jQuery) {
+            jQuery('#description1').perfectScrollbar({
+          wheelSpeed: 20,
+          wheelPropagation: false
+        });
+            jQuery('#description2').perfectScrollbar({
+          wheelSpeed: 20,
+          wheelPropagation: false
+        });
+      });
+	  
+    </script>
+
+    <!--emailtabbedpaneljs-->
+    
+    </head>
+
+    <body class="fullwidth emailpage">
+<div id="wrapper">
+
+      <div id="header">
+    <div class="page">
+      <div class="logo"> <img src="/assets/logo.png" width="177" height="87" class="logo"/> <img src="/assets/headerlogotext.png" width="435" height="29" class="logotext" /> </div>
+      <div class="social">
+        <ul>
+          <li><a href="#"><img src="/assets/facebook.png" width="57" height="31"  /></a></li>
+          <li><a href="#"><img src="/assets/twitter.png" width="57" height="31"  /></a></li>
+        </ul>
+        <div class="login_p">
+          <form action="#">
+            <a href="#">
+            <input type="submit" class="sub" value="Sign in"/>
+            </a> <a href="#">
+            <input type="submit" class="sub" value="Register"/>
+            </a>
+          </form>
+        </div>
+      </div>
+      
+      <div class="clear"></div>
+      
+      
+      <div id="toplinks">
+        <div class="rg_head_top_div"> 
+          
+          <!--NAVIGATION START-->
+          <nav>
+            
+            <div id='cssmenu'>
+<ul>
+   <li><a href='#'><span>Home</span></a></li>
+   <li class='active has-sub'><a href='#'><span>Find A Whip</span></a>
+      <ul>
+         <li class='has-sub'><a href='#'><span>Product 1</span></a>
+            <ul>
+               <li><a href='#'><span>Sub Product</span></a></li>
+               <li class='last'><a href='#'><span>Sub Product</span></a></li>
+            </ul>
+         </li>
+         <li class='has-sub'><a href='#'><span>Product 2</span></a>
+            <ul>
+               <li><a href='#'><span>Sub Product</span></a></li>
+               <li class='last'><a href='#'><span>Sub Product</span></a></li>
+            </ul>
+         </li>
+      </ul>
+   </li>
+   <li><a href='#'><span>Wishlist</span></a></li>
+   <li><a href='#'><span>My Whip</span></a></li>
+   <li><a href='#'><span>Favorites</span></a></li>
+   <li><a href='#'><span>About Us</span></a></li>
+   <li><a href='#'><span>How it Works</span></a></li>
+   <li class='last'><a href='#'><span>Contact Us</span></a></li>
+</ul>
+</div>  
+            
+          </nav>
+          <!--NAVIGATION ENTER--> 
+          
+        </div>
+        <div class="clear"></div>
+        <script type="text/javascript">
+var MenuBar1 = new Spry.Widget.MenuBar("MenuBar1", {imgDown:"SpryAssets/SpryMenuBarDownHover.gif", imgRight:"SpryAssets/SpryMenuBarRightHover.gif"});
+</script> 
+      </div>
+    </div>
+  </div>
+  
+      <div id="content">
+    <div class="page"> <img class="p_img" src="/assets/fullwidth.jpg" width="1050" />
+          <div class="leftcontent">
+        <div class="uppercontent"> <span>Mailbox</span>
+              <div class="buttons">
+            <ul>
+                  <li><a href="javascript:void(0)" onclick = "document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'"><img src="/assets/compose.png" width="36" height="33" /></a></li>
+                  <li><a href="#"><img src="/assets/delete.png" width="36" height="33" /></a></li>
+                  <li><a href="#"><img src="/assets/reply.png" width="37" height="33" /></a></li>
+                  <li><a href="#"><img src="/assets/forward.png" width="36" height="33" /></a></li>
+                  <li><a href="#"><img src="/assets/flagged.png" width="36" height="33" /></a></li>
+                </ul>
+            <style>
+		.black_overlay{
+			display: none;
+			position: absolute;
+			top: 0%;
+			left: 0%;
+			width: 100%;
+			height: 100%;
+			background-color: black;
+			z-index:1001;
+			-moz-opacity: 0.8;
+			opacity:.80;
+			filter: alpha(opacity=80);
+			position:fixed;
+		}
+		.white_content {
+   			 background-color: #FFFFFF;
+   			 display: none;
+   			 height: auto;
+   			 left: 25%;
+   			 position: fixed;
+   			 top: 25%;
+  			  width: 50%;
+  			  z-index: 1002;
+			/*padding: 16px;*/
+			/*border: 16px solid #fff;*/
+			
+		}
+		.white_content a {
+    background-image: url("close.png");
+    background-repeat: no-repeat;
+    height: 38px;
+    position: absolute;
+    right: -19px;
+    top: -24px;
+    width: 39px;
+    z-index: 999999;
+}
+
+
+.white_content .innerpart .inner2part {
+	padding:30px;
+}
+	</style>
+            <div id="light" class="white_content">
+                  <div class="innerpart">
+                <div class="inner2part">
+                      <p class="fc">To:</p>
+                      <p class="sc">Sample Member</p>
+                      <p class="ssubject">Subject:</p>
+                      <p class="sc">RE: 2006 Corvette</p>
+                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </p>
+                      <hr style=" border-top:4px dotted #AAAAAA" />
+                      <div>From: Sample Member</div>
+                      <div>To: Sample Recipient</div>
+                      <div>Date: Saturday, July 13, 2013 at 4:15pm</div>
+                      <div>Subject: 2006 Corvette</div>
+                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt. mollit anim id est laborum. </p>
+                      <form action="#">
+                    <input type="submit" value="Send" />
+                  </form>
+                      <div class="clear"></div>
+                    </div>
+              </div>
+                  <a style=" color:#000" href = "javascript:void(0)" onclick = "document.getElementById('light').style.display='none';document.getElementById('fade').style.display='none'"></a></div>
+            <div id="fade" class="black_overlay"></div>
+          </div>
+              <div> 
+            <!-- panel --> 
+            
+            <!-- panel --> 
+          </div>
+              <div class="clear"></div>
+            </div>
+        <div class="mainpannel">
+              <div class="folder">Folders</div>
+              <div class="folder sortbydate">
+            <div>Sort By Date</div>
+          </div>
+              <div id="TabbedPanels1" class="TabbedPanels">
+            <ul class="TabbedPanelsTabGroup firsttab margin_top">
+                  <li class="TabbedPanelsTab inbox" tabindex="0">Inbox<span>3</span></li>
+                  <li class="TabbedPanelsTab starred" tabindex="0">Starred<span>7</span></li>
+                  <li class="TabbedPanelsTab flagged" tabindex="0">Flagged<span>13</span></li>
+                  <li class="TabbedPanelsTab sent" tabindex="0">Sent<span>286</span></li>
+                  <li class="TabbedPanelsTab deleted" tabindex="0">Deleted<span>6</span></li>
+                </ul>
+            <div class="TabbedPanelsContentGroup secondtab">
+                  <div class="TabbedPanelsContent">
+                <div id="TabbedPanels2" class="">
+                      <ul id="description1" class="TabbedPanelsTabGroup thirdtab wd">
+                    <li class="TabbedPanelsTab" tabindex="0">
+                          <p class="samname">Sample Username</p>
+                          <p class="nametime">11:20pm</p>
+                          <p class="emailsubject">Email Subject</p>
+                          <p class="lastp">Lorem ipsum dolor sit amet, consectetur quis et adipisicing elit, sed do eiusmod tempor valim... </p>
+                        </li>
+                    <li class="TabbedPanelsTab" tabindex="0">
+                          <p class="samname">Sample Username</p>
+                          <p class="nametime">11:20pm</p>
+                          <p class="emailsubject">Email Subject</p>
+                          <p class="lastp">Lorem ipsum dolor sit amet, consectetur quis et adipisicing elit, sed do eiusmod tempor valim... </p>
+                        </li>
+                    <li class="TabbedPanelsTab" tabindex="0">
+                          <p class="samname">Sample Username</p>
+                          <p class="nametime">11:20pm</p>
+                          <p class="emailsubject">Email Subject</p>
+                          <p class="lastp">Lorem ipsum dolor sit amet, consectetur quis et adipisicing elit, sed do eiusmod tempor valim... </p>
+                        </li>
+                    <li class="TabbedPanelsTab" tabindex="0">
+                          <p class="samname">Sample Username</p>
+                          <p class="nametime">11:20pm</p>
+                          <p class="emailsubject">Email Subject</p>
+                          <p class="lastp">Lorem ipsum dolor sit amet, consectetur quis et adipisicing elit, sed do eiusmod tempor valim... </p>
+                        </li>
+                    <li class="TabbedPanelsTab" tabindex="0">
+                          <p class="samname">Sample Username</p>
+                          <p class="nametime">11:20pm</p>
+                          <p class="emailsubject">Email Subject</p>
+                          <p class="lastp">Lorem ipsum dolor sit amet, consectetur quis et adipisicing elit, sed do eiusmod tempor valim... </p>
+                        </li>
+                    <li class="TabbedPanelsTab" tabindex="0">
+                          <p class="samname">Sample Username</p>
+                          <p class="nametime">11:20pm</p>
+                          <p class="emailsubject">Email Subject</p>
+                          <p class="lastp">Lorem ipsum dolor sit amet, consectetur quis et adipisicing elit, sed do eiusmod tempor valim... </p>
+                        </li>
+                    <li class="TabbedPanelsTab" tabindex="0">
+                          <p class="samname">Sample Username</p>
+                          <p class="nametime">11:20pm</p>
+                          <p class="emailsubject">Email Subject</p>
+                          <p class="lastp">Lorem ipsum dolor sit amet, consectetur quis et adipisicing elit, sed do eiusmod tempor valim... </p>
+                        </li>
+                    <li class="TabbedPanelsTab" tabindex="0">
+                          <p class="samname">Sample Username</p>
+                          <p class="nametime">11:20pm</p>
+                          <p class="emailsubject">Email Subject</p>
+                          <p class="lastp">Lorem ipsum dolor sit amet, consectetur quis et adipisicing elit, sed do eiusmod tempor valim... </p>
+                        </li>
+                  </ul>
+                      <div id="description2" class="TabbedPanelsContentGroup thirdtabcontent">
+                    <div class="TabbedPanelsContent" style="border-right: 17px solid rgb(227, 227, 227);">
+                          <div>
+                        <p class="samname">Sample Username</p>
+                        <p class="nametime">July 17, 2013, 11:20pm</p>
+                        <p class="emailsubject">Sample Username 2</p>
+                        <p class="emailsubject">RE: Email Subject</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </p>
+                        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.</p>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.</p>
+                      </div>
+                        </div>
+                    <div class="TabbedPanelsContent">Content 3</div>
+                    <div class="TabbedPanelsContent">Content 4</div>
+                    <div class="TabbedPanelsContent">Content 5</div>
+                    <div class="TabbedPanelsContent">Content 6</div>
+                    <div class="TabbedPanelsContent">Content 7</div>
+                    <div class="TabbedPanelsContent">Content 8</div>
+                    <div class="TabbedPanelsContent">Content 9</div>
+                    <div class="TabbedPanelsContent">Content 10</div>
+                    <div class="TabbedPanelsContent">Content 11</div>
+                    <div class="TabbedPanelsContent">Content 2</div>
+                  </div>
+                    </div>
+              </div>
+                  <div class="TabbedPanelsContent">Content 2</div>
+                  <div class="TabbedPanelsContent">Content 3</div>
+                  <div class="TabbedPanelsContent">Content 4</div>
+                  <div class="TabbedPanelsContent">Content 5</div>
+                </div>
+          </div>
+              <div class="clear"></div>
+            </div>
+        <script type="text/javascript">
+<!--
+var TabbedPanels1 = new Spry.Widget.TabbedPanels("TabbedPanels1");
+var TabbedPanels2 = new Spry.Widget.TabbedPanels("TabbedPanels2");
+//-->
+</script> 
+      </div>
+          <div class="clear"></div>
+        </div>
+  </div>
+    </div>
+<div class="clear"></div>
+<div id="footer">
+      <div class="page">
+    <div class="footerpart">
+          <ul>
+        <h2>My Whip</h2>
+        <li><a href="#">My Account</a></li>
+        <li><a href="#">My Listings</a></li>
+        <li><a href="#">My Favorites</a></li>
+      </ul>
+        </div>
+    <div class="footerpart">
+          <ul>
+        <h2>Support & Help</h2>
+        <li><a href="#">FAQ</a></li>
+        <li><a href="#">Support</a></li>
+        <li><a href="#">Contact Us</a></li>
+      </ul>
+        </div>
+    <div class="footerpart">
+          <ul>
+        <h2>Legal</h2>
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Terms of Use</a></li>
+      </ul>
+        </div>
+    <div class="footerpart last">
+          <ul>
+        <h2>Newsletter</h2>
+        <p>Lorem emphasised est dolor sit ams...</p>
+        <form action="#">
+              <input type="text" value="Enter your email..." class="textbox"/>
+              <input type="image" src="/assets/submit.png" width="36" height="29" />
+            </form>
+      </ul>
+        </div>
+    <div class="clear"></div>
+  </div>
+      <div class="clear"></div>
+    </div>
+<div class="clear"></div>
+<div id="downfooter">
+      <div class="page">
+    <p class="leftp"> &copy; 2013 Swapmywhip.com, Inc. All Rights Reserved. <br />
+          "Swapmywhip.com" is a registered trademark of Krause Capital, LLC used under exclusive license </p>
+    <ul>
+          <li><a href="#">Privacy policy</a></li>
+          <li><a href="#">Terms Of Use</a></li>
+          <li class="last"><a href="#">Contact Us</a></li>
+        </ul>
+    <div class="clear"></div>
+  </div>
+    </div>
+    
+    
+   
+</body>
+</html>

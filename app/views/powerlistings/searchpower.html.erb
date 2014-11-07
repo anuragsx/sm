@@ -1,0 +1,38 @@
+<table width="883" border="0" cellpadding="20" cellspacing="0">
+	<tr>
+		<td width="100%" align="left" valign="top">
+
+			<%= form_tag(powerlistingsresults_powerlistings_path(:listing_type => 'power')) do |f| %>
+
+					<%# f.fields_for @search.conditions do |listings| %>
+						<%= label_tag "Year Between:" %><br/>
+						<%= text_field_tag :year_gte, '', :size => 7 %> and <%= text_field_tag :year_lte, '', :size => 7 %><br/>
+						<%= label_tag "Category:" %><br/>
+                        <%= select_tag(:category, options_for_select(@powercategories.map {|s| [s.category, s.category]},:selected => params[:category]),
+                             :prompt => "-Select a Category")%><br/>
+						<%= label_tag "Subcategory:" %><br/>
+                            <%= select_tag :subcategory, options_for_select(@powersubcategories.map {|s| [s.subcategory, s.subcategory]}, :selected => params[:subcategory]), :prompt => "-Select a Category First-" %><br />
+						<%= label_tag "Make:" %><br/>
+                        <%= select_tag :make, options_for_select(@powermakes.map {|s| [s.make, s.make]},:selected => params[:make]),
+                             {prompt: "Select a Make"} %><br/>
+						<%= label_tag "Price Between:" %><br/>
+						<%= text_field_tag :price_gte, '', :size => 7 %> and <%= text_field_tag :price_lte, '', :size => 7 %><br/>
+						
+						<%# listings.fields_for @search.conditions.owner do |owner| %>
+							<%= label_tag "State:" %><br/>
+                            <%= select_tag(:state,options_for_select(Listing::STATES,:selected => params[:state]) , {:prompt => "-Select State"}) %><br/>
+						<%# end %>
+						
+						<%= label_tag "Description:" %><br/>
+						<%= text_field_tag :desc_contains %><br/>
+						<%= hidden_field_tag :listing_type, "power" %>
+						<br/>
+						<%= submit_tag "Search Powersports", :id => "Submit" %>
+						
+					<%# end %>	
+					
+			<% end %>
+
+		</td>
+	</tr>
+</table>

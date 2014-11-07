@@ -1,0 +1,80 @@
+<table width="100%" border="0" cellpadding="20" cellspacing="0">
+	<tr>
+		<td align="left" valign="top">
+    	<h3>Already a <span class="smwText">SwapMyWhip</span> fan?<br /></h3>
+			<p>Sign in to access your swaps.</p>
+			
+			<% form_for(@user_session) do |f| %>
+				<%= f.error_messages %>
+				
+				<table width="100%" border="0" cellspacing="0" cellpadding="0">
+					<tr>
+						<td width="70%">
+							<table width="100%" border="0" cellspacing="2" cellpadding="2">
+              	<tr>
+              	  <td width="22%" class="formText">
+              	  	<%= f.label "Username:" %>
+              	  </td>
+              	  <td width="78%">
+              	  	<%= f.text_field :username, :size => 25 %>
+              	  </td>
+              	</tr>
+		            <tr>
+		              <td class="formText">
+		              	Password:
+		              </td>
+		              <td class="formText">
+		              	<%= f.password_field :password, :size => 25 %>
+		              </td>
+		            </tr>
+		            <tr>
+		              <td class="formText">
+		              	&nbsp;
+		              </td>
+		              <td class="formText">
+		              	<%= link_to 'Forgot your password?', password_reset_url %>
+		              </td>
+		            </tr>
+		            <tr>
+		              <td class="formText">
+		              	&nbsp;
+		              </td>
+		              <td class="formText">
+		              	&nbsp;
+		              </td>
+		            </tr>
+		            <tr>
+		              <td colspan="2" class="formText">
+		              	We respect your privacy.
+		              </td>
+		            </tr>
+		            <tr>
+		              <td colspan="2" align="left">
+		              	<p>We'll never send you emails unless you tell us it's okay.  Please review our <span class="formText"> <a href="#">Privacy Policy</a>.</span>
+		              	</p>
+		              </td>
+		            </tr>
+		            <tr>
+		              <td colspan="2" class="formText">&nbsp;</td>
+		            </tr>
+		            <tr>
+		              <td class="formText">&nbsp;</td>
+		              <td class="formText">
+		              	<%= image_submit_tag "go_button1.jpg", :alt => "submit", :size => "48x28", :border => 0 %>
+		              </td>
+								</tr>
+							</table>
+						</td>
+						<td width="30%" align="center">
+            	<%= image_tag "keys.jpg", :size => "261x213", :alt => "key exchange" %>
+            </td>
+          </tr>
+        </table>
+        
+      <% end %>
+      
+    </td>
+    <td align="left" valign="top">&nbsp;</td>
+  </tr>
+</table>
+

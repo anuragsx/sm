@@ -1,0 +1,20 @@
+<table width="100%" border="0" cellpadding="20" cellspacing="0">
+	<tr>
+		<td align="left" valign="top">
+			<p>Utilizing an “apples-to-apples” approach, Swap My Whip provides users with a fair trade environment where they can list the vehicle(s) they have to offer, and create a “wish list” of vehicles they’d be willing to trade for. By limiting transactions to private parties only, Swap My Whip bypasses the overpriced auto market, and dealers with only their own interests in mind, and allows users to conduct swaps on a level playing field they establish themselves. If you’re ready to get the most for your money, give us a try!</p>
+			<p>Swap My Whip was founded by a group of individuals who were tired of paying more for less. By creating a fair trade market, Swap My Whip offers its users the chance to get exactly what they want for a price they’re willing to pay. </p>
+		</td>
+		<td align="left" valign="top">
+			<p>So skip the high volume dealerships only out Cras tempus nisl tempor nibh ultricies rutrum. Donec mollis ornare dapibus. Nam a suscipit massa. Curabitur eros libero, luctus quis imperdiet id, ultricies viverra turpis. Maecenas nec quam eu ante scelerisque ultricies. Morbi aliquam hendrerit sapien, vel aliquet tellus sodales vitae. Morbi non tortor sit amet sapien sodales tempus. Nunc cursus nulla eu mi pharetra a venenatis mauris mollis. Sed sed magna vel felis adipiscing aliquam.</p>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vel quam sed leo fringilla molestie. Integer at velit quis nulla fringilla varius. Aliquam massa magna, elementum ut egestas eu, vestibulum vel quam.</p>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2" align="center">
+			<%= image_tag "ready.png", :size => "185x24", :alt => "Ready, Set, Swap!" %>
+			<br />
+  	    <span id="callout">The Swap Your Whip Team is  looking for those extra special whips… <br />
+  	    Submit YOUR whip for a chance to be featured below and YOU could win a FREE Swap My Whip T!!</span><br /><br />
+		</td>
+	</tr>
+</table>

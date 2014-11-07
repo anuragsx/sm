@@ -1,0 +1,28 @@
+<p>
+  <b>Listingtype:</b>
+  <%=h @wishlist.listingtype %>
+</p>
+
+<p>
+  <b>Make:</b>
+  <%=h @wishlist.make %>
+</p>
+
+<p>
+  <b>Model:</b>
+  <%=h @wishlist.model %>
+</p>
+
+<p>
+  <b>Category:</b>
+  <%=h @wishlist.category %>
+</p>
+
+<p>
+  <b>Subcategory:</b>
+  <%=h @wishlist.subcategory %>
+</p>
+
+
+<%= link_to 'Edit', edit_wishlist_path(@wishlist) %> |
+<%= link_to 'Back', wishlists_path %>

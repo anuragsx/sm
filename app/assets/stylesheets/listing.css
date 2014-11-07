@@ -1,0 +1,207 @@
+@charset "utf-8";
+/* CSS Document */
+
+
+
+.pagination span {
+    color: #666666;
+    float: left;
+    font-size: 13px;
+    line-height: 30px;
+    margin-right: 9px;
+    text-transform: none;
+}
+
+body.whipdetails h1.sliderh1 {
+    border-bottom: 1px solid #FFFFFF;
+    border-top: 1px solid #FFFFFF;
+    color: #FFFFFF;
+    font-weight: normal;
+    margin-left: 330px;
+    margin-top: -242px;
+    padding: 10px 70px 10px 0;
+    position: absolute;
+    text-transform: uppercase;
+}
+
+body.whipdetails h1.headingh1 {
+    color: #6EA456;
+    font-family: oswald;
+    font-size: 29px;
+    font-weight: normal;
+    margin: 18px 0;
+    text-transform: uppercase;
+}
+
+.pagination {
+    border-bottom: 1px solid #E3E3E3;
+    clear: both;
+    margin-top: 9px;
+    padding-bottom: 10px;
+}
+.pagination img {
+    float: left;
+    margin-right: 89px;
+}
+
+
+.pagination img.list {
+    float: left;
+    margin-right: 10px;
+    margin-top: 7px;
+}
+.sort
+
+{
+	color:#649d4a !important;
+}
+
+body.whipdetails .contact {
+    background-color: #252525;
+    border-radius: 5px 5px 5px 5px;
+    float: left;
+    margin:  0 0 21px 0 !important;
+    padding: 8px 20px 0;
+    position: inherit !important;
+   
+    width: 260px;
+}
+
+
+
+.pagination select {
+    border: 1px solid #D4D3D3;
+    border-radius: 4px 4px 4px 4px;
+    color: #666666;
+    float: left;
+    font-size: 10px;
+    height: 26px;
+    margin-right: 45px;
+    margin-top: 2px;
+    padding: 5px;
+    width: 150px;
+}
+
+
+
+.post h2 {
+    color: #545353;
+    float: left;
+    font-size: 14px;
+    margin-right: 55px;
+}
+.post img {
+    float: left;
+}
+
+.middilepost {
+    margin-left: 135px;
+}
+
+
+
+.mileage {
+    color: #649D4A !important;
+    float: right !important;
+    font-size: 13px !important;
+    text-transform: none !important;
+}
+
+.inline {
+    height: 25px;
+}
+
+
+.middilepost span {
+    color: #898989;
+    font-size: 11px;
+    text-transform: none;
+	float:left;
+}
+
+.middilepost img
+{
+	float:none !important;
+}
+
+.description {
+    color: #666666 !important;
+	font-size:13px;
+	margin-bottom:0px !important;
+}
+
+
+
+
+.post .swap {
+    background-image: url("/assets/swap.png");
+    background-repeat: no-repeat;
+    color: #FFFFFF;
+    float: right;
+    font-size: 25px;
+    font-weight: bold;
+    height: 102px;
+    line-height: 79px;
+    margin-top: 19px;
+    padding: 3px 16px 0 31px;
+}
+.swap span
+{
+	color:#fff !important;
+}
+.leftcontent .pagination span
+{
+	font-family:'Open Sans',sans-serif;
+}
+.leftcontent .post span
+{
+	font-family:'Open Sans',sans-serif;
+}
+.post {
+
+}
+
+
+.post a {
+		font-family:'Open Sans',sans-serif;
+    color: #649D4A !important;
+    display: block;
+    font-size: 12px;
+    font-style: italic;
+    text-align: left;
+	float:left;
+	text-transform:none !important;
+}
+
+
+.leftpost {
+    border-bottom: 2px dashed #DDDDDD;
+    float: left;
+    padding: 22px 30px 19px 0;
+    width: 510px;
+}
+
+
+.post a.remove {
+    color: #EA644F !important;
+    float: right;
+}
+.paginationextra img {
+    float: left;
+    margin-right: 2px;
+}
+
+.paginationextra span {
+    color: #666666;
+    float: left;
+    font-size: 11px;
+    line-height: 26px;
+	font-family:'Open Sans',sans-serif;
+    margin-right: 9px;
+    text-transform: none;
+}
+.paginationextra
+{
+	float:right;
+	margin-top:20px;
+}

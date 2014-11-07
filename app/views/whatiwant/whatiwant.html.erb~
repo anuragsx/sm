@@ -1,0 +1,34 @@
+<% if flash[:notice] %>
+	<div class="notice"><%= flash[:notice] %></div>
+<% end %>
+<table width="883" border="0" cellpadding="0" cellspacing="0">
+	<tr>
+		<td align="center">
+			<br/>
+			<a href="javascript:gotoshow()">
+				<img src="../images/banners/MoparNation.jpg" name="slide" border=0 style="filter:blendTrans(duration=3)" width=382 height=60>
+			</a>
+		</td>
+	</tr>
+	<tr>
+		<td align="center">
+			<h3><b>TIP: To browse all listings in a category, leave all search fields blank and click 'Basic Search'</b><h3>
+		</td>
+	</tr>
+</table>
+<table width="883" border="0" cellpadding="0" cellspacing="0">
+	<tr>
+		<td class="whatiwantcategory">
+			<%= render :partial => "basicsearchautos" %>
+		</td>
+		<td class="whatiwantcategory">
+			<%= render :partial => "basicsearchmoto" %>
+		</td>
+		<td class="whatiwantcategory">
+			<%= render :partial => "basicsearchmarine" %>
+		</td>
+		<td class="whatiwantcategory">
+			<%= render :partial => "basicsearchpower" %>
+		</td>
+	</tr>
+</table>

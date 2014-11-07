@@ -1,0 +1,124 @@
+<div id="content">
+  <div class="page">
+    <div class="rightcontent">
+      <div class="ad1"> <img src="/assets/ad1.jpg" width="300" height="125" /> </div>
+      <div class="ad2"> <img src="/assets/ad2.jpg" width="300" height="125" /> </div>
+      <div class="ad3"> <img src="/assets/ad3.jpg" width="300" height="250" /> </div>
+    </div>
+    <div class="leftcontent"> <span>Edit My Whip</span>
+      <div class="lsitarea">
+        <div class="pagination">
+
+        </div>
+        <p>
+          <% if flash[:notice] %>
+            <div class="notice"><%= flash[:notice] %></div>
+        <% end %>
+        </p>
+        <h3>
+          <% if @listing.listingtype == "auto" %>
+              <%= @listing.year %> <%= @listing.make %> <%= @listing.model %> <%= number_to_currency(@listing.price, :precision => 0) %>
+          <% else %>
+              <%= @listing.year %> <%= @listing.make %> <%= @listing.category %> <%= number_to_currency(@listing.price, :precision => 0) %>
+          <% end %>
+        </h3>
+        <p>
+          <%= image_tag "vehicle_photos.jpg", :size => "567x26", :alt => "photos" %>
+        </p>
+        <p>
+          <% if @listing.photos.count > 0 %>
+            <div id="bigphoto">
+              <% @listing.photos.all(:limit => 1).each do |bigphoto| %>
+                  <%= link_to image_tag(medphoto_path(bigphoto, :jpg), :alt => bigphoto.name, :hspace => 5, :vspace => 5, :border => 0), largephoto_path(bigphoto, :jpg) %>
+              <% end %>
+            </div>
+        <% else %>
+            <%= image_tag "no-photo.jpg", :alt => "No Photo Available", :border => 0 %>
+        <% end %>
+        </p>
+        <p>
+          <% if @photo_count > 1 %>
+              <% @listing.photos.each do |photo| %>
+                  <%= link_to_remote image_tag(smallphoto_path(photo, :jpg), :alt => photo.name, :border => 0), :url => {:action => "replacebigphoto", :id => photo.id, :listing_id => @listing} %>
+              <% end %>
+          <% end %>
+        </p>
+
+                    <p>
+                      <%= image_tag "upload_images.png", :size => "344x22", :alt => "upload images" %>
+                    </p>
+                    <div class="contactwidget">
+                      <%= form_for [@listing, @photo], :html => { :multipart => true } do |f| %>
+                          <% if @listing.errors.any? %>
+                              <div id="errorExplanation">
+                                <h2><%= pluralize(@listing.errors.count, "error") %> prohibited this post from being saved:</h2>
+
+                                <ul>
+                                  <% @listing.errors.full_messages.each do |message| %>
+                                      <li><%= message %></li>
+                                  <% end %>
+                                </ul>
+                              </div>
+                          <% end %>
+
+                          <p>You may upload up to 4 images per listing.  Please keep the files under 3 Megabytes in size.</p>
+                          <form action="#">
+                            <div class="description`">
+                              <%= f.label "Description:" %>
+                              <%= f.text_field :name, :size => 25 %>
+                            </div>
+                            <div class="image">
+                              <%= f.label "Image:" %>
+                              <%= f.file_field :image_file, :size => 15 %>
+                            </div>
+                            <p>
+                              * Depending on file size, pictures may take a few moments to load
+                            </p>
+                            <p>
+                              <% if @photo_count > 4 %>
+                                  <%= f.submit 'Upload Image', :id => "Submit", :disabled => true %> <span style="color: red;">You already have 4 images.  You must delete one before attempting to upload another.</span>
+                              <% else %>
+                                  <%= f.submit 'Upload Image', :id => "Submit" %>
+                              <% end %>
+                            </p>
+                          </form>
+                      <% end %>
+                    </div>
+
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan="2">
+                    <%= image_tag "vehicle_details.jpg", :size => "567x26", :alt => "details" %>
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan="2">
+                    &nbsp;
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <% if @listing.listingtype == "auto" %>
+                        <%= render :partial => "edit_autolisting" %>
+                    <% elsif @listing.listingtype == "moto" %>
+                        <%= render :partial => "edit_motolisting" %>
+                    <% elsif @listing.listingtype == "marine" %>
+                        <%= render :partial => "edit_marinelisting" %>
+                    <% elsif @listing.listingtype == "power" %>
+                        <%= render :partial => "edit_powerlisting" %>
+                    <% end %>
+
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+        </table>
+
+      </div>
+      <div class="clear"></div>
+    </div>
+  </div>
+  <div class="clear"></div>
+</div>

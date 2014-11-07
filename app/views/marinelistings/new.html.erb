@@ -1,0 +1,144 @@
+<table width="100%" border="0" cellpadding="20" cellspacing="0">
+	<tr>
+		<td align="left" valign="top">
+			<h3>List My Whip<br /></h3>
+				<table width="830" border="0" cellspacing="1" cellpadding="1">
+					<tr>
+						<td colspan="2" rowspan="2">
+							
+							<%= form_for(@listing) do |f| %>
+								<table width="81%" border="0" cellspacing="0" cellpadding="0">
+
+                                  <% if @listing.errors.any? %>
+                                      <div id="errorExplanation">
+                                        <h2><%= pluralize(@listing.errors.count, "error") %> prohibited this post from being saved:</h2>
+
+                                        <ul>
+                                          <% @listing.errors.full_messages.each do |message| %>
+                                              <li><%= message %></li>
+                                          <% end %>
+                                        </ul>
+                                      </div>
+                                  <% end %>
+								
+								<%= f.hidden_field :listingtype, :value => "marine" %>
+								<%= f.hidden_field :expired_at, :value => Date.today + 365 %>
+								<tr>
+									<td>
+										<%= f.label "Year:" %><br />
+										<%= f.text_field :year, :size => 15 %>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<%= f.label "Category:" %><br />
+										<%= f.collection_select :category, @marinecategories, :category, :category, {:prompt => "-Select a Category"}%>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<%= f.label "Subcategory:" %><br />
+										<div id="marinesubcategoriesdiv">
+											<%= render :partial => "marinesubcategories_select" %>
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<%= f.label "Make:" %><br/>
+										<%= f.collection_select :make, @marinemakes, :make, :make, :prompt => "-Select a Make", :size => 15 %>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<%= f.label "Length:" %><br />
+										<%= f.text_field :length, :size => 15 %>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<%= f.label "Fuel:" %><br />
+										<%= f.select(:fuel, ['Gasoline','Diesel','Electric','Other'], {:prompt => "-Select Fuel"}) %>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<%= f.label "Engine:" %><br />
+										<%= f.select(:engine, ['Direct Drive','Jet Drive','None','Other','Single','Single I/O','Twin','Twin I/O','Twin Outboard','Triple I/O','Triple Outboard','V-Drive'], {:prompt => "-Select Engine"}) %>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<%= f.label "Hull:" %><br />
+										<%= f.select(:hull, ['Aluminum','Ferro-Cement','Fiberglass/Composite','Fiberglass-Reinforced','Inflatable','Plastic','Rigid Inflatable','Steel','Wood','Other'], {:prompt => "-Select Hull"}) %>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<%= f.label "HIN:" %><br />
+										<%= f.text_field :vin, :size => 20 %>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<%= f.label "Price:" %><br />
+										$<%= f.text_field :price, :size => 15, :onblur => "this.value=this.value.replace(/\,/g,'');" %> <i>* No commas please</i>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<%= f.label "Description:" %><br />
+										<%= f.text_area :desc, :columns => 15, :rows => 20 %>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<br/>
+										<%= f.submit 'Create Listing', :id => "Submit" %>
+									</td>
+								</tr>
+							</table>	
+							
+							<% end %>
+							
+						</td>
+
+					</tr>
+				</table>
+		</td>
+	</tr>
+</table>
+
+
+<script>
+    $( document ).ready(function() {
+
+        $('#listing_category').change(function() {
+            if ($(this).val() == '')
+            {
+                $('#listing_subcategory').html( $('<option>No model provided for your make</option>'));
+            }
+            else {
+                $.ajax({
+                    type: "GET",
+                    url: "/marinecategories/get_marinesubcategories?category=" + $(this).val(),
+                    success: function(data){
+                        if (data.content == 'None')  //handle the case where no state related to country selected
+                        {
+                            $('#listing_subcategory').empty();
+                            $('#listing_subcategory').append( $('<option>No Subcategory provided for your Category</option>'));
+                        }
+                        else
+                        {
+                            $('#listing_subcategory').empty();
+                            $('#listing_subcategory').append( $('<option>Select your Subcategory</option>'));
+                            jQuery.each(data,function(i, v) {
+                                $('#listing_subcategory').append( $('<option value="'+ data[i][1] +'">'+data[i][0] +'</option>'));
+                            });
+                        }
+                    }
+                });
+            }
+        });
+    });
+</script>

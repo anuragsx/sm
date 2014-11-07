@@ -1,0 +1,62 @@
+ActionController::Routing::Routes.draw do |map|
+  map.root :controller => "home"
+  map.admin "admin", :controller => "home", :action => "admin"
+  map.admin_edit_listing "admin_edit_listing/:id", :controller => "listings", :action => "admin_edit"
+  map.listings_admin "listings_admin", :controller => "listings", :action => "admin"
+	map.login "login", :controller => "user_sessions", :action => "new"
+	map.logout "logout", :controller => "user_sessions", :action => "destroy"
+	#map.password_reset "password_reset", :controller => "password_resets", :action => "new"
+	#map.whatitsworth "whatitsworth", :controller => "home", :action => "whatitsworth"
+	map.searchautos "searchautos", :controller => "autolistings", :action => "searchautos"
+	map.searchmotos "searchmotos", :controller => "motolistings", :action => "searchmotos"
+	map.searchmarine "searchmarine", :controller => "marinelistings", :action => "searchmarine"
+	map.searchpower "searchpower", :controller => "powerlistings", :action => "searchpower"
+	map.about "about", :controller => "home", :action => "about"
+	#map.matt_bio "matt_bio", :controller => "home", :action => "matt_bio"
+	#map.daniel_bio "daniel_bio", :controller => "home", :action => "daniel_bio"
+	map.contact "contact", :controller => "home", :action => "contact"
+	map.faq "faq", :controller => "home", :action => "faq"
+	map.whatiwant "whatiwant", :controller => "whatiwant", :action => "whatiwant"
+	map.basicsearch "basicsearch", :controller => "listings", :action => "basicsearch"
+	map.newmain "newmain", :controller => "listings", :action => "newmain"
+	map.largephoto 'largephoto/:id.:format', :controller => 'photos', :action => 'showlarge'
+	map.medphoto 'medphoto/:id.:format', :controller => 'photos', :action => 'showmedium'
+	map.smallphoto 'smallphoto/:id.:format', :controller => 'photos', :action => 'showsmall'
+	map.inbox "inbox", :controller => "messages", :action => "inbox"
+	map.sent "sent", :controller => "messages", :action => "sent"
+	map.deletesent 'deletesent', :controller => 'messages', :action => 'deletesent', :conditions => {:method => :delete}
+	map.privacypolicy "privacypolicy", :controller => "home", :action => "privacypolicy"
+	map.visitoragreement "visitoragreement", :controller => "home", :action => "visitoragreement"
+	map.reply "messages/reply", :controller => "messages", :action => :reply
+	#map.forums "forums", :controller => :home, :action => :forums
+	#map.autoemail "autoemail", :controller => :autoemail, :action => :index
+	
+	map.resources :wishlists
+	map.resources :favorites
+	map.resources :messages
+	map.resources :users, :has_many=>:listings
+	map.resources :listings do |listings|
+		listings.resources :photos
+	end
+  map.resources :user_sessions
+  map.resources :users, :shallow => true do |users|
+  	users.resources :listings, :name_prefix => nil do |listings|
+  		listings.resources :photos
+  	end
+  	users.resources :wishlists
+  	users.resources :favorites
+  end
+  
+  map.resources :password_resets
+  map.resources :autocategories
+  map.resources :automodels
+  map.resources :marinecategories
+  map.resources :marinemakes
+  map.resources :motocategories
+  map.resources :motomakes
+  map.resources :powercategories
+  map.resources :powermakes
+  
+  map.connect ':controller/:action/:id'
+  map.connect ':controller/:action/:id.:format'
+end

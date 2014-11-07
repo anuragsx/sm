@@ -1,0 +1,131 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>Swap My Whip - Vehicle Trading &amp; Purchasing</title>
+	<%= javascript_include_tag 'banner_ads', 'application' %>
+	<%= stylesheet_link_tag 'main_template' %>
+</head>
+
+<body onload="slideit()">
+	<center>
+		<table width="1024" border="0" cellpadding="0" cellspacing="0">
+			<tr>
+				<td valign="top">
+					<table width="883" border="0" cellpadding="0" cellspacing="0">
+						<tr>
+							<td id="topNav">
+								<table width="100%" border="0" cellpadding="0" cellspacing="0" id="topLinks">
+									<tr>
+										<td width="20%" align="center">
+											<%= link_to("Home", root_url) %>
+										</td>
+										<td width="75%" align="right">
+											<% if current_user %>
+												<%= link_to "Inbox", inbox_path %> <%= link_to "("+ unread_messages.to_s + ")", inbox_path %> | 
+												<%= link_to "Sent", sent_path %> | 
+												<%= link_to "Edit Profile", edit_user_path(:current) %> | 
+												<%= link_to "Logout", logout_path %>
+											<% else %>
+												<%= link_to "Register", new_user_path %> | 
+												<%= link_to "Login", login_path %>
+											<% end %>
+										</td>
+										<td width="5%">
+										</td>
+									</tr>
+								</table>
+							</td>
+						</tr>
+					</table>
+	
+					<div id="container">
+						<table width="883" border="0" cellspacing="0" cellpadding="0">
+							<tr>
+								<td id="header" colspan="4">
+									<%= image_tag "home_banner.jpg", :size => "883x146", :vspace => "5", :border => "0", :id => "home_banner", :alt => "", :usemap => "#m_home_banner" %>
+									<map name="m_home_banner" id="m_home_banner">
+										<area shape="rect" coords="33,0,308,146" href="/home/index" title="Return to the Swap My Whip home page." alt="Return to the Swap My Whip home page." />
+									</map>
+								</td>
+							</tr>
+							<tr>
+								<td id="mainNav" colspan="4">
+									<table width="883" border="0" cellspacing="0" cellpadding="0">
+										<tr>
+											<td width="60">&nbsp;</td>
+											<td width="790">
+												<% if current_user %>
+													<%= link_to("What I Have", listings_url) %>
+												<% else %>
+													<%= link_to("What I Have", new_user_path) %>
+												<% end %>
+												<%= link_to("Wishlist", wishlists_url) %>
+												<%= link_to("Find A Whip", whatiwant_url) %>
+												<%= link_to("Favorites", favorites_path) %>
+												<%= link_to("About Us", about_url) %>
+												<%= link_to("FAQ's", faq_url) %>
+												<%= link_to("Contact Us", contact_url) %>
+											</td>
+											<td width="33" height="30">&nbsp;</td>
+										</tr>
+									</table>
+								</td>
+							</tr>
+							<tr>
+								<td colspan="4">
+									<div id="pageContent">
+										<%= yield %>
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td id="footer" colspan="4">
+									<table width="100%" border="0" cellpadding="5" cellspacing="0">
+										<tr>
+											<td width="50%" height="30" align="left">
+												<%= link_to("Terms of Service", visitoragreement_url) %>
+												<span class="dividerLine"> | </span>
+												<%= link_to("Privacy Policy", privacypolicy_url) %>
+											</td>
+											<td width="50%" height="30" align="right">
+												<%= link_to("Contact Us", contact_url) %>
+											</td>
+										</tr>
+									</table>
+								</td>
+							</tr>
+							<tr>
+								<td colspan="4" id="copyright">
+									<table width="100%" border="0" cellspacing="0" cellpadding="0">
+										<tr>
+											<td width="50%">&trade;2009-2012 Krause Capital, LLC. All rights reserved.</td>
+										</tr>
+									</table>
+								</td>
+							</tr>
+						</table>
+					</div>
+				</td>
+				<td width="141" valign="top" align="center">
+					<a href='http://woundedwarriorproject.org' title='' ><img src='http://d2ysc6lw6qcd4g.cloudfront.net/10A_120x600.jpg' alt='Wounded Warrior Project' title='' width="120" height="600" border="0"/></a>
+					<br />
+					<br />
+					<a href="http://www.tkqlhce.com/click-4225848-10733587" target="_top">
+<img src="http://www.lduhtrp.net/image-4225848-10733587" width="120" height="90" alt="Spend $100, Get $50 at Advance Auto w/code NVBB" border="0"/></a>
+				</td>
+			</tr>
+		</table>
+	</center>
+	<script type="text/javascript">
+		var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+		document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+	</script>
+	<script type="text/javascript">
+		try{
+			var pageTracker = _gat._getTracker("UA-12415208-1");
+			pageTracker._trackPageview();
+		} catch(err) {}
+	</script>
+</body>
+</html>

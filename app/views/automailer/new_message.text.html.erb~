@@ -1,0 +1,23 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> <html>
+<head>
+	<meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+</head>
+
+<body>
+	<h2>You have a new message in your inbox at SwapMyWhip.com, <%=h @message.recipient.firstname %></h2>
+	<p>
+		Someone has sent you a message to your <%=h @message.recipient.username %> SwapMyWhip account regarding the following listing:
+		<br/>
+		<% if @message.listing.year != nil %>
+			<%= link_to @message.listing.year.to_s + " " + @message.listing.make + " " + @message.listing.model, listing_url(@message.listing.id) %>
+		<% else %>
+			<%= link_to @message.listing.make + " " + @message.listing.model, listing_url(@message.listing.id) %>
+		<% end %>
+		<br/>
+		To login to the site and check your message, just follow this link: <a href="http://www.swapmywhip.com/login">http://www.swapmywhip.com/login</a> and click on the "Inbox" link at the top right of the page.
+		<br />
+		<br />
+		Please do not reply to this message.  This message was sent via an automated process.
+	</p>
+</body>
+</html> 

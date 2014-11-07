@@ -1,0 +1,105 @@
+<table width="883" border="0" cellpadding="20" cellspacing="0">
+  <tr>
+    <td align="left" valign="top">
+    	<table width="100%" border="0" cellspacing="0" cellpadding="0">
+      	<tr>
+        	<td>
+        		<h2>Create new power sports wishlist item<br />
+        		</h2>
+        	</td>
+        </tr>
+	      <tr>
+  	      <td>
+  	      	<%= image_tag "black_bar.png", :size => "567x13", :border => 0 %>
+  	      	<br />
+  	      	<br />
+  	      </td>
+      	</tr>
+      	<tr>
+        	<td>
+  
+        		<% form_for(@wishlist) do |f| %>
+							<%= f.error_messages %>
+	        		<%= f.hidden_field :listingtype, :value=>'power' %>
+	        		
+	        		<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  	      			<tr>
+  	            	<td width="40%">
+  	            		<table width="100%" border="0" cellspacing="2" cellpadding="2" class="formText">
+  	             			<tr>
+												<td>
+													<%= f.label 'Year Between:' %>
+												</td>
+											</tr>
+											<tr>
+												<td>
+													<%= f.text_field :min_year, :size => 10 %> and <%= f.text_field :max_year, :size => 10 %>
+												</td>
+											</tr>
+											<tr>
+												<td>
+													<%= f.label "Category:" %>
+												</td>
+											</tr>
+											<tr>
+												<td>
+													<%= f.collection_select :body, @powercategories, :category, :category, {:prompt => "-Select a Category"}, {:onChange => remote_function(:url => {:action => 'get_powersubcategories'}, :with => "'category=' + this.value")} %>
+												</td>
+											</tr>
+											<tr>
+												<td>
+													<%= f.label "Subcategory:" %>
+												</td>
+											</tr>
+											<tr>
+												<td>
+													<div id='powersubcategoriesdiv'>
+														<%= render :partial => 'powersubcategories_select' %>
+													</div>
+												</td>
+											</tr>
+											<tr>
+												<td>
+													<%= f.label "Make:" %>
+												</td>
+											</tr>
+											<tr>
+												<td>
+													<%= f.collection_select :make, @powermakes, :make, :make, {:prompt => "-Select a Make-"} %>
+												</td>
+											</tr>
+											<tr>
+												<td>
+													<%= f.label 'Price Between:' %>
+												</td>
+											</tr>
+											<tr>
+												<td>
+													<%= f.text_field :min_price, :size => 10 %> and
+													<%= f.text_field :max_price, :size => 10 %>
+												</td>
+											</tr>
+											<tr>
+												<td>&nbsp;</td>
+											</tr>
+											<tr>
+												<td>
+													<%= image_submit_tag "create_button.jpg", :alt => "Create", :size => "69x29", :border => 0 %>
+												</td>
+											</tr>
+										</table>
+									</td>
+									<td width="60%" align="center">
+										<%= image_tag "key_exchange_big.png", :size => "404x272", :alt => "key exchange" , :border => 0 %>
+									</td>
+								</tr>
+							</table>
+							
+						<% end %>
+						
+					</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+</table>

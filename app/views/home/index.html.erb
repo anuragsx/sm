@@ -1,0 +1,130 @@
+<table width="883" border="0" cellpadding="0" cellspacing="0">
+	<% if flash[:notice] %>
+		<div class="notice"><%= flash[:notice] %></div>
+	<% end %>
+	<tr><br />
+		<td align="center" valign="top">
+
+			<div class="leftColumn">
+				<p>
+					<span style="font-weight: bold;">
+						<strong>Ready to list your vehicle,<br />
+										or contact an owner about<br />
+										purchasing outright?
+						</strong>
+					</span>
+					<br />
+					<%= link_to "Register now", new_user_path, :style => "color:  #394a59;" %> and get started.
+				</p>
+				<p>
+					<span>
+						<strong>Just want to check us out?</strong>
+					</span>
+					<br />
+					Click below under &quot;Quick Search.&quot;
+				</p>
+				<p>
+					<%= link_to "How Our Site Works", faq_url, :style => "color:  #394a59; font-size: 12px; font-weight: bold;" %>
+				</p>
+				<p>
+					<br />
+					<span style="font-size: 17px; font-weight: bold;">Quick Search<br />for Whips</span>
+					<br />
+					See what was listed today.
+				</p>
+				<p>
+					<%= link_to "Automobiles", autolistingsresults_new_autolistings_path(:listing_type => 'auto'), :style => "font-weight: bold; color: #394a59;" %>
+				</p>
+				<p>
+					<%= link_to "Motorcycles", motolistingsresults_motolistings_path(:listing_type => 'moto'), :style => "font-weight: bold; color: #394a59;" %>
+				</p>
+				<p>
+					<%= link_to "Marine", marinelistingsresults_marinelistings_path(:listing_type => 'marine'), :style => "font-weight: bold; color: #394a59;" %>
+				</p>
+				<p>
+					<%= link_to "Powersports", powerlistingsresults_powerlistings_path(:listing_type => 'power'), :style => "font-weight: bold; color: #394a59;" %>
+				</p>
+			</div>
+
+			<div class="centerColumn">
+				<center>
+					<h2>
+						<strong style="font-size: 1.4em;">The Vehicle Trading Marketplace</strong>
+					</h2>
+				</center>
+				<span style="font-size: 1.2em; text-align: left; color: #000;">
+					<p>
+						Tired of the old way of finding a new ride?  Without cash, you have to sell your current ride first, or take a hit in the wallet when you trade it in. There's a better way...
+					</p>
+					<p>
+						We created a website where YOU can get a better deal. <span class="smwText">SwapMyWhip.com</span> lets you swap your vehicle with other private owners (or just purchase outright). Whether you're upsizing, downsizing, found a new hobby, or just enjoy something new every year, this site has something for you.
+					</p>
+					<p>
+						Swap as often as you'd like, because you'll get value when you swap!
+Whatever your situation, you'll find that swapping for your next vehicle is the way to go!
+					</p>
+					<p>
+						SwapMyWhip.com is free to use, so register today!
+					</p>
+				</span>
+<!--				<p align="center">
+					<a href="http://www.youtube.com/watch?v=xBq9FA_Z5Zg" target="_blank" style="font-size:16px; font-weight:bold; color:#823416;">
+						Check out our YouTube video!
+					</a>
+				</p>
+-->
+				<p style="text-align: center">
+					<span class="greenText">Ready, Set, Swap! Click a category below.</span>
+				</p>
+				<div id="socialNav">
+          <a href="https://www.facebook.com/pages/Swap-My-Whip/117420464960200?ref=ts" title="Swap My Whip Facebook Page" class="facebook"></a>
+          <a href="https://twitter.com/#!/SwapMyWhip" title="Follow us on Twitter" class="twitter"></a>
+        </div>
+			</div>
+			
+			<div class="rightColumn">
+				<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="250" height="120" id="FlashID" title="free listing ad">
+					<param name="movie" value="../flash/free_listing.swf" />
+					<param name="quality" value="high" />
+					<param name="wmode" value="opaque" />
+					<param name="swfversion" value="6.0.65.0" />
+				<!-- This param tag prompts users with Flash Player 6.0 r65 and higher to download the latest version of Flash Player. Delete it if you don’t want users to see the prompt. -->
+					<param name="expressinstall" value="../Scripts/expressInstall.swf" />
+				<!-- Next object tag is for non-IE browsers. So hide it from IE using IECC. -->
+				<!--[if !IE]>-->
+					<object type="application/x-shockwave-flash" data="../flash/free_listing.swf" width="250" height="120">
+					<!--<![endif]-->
+						<param name="quality" value="high" />
+						<param name="wmode" value="opaque" />
+						<param name="swfversion" value="6.0.65.0" />
+						<param name="expressinstall" value="../Scripts/expressInstall.swf" />
+					<!-- The browser displays the following alternative content for users with Flash Player 6.0 and older. -->
+						<div>
+							<h4>Content on this page requires a newer version of Adobe Flash Player.</h4>
+								<p>
+									<a href="http://www.adobe.com/go/getflashplayer">
+										<img src="http://www.adobe.com//assets/shared/download_buttons/get_flash_player.gif" alt="Get Adobe Flash player" width="112" height="33" />
+									</a>
+								</p>
+						</div>
+					<!--[if !IE]>-->
+					</object>
+				<!--<![endif]-->
+				</object>
+
+				<table cellspacing="0">
+					<tr>
+						<td>
+							<a href="http://www.hubcapandwheelworld.com" target="_blank">
+								<img src="..//assets/banners/HubCap_Annie_Banner_250.jpg" border=0 width=250 height=52 alt="HubCap Annie">
+							</a>
+							<%= link_to image_tag("Abundant-Grounds.png", :border => 0), "http://www.facebook.com/pages/Swap-My-Whip/117420464960200", :popup => true, :alt => "Cars and Coffee" %>
+<!--							<%= link_to image_tag("LostMtn-Cruise-in-banner.jpg", :border => 0), "http://www.facebook.com/pages/Swap-My-Whip/117420464960200", :popup => true, :alt => "Lostmtn cruise-in banner" %>
+-->
+						</td>
+					</tr>
+				</table>
+			</div>
+		</td>
+	</tr>
+</table>

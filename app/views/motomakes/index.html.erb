@@ -1,0 +1,31 @@
+<% if flash[:notice] %>
+	<div class="notice"><%= flash[:notice] %></div>
+<% end %>
+
+<table width="100%" border="1" cellpadding="0" cellspacing="0" bordercolor="#823416" class="searchResultsTable">
+	<h1>Moto Makes</h1>
+	
+	<%= link_to "Create New Moto Make", new_motomake_path %>
+	<tr>
+		<th height="25" align="left">Sort Order</th>
+		<th height="25" align="left">Make</th>
+		<th height="25" align="left"></th>
+	</tr>
+	<br/>
+
+	<% @motomakes.each do |motomake| %>
+	<tr>
+		<td align="center" valign="middle">
+			<%=h motomake.sort_order %>
+		</td>
+		<td align="center" valign="middle">
+			<%=h motomake.make %>
+		</td>
+		<td>
+			<%= link_to "Remove", motomake, :confirm => 'Are you sure?', :method => :delete %>
+	</tr>
+
+	<% end %>
+
+</table>
+

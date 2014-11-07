@@ -1,0 +1,106 @@
+<% form_for([@user, @listing]) do |f| %>
+
+<table width="100%" border="0" cellpadding="1" cellspacing="0">
+	<%= f.error_messages %>
+
+	<tr>
+		<td width="10%">
+			<b>Year:</b>
+		</td>
+		<td>
+			<%= f.text_field :year, :size => 15 %>
+		</td>
+	<tr>
+		<td colspan="2">
+			<%= image_tag "divider_line.png", :size => "267x2" %>
+		</td>
+	</tr>
+	<tr>
+		<td width="10%">
+			<b>Category:</b>
+		</td>
+		<td>
+			<%= f.collection_select :category, @powercategories, :category, :category, {:prompt => "-Select a Category"}, {:onChange => remote_function(:url => {:action => 'get_powersubcategories'}, :with => "'category=' + this.value")} %>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2">
+			<%= image_tag "divider_line.png", :size => "267x2" %>
+		</td>																																					
+	</tr>
+	<tr>
+		<td width="10%">
+			<b>Model:</b>
+		</td>
+		<td>
+			<div id="powersubcategoriesdiv">
+				<%= select :listing, :subcategory, @powersubcategories, {:size => 10, :prompt => "-Select a Category First-"} %>
+			</div>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2">
+			<%= image_tag "divider_line.png", :size => "267x2" %>
+		</td>
+	</tr>
+	<tr>
+		<td width="10%">
+			<b>Make:</b>
+		</td>
+		<td>
+			<%= f.collection_select :make, @powermakes, :make, :make, :prompt => "-Select a Make", :size => 15 %>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2">
+			<%= image_tag "divider_line.png", :size => "267x2" %>
+		</td>																																					
+	</tr>
+	<tr>
+		<td width="10%">
+			<b>VIN:</b>
+		</td>
+		<td>
+			<%= f.text_field :vin, :size => 15 %>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2">
+			<%= image_tag "divider_line.png", :size => "267x2" %>
+		</td>
+	</tr>
+	<tr>
+		<td width="10%">
+			<b>Price:</b>
+		</td>
+		<td>
+			<%= f.text_field :price, :size => 15 %>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2">
+			<%= image_tag "divider_line.png", :size => "267x2" %>
+		</td>
+	</tr>
+	<tr>
+		<td width="10%">
+			<b>Description:</b>
+		</td>
+		<td>
+			<%= f.text_area :desc, :columns => 15, :rows => 20 %>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2">
+			<%= image_tag "divider_line.png", :size => "267x2" %>
+		</td>
+	</tr>
+	<tr>
+    <td align="left" valign="center">
+    	<%= f.submit 'Submit Changes', :id => "Submit" %>
+    </td>
+  </tr>
+</table>
+
+<% end %>
+

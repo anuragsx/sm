@@ -1,0 +1,11 @@
+class AutoemailController < ApplicationController
+  def create
+  	Automailer.deliver_sendmail
+  	flash[:notice] = "SENT!"
+  	redirect_to :back
+  end
+
+  def index
+  end
+
+end

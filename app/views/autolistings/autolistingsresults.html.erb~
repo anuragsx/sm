@@ -1,0 +1,261 @@
+<table width="100%" border="0" cellspacing="2" cellpadding="0">
+	<tr>
+		<td valign="top">
+			 <%= render :partial => "basicsearchautos" %>
+		</td>
+	</tr>
+	<tr>
+		<td rowspan="3" align="left" valign="top">
+			<table border="0" cellpadding="2" cellspacing="0">
+				<tr>
+					<td align="right" valign="top">
+						<%= link_to image_tag("SCP-Banner-Static.jpg", :border => 0), "http://www.southerncarparts.com", :popup => true %>
+					</td>
+					<td width="25%" align="right" valign="top" style="color: # color: #2e61c9">
+						<p>
+							<span>Listings per page</span>
+							<%= per_page_select %>
+							<% if @search.page_count > 1 %>
+								<div>
+									<%= page_links %>
+								</div>
+							<% end %>
+						</p>
+					</td>
+				</tr>
+				<tr>
+					<% if current_user %>
+						<td colspan="2">
+							<%= pluralize(@perfectresults_count, "Perfect Match") %> found.
+						</td>
+					<% end %>
+				</tr>
+				
+				<% if current_user %>	
+					<% if @perfectresults_count > 0 %>
+				
+						<tr>
+							<td colspan="2">
+								<table width="100%" border="1" cellpadding="0" cellspacing="0" bordercolor="#823416" style="background-color: #e2ceb3;">
+									<tr>
+										<th height="25" align="center" bgcolor="#823416"></th>
+										<th height="25" align="center" bgcolor="#823416"><%= order_by_link :year %></th>
+										<th height="25" align="center" bgcolor="#823416"><%= order_by_link :make %></th>
+										<th height="25" align="center" bgcolor="#823416"><%= order_by_link :model %></th>
+										<th height="25" align="center" bgcolor="#823416"><%= order_by_link :body, :text => "Category" %></th>
+										<th height="25" align="center" bgcolor="#823416"><%= order_by_link :trans %></th>
+										<th height="25" align="center" bgcolor="#823416"><%= order_by_link :mileage %></th>
+										<th height="25" align="center" bgcolor="#823416"><%= order_by_link :price %></th>
+										<th height="25" align="center" bgcolor="#823416" class="order_by">Location</th>
+										<th height="25" align="center" bgcolor="#823416" class="order_by">Trade For</th>
+									</tr>
+									
+									<h3>Perfect Matches found:</h3>
+									<% @perfectresults.each do |listing| %>
+									<tr>
+										<td align="center" valign="middle">
+											<% listing.photos.all(:limit => 1).each do |photo| %>
+												<%= link_to image_tag(smallphoto_url(photo, :jpg), :alt => photo.name, :border => 0), listing %><br/>
+											<% end %>
+											<% if listing.photos.all.count == 0 %>
+												<%= link_to image_tag("no-photo-small.jpg", :alt => "No Photo Available", :border => 0), listing %><br/>
+											<% end %>
+											<%=h pluralize(listing.photos.all.count, "photo") %>
+									
+											<% if listing.photos.all.count > 1 %>
+												<br/>
+												<%= link_to image_tag("more_photos.png", :alt => "more photos", :size => "74x10", :border => "0"), listing %>
+											<% end %>
+										</td>
+										<td align="center" valign="middle">
+											<%=h listing.year %>
+										</td>
+										<td align="center" valign="middle">
+											<%=h listing.make %>
+										</td>
+										<td align="center" valign="middle">
+											<%=h listing.model %>
+										</td>
+										<td align="center" valign="middle">
+											<%=h listing.body %>
+										</td>
+										<td align="center" valign="middle">
+											<%=h listing.transmission %>
+										</td>
+										<td align="center" valign="middle">
+											<%=h listing.mileage %>
+										</td>
+										<td align="center" valign="middle">
+											<%=h number_to_currency(listing.price, :precision => 0) %>
+										</td>
+										<td align="center" valign="middle">
+											<% if listing.owner.city && listing.owner.state %>
+												<%=h listing.owner.city %>, <%=h listing.owner.state %>
+											<% end %>
+										</td>
+										<td align="center" valign="middle">
+											<!--<%=h listing.owner %>-->
+											<% listing.owner.wishlists.find(:all).each do |wishlist| %>
+												*<%= wishlist.min_year %>-<%= wishlist.max_year %> <%= wishlist.body %> <%= wishlist.category %> <%= wishlist.subcategory %> <%= wishlist.make %> <%= wishlist.model %> <%=  number_to_currency(wishlist.min_price, :precision => 0) %>-<%=  number_to_currency(wishlist.max_price, :precision => 0) %><br />
+											<% end %>
+										</td>
+									</tr>
+							
+									<% end %>
+							
+								</table><br />
+								<p>&nbsp;</p>
+							</td>
+						</tr>
+					<% end %>
+				<% end %>
+				
+				<tr>
+					<td colspan="2">
+						<% if current_user %>
+							<%= pluralize(@listings_count, "Unmatched listing") %> found.
+						<% else %>
+							<%= pluralize(@listings_count, "listing") %> found.
+						<% end %>
+					</td>
+				</tr>
+				
+				<% if @listings_count > 0 %>
+				
+				<tr>
+					<td colspan="2">
+						<table width="100%" border="1" cellpadding="0" cellspacing="0" bordercolor="#823416" style="background-color: #e2ceb3;">
+							<tr>
+								<th height="25" align="center" bgcolor="#823416"></th>
+								<th height="25" align="center" bgcolor="#823416"><%= order_by_link :year %></th>
+								<th height="25" align="center" bgcolor="#823416"><%= order_by_link :make %></th>
+								<th height="25" align="center" bgcolor="#823416"><%= order_by_link :model %></th>
+								<th height="25" align="center" bgcolor="#823416"><%= order_by_link :body, :text => "Category" %></th>
+								<th height="25" align="center" bgcolor="#823416"><%= order_by_link :trans %></th>
+								<th height="25" align="center" bgcolor="#823416"><%= order_by_link :mileage %></th>
+								<th height="25" align="center" bgcolor="#823416"><%= order_by_link :price %></th>
+								<th height="25" align="center" bgcolor="#823416" class="order_by">Location</th>
+								<th height="25" align="center" bgcolor="#823416" class="order_by">Trade For</th>
+							</tr>
+							
+							<% if current_user %>
+								<h3>The following vehicles match your search request, but are not a perfect match for what you own. Please message the owner to see if your vehicle may be of interest to him/her.</h3>
+							<% end %>
+							<% @listings.each do |listing| %>
+							<tr>
+								<td align="center" valign="middle">
+									<% listing.photos.all(:limit => 1).each do |photo| %>
+										<%= link_to image_tag(smallphoto_url(photo, :jpg), :alt => photo.name, :border => 0), listing %><br/>
+									<% end %>
+									<% if listing.photos.all.count == 0 %>
+										<%= link_to image_tag("no-photo-small.jpg", :alt => "No Photo Available", :border => 0), listing %><br/>
+									<% end %>
+									<%=h pluralize(listing.photos.all.count, "photo") %>
+									
+									<% if listing.photos.all.count > 1 %>
+										<br/>
+										<%= link_to image_tag("more_photos.png", :alt => "more photos", :size => "74x10", :border => "0"), listing %>
+									<% end %>
+								</td>
+								<td align="center" valign="middle">
+									<%=h listing.year %>
+								</td>
+								<td align="center" valign="middle">
+									<%=h listing.make %>
+								</td>
+								<td align="center" valign="middle">
+									<%=h listing.model %>
+								</td>
+								<td align="center" valign="middle">
+									<%=h listing.body %>
+								</td>
+								<td align="center" valign="middle">
+									<%=h listing.transmission %>
+								</td>
+								<td align="center" valign="middle">
+									<%=h listing.mileage %>
+								</td>
+								<td align="center" valign="middle">
+									<%=h number_to_currency(listing.price, :precision => 0) %>
+								</td>
+								<td align="center" valign="middle">
+									<% if listing.owner.city && listing.owner.state %>
+										<%=h listing.owner.city %>, <%=h listing.owner.state %>
+									<% end %>
+								</td>
+								<td align="center" valign="middle">
+									<!--<%=h listing.owner.username %>-->
+									<% listing.owner.wishlists.find(:all).each do |wishlist| %>
+										*<%= wishlist.min_year %>-<%= wishlist.max_year %> <%= wishlist.body %> <%= wishlist.category %> <%= wishlist.subcategory %> <%= wishlist.make %> <%= wishlist.model %> <%=  number_to_currency(wishlist.min_price, :precision => 0) %>-<%=  number_to_currency(wishlist.max_price, :precision => 0) %><br />
+									<% end %>								
+								</td>
+							</tr>
+							
+							<% end %>
+							
+						</table>
+
+					</td>
+				</tr>
+				<tr>
+					<td width="50%" align="right" valign="top" style="color: # color: #2e61c9">
+						<p>
+							<% if @search.page_count > 1 %>
+								<div style="color: #2e61c9">
+									<%= page_links %>
+								</div>
+							<% end %>
+						</p>
+					</td>
+					<td align="right">
+						<a href="#">Back to Top of Page</a>
+					</td>
+				</tr>
+				<tr>
+					<td>&nbsp;</td>
+				</tr>
+				<% end %>
+			</table>
+			<table width="100%">
+				<tr>	
+					<td width="100%" align="center">
+						<%= link_to image_tag("MOs.jpg", :border => 0), "http://www.mosspeedshop.com", :popup => true %>
+				</tr>
+			</table>
+			<table width="100%">
+				<tr>
+					<td width="33%" align="center">
+						<% form_for @search, :url => {:controller => :motolistings, :action => "motolistingsresults"} do |f| %>
+							<%= f.hidden_field :order_by, :value => "created_at" %>
+							<%= f.hidden_field :order_as, :value => "DESC" %>
+							<% f.fields_for @search.conditions do |listings| %>
+								<%= listings.hidden_field :listingtype_is, :value => "moto" %>
+								<%= f.submit "Browse Motorcycles", :class => "browseLinkFormSubmit" %>
+							<% end %>
+						<% end %>
+					</td>
+					<td width="33%" align="center">
+						<% form_for @search, :url => {:controller => :marinelistings, :action => "marinelistingsresults"} do |f| %>
+							<%= f.hidden_field :order_by, :value => "created_at" %>
+							<%= f.hidden_field :order_as, :value => "DESC" %>
+							<% f.fields_for @search.conditions do |listings| %>
+								<%= listings.hidden_field :listingtype_is, :value => "marine" %>
+								<%= f.submit "Browse Marine", :class => "browseLinkFormSubmit" %>
+							<% end %>
+						<% end %>
+					</td>
+					<td width="33%" align="center">
+						<% form_for @search, :url => {:controller => :powerlistings, :action => "powerlistingsresults"} do |f| %>
+							<%= f.hidden_field :order_by, :value => "created_at" %>
+							<%= f.hidden_field :order_as, :value => "DESC" %>
+							<% f.fields_for @search.conditions do |listings| %>
+								<%= listings.hidden_field :listingtype_is, :value => "power" %>
+								<%= f.submit "Browse Powersports", :class => "browseLinkFormSubmit" %>
+							<% end %>
+						<% end %>
+					</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+</table>

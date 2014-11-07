@@ -1,0 +1,58 @@
+<div id="content">
+  <div class="page">
+    <div class="rightcontent">
+      <div class="ad1"> <img src="/assets/ad1.jpg" width="300" height="125" /> </div>
+      <div class="ad2"> <img src="/assets/ad2.jpg" width="300" height="125" /> </div>
+      <div class="ad3"> <img src="/assets/ad3.jpg" width="300" height="250" /> </div>
+    </div>
+    <div class="leftcontent"> <span>New Photo</span>
+      <div class="lsitarea">
+        <div class="pagination">
+          <div class="contactwidget">
+            <%= form_for [@listing, @photo], :html => { :multipart => true } do |f| %>
+                <% if @photo.errors.any? %>
+                    <div id="errorExplanation">
+                      <h2><%= pluralize(@photo.errors.count, "error") %> prohibited this post from being saved:</h2>
+
+                      <ul>
+                        <% @photo.errors.full_messages.each do |message| %>
+                            <li><%= message %></li>
+                        <% end %>
+                      </ul>
+                    </div>
+                    <%end%>
+                    <p>You may upload up to 4 images per listing.  Please keep the files under 3 Megabytes in size.</p>
+                    <div>
+                      <%= f.label "Description:" %>
+                      <%= f.text_field :name, :size => 25 %>
+                    </div>
+                    <div>
+                      <%= f.label "Image:" %>
+                      <%= f.file_field :image_file, :size => 15 %>
+                    </div>
+                    <div>
+                      <p>* Depending on file size, pictures may take a few moments to load</p>
+                    </div>
+                    <div>
+                      <% if @listing.photos.count > 4 %>
+                          <%= f.submit 'Upload Image', :id => "Submit", :disabled => true %> <span style="color: red;">You already have 4 images.  You must delete one before attempting to upload another.</span>
+                      <% else %>
+                          <%= f.submit 'Upload Image', :id => "Submit" %>
+                      <% end %>
+                    </div>
+                <% end %>
+          </div>
+          <div class="clear"></div>
+
+          <% if flash[:notice] %>
+              <div class="notice"><%= flash[:notice] %></div>
+          <% end %>
+        </div>
+
+
+      </div>
+      <div class="clear"></div>
+    </div>
+  </div>
+  <div class="clear"></div>
+</div>

@@ -1,0 +1,64 @@
+@charset "utf-8";
+/* CSS Document */
+
+img.twocolumns
+{
+	margin:0 0 19px 0;
+}
+
+
+.leftcontent .h2text {
+    color: #649D4A;
+    font-family: 'Oswald',sans-serif;
+    font-size: 22px;
+    text-transform: uppercase;
+}
+
+
+body.twocolumns strong {
+    font-family: 'Oswald',sans-serif;
+	    color: #252525;
+}
+
+
+body.twocolumns h4 {
+    margin: 0;
+    padding: 0;
+    color: #252525;
+    font-size: 19px;
+}
+
+body.twocolumns .contact {
+    background-color: #252525;
+    border-radius: 5px 5px 5px 5px;
+    float: left;
+    margin:  0 0 21px 0 !important;
+    padding: 8px 20px 0;
+    position: inherit !important;
+   
+    width: 260px;
+}
+ h5
+ 
+ {
+    margin: 0;
+    padding: 0;
+	
+    color: #424242;
+ }
+ 
+ .leftcontent a
+ 
+ {
+	 color:#649d4a;
+ }
+  .leftcontent a:hover
+  {
+	  text-decoration:underline;
+  }
+  
+  
+.uppercontent {
+    border-bottom: none !important;
+    padding-bottom: none !important;
+}

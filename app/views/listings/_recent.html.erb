@@ -1,0 +1,21 @@
+<h3>Most Recent listings</h3>
+
+<table>
+  <tr>
+	    <th class="RecentHead">Year</th>
+    	<th class="RecentHead">Make</th>
+	    <th class="RecentHead">Model</th>
+	    <th class="RecentHead">Price</th>
+	  </tr>
+	
+	<% @listings.each do |listing| %>
+	  <tr>
+	    <td class="RecentData"><%=h listing.year %></td>
+	    <td class="RecentData"><%=h listing.make %></td>
+	    <td class="RecentData"><%=h listing.model %></td>
+	    <td class="RecentData"><%=h listing.price %></td>
+	    <td class="RecentData"><%= link_to 'Show', listing %></td>
+	  </tr>
+<% end %>
+</table>
+

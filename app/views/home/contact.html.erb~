@@ -1,0 +1,84 @@
+<table width="883" border="0" cellpadding="20" cellspacing="0">
+	<% if flash[:notice] %>
+		<div class="notice"><%= flash[:notice] %></div>
+	<% end %>
+	<tr>
+		<td align="left" valign="top">
+			<table width="100%" border="0" cellspacing="0" cellpadding="0">
+				<tr>
+					<td width="60%" class="greenText">
+						<p class="greenText">Like what you see? Have a question or comment? Like to advertise? Shoot us a quick message.<br />
+							<br />
+						</p>
+						<p class="greenText">&nbsp;</p>
+						<p class="greenText">&nbsp;</p>
+						<% form_for @message, :url => {:controller => "messages", :action => "create"} do |f| %>
+							<%= f.error_messages %>
+							
+							<%= f.hidden_field :recipient_id, :value => 1 %>
+							<table width="100%" border="0" cellspacing="0" cellpadding="0">
+								<tr>
+									<td width="15%" class="formText">*Name:</td>
+									<td width="85%" align="left" valign="top">
+										<%= f.text_field :name, :size => 35, :tabindex => 1 %>
+									</td>
+								</tr>
+								<tr>
+									<td class="formText">*Email:</td>
+									<td align="left" valign="top">
+										<%= f.text_field :email, :size => 35, :tabindex => 2 %>
+									</td>
+								</tr>
+								<tr>
+									<td class="formText">Phone:</td>
+									<td align="left" valign="top">
+										<%= f.text_field :phone, :size => 35, :tabindex => 3 %>
+									</td>
+								</tr>
+								<tr>
+									<td class="formText">*Subject:</td>
+									<td align="left" valign="top">
+										<%= f.text_field :subject, :size => 35, :tabindex => 3 %>
+									</td>
+								</tr>
+								<tr>
+									<td class="formText">*Message:</td>
+									<td align="left" valign="top">
+										<%= f.text_area :body, :cols => 32, :rows => 10, :tabindex => 4 %>
+									</td>
+								</tr>
+								<tr>
+									<td>&nbsp;</td>
+									<td align="left" valign="top" class="formText">*required</td>
+								</tr>
+								<tr>
+									<td>&nbsp;</td>
+									<td align="left" valign="top">
+										<%= image_submit_tag "sendbutton.jpg", :alt => "submit", :size => "54x25", :border => 0 %>
+									</td>
+								</tr>
+							</table>
+							
+						<% end %>
+						
+					</td>
+					<td width="40%" valign="top">
+						<p>Email:</p>
+						<p><span class="smwText">info@swapmywhip.com</span></p>
+						<p><span class="smwText">socialmedia@swapmywhip.com</span></p>
+						<p>Atlanta, GA USA</p>
+						<p>
+							<img src="images/mot1.jpg" width="158" height="214" hspace="2" vspace="2" />
+							<img src="images/jetski.jpg" width="165" height="214" hspace="2" vspace="2" />
+						</p>
+					</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+	<tr>
+		<td align="center">
+			<%= link_to image_tag("468x60_imgad.jpg", :alt => "AIM Mobile Inspections", :border => 0), "http://www.aimmobileinspections.com/SwapMyWhip-car-inspections.php", :popup => true %>
+		</td>
+	</tr>
+</table>

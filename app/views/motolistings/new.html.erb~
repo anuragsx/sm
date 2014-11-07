@@ -1,0 +1,74 @@
+<table width="100%" border="0" cellpadding="20" cellspacing="0">
+	<tr>
+		<td align="left" valign="top">
+			<h3>List My Whip<br /></h3>
+				<table width="830" border="0" cellspacing="1" cellpadding="1">
+					<tr>
+						<td colspan="2" rowspan="2">
+							
+							<% form_for([@user, @listing]) do |f| %>
+								<table width="81%" border="0" cellspacing="0" cellpadding="0">
+								
+								<%= f.error_messages %>
+								
+								<%= f.hidden_field :listingtype, :value => "moto" %>
+								<%= f.hidden_field :expired_at, :value => Date.today + 365 %>
+								<tr>
+									<td>
+										<%= f.label "Year:" %><br />
+										<%= f.text_field :year, :size => 15 %>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<%= f.label "Category:" %><br />
+										<%= f.collection_select :category, @motocategories, :category, :category, :prompt => "-Select a Category" %>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<%= f.label "Make:" %><br/>
+										<%= f.collection_select :make, @motomakes, :make, :make, :prompt => "-Select a Make" %>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<%= f.label "Mileage:" %><br />
+										<%= f.text_field :mileage, :size => 15 %> <i>* No commas please</i>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<%= f.label "VIN:" %><br />
+										<%= f.text_field :vin, :size => 20 %>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<%= f.label "Price:" %><br />
+										$<%= f.text_field :price, :size => 15 %> <i>* No commas please</i>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<%= f.label "Description:" %><br />
+										<%= f.text_area :desc, :columns => 15, :rows => 20 %>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<br/>
+										<%= f.submit 'Create Listing', :id => "Submit" %>
+									</td>
+								</tr>
+							</table>	
+							
+							<% end %>
+							
+						</td>
+
+					</tr>
+				</table>
+		</td>
+	</tr>
+</table>

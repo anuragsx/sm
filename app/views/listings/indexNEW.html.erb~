@@ -1,0 +1,98 @@
+<table width="883" border="0" cellpadding="20" cellspacing="0">
+	<tr>
+		<td align="left" valign="top">
+			<table width="100%" border="0" cellpadding="0" cellspacing="0" id="myListings">
+				<tr>
+					<td width="25%">
+						<h3>My Listings
+							<br />
+							<br />
+						</h3>
+					</td>
+					<td width="75%" align="right" valign="middle">
+						<a href="#">
+							<img src="images/create_new_listing_button.jpg" alt="create new listing" width="108" height="32" border="0" />
+						</a>
+					</td>
+				</tr>
+				<tr>
+					<td width="15%" align="left">
+						<p>
+							<strong>2006 Yamaha 4 Wheeler</strong>
+						</p>
+						<p>
+							<strong>
+								<img src="images/4wheeler.jpg" alt="4 Wheeler" width="180" height="122" border="0" align="middle" />
+							</strong>
+							<br />
+							<br />
+							<span class="formText">Add | Edit | Manage Photos</span>
+						</p>
+					</td>
+          <td width="85%" align="left" valign="middle">
+          	<table width="100%" border="0" align="left" cellpadding="3" cellspacing="3" class="listingDetails" id="listingDetails">
+							<tr>
+								<td align="left">Year:</td>
+							</tr>
+							<tr>
+								<td align="left">Make:</td>
+							</tr>
+							<tr>
+								<td align="left">Model:</td>
+							</tr>
+							<tr>
+								<td align="left">Body Style:</td>
+							</tr>
+							<tr>
+								<td align="left">Asking Price:</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2">
+						<p>
+							<br />
+							<img src="images/listing_divider1.png" width="596" height="11" />
+						</p>
+					</td>
+				</tr>
+				<tr>
+					<td width="15%" align="left">
+						<strong>2007 Kawasaki Seadoo
+							<br />
+							<br />
+							<img src="images/seadoo.jpg" width="179" height="122" alt="seadoo" />
+							<br />
+							<br />
+							<span class="formText">Add | Edit | Manage Photos</span>
+							<br />
+						</strong>
+					</td>
+					<td width="85%" align="left">
+						<table width="100%" border="0" align="left" cellpadding="3" cellspacing="3" class="listingDetails" id="listingDetails2">
+          <tr>
+            <td align="left">Year:</td>
+          </tr>
+          <tr>
+            <td align="left">Make:</td>
+          </tr>
+          <tr>
+            <td align="left">Model:</td>
+          </tr>
+          <tr>
+            <td align="left">Body Style:</td>
+          </tr>
+          <tr>
+            <td align="left">Asking Price:</td>
+          </tr>
+        </table></td>
+      </tr>
+      <tr>
+        <td colspan="2">&nbsp;</td>
+        </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td align="right" valign="middle"><a href="#"><img src="images/back_arrow.png" alt="back" width="10" height="11" border="0" /></a> Back/Next <a href="#"><img src="images/next_arrow.png" alt="next" width="10" height="11" border="0" /></a></td>
+      </tr>
+      </table>

@@ -1,0 +1,553 @@
+
+
+@media (min-width: 768px) and (max-width: 1024px) {
+	.body{overflow-x:hidden;}
+		.p_img{width:100%; height:auto;}
+
+#cssmenu > ul > li > a{padding: 10px 23px;}		
+		
+.logo{padding-bottom:9px;}
+/*HOME PAGE CSS START*/
+.social ul{ margin-top:7px; margin-bottom:5px;}
+.page{ width:700px !important; margin:auto; }
+.social {float: left; position: absolute; right: 10px; top: 10px; width: auto;}
+.social ul{float:left;}
+.login_p{width:auto; float:left;}
+
+#toplinks{ float:left; padding:0px; font-size:13px; width:100%;}
+.upslider{width:100%;}
+.contact{width:460px; float:none; margin:auto; margin:20px auto auto auto;} 
+#wrapper {width:100%;}
+
+.rightcontent {display:none; float:right; width:300px;}
+.leftcontent {float: left; width:700px;}
+.lightbox a.fancybox{width:340px;}
+.overlay{width:340px !important; height:192px !important;}
+.fancybox img{width:100%;}
+p.leftp{color: #d3d3d3 !important; float: left; font-size: 12px !important; text-align: center; width: 100%;}
+#downfooter ul{ width:380px; float:none !important; margin:auto;}
+input.submit{left:240px;}
+.footerpart h2{ font-size:15px;}
+.footerpart{width:130px; margin-left:0px;}
+/*HOME PAGE CSS END*/
+
+/*FAVOURITIES PAGE CSS START*/
+
+.find_w{ /*float: right !important;*/ margin:auto !important; width:260px !important; display:block!important;}
+.ad1{display:none;}
+.ad2{display:none;}
+.ad3{display:none;}
+body.whipdetails .leftcontent{width:700px !important; margin:auto !important;}
+body.whipdetails .rightcontent .contact{width:460px;}
+body.whipdetails .rightcontent{margin:auto; width:500px !important; float:none !important;}
+
+/*FAVOURITIES PAGE CSS END*/
+
+/*CONTACT US PAGE CSS START*/
+body.fullwidth .contactwidget{ float:left; width:300px;}
+body.fullwidth .rightwidget{margin-left:0px;}
+body.fullwidth .contactwidget input[type="text"]{width:90%;}
+body.fullwidth .contactwidget textarea{width:90%;}
+/*CONTACT US PAGE CSS END*/
+
+/*WHIPDETAILS PAGE CSS START*/
+body.whipdetails #slider img{width:100%; height:auto;}
+#gallery img{width:110px; height:auto;}
+/*WHIPDETAILS PAGE CSS END*/
+
+
+/*WISHLIST RESULT PAGE CSS START*/
+body.wishresult .leftpost{width:100%;}
+body.wishresult .smalllightbx{width:100%;}
+
+.short_by{width:270px !important; float:right;}
+
+.list_map{width:150px !important; }
+
+/*WISHLIST RESULT PAGE CSS END*/
+
+/*EMAIL PAGE CSS START*/
+#description2{overflow:hidden; position:relative; top:280px; border-top:1px solid#ccc;  width:698px; margin:0px 0 0 -250px; float:left;}
+.TabbedPanels{height:519px;}
+.thirdtabcontent{height:275px;}
+.thirdtab{height:266px;}
+.secondtab{clear: none; float: left; margin-left: 0; position: relative; top:-37px;}
+.emailpage .firsttab li.TabbedPanelsTabSelected span{margin: 0 8px 4px 0 !important;}
+.emailpage .firsttab li{background-color: #ffffff; background-position: 26px center; color: #252525; font-size:17px;
+    font-weight: normal; height:38px; line-height:37px; padding-left:50px; padding-right:23px;}
+.emailpage #description1 p.lastp{ display:none;}
+.emailpage p.emailsubject{font-size:14px;}
+.emailpage #description1 li{width:431px;}
+.TabbedPanels{width:100%;}
+.emailpage .sortbydate{width:448px !important; border-radius:0 5px 0 0;}
+/*EMAIL PAGE CSS START*/
+
+.wd_height{ height: auto !important;} 
+
+
+
+
+}
+
+
+
+
+
+@media only screen and (max-width: 767px) and (min-width: 480px){  
+.body{overflow-x:hidden;}
+
+#cssmenu > ul > li > a{padding: 10px 23px;}	
+
+.p_img{width:100%; height:auto;}
+.float_left{float:left !important;}
+/*HOME PAGE CSS START*/
+.page{ width:460px !important; margin:auto; }
+.fav_width{ width:460px !important; margin:auto; }
+.logo img{ width:140px; height:auto; margin-top:14px;}
+.social {float: right; /*position: absolute;*/ width: auto;}
+.social ul{float:left; display:none;}
+.login_p{width:auto; float:left;}
+.logotext{display:none;}
+
+#toplinks{ float:left; padding:0px; font-size:13px; /*position:relative;*/ z-index:99; width:100%;}
+.upslider{width:100%;}
+.contact{width:300px; float:none; margin:auto; margin:20px auto auto auto;} 
+#wrapper {width:100%;}
+
+.rightcontent {display:none; float:right; width:300px;}
+.leftcontent {float:none; margin:auto; margin-top:0px; width:400px;}
+.lightbox a.fancybox{width:190px;}
+.overlay{width:190px !important; height:107px !important; background-position: center 31px !important;}
+.fancybox img{width:100%;}
+p.leftp{color: #d3d3d3 !important; float: left; font-size: 12px !important; text-align: center; width: 100%;}
+#downfooter ul{ width:380px; float:none !important; margin:auto;}
+.footerpart{width:154px;}
+
+.overlay h5{font-size:20px !important; line-height:30px !important;}
+input.submit{left:80px;}
+.footerpart{margin-left:0px; margin-bottom:8px;}
+.footerpart h2{font-size:16px;}
+div.last{margin-left:0px;}
+
+/*HOME PAGE CSS END*/
+
+
+/*FAVOURITIES PAGE CSS START*/
+.find_w{ /*float: right !important;*/ margin:auto !important; width:260px !important; display:block!important;}
+
+.ad1{display:none;}
+.ad2{display:none;}
+.ad3{display:none;}
+body.whipdetails .rightcontent .contact{width:330px;}
+body.whipdetails .rightcontent{width:380px !important; float:none !important; margin:auto;}
+
+body.whipdetails .leftcontent {/*float: right !important;*/ margin:auto; float:none; width:460px!important;}
+.post{border-bottom: 2px dashed #dddddd; padding-bottom:10px;}
+.leftpost{width:430px; border-bottom:0px none; padding-bottom:7px; /*border-bottom: 2px dashed #dddddd;*/}
+.post .swap{width:450px; float:left; height:36px; background: url(../images/fav_arrow.png) right center no-repeat; background-color:#649d4a; padding:0 0 0 10px; margin:0px;}
+.post .swap span{ line-height:36px !important; padding:0 0 0 10px;}
+.post .swap sup{ float:left; line-height:39px !important;}
+.paginationextra{margin-right:8px;} 
+
+.paging{float:left; /*margin: 0 0 0 61px;*/}
+.paging img{ margin-right:5px;}
+body.whipdetails h1.headingh1{width:100%; /*text-align:center;*/}
+.short_by{/*margin: 0 0 0 100px;*/}
+body.whipdetails h1.sliderh1{ margin-left:210px; margin-top:-142px; padding: 10px 10px 10px 0;}
+
+/*FAVOURITIES PAGE CSS END*/
+
+/*CONTACT US PAGE CSS START*/
+body.fullwidth .contactwidget{width:495px;}
+body.fullwidth .rightwidget{margin-left:0px;}
+
+/*CONTACT US PAGE CSS END*/
+
+/*REGISTER PAGE CSS START*/
+body.register .contactwidget{ width:460px;}
+.wd_full{width:100%;}
+.desired_full{width:100%; float:left; margin-left:0px !important;}
+.desired_full label{ padding-right:50px;}
+.sl_width{width:219px !important;}
+body.register .contactwidget .password p{ margin-left:0px;}
+/*REGISTER PAGE CSS END*/
+
+/*WHIPDETAILS PAGE CSS START*/
+body.whipdetails #slider{height:auto !important;}
+body.whipdetails #slider img{width:100%; height:auto;}
+#gallery img{width:70px; height:auto;}
+/*.leftcontent span, .rightwidget span{display:none;}*/
+.rightsep ul{display:none;}
+.rightsep b{padding-right:10px;}
+/*WHIPDETAILS PAGE CSS END*/
+
+/*WISHLIST FORM PAGE CSS START*/
+body.register .contactwidget div  label{width:140px;}
+
+body.register .contactwidget label{width:100px;}
+.bt_w{width:auto !important;}
+.bt_and{ margin-left:30px !important;}
+
+.lightbox{width:400px; margin:auto;}
+/*WISHLIST FORM PAGE CSS END*/
+
+/*WISHLIST RESULT PAGE CSS START*/
+body.wishresult .leftpost{width:100%;}
+body.wishresult .smalllightbx{width:100%;}
+body.wishresult .leftpost{border:0px none;}
+
+/*WISHLIST RESULT PAGE CSS END*/
+
+/*EMAIL PAGE CSS START*/
+#description2{overflow:hidden; position:relative; top:280px; border-top:1px solid#ccc;  width:100%; margin:0px 0 0 0px; float:left;}
+.TabbedPanels{height:769px;}
+.wd_height{ height: auto !important;}
+.thirdtabcontent{height:275px;}
+.thirdtab{height:266px;}
+.secondtab{clear: none; float: left; margin-left: 0; position: relative; top:35px;}
+.emailpage .firsttab li.TabbedPanelsTabSelected span{margin: -2px 8px 4px 0 !important;}
+.emailpage .firsttab li{background-color: #ffffff; background-position: 26px center; color: #252525; font-size:17px;
+    font-weight: normal; height:32px; line-height:32px; padding-left:50px; padding-right:23px;}
+.emailpage #description1 p.lastp{ display:none;}
+.emailpage p.emailsubject{font-size:14px;}
+.emailpage #description1 li{width:441px;}
+.TabbedPanels{width:100%;}
+.emailpage .sortbydate{width:458px !important; border-radius:0 5px 0 0; top:214px; position:relative;}
+.emailpage .folder{width:438px; height:40px; line-height:38px;}
+.firsttab{width:458px;}
+.margin_top{margin-top:-22px;}
+/*EMAIL PAGE CSS START*/
+
+/*NAVIGATION CSS START*/
+#toplinks a { background:none;}
+#toplinks li ul li a:hover { color:#060; font-weight:normal;}
+ul#menu ul li a:hover { background:none !important;}
+
+#nav-toggle { position: absolute !important; top:64px; right:10px;
+  -webkit-touch-callout: none; position:inherit;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  width: 44px;
+  height: 38px;
+  float: right;
+  text-indent: -9999px;
+  overflow: hidden;
+  background:url(../images/menu_button.png) no-repeat 50% 50%  #F5F5F5 !important; border:1px solid#eaeaea;
+}
+
+
+#toplinks a {background: none repeat scroll 0 0 rgba(0, 0, 0, 0);}
+#toplinks a {background: url("images/line_03.png") no-repeat scroll right center transparent;
+    color: #ffffff; line-height: 25px; padding: 0 20px 0 11px; text-align: center; }
+
+
+/*NAVIGATION CSS START*/
+
+ul#menu li ul.sub-menu { margin-top:00px; display:none; position: absolute; top: 0px; left: 0; width: 100px; }
+ul#menu li:hover ul.sub-menu { width:182px; display:block !important; position:relative; z-index:999; background-color:#fff;  border:1px solid#e7e5e5; border-radius:0 0 5px 5px; border-top:0px;}
+ul#menu ul li a{width:180px; border-top:1px solid#c0c0c0;}
+ul#menu ul li a:hover { background-color: #d8d8d8;}
+header ul li a { display: block; padding: 10px 10px; text-decoration: none; color: #060; border-top:4px solid#fafafa;}
+.navigation{width:100%; float:left;}
+
+
+/*sub menu*/
+
+ul#menu li ul.sub-menu { margin-top:00px; display:none; position: absolute; top: 0px; left: 0; width: 100px; }
+ul#menu li:hover ul.sub-menu { width:182px; display:block !important; position:relative; z-index:999; background-color:#fff;  border:1px solid#e7e5e5; border-radius:0 0 5px 5px; border-top:0px;}
+ul#menu ul li a{width:180px; border-top:1px solid#c0c0c0;}
+ul#menu ul li a:hover { background-color: #d8d8d8;}
+header ul li a { display: block; padding: 10px 10px; text-decoration: none; color: #060; border-top:4px solid#fafafa;}
+.navigation{width:100%; float:left;}
+
+
+body.register .contactwidget .yearbetween p{width:100%; float:left;}
+body.register .contactwidget .yearbetween p input{width:217px;}
+body.register .sub{margin-right:100px;}
+
+}
+
+
+
+
+
+@media only screen and (max-width: 479px) and (min-width: 320px){
+	.body{overflow-x:hidden;}
+	
+.mrg_tp{margin-top:210px !important;}	
+#cssmenu > ul > li > a{padding: 10px 23px;}	
+	
+.logo{ padding-bottom:0px;}
+.logo img{ width:140px; height:auto; margin-top:29px;}
+.p_img{width:100%; height:auto;}
+	
+/*HOME PAGE CSS START*/
+.page{ width:300px !important; margin:auto; }
+.social {float: left; position: absolute; right: 10px; top:-5px; width: auto;}
+.social ul{float:left; display:none;}
+.login_p{width:auto; float:left;}
+.logotext{display:none;}
+
+#toplinks{ float:left; padding:0px; font-size:13px; width:100%; margin-top:5px;}
+
+/*
+#toplinks {background-color:#060; border:1px solid #000; border-radius:5px; float:left; font-size:13px; padding:5px; width:200px;}
+*/
+
+
+.upslider{width:100%;}
+.contact{width:230px; float:none !important; margin:auto; margin:20px auto auto auto;} 
+#wrapper {width:100%;}
+
+.rightcontent {display:none; float:right; width:300px;}
+.leftcontent {float:none; margin:auto; margin-top:0px; width:300px !important;}
+.lightbox a.fancybox{width:300px;}
+.overlay{width:300px !important; height:170px !important; background-position: center 100px !important;}
+.fancybox img{width:100%;}
+p.leftp{color: #d3d3d3 !important; float: left; font-size: 12px !important; text-align: center; width: 100%;}
+#downfooter ul{ width:320px; float:none !important; margin:auto;}
+.footerpart{width:220px;}
+
+.overlay h5{font-size:20px !important; line-height:100px !important;}
+.leftcontent span, .rightwidget span{font-size:23px;}
+.paginationextra span{font-size:12px;}
+
+#downfooter li a{font-size:12px;}
+input.submit{left:17px;}
+#footer{display:none;}
+#downfooter li a{padding: 0 8px;}
+/*HOME PAGE CSS END*/
+
+#nav, #nav ul{ border-radius:5px; width:300px !important;}
+
+/*FAVOURITIES PAGE CSS START*/
+
+.find_w{ margin:auto !important; width:260px !important; display:block!important;}
+
+.ad1{display:none;}
+.ad2{display:none;}
+.ad3{display:none;}
+body.whipdetails .rightcontent{float:none !important; width:310px;}
+
+.font{font-size:12px !important;}
+.float_left{float:left !important;}
+.mileage{width:100%; float:left;}
+.pos_img{width:80px; height:auto;}
+.middilepost{ margin-left:95px;}
+
+.ad1{display:none;}
+body.whipdetails .leftcontent { margin:auto; float:none !important; width:300px!important;}
+.post{border-bottom: 2px dashed #dddddd; padding-bottom:10px;}
+.leftpost{width:300px; border-bottom:0px none; padding-bottom:7px;}
+.post .swap{width:290px; float:left; height:36px; background: url(../images/fav_arrow.png) right center no-repeat; background-color:#649d4a; padding:0 0 0 10px; margin:0px;}
+.post .swap span{ line-height:36px !important; padding:0 0 0 10px;}
+.post .swap sup{ float:left; line-height:39px !important;}
+.paginationextra{margin-right:8px;} 
+
+.paging img{ margin-right:5px;}
+body.whipdetails h1.headingh1{width:100%; /*text-align:center;*/}
+.short_by{margin: 0 0 0 32px;}
+
+body.whipdetails h1.sliderh1{ margin-left:130px; margin-top:-90px; padding: 10px 10px 10px 0; font-size:20px;}
+
+
+/*FAVOURITIES PAGE CSS END*/
+
+
+/*CONTACT US PAGE CSS START*/
+
+body.fullwidth .contactwidget{ width:300px;}
+body.fullwidth .contactwidget input[type="text"]{width:100%;}
+body.fullwidth .contactwidget textarea{width:100%;}
+body.fullwidth .rightwidget{margin-left:0px; width:300px;}
+body.fullwidth .info span{width:100%;}
+body.fullwidth .contactwidget .sub{margin-right:0px;}
+
+/*CONTACT US PAGE CSS END*/
+
+/*REGISTER PAGE CSS START*/
+body.register .boldheadings p{font-size:16px;}
+body.register .contactwidget{width:300px;}
+body.register .contactwidget input[type="text"], body.register .contactwidget input[type="password"]{width:300px;}
+body.register .contactwidget select{width:100%;}
+
+.wd_full{width:100%;}
+.desired_full{width:100%; float:left; margin-left:0px !important;}
+.desired_full label{ padding-right:50px;}
+.sl_width{width:219px !important;}
+body.register .contactwidget .password p{ margin-left:0px;}
+#content{margin-bottom:10px;}
+
+/*REGISTER PAGE CSS END*/
+
+/*WHIPDETAILS PAGE CSS START*/
+body.whipdetails #slider{height:auto !important;}
+body.whipdetails #slider img{width:100%; height:auto;}
+#gallery img{width:44px; height:auto;}
+/*.leftcontent span, .rightwidget span{display:none;}*/
+.rightsep ul{display:none;}
+.rightsep b{padding-right:10px;}
+
+.TabbedPanelsTab{padding: 6px 13px;}
+.TabbedPanelsContent ul{width:146px;}
+.TabbedPanelsContent ul li{font-size:12px;}
+.sub{width:142px;}
+/*WHIPDETAILS PAGE CSS END*/
+
+/*WISHLIST FORM PAGE CSS START*/
+body.register .contactwidget div  label{width:130px !important;}
+body.register .contactwidget label{width:100px !important;}
+.bt_w{width:100% !important;}
+.bt_and{ margin-left:0px !important;}
+/*WISHLIST FORM PAGE CSS END*/
+
+
+/*WISHLIST RESULT PAGE CSS START*/
+body.wishresult .leftpost{width:100%;}
+body.wishresult .smalllightbx{width:100%;}
+body.wishresult .leftpost{border:0px none;}
+.post h2{margin-right:10px; font-size:15px !important;}
+body.wishresult .middilepost p{font-size:14px;}
+.middilepost span{font-size:15px;}
+
+body.wishresult .leftpost{padding: 22px 0 8px;}
+/*WISHLIST RESULT PAGE CSS END*/
+
+/*EMAIL PAGE CSS START*/
+#description2{overflow:hidden; position:relative; top:280px; border-top:1px solid#ccc;  width:100%; margin:0px 0 0 0px; float:left;}
+.TabbedPanels{height:782px;}
+.thirdtabcontent{height:275px;}
+.thirdtab{height:266px;}
+.secondtab{clear: none; float: left; margin-left: 0; position: relative; top:28px;}
+.emailpage .firsttab li.TabbedPanelsTabSelected span{margin: -2px 8px 4px 0 !important;}
+.emailpage .firsttab li{background-color: #ffffff; background-position: 26px center; color: #252525; font-size:17px;
+    font-weight: normal; height:32px; line-height:32px; padding-left:50px; padding-right:23px;}
+.emailpage #description1 p.lastp{ display:none;}
+.emailpage p.emailsubject{font-size:14px;}
+.emailpage #description1 li{width:299px;}
+.emailpage #description1 li{border-right:0px;}
+.TabbedPanels{width:100%;}
+.emailpage .sortbydate{width:298px !important; border-radius:0 5px 0 0; top:226px; position:relative;}
+
+.emailpage .folder{width:278px; height:40px; line-height:38px;}
+.firsttab{width:298px;}
+
+.margin_tp{margin-top:-22px;}
+.wd{width:298px !important; overflow-x:hidden !important;}
+.firsttab{margin-top:-23px;}
+/*EMAIL PAGE CSS START*/
+
+
+
+/*NAVIGATION CSS START*/
+#toplinks a { background:none;}
+#toplinks li ul li a:hover { color:#000; font-weight:normal;}
+ul#menu ul li a:hover { background:none !important;}
+/*NAVIGATION CSS START*/
+
+
+#nav-toggle { position: absolute !important; top:64px; right:10px;
+  -webkit-touch-callout: none; position:inherit;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  width: 44px;
+  height: 38px;
+  float: right;
+  text-indent: -9999px;
+  overflow: hidden;
+  background:url(../images/menu_button.png) no-repeat 50% 50%  #F5F5F5 !important; border:1px solid#eaeaea;
+}
+
+
+
+ul#menu li ul.sub-menu { margin-top:00px; display:none; position: absolute; top: 0px; left: 0; width: 100px; }
+ul#menu li:hover ul.sub-menu { width:182px; display:block !important; position:relative; z-index:999; background-color:#fff;  border:1px solid#e7e5e5; border-radius:0 0 5px 5px; border-top:0px;}
+ul#menu ul li a{width:180px; border-top:1px solid#c0c0c0;}
+ul#menu ul li a:hover { background-color: #d8d8d8;}
+header ul li a { display: block; padding: 10px 10px; text-decoration: none; color: #060; border-top:4px solid#fafafa;}
+.navigation{width:100%; float:left;}
+
+/*sub menu*/
+
+ul#menu li ul.sub-menu { margin-top:00px; display:none; position: absolute; top: 0px; left: 0; width: 100px; }
+ul#menu li:hover ul.sub-menu { width:182px; display:block !important; position:relative; z-index:999; background-color:#fff;  border:1px solid#e7e5e5; border-radius:0 0 5px 5px; border-top:0px;}
+ul#menu ul li a{width:180px; border-top:1px solid#c0c0c0;}
+ul#menu ul li a:hover { background-color: #d8d8d8;}
+header ul li a { display: block; padding: 10px 10px; text-decoration: none; color: #060; border-top:4px solid#fafafa;}
+.navigation{width:100%; float:left;}
+
+body.register .contactwidget .yearbetween p input{width:165px;}
+
+}
+
+
+/*
+@media only screen and (max-width: 639px) and (min-width: 480px){
+	
+}
+
+
+
+/*NEW CSS ADD FOR NAVIGATION 14-10-2014 */
+
+/*SUB MENT CSS START*/
+.rg_head_top_div{width:100%; float:right;}
+.margin_tp{/*margin-top:200px;*/}
+.nav_sepration{width:74%; float:right; padding-top:12px;}
+ul#menu li {position: relative;}
+
+/*sub menu*/
+/*
+ul#menu li ul.sub-menu { margin-top:00px; display:none; position: absolute; top: 0px; left: 0; width: 100px; }
+ul#menu li:hover ul.sub-menu { width:182px; display:block !important; position:relative; z-index:999; background-color:#fff;  border:1px solid#e7e5e5; border-radius:0 0 5px 5px; border-top:0px;}
+ul#menu ul li a{width:180px; border-top:1px solid#c0c0c0;}
+ul#menu ul li a:hover { background-color: #d8d8d8;}
+header ul li a { display: block; padding: 10px 10px; text-decoration: none; color: #060; border-top:4px solid#fafafa;}
+.navigation{width:100%; float:left;}
+
+*/
+
+
+@media screen and (min-width:768px) {
+  #nav a { color:#fff;
+    margin: 0; padding:8px 15px 8px 15px; font-size:18px; background:none !important;
+    float: left;
+    text-align: center;
+    border-bottom: 0;
+  }
+  #nav ul { background:none !important;
+  list-style: none;
+  width:auto;
+  float: right;
+ 
+}
+#nav, #nav ul{background:none !important;}
+
+
+
+/*Make the parent of sub-menu relative*/
+ul#menu li { position: relative !important;}
+/*sub menu*/
+ul#menu li ul.sub-menu { margin-top:20px; display:none; position:absolute; top: 30px; left: 0; /*width: 100px;*/}
+ul#menu li:hover ul.sub-menu { /*width:182px;*/ display:block;  position: relative; background-color:#fff;  border:1px solid#e7e5e5; border-radius:0 0 5px 5px; border-top:0px;}
+
+ul#menu ul li a{/*width:180px;*/ border-top:1px solid#c0c0c0;}
+ul#menu ul li a:hover { background-color: #d8d8d8; display:block;}
+
+header ul li a { display:block; padding: 10px 10px; text-decoration: none; color: #6e6e6e; border-top:4px solid#fafafa; }
+*/
+
+/*
+#nav ul ul a{ display:block !important;}
+ul#menu ul li a{display:none;}
+ul#menu ul li a:hover{display:block;}
+*/
+}
+
+/*SUB MENT CSS END*/
+
+

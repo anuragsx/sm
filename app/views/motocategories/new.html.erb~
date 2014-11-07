@@ -1,0 +1,28 @@
+<% if flash[:notice] %>
+	<div class="notice"><%= flash[:notice] %></div>
+<% end %>
+<table width="100%" border="0" cellpadding="20" cellspacing="0">
+	<tr>
+		<td align="left" valign="top">
+			<% if @user.admin %>
+				<h3>New Auto Category</h3>
+				
+				<% form_for(@autocategory) do |f| %>
+					<%= f.error_messages %>
+
+					<p>
+						<%= f.label :category %><br />
+						<%= f.text_field :category %>
+					</p>
+					<p>
+						<%= f.submit 'Create' %>
+					</p>
+				<% end %>
+
+				<%= link_to 'Back', autocategories_path %>
+			<% else %>
+				<p>This page is for Administrators only!</p>
+			<% end %>
+		</td>
+	</tr>
+</table>

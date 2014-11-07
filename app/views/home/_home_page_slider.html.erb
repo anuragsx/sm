@@ -1,0 +1,383 @@
+<div id="slider" class="top_p">
+  <div class="clear"></div>
+  <div class="banner">
+    <ul>
+      <li><img src="/assets/biglightbox3.jpg" /></li>
+      <li><img src="/assets/biglightbox2.jpg" /></li>
+      <li><img src="/assets/biglightbox1.jpg" /></li>
+    </ul>
+  </div>
+  <div class="upslider">
+
+
+    <div class="contact"> <span>Find Your</span><span class="whip"> Whip</span>
+      <div class="checkbox">
+
+          <div class="question">
+            <label class="question">01. What?</label>
+            <div class="clear"></div>
+            <div class="check">
+              <input type="radio" name="autos"/>
+              <label>Autos</label>
+            </div>
+            <div class="check">
+              <input type="radio" name="marine"/>
+              <label>Marine</label>
+            </div>
+            <div class="check">
+              <input type="radio" name="moto"/>
+              <label>Motorcycles</label>
+            </div>
+            <div class="check">
+              <input type="radio" name="power"/>
+              <label>Power Sports</label>
+            </div>
+            <div class="clear"></div>
+          </div>
+
+          <div id="auto">
+            <%= form_tag(autolistingsresults_new_autolistings_path)  do |f| %>
+
+                <div class="question">
+                  <label class="question">02. Make and Model</label>
+                  <div class="select">
+                    <%= select_tag :make, options_for_select(@automakes.map {|s| [s.make, s.make]},:selected => params[:make]),
+                                   {prompt: "Select a Make", class: "leftselect"} %>
+                    <%= select_tag :model, options_for_select(@automodels.map {|s| [s.model, s.model]}, :selected => params[:model]),
+                                   {:prompt => "-Select a Make First-", class: "rightselect"} %>
+                  </div>
+                  <div class="clear"></div>
+                </div>
+
+                <div class="question">
+                  <label class="question">03. Category</label>
+                  <div class="select selectParent">
+                    <%= select_tag(:category, options_for_select(@autocategories.map {|s| [s.category, s.category]},:selected => params[:category]),
+                                   :prompt => "-Select a Category")%>
+                  </div>
+                  <div class="clear"></div>
+                </div>
+
+                <!--
+                <div class="question">
+                  <label class="question">04. Max Price</label>
+                  <div class="select selectParent">
+                    <%#= text_field_tag :price_lt, '', :size => 15 %>
+                  </div>
+                  <div class="clear"></div>
+                </div>
+                -->
+                <div class="question">
+                  <label class="question">04. State</label>
+                  <div class="select">
+                    <%= select_tag(:state,options_for_select(Listing::STATES,:selected => params[:state]) , {:prompt => "-Select State"}) %>
+                  </div>
+                  <div class="clear"></div>
+                </div>
+
+                <!--<a href="#" class="advance">Advanced Search</a>-->
+                <%= hidden_field_tag :listing_type, "auto" %>
+                <%= hidden_field_tag :expired_at_gte, Date.today %>
+                <%= submit_tag "Basic Search", class: "submit" %>
+            <% end %>
+          </div>
+
+          <div id="moto">
+            <%= form_tag(motolistingsresults_motolistings_path(:listing_type => 'moto')) do |f| %>
+                <div class="question">
+                  <label class="question">01. Category</label>
+                  <div class="select selectParent">
+                    <%= select_tag("category", options_from_collection_for_select(@motocategories,"id", "category",:selected => params[:category]),
+                                   :prompt => "-Select a Category")%>
+                  </div>
+                  <div class="clear"></div>
+                </div>
+                <div class="question">
+                  <label class="question">02. Make</label>
+                  <div class="select">
+                    <%= select_tag :make, options_for_select(@motomakes.map {|s| [s.make, s.make]},:selected => params[:make]),
+                                   {prompt: "Select a Make"} %>
+                  </div>
+                  <div class="clear"></div>
+                </div>
+                <!--
+                <div class="question">
+                  <label class="question">03. Max Price</label>
+                  <div class="select selectParent">
+                    <%#= text_field_tag :price_lt, '', :size => 6, :value => params[:price_lt] %>
+                  </div>
+                  <div class="clear"></div>
+                </div>
+                -->
+                <div class="question">
+                  <label class="question">03. State</label>
+                  <div class="select">
+                    <%= select_tag("state_is",options_from_collection_for_select(Listing::STATES, 'to_s' , 'to_s',:selected => params[:state_is]) , {:prompt => "-Select State"}) %>
+                  </div>
+                  <div class="clear"></div>
+                </div>
+                <%= hidden_field_tag :listing_type, "moto" %>
+                <%= hidden_field_tag :expired_at_gte, Date.today %>
+                <!--<a href="#" class="advance">Advanced Search</a>-->
+                <%= submit_tag "Basic Search", class: "submit" %>
+            <% end %>
+          </div>
+
+          <div id="marine">
+            <%= form_tag(marinelistingsresults_marinelistings_path(:listing_type=>'marine')) do |f| %>
+                <div class="question">
+                  <label class="question">01. Category</label>
+                  <div class="select selectParent">
+                    <%= select_tag(:category, options_for_select(@marinecategories.map {|s| [s.category, s.category]},:selected => params[:category]),
+                                   {:prompt => "-Select a Category", :id => 'marine_category'})%>
+                  </div>
+                  <div class="clear"></div>
+                </div>
+
+                <div class="question">
+                  <label class="question">02.Sub Category</label>
+                  <div class="select selectParent">
+                    <%= select_tag(:sub_category, options_for_select(@marinesubcategories.map {|s| [s.subcategory, s.subcategory]},:selected => params[:sub_category]),
+                                   :prompt => "-Select a Category First", :id => 'marine_subcategory')  %>
+                  </div>
+                  <div class="clear"></div>
+                </div>
+
+                <div class="question">
+                  <label class="question">03. Make</label>
+                  <div class="select selectParent">
+                    <%= select_tag :make, options_for_select(@marinemakes.map {|s| [s.make, s.make]},:selected => params[:make]),
+                                   {prompt: "Select a Make"} %>
+                  </div>
+                  <div class="clear"></div>
+                </div>
+                <!--
+                <div class="question">
+                  <label class="question">04. Price</label>
+                  <div class="select selectParent">
+                    <%#= text_field_tag :price_lt, '', :size => 6, :value => params[:price_lt] %><br/>
+                  </div>
+                  <div class="clear"></div>
+                </div>
+                -->
+                <div class="question">
+                  <label class="question">04. State</label>
+                  <div class="select selectParent">
+                    <%= select_tag(:state,options_for_select(Listing::STATES,:selected => params[:state]) , {:prompt => "-Select State"}) %>
+                  </div>
+                  <div class="clear"></div>
+                </div>
+
+                <%= hidden_field_tag :listing_type, "marine" %>
+                <%= hidden_field_tag :listing_type, Date.today %>
+                <!--<a href="#" class="advance">Advanced Search</a>-->
+                <%= submit_tag "Basic Search", class: "submit" %>
+            <% end %>
+          </div>
+
+          <div id="power">
+            <%= form_tag(powerlistingsresults_powerlistings_path(:listing_type => 'power')) do |f| %>
+                <div class="question">
+                  <label class="question">01. Category</label>
+                  <div class="select selectParent">
+                    <%= select_tag(:category, options_for_select(@powercategories.map {|s| [s.category, s.category]},:selected => params[:category]),
+                                   :prompt => "-Select a Category", :id => 'power_category')%>
+                  </div>
+                  <div class="clear"></div>
+                </div>
+
+                <div class="question">
+                  <label class="question">02.Sub Category</label>
+                  <div class="select selectParent">
+                    <%= select_tag :subcategory, options_for_select(@powersubcategories.map {|s| [s.subcategory, s.subcategory]}, :selected => params[:subcategory]), {:prompt => "-Select a Category First-", :id => 'power_subcategory'} %>
+                  </div>
+                  <div class="clear"></div>
+                </div>
+
+                <div class="question">
+                  <label class="question">03.Make</label>
+                  <div class="select selectParent">
+                    <%= select_tag :make, options_for_select(@powermakes.map {|s| [s.make, s.make]},:selected => params[:make]),
+                                   {prompt: "Select a Make"} %>
+                  </div>
+                  <div class="clear"></div>
+                </div>
+                <!--
+                <div class="question">
+                  <label class="question">04.Price</label>
+                  <div class="select selectParent">
+                    <%#= text_field_tag :price_lt %>
+                  </div>
+                  <div class="clear"></div>
+                </div>
+                -->
+                <div class="question">
+                  <label class="question">04.State</label>
+                  <div class="select selectParent">
+                    <%= select_tag(:state,options_for_select(Listing::STATES,:selected => params[:state]) , {:prompt => "-Select State"}) %>
+                  </div>
+                  <div class="clear"></div>
+                </div>
+
+                <%= hidden_field_tag :listing_type, "power" %>
+                <%= hidden_field_tag :listing_type, Date.today %>
+                <!--<a href="#" class="advance">Advanced Search</a>-->
+                <%= submit_tag "Basic Search", class: "submit" %>
+            <% end %>
+          </div>
+
+
+      </div>
+    </div>
+    <div class="clear"></div>
+  </div>
+  <div class="clear"></div>
+</div>
+
+<script>
+    $(document).ready(function() {
+        //$('input:radio[name=autos]').click();
+            $("#auto").show();
+            $("#moto").hide();
+            $("#marine").hide();
+            $("#power").hide();
+        $('input[type="radio"]').click(function() {
+            if (this.name == "autos") {
+                $("#auto").show();
+                $("#moto").hide();
+                $("#marine").hide();
+                $("#power").hide();
+                $('input:radio[name=moto]').attr('checked', false)
+                $('input:radio[name=marine]').attr('checked', false)
+                $('input:radio[name=power]').attr('checked', false)
+
+            }
+            if (this.name == "moto"){
+                $("#auto").hide();
+                $("#moto").show();
+                $("#marine").hide();
+                $("#power").hide();
+                $('input:radio[name=autos]').attr('checked', false)
+                $('input:radio[name=marine]').attr('checked', false)
+                $('input:radio[name=power]').attr('checked', false)
+            }
+            if (this.name == "marine"){
+                $("#auto").hide();
+                $("#moto").hide();
+                $("#marine").show();
+                $("#power").hide();
+                $('input:radio[name=autos]').attr('checked', false)
+                $('input:radio[name=moto]').attr('checked', false)
+                $('input:radio[name=power]').attr('checked', false)
+            }
+            if (this.name == "power"){
+                $("#auto").hide();
+                $("#moto").hide();
+                $("#marine").hide();
+                $("#power").show();
+                $('input:radio[name=autos]').attr('checked', false)
+                $('input:radio[name=moto]').attr('checked', false)
+                $('input:radio[name=marine]').attr('checked', false)
+            }
+        });
+
+
+
+        $('#make').change(function() {
+            if ($(this).val() == '')
+            {
+                $('#model').html( $('<option>No model provided for your make</option>'));
+            }
+            else {
+                $.ajax({
+                    type: "GET",
+                    url: "/whatiwant/get_automodels?make=" + $(this).val(),
+                    success: function(data){
+                        if (data.content == 'None')  //handle the case where no state related to country selected
+                        {
+                            $('#model').empty();
+                            $('#model').append( $('<option>No model provided for your make</option>'));
+                        }
+                        else
+                        {
+                            $('#model').empty();
+                            $('#model').append( $('<option>Select your Model</option>'));
+                            jQuery.each(data,function(i, v) {
+                                $('#model').append( $('<option value="'+ data[i][1] +'">'+data[i][0] +'</option>'));
+                            });
+                        }
+                    }
+                });
+            }
+        });
+
+
+
+        $('#marine_category').change(function() {
+            if ($(this).val() == '')
+            {
+                $('#marine_subcategory').html( $('<option>No model provided for your make</option>'));
+            }
+            else {
+                $.ajax({
+                    type: "GET",
+                    url: "/whatiwant/get_marinesubcategories?category=" + $(this).val(),
+                    success: function(data){
+                        if (data.content == 'None')  //handle the case where no state related to country selected
+                        {
+                            $('#marine_subcategory').empty();
+                            $('#marine_subcategory').append( $('<option>No Subcategory provided for your Category</option>'));
+                        }
+                        else
+                        {
+                            $('#marine_subcategory').empty();
+                            $('#marine_subcategory').append( $('<option>Select your Subcategory</option>'));
+                            jQuery.each(data,function(i, v) {
+                                $('#marine_subcategory').append( $('<option value="'+ data[i][1] +'">'+data[i][0] +'</option>'));
+                            });
+                        }
+                    }
+                });
+            }
+        });
+
+
+
+        $('#power_category').change(function() {
+            if ($(this).val() == '')
+            {
+                $('#power_subcategory').html( $('<option>No model provided for your make</option>'));
+            }
+            else {
+                $.ajax({
+                    type: "GET",
+                    url: "/whatiwant/get_powersubcategories?category=" + $(this).val(),
+                    success: function(data){
+                        if (data.content == 'None')  //handle the case where no state related to country selected
+                        {
+                            $('#power_subcategory').empty();
+                            $('#power_subcategory').append( $('<option>No Subcategory provided for your Category</option>'));
+                        }
+                        else
+                        {
+                            $('#power_subcategory').empty();
+                            $('#power_subcategory').append( $('<option>Select your Subcategory</option>'));
+                            jQuery.each(data,function(i, v) {
+                                $('#power_subcategory').append( $('<option value="'+ data[i][1] +'">'+data[i][0] +'</option>'));
+                            });
+                        }
+                    }
+                });
+            }
+        });
+
+
+
+
+    });
+</script>
+
+
+
+
+

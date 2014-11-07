@@ -1,0 +1,71 @@
+<div id="content">
+  <div class="page"> <img class="p_img" src="/assets/fullwidth.jpg" width="1050" />
+    <div class="leftcontent">
+      <div class="uppercontent"> <span>Contact</span><span class="boldclass"> Us</span>
+        <p>Like what you see? Have a question or comment? Like to advertise? Shoot us a quick message.</p>
+        <div>
+          <!-- panel -->
+
+          <!-- panel -->
+        </div>
+        <div class="clear"></div>
+      </div>
+    </div>
+    <div class="clear"></div>
+    <div class="contactwidget">
+      <% if flash[:notice] %>
+          <div class="notice"><%= flash[:notice] %></div>
+      <% end %>
+      <%= form_for @message, :url => {:controller => "messages", :action => "create"} do |f| %>
+          <% if @message.errors.any? %>
+              <div id="errorExplanation">
+                <h2><%= pluralize(@message.errors.count, "error") %> prohibited this post from being saved:</h2>
+
+                <ul>
+                  <% @message.errors.full_messages.each do |message| %>
+                      <li><%= message %></li>
+                  <% end %>
+                </ul>
+              </div>
+          <% end %>
+          <%= f.hidden_field :recipient_id, :value => 1 %>
+      <form action="#">
+        <div class="username">
+          <label>Name*</label>
+          <%= f.text_field :name, :size => 35, :tabindex => 1 %>
+        </div>
+        <div class="youremail">
+          <label>your email*</label>
+          <%= f.text_field :email, :size => 35, :tabindex => 2 %>
+        </div>
+        <div class="phoneno">
+          <label>phone</label>
+          <%= f.text_field :phone, :size => 35, :tabindex => 3 %>
+        </div>
+        <div class="subject">
+          <label>subject*</label>
+          <%= f.text_field :subject, :size => 35, :tabindex => 3 %>
+        </div>
+        <div class="message">
+          <label>message*</label>
+          <%= f.text_area :body, :cols => 32, :rows => 10, :tabindex => 4 %>
+        </div>
+        <%= image_submit_tag "sendbutton.jpg", :alt => "submit", :size => "54x25", :border => 0 %>
+      <%end%>
+    </div>
+    <div class="rightwidget"> <span>Swap My Whip </span><span class="boldclass">Direct Contacts</span>
+      <p>To email us directly, feel free to use the following contacts.</p>
+      <div class="info"> <span>General : </span>
+        <p>info@swapmywhip.com</p>
+        <span>Social Media : </span>
+        <p>socialmedia@swapmywhip.com</p>
+        <span>Facebook : </span>
+        <p>https://www.facebook.com/Swap-My-Whip</p>
+        <span>Twitter : </span>
+        <p>https://twitter.com/SwapMyWhip</p>
+      </div>
+    </div>
+    <%#= link_to image_tag("468x60_imgad.jpg", :alt => "AIM Mobile Inspections", :border => 0), "http://www.aimmobileinspections.com/SwapMyWhip-car-inspections.php", :popup => true %>
+  </div>
+</div>
+</div>

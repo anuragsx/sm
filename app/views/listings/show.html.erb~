@@ -1,0 +1,188 @@
+<table width="883" border="0" cellpadding="20" cellspacing="0">
+	<% if flash[:notice] %>
+		<div class="notice"><%= flash[:notice] %></div>
+	<% end %>
+	<tr>
+		<td align="left" valign="top">
+			<table width="100%" border="0" cellspacing="0" cellpadding="0">
+				<tr>
+					<td colspan="5" align="center">
+						<a href="javascript:gotoshow()">
+							<img src="../images/banners/MoparNation.jpg" name="slide" border=0 style="filter:blendTrans(duration=3)" width=382 height=60>
+						</a>
+					</td>
+				</tr>
+			  <tr>
+		      <td>
+		      	<h3>
+		      		<% if @listing.listingtype == "auto" %>
+								<%= @listing.year %> <%= @listing.make %> <%= @listing.model %> <%= number_to_currency(@listing.price, :precision => 0) %>
+							<% else %>
+								<%= @listing.year %> <%= @listing.make %> <%= @listing.category %> <%= number_to_currency(@listing.price, :precision => 0) %>
+							<% end %>
+		      	</h3>
+		      </td>
+		      <td colspan="2" align="right">
+		      	<%= link_to image_tag("back_to_results.jpg", :border => 0, :size => "134x32"), :back %>
+		      </td>
+		    </tr>
+		    <tr>
+		      <td>
+		      	<%= image_tag "vehicle_photos.jpg", :size => "567x26", :alt => "photos" %>
+		      </td>		      
+  			</tr>
+				<tr>
+			    <td colspan="2">
+			    	<table width="100%" border="0" cellspacing="0" cellpadding="0">
+			      	<tr>
+			          <td width="331" align="center" valign="middle">
+			          	<p>
+			          		<div id="bigphoto">
+											<% @listing.photos.all(:limit => 1).each do |bigphoto| %>
+												<%= link_to image_tag(medphoto_path(bigphoto, :jpg), :alt => bigphoto.name, :hspace => 5, :vspace => 5, :border => 0), largephoto_path(bigphoto, :jpg) %>
+											<% end %>
+										</div>
+			          		<span class="formText" style="font-size: 10px; color: #97431E;">Click on photo to enlarge</span><br />
+				          </p>
+				        </td>
+			          <td align="left" valign="middle">
+			          	<table width="100%" border="0" cellspacing="0" cellpadding="0">
+				            <tr>
+				            	<% if @photo_count > 1 %>
+				            		<% @listing.photos.each do |photo| %>
+													<%= link_to_remote image_tag(smallphoto_path(photo, :jpg), :alt => photo.name, :border => 0), :url => {:action => "replacebigphoto", :id => photo.id, :listing_id => @listing} %>
+												<% end %>
+											<% end %>
+	    			        </tr>
+									<!-- 2nd row of small photos -->
+<!--  <tr>
+	    			          <td align="center" valign="middle">
+	    			          	<img src="images/mini_pics.jpg" alt="" width="116" height="72" hspace="1" vspace="1" />
+	    			          </td>
+	    			          <td align="center" valign="middle">
+	    			          	<img src="images/mini_pics.jpg" alt="" width="116" height="72" hspace="1" vspace="1" />
+	    			          </td>
+	    			        </tr>
+-->
+	    			      </table>
+			        	</td>
+		        	</tr>
+		      	</table>
+		    	</td>
+		    </tr>
+		    <tr>
+		      <td colspan="2">
+		      	<%= image_tag "vehicle_details.jpg", :size => "567x26", :alt => "details" %>
+		      </td>
+		    </tr>
+		    <tr>
+		      <td colspan="2">
+
+	 					<% if current_user %>
+
+			      	<% form_for @favorites, :url => {:controller => "favorites", :action => "create"} do |f| %>
+					
+								<%= f.hidden_field :user_id, :value => @sender.id %>
+								<%= f.hidden_field :listing_id, :value => @listing.id %>
+
+								<%= f.submit 'Save to My Favorites', :id => "Submit" %>
+  	        
+  	      		<% end %>
+  	      	
+	      		<% end %>
+  	      	
+		      </td>
+		      <td rowspan="50">
+		      	<table width="250" border="0" cellpadding="0" cellspacing="0" class="contactOwnerBox">
+		          <tr>
+				        <td height="20" bgcolor="#000000" class="contactBoxHeader" style="display: block; text-indent: 10px; color: #FFF">Contact this Owner</td>
+			        </tr>
+				      <tr>
+				        <td align="left" valign="top">
+				        	
+				        	<% if current_user %>
+				        	
+						      	<% form_for @message, :url => {:controller => "messages", :action => "create"} do |f| %>
+											<%= f.error_messages %>
+										
+											<%= f.hidden_field :sender_id, :value => @sender.id %>
+											<%= f.hidden_field :recipient_id, :value => @recipient.id %>
+											<%= f.hidden_field :listing_id, :value => @listing.id %>
+						        	<table width="100%" border="0" cellpadding="1" cellspacing="0">
+								        <tr>
+								          <td>&nbsp;</td>
+								        </tr>
+								        <tr>
+								          <td>
+								          	<span style="color: #F00">*</span>
+								          	<span class="formText"> = Required</span>
+								          </td>
+								        </tr>
+								        <tr>
+								          <td>
+								          	<span style="color: #F00">*</span>
+								          	<%= f.label :subject %>
+								          </td>
+								        </tr>
+								        <tr>
+								          <td>
+								          	<%= f.text_field :subject, :size => 25 %>
+									         </td>
+								        </tr>
+								        <tr>
+								          <td>&nbsp;</td>
+								        </tr>
+								        <tr>
+								          <td>
+								          	<span style="color: #F00">*</span>
+								          	<%= f.label :body %>
+								          </td>
+								        </tr>
+								        <tr>
+								          <td>
+								          	<%= f.text_area :body, :cols => 25, :rows => 15 %>
+								          </td>
+								        </tr>
+								        <tr>
+								          <td>&nbsp;</td>
+								        </tr>
+								        <tr>
+								          <td align="left" valign="center">
+								          	<%= f.submit 'Send Message to Owner' %>
+								          </td>
+								        </tr>
+							        </table>
+							      <% end %>
+							    
+							    <% else %>
+									
+										<p>
+											Interested in a swap?
+										</p>
+										<p>
+											Please <%= link_to "Log In", login_url %> or <%= link_to "Register", new_user_path %> to send the Owner a message.
+										</p>
+									
+									<% end %>  <!-- end if current_user -->
+							  </td>	      
+							</tr>
+						</table>
+					</td>
+		    </tr>
+		    <tr>
+		    	<td valign="top">
+						<% if @listing.listingtype == "auto" %>
+							<%= render :partial => "show_autolisting" %>
+						<% elsif @listing.listingtype == "moto" %>
+							<%= render :partial => "show_motolisting" %>
+						<% elsif @listing.listingtype == "marine" %>
+							<%= render :partial => "show_marinelisting" %>
+						<% elsif @listing.listingtype == "power" %>
+							<%= render :partial => "show_powerlisting" %>						
+						<% end %>
+					</td>
+				</tr>
+		  </table>
+		</td>
+	</tr>	
+</table>

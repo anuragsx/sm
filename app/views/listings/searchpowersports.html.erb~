@@ -1,0 +1,24 @@
+<% remote_form_for @search, :url => {:action => "searchpowersports"} do |f| %>
+	<fieldset>
+		<legend>Advanced Search</legend>
+		
+		<% f.fields_for @search.conditions do |listings| %>
+			<%= listings.label "Year:" %><br/>
+			<%= listings.text_field :year_is %><br/>
+			<br/>
+			<%= listings.label "Make:" %><br/>
+			<%= listings.text_field :make_is %><br/>
+			<br/>
+			<%= listings.label "Model:" %><br/>
+			<%= listings.text_field :model_is %><br/>
+			<br/>
+			<%= listings.label "Price Less Than:" %><br/>
+			<%= listings.text_field :price_lt %><br/>
+			<br/>
+			<%= f.submit "Search Powersports" %>
+		<% end %>	
+	</fieldset>
+<% end %>
+
+<div id="listingsresults">
+</div>

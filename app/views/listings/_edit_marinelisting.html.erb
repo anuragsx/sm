@@ -1,0 +1,98 @@
+<div class="contactwidget">
+  <%= form_for(@listing) do |f| %>
+      <% if @listing.errors.any? %>
+          <div id="errorExplanation">
+            <h2><%= pluralize(@listing.errors.count, "error") %> prohibited this post from being saved:</h2>
+
+            <ul>
+              <% @listing.errors.full_messages.each do |message| %>
+                  <li><%= message %></li>
+              <% end %>
+            </ul>
+          </div>
+      <% end %>
+      <div class="year">
+        <label>Year:</label>
+        <%= f.text_field :year, :size => 15 %>
+      </div>
+      <div class="category">
+        <label>Category:</label>
+        <%= f.collection_select :category, @marinecategories, :category, :category, {:prompt => "-Select a Category"} %>
+      </div>
+      <div>
+        <label>Model:</label>
+        <%= select :listing, :subcategory, @marinesubcategories, {:size => 10, :prompt => "-Select a Category First-"} %>
+      </div>
+      <div class="Category">
+        <label>Make:</label>
+        <%= f.collection_select :make, @marinemakes, :make, :make, :prompt => "-Select a Make", :size => 15 %>
+      </div>
+      <div>
+        <label>Length:</label>
+        <%= f.text_field :length, :size => 15 %>
+      </div>
+
+      <div>
+        <label>Fuel:</label>
+        <%= f.text_field :price, :size => 15 %>
+      </div>
+
+      <div>
+        <label>Engine:</label>
+        <%= f.select(:engine, ['Direct Drive','Jet Drive','None','Other','Single','Single I/O','Twin','Twin I/O','Twin Outboard','Triple I/O','Triple Outboard','V-Drive'], {:prompt => "-Select Engine"}) %>
+      </div>
+      <div>
+        <label>HIN:</label>
+        <%= f.text_field :vin, :size => 20 %>
+      </div>
+      <div>
+        <label>Hull:</label>
+        <%= f.select(:hull, ['Aluminum','Ferro-Cement','Fiberglass/Composite','Fiberglass-Reinforced','Inflatable','Plastic','Rigid Inflatable','Steel','Wood','Other'], {:prompt => "-Select Hull"}) %>
+      </div>
+      <div>
+        <label>Price:</label>
+        <%= f.text_field :price, :size => 15 %>
+      </div>
+      <div>
+        <label>Description:</label>
+        <%= f.text_area :desc, :columns => 15, :rows => 20 %>
+      </div>
+      <div>
+        <%= f.submit 'Submit Changes', :id => "Submit" %>
+      </div>
+  <%end%>
+</div>
+
+
+<script>
+    $( document ).ready(function() {
+
+        $('#listing_category').change(function() {
+            if ($(this).val() == '')
+            {
+                $('#listing_subcategory').html( $('<option>No model provided for your make</option>'));
+            }
+            else {
+                $.ajax({
+                    type: "GET",
+                    url: "/marinecategories/get_marinesubcategories?category=" + $(this).val(),
+                    success: function(data){
+                        if (data.content == 'None')  //handle the case where no state related to country selected
+                        {
+                            $('#listing_subcategory').empty();
+                            $('#listing_subcategory').append( $('<option>No Subcategory provided for your Category</option>'));
+                        }
+                        else
+                        {
+                            $('#listing_subcategory').empty();
+                            $('#listing_subcategory').append( $('<option>Select your Subcategory</option>'));
+                            jQuery.each(data,function(i, v) {
+                                $('#listing_subcategory').append( $('<option value="'+ data[i][1] +'">'+data[i][0] +'</option>'));
+                            });
+                        }
+                    }
+                });
+            }
+        });
+    });
+</script>

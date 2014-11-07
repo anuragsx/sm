@@ -1,0 +1,26 @@
+<tr>
+  <td width="8%" valign="top"><p>From:</p></td>
+  <td width="92%"><p><%=h @message.sender.username %></p></td>
+</tr>
+<tr>
+  <td valign="top"><p>Date:</p></td>
+  <td><p><%=h @message.created_at %></p></td>
+</tr>
+<tr>
+  <td valign="top" class="formText"><p>Listing:</p></td>
+  <td>
+  	<% if @message.listing %>
+  		<p><%=h @message.listing.year %> <%=h @message.listing.make %> <%=h @message.listing.model %></p>
+  	<% else %>
+  		<p>Listing has been removed or cannot be found.</p>
+  	<% end %>
+  </td>
+</tr>
+<tr>
+  <td valign="top" class="formText"><p>Subject:</p></td>
+  <td><p><%=h @message.subject %></p></td>
+</tr>
+<tr>
+  <td valign="top" class="formText"><p>Message:</p></td>
+  <td><p><%=h @message.body %></p></td>
+</tr>

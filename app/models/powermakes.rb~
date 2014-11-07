@@ -1,0 +1,2 @@
+class Powermakes < ActiveRecord::Base
+end

@@ -1,0 +1,12 @@
+class AddDataToAutomodels < ActiveRecord::Migration
+  def self.up
+  	['CL','MDX','RDX','RL','RSX','SLX','TL','TSX','Integra','Legend','NSX','Vigor'].each do |s|
+  		Automodels.new(:model => s).save
+  		Automodels.edit(:make => 'Acura').save
+ 		end
+  end
+
+  def self.down
+  	Automodels.destroy_all
+  end
+end

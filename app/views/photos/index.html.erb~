@@ -1,0 +1,35 @@
+<table width="883" border="0" cellpadding="10" cellspacing="0">
+	<% if flash[:notice] %>
+		<div class="notice"><%= flash[:notice] %></div>
+	<% end %>
+	<tr>
+		<td align="left" valign="top">
+			<table width="100%" border="0" cellspacing="0" cellpadding="10">
+		    <tr>
+		      <td>
+						<h2>Photos for <%= @listing.model %></h2>
+						<tr>
+							<th>Image</th>
+							<th>Name</th>
+						</tr>
+
+						<% for photo in @photos %>
+
+							<tr>
+								<td><%= link_to image_tag(smallphoto_path(photo, :jpg), :alt => photo.name, :border => 0), listing_photo_path(@listing, photo) %></td>
+								<td><%=h photo.name %></td>
+								<td><%= link_to 'Delete', listing_photo_path(@listing, photo), :confirm => 'Are you sure?', :method => :delete %></td>
+							</tr>
+
+						<% end %>
+					</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+</table>
+
+<br />
+
+<%= link_to 'New Photo', new_listing_photo_path(@listing) %> | 
+<%= link_to 'Back to Listing', edit_user_listing_path(@user, @listing) %>
