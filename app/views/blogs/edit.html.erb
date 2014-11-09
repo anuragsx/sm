@@ -1,0 +1,16 @@
+<div id="content">
+  <div class="page">
+    <div class="leftcontent">
+      <div class="uppercontent"> <span><strong>Edit</strong> Blog</span>
+
+        <%= render 'form' %>
+        <% if current_user && current_user.admin? %>
+            <p><%= link_to 'Back', blogs_path, {:style=>'color:#649D4A'} %></p>
+        <%end%>
+        <div class="clear"></div>
+      </div>
+    </div>
+    <div class="clear"></div>
+  </div>
+</div>
+

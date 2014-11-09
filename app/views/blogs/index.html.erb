@@ -1,0 +1,35 @@
+<div id="content">
+  <div class="page">
+    <div class="leftcontent">
+      <div class="uppercontent"> <span>Blog</span>
+        <% if flash[:notice] %>
+            <div class="notice"><%= flash[:notice] %></div>
+        <% end %>
+        <% unless @blogs.blank? %>
+            <% @blogs.each do |blog|%>
+                <p><strong><h2><%= blog.title%></h2></strong></p>
+                <p><%= blog.des %></p>
+                <div style="float: right; color: #649D4A">Posted At : <%= blog.created_at%>&nbsp;&nbsp;</div>
+                <% if current_user && current_user.admin? %>
+                    <p class="description">
+                    <table>
+                      <tr>
+                        <td><span><%= link_to 'Edit', edit_blog_path(blog), {:style=>'color:#649D4A'} %>&nbsp;&nbsp;| &nbsp;&nbsp;</span> </td>
+                        <td><span><%= link_to 'Destroy', blog, method: :delete,  :style=>'color:#649D4A', data: { confirm: 'Are you sure?'} %></span></td>
+                      </tr>
+                    </table>
+                    </div>
+                <%end%>
+            <%end%>
+        <%else%>
+            <p>No blog posted yet.</p>
+        <%end%>
+        <% if current_user && current_user.admin? %>
+            <p><span><%= link_to 'New Blog', new_blog_path, {:style=>'color:#649D4A'} %></span></p>
+        <%end%>
+        <div class="clear"></div>
+      </div>
+    </div>
+    <div class="clear"></div>
+  </div>
+</div>

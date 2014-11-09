@@ -127,6 +127,12 @@ elsif (controller.controller_name == 'messages' && controller.action_name == 'sh
   @class = "fullwidth emailpage"
 elsif (controller.controller_name == 'messages' && controller.action_name == 'reply')
   @class = "fullwidth emailpage"
+elsif (controller.controller_name == 'blogs' && controller.action_name == 'index')
+  @class = "fullwidth"
+elsif (controller.controller_name == 'blogs' && controller.action_name == 'new')
+  @class = "fullwidth"
+elsif (controller.controller_name == 'blogs' && controller.action_name == 'edit')
+  @class = "fullwidth"
 else
     @class = "whipdetails twocolumns register"
 end

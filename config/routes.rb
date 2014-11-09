@@ -1,6 +1,8 @@
 SmwSmw::Application.routes.draw do
 
 
+  resources :blogs
+
   root :to => 'home#index'
 
   get 'home/:id' => 'home#admin'
