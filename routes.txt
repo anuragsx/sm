@@ -7,7 +7,7 @@
                              searchautos        /searchautos(.:format)                                            autolistings#searchautos
                              searchmotos        /searchmotos(.:format)                                            motolistings#searchmotos
                             searchmarine        /searchmarine(.:format)                                           marinelistings#searchmarine
-                             searchpower        /searchpower(.:format)                                            powerlistings#searchpower
+                        hat     searchpower        /searchpower(.:format)                                            powerlistings#searchpower
                                    about        /about(.:format)                                                  home#about
                                  contact        /contact(.:format)                                                home#contact
                                      faq        /faq(.:format)                                                    home#faq
