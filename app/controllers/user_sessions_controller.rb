@@ -24,7 +24,8 @@ class UserSessionsController < ApplicationController
         							if @listing.exists?
         								redirect_to listings_url
         							else
-        								redirect_to whatiwant_url
+        								#redirect_to whatiwant_url
+                        redirect_to whatiwant_url
         							end }
         format.xml  { render :xml => @user_session, :status => :created, :location => @user_session }
       else

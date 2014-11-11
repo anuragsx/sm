@@ -13,8 +13,11 @@
   <div class="lsitarea"> <img width="725" height="276" class="twocolumns p_img" src="images/mainimage.png">
 
     <h1 class="headingh1">My <strong>Wishlist</strong></h1>
+    <% flash.each do |name, msg| %>
+        <%= content_tag :div, msg, class: "notice" %>
+    <% end %>
 
-    <div class="pagination"> <span class="sort">Sort by:</span>
+    <!--<div class="pagination"> <span class="sort">Sort by:</span>
       <form action="#">
         <select>
           <option>Select Category</option>
@@ -22,6 +25,7 @@
       </form>
       <div class="clear"></div>
     </div>
+    -->
     <%unless @wishlists.blank?%>
     <% @wishlists.each do |wishlist| %>
     <div class="post">

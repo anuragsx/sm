@@ -136,8 +136,7 @@ class WishlistsController < ApplicationController
 
     respond_to do |format|
       if @wishlist.save
-        flash[:notice] = 'Wishlist item was successfully created.'
-        format.html { redirect_to(wishlists_path) }
+        format.html { redirect_to wishlists_path, notice: 'Wishlist item was successfully created.' }
         format.xml  { render :xml => @wishlist, :status => :created, :location => @wishlist }
       else
         format.html { render :action => "new" }
