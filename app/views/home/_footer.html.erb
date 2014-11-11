@@ -27,8 +27,9 @@
     <div class="footerpart">
       <ul>
         <h2>Important</h2>
-        <li><%= link_to("Picing", "#") %></li>
-        <li><%= link_to("Photo Tips", "#") %></li>
+        <li><%= link_to("About Us", about_url) %></li>
+        <li><%= link_to("Pricing", pricing_url) %></li>
+        <li><%= link_to("Photo Tips", phototips_url) %></li>
       </ul>
     </div>
     <div class="footerpart last">
@@ -40,12 +41,12 @@
 <div class="clear"></div>
 <div id="downfooter">
   <div class="page">
-    <p class="leftp"> &copy; 2013 Swapmywhip.com, Inc. All Rights Reserved. <br />
+    <p class="leftp"> &copy; 2009-2014 Swapmywhip.com, Inc. All Rights Reserved. <br />
       "Swapmywhip.com" is a registered trademark of Krause Capital, LLC used under exclusive license </p>
     <ul>
-      <li><a href="#">Privacy policy</a></li>
-      <li><a href="#">Terms Of Use</a></li>
-      <li class="last"><a href="#">Contact Us</a></li>
+      <li><%= link_to("Privacy Policy", privacypolicy_url) %></li>
+      <li><%= link_to("Terms of Use", visitoragreement_url) %></li>
+      <li class="last"><%= link_to("Contact Us", contact_url) %></li>
     </ul>
     <div class="clear"></div>
   </div>
