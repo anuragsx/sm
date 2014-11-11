@@ -74,5 +74,12 @@ class HomeController < ApplicationController
  			redirect_to(root_url)
  		end
   end
-  
+
+
+  def phototips
+  end
+
+  def pricing
+  end
+
 end

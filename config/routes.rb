@@ -35,6 +35,10 @@ SmwSmw::Application.routes.draw do
 
   get 'faq' => 'home#faq', :as => :faq
 
+  get 'phototips' => 'home#phototips', :as => :phototips
+
+  get 'pricing' => 'home#pricing', :as => :pricing
+
   get 'whatiwant' => 'whatiwant#whatiwant', :as => :whatiwant
 
   resources :whatiwant do

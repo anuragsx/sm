@@ -133,6 +133,18 @@ elsif (controller.controller_name == 'blogs' && controller.action_name == 'new')
   @class = "fullwidth"
 elsif (controller.controller_name == 'blogs' && controller.action_name == 'edit')
   @class = "fullwidth"
+elsif (controller.controller_name == 'listings' && controller.action_name == 'newmain')
+  @class = "fullwidth"
+elsif (controller.controller_name == 'autolistings' && controller.action_name == 'new')
+  @class = "fullwidth"
+elsif (controller.controller_name == 'motolistings' && controller.action_name == 'new')
+  @class = "fullwidth"
+elsif (controller.controller_name == 'marinelistings' && controller.action_name == 'new')
+  @class = "fullwidth"
+elsif (controller.controller_name == 'home' && controller.action_name == 'phototips')
+  @class = "fullwidth"
+elsif (controller.controller_name == 'home' && controller.action_name == 'pricing')
+  @class = "fullwidth"
 else
     @class = "whipdetails twocolumns register"
 end
