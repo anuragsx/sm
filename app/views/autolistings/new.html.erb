@@ -70,7 +70,7 @@
                             </td>
                             <td rowspan="8" valign="top">
                               <%= f.label "Description:" %><br />
-                              <%= f.text_area :desc, :columns => 15, :rows => 20 %>
+                              <%= f.text_area :desc, :size => "35x5" %>
                             </td>
                           </tr>
                           <tr>
@@ -118,7 +118,8 @@
                           <tr>
                             <td>
                               <br/>
-                              <%= f.submit 'Create Listing', :id => "Submit" %>
+                              <%= f.submit 'Create Listing', :id => "submitButton", :class => "sub" %>
+                              <%#= f.submit 'Create Listing', :id => "Submit" %>
                             </td>
                             <td>&nbsp;</td>
                           </tr>
@@ -133,9 +134,6 @@
             </td>
           </tr>
         </table>
-        <% if current_user && current_user.admin? %>
-            <p><span><%= link_to 'New Blog', new_blog_path, {:style=>'color:#649D4A'} %></span></p>
-        <%end%>
         <div class="clear"></div>
         </div>
   </div>

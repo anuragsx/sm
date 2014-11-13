@@ -11,19 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141109220653) do
+ActiveRecord::Schema.define(version: 20141113000321) do
 
   create_table "autocategories", force: true do |t|
     t.string   "category"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "automodels", force: true do |t|
     t.string   "make"
     t.string   "model"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "blogs", force: true do |t|
@@ -37,8 +37,8 @@ ActiveRecord::Schema.define(version: 20141109220653) do
   create_table "favorites", force: true do |t|
     t.integer  "user_id"
     t.integer  "listing_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "listings", force: true do |t|
@@ -48,8 +48,8 @@ ActiveRecord::Schema.define(version: 20141109220653) do
     t.integer  "price"
     t.string   "active"
     t.integer  "user_id"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.string   "listingtype"
     t.string   "vin"
     t.string   "body"
@@ -73,14 +73,14 @@ ActiveRecord::Schema.define(version: 20141109220653) do
   create_table "marinecategories", force: true do |t|
     t.string   "category"
     t.string   "subcategory"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "marinemakes", force: true do |t|
     t.string   "make"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "messages", force: true do |t|
@@ -92,8 +92,8 @@ ActiveRecord::Schema.define(version: 20141109220653) do
     t.datetime "read_at"
     t.datetime "sender_deleted_at"
     t.datetime "recipient_deleted_at"
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.string   "name"
     t.string   "email"
     t.string   "phone"
@@ -101,14 +101,14 @@ ActiveRecord::Schema.define(version: 20141109220653) do
 
   create_table "motocategories", force: true do |t|
     t.string   "category"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "motomakes", force: true do |t|
     t.string   "make"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.integer  "sort_order"
   end
 
@@ -119,29 +119,33 @@ ActiveRecord::Schema.define(version: 20141109220653) do
     t.integer  "image_width"
     t.integer  "image_height"
     t.integer  "listing_id"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
   end
 
   create_table "powercategories", force: true do |t|
     t.string   "category"
     t.string   "subcategory"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "powermakes", force: true do |t|
     t.string   "make"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.integer  "sort_order"
   end
 
   create_table "user_sessions", force: true do |t|
     t.string   "username"
     t.string   "password"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "users", force: true do |t|
@@ -150,8 +154,8 @@ ActiveRecord::Schema.define(version: 20141109220653) do
     t.string   "crypted_password"
     t.string   "password_salt"
     t.string   "persistence_token"
-    t.datetime "created_at",                      null: false
-    t.datetime "updated_at",                      null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.string   "firstname"
     t.string   "lastname"
     t.string   "phone"
@@ -183,8 +187,8 @@ ActiveRecord::Schema.define(version: 20141109220653) do
     t.string   "category"
     t.string   "subcategory"
     t.integer  "user_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.string   "body"
     t.string   "min_year"
     t.string   "max_year"

@@ -4,67 +4,63 @@
       <div class="ad1"> <img src="/assets/ad1.jpg" width="300" height="125" /> </div>
       <div class="ad2"> <img src="/assets/ad2.jpg" width="300" height="125" /> </div>
       <div class="ad3"> <img src="/assets/ad3.jpg" width="300" height="250" /> </div>
+      <div class="ad3"> <img src="images/ad3.jpg" width="300" height="250" /> </div>
+      <div class="ad3"> <img src="images/ad3.jpg" width="300" height="250" /> </div>
     </div>
-    <div class="leftcontent"> <span>Photos</span>
-      <div class="lsitarea">
-        <div class="pagination">
+    <div class="leftcontent">
 
+      <div class="lsitarea"> <img width="725" height="276" class="twocolumns p_img" src="images/mainimage.png">
+
+        <h1 class="headingh1">Photos</h1>
+        <% flash.each do |name, msg| %>
+            <%= content_tag :div, msg, class: "notice" %>
+        <% end %>
+
+        <!--<div class="pagination"> <span class="sort">Sort by:</span>
+          <form action="#">
+            <select>
+              <option>Select Category</option>
+            </select>
+          </form>
           <div class="clear"></div>
-
-          <% if flash[:notice] %>
-              <div class="notice"><%= flash[:notice] %></div>
-          <% end %>
         </div>
+        -->
+        <%unless @photos.blank?%>
+            <% @photos.each do |photo| %>
                 <div class="post">
                   <div class="leftpost">
                     <div class="middilepost">
                       <div class="inline">
-                       <p>
-                        <table width="883" border="0" cellpadding="10" cellspacing="0">
-                          <tr>
-                            <td align="left" valign="top">
-                              <table width="100%" border="0" cellspacing="0" cellpadding="3">
-                                <tr>
-                                  <td>
-                                    <h2>Photos for <%= @listing.model %></h2>
-                                <tr>
-                                  <th>Image</th>
-                                  <th>Name</th>
-                                </tr>
-
-                                <% for photo in @photos %>
-
-                                    <tr>
-                                      <td><%= link_to image_tag(smallphoto_path(photo, :jpg), :alt => photo.name, :border => 0), listing_photo_path(@listing, photo) %></td>
-                                      <td><%=h photo.name %></td>
-                                      <td><%= link_to 'Delete', listing_photo_path(@listing, photo), :confirm => 'Are you sure?', :method => :delete %></td>
-                                    </tr>
-
-                                <% end %>
-                                </td>
-                                </tr>
-                              </table>
-                            </td>
-                          </tr>
-                        </table>
-                       </p>
-                      <table>
-                        <tr>
-                          <td><span><%= link_to 'New Photo', new_listing_photo_path(@listing) %>&nbsp;&nbsp;|</span></td>
-                          <td><span><%= link_to 'Back to Listing', edit_user_listing_path(@user, @listing) %>&nbsp;&nbsp;|</span></td>
-                        </tr>
-                      </table>
-
-
-
+                        <p>Photo Name - <%=h photo.name %></p>
+                        <p><%= image_tag photo.image.url(:thumb) %></p>
+                        <p><%= link_to 'Delete', listing_photo_path(@listing, photo), :confirm => 'Are you sure?', :method => :delete %></p>
+                        <div class="clear"></div>
+                      </div>
                     </div>
                   </div>
-
                   <div class="clear"></div>
                 </div>
+            <%end%>
+        <%end%>
+        <p><%= link_to 'New Photo', new_listing_photo_path(@listing), {:style=>'color:#649D4A'} %> | <%= link_to 'Back to Listing', edit_user_listing_path(@user, @listing), {:style=>'color:#649D4A'} %></p>
+        <div class="post">
+          <div class="">
+            <div class="middilepost">
+              <div class="inline">
+
+                <div class="clear"></div>
+              </div>
+
+              <span></span>.</div>
+          </div>
+          <div class="clear"></div>
+        </div>
       </div>
       <div class="clear"></div>
+
+
+
     </div>
+    <div class="clear"></div>
   </div>
-  <div class="clear"></div>
 </div>

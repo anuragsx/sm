@@ -29,7 +29,8 @@
           <% if @listing.photos.count > 0 %>
             <div id="bigphoto">
               <% @listing.photos.all(:limit => 1).each do |bigphoto| %>
-                  <%= link_to image_tag(medphoto_path(bigphoto, :jpg), :alt => bigphoto.name, :hspace => 5, :vspace => 5, :border => 0), largephoto_path(bigphoto, :jpg) %>
+                  <%#= link_to image_tag(medphoto_path(bigphoto, :jpg), :alt => bigphoto.name, :hspace => 5, :vspace => 5, :border => 0), largephoto_path(bigphoto, :jpg) %>
+                  <%= image_tag bigphoto.image.url(:thumb) %>
               <% end %>
             </div>
         <% else %>
@@ -39,7 +40,8 @@
         <p>
           <% if @photo_count > 1 %>
               <% @listing.photos.each do |photo| %>
-                  <%= link_to_remote image_tag(smallphoto_path(photo, :jpg), :alt => photo.name, :border => 0), :url => {:action => "replacebigphoto", :id => photo.id, :listing_id => @listing} %>
+                  <%#= link_to_remote image_tag(smallphoto_path(photo, :jpg), :alt => photo.name, :border => 0), :url => {:action => "replacebigphoto", :id => photo.id, :listing_id => @listing} %>
+                  <%= image_tag photo.image.url(:thumb) %>
               <% end %>
           <% end %>
         </p>
@@ -69,7 +71,7 @@
                             </div>
                             <div class="image">
                               <%= f.label "Image:" %>
-                              <%= f.file_field :image_file, :size => 15 %>
+                              <%= f.file_field :image, :size => 15 %>
                             </div>
                             <p>
                               * Depending on file size, pictures may take a few moments to load

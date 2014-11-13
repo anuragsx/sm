@@ -1,3 +1,4 @@
+=begin
 class AutolistingsController < ApplicationController
 
 	def searchautos
@@ -154,3 +155,4 @@ class AutolistingsController < ApplicationController
   end
   
 end
+=end

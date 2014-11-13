@@ -24,11 +24,11 @@
                     <p>You may upload up to 4 images per listing.  Please keep the files under 3 Megabytes in size.</p>
                     <div>
                       <%= f.label "Description:" %>
-                      <%= f.text_field :name, :size => 25 %>
+                      <%= f.text_field :image_file_name, :size => 25 %>
                     </div>
                     <div>
                       <%= f.label "Image:" %>
-                      <%= f.file_field :image_file, :size => 15 %>
+                      <%= f.file_field :image, :size => 15 %>
                     </div>
                     <div>
                       <p>* Depending on file size, pictures may take a few moments to load</p>
@@ -43,10 +43,6 @@
                 <% end %>
           </div>
           <div class="clear"></div>
-
-          <% if flash[:notice] %>
-              <div class="notice"><%= flash[:notice] %></div>
-          <% end %>
         </div>
 
 
