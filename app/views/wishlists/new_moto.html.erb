@@ -10,11 +10,6 @@
         <div class="pagination">
 
         </div>
-        <p>
-          <% if flash[:notice] %>
-            <div class="notice"><%= flash[:notice] %></div>
-        <% end %>
-        </p>
         <div class="contactwidget">
           <%= form_for(@wishlist, :html => { :multipart => true }) do |f| %>
               <% if @wishlist.errors.any? %>
@@ -56,7 +51,7 @@
                   <%= f.text_field :max_price, :size => 10 %>
                 </div>
                 <p>
-                  <%= image_submit_tag "create_button.jpg", :alt => "Create", :size => "69x29", :border => 0 %>
+                  <%= f.submit "Create Wishlist", :alt => "Create", :size => "69x29", :class => "sub" %>
                 </p>
               </form>
           <% end %>

@@ -32,8 +32,17 @@
           </ul>
         </div>
       </div>
-      <div id="slider"><img src="/assets/innerbigsliderimage1.png" /></div>
-      <div id="gallery"> <img src="/assets/innersmallimage1.png" onmouseover="MM_setTextOfLayer('slider','','&lt;img src=&quot;/assets/innerbigsliderimage1.png&quot;/&gt;')"/> <img src="images/innersmallsliderimage2.png" onmouseover="MM_setTextOfLayer('slider','','&lt;img src=&quot;images/innerbigsliderimage2.png&quot;/&gt;')"/> <img src="images/innersmallimage1.png" onmouseover="MM_setTextOfLayer('slider','','&lt;img src=&quot;images/innerbigsliderimage1.png&quot;/&gt;')"/> <img src="images/innersmallsliderimage2.png" onmouseover="MM_setTextOfLayer('slider','','&lt;img src=&quot;images/innerbigsliderimage2.png&quot;/&gt;')"/> <img src="images/innersmallimage1.png" onmouseover="MM_setTextOfLayer('slider','','&lt;img src=&quot;images/innerbigsliderimage1.png&quot;/&gt;')"/> <img src="images/innersmallsliderimage2.png" class="last" onmouseover="MM_setTextOfLayer('slider','','&lt;img src=&quot;images/innerbigsliderimage2.png&quot;/&gt;')"/>
+      <div id="slider">
+        <%= image_tag @listing.photos.first.image.url %>
+      </div>
+      <div id="gallery">
+        <img src="/assets/innersmallimage1.png" onmouseover="MM_setTextOfLayer('slider','','&lt;img src=&quot;/assets/innerbigsliderimage1.png&quot;/&gt;')"/>
+        <%= image_tag @listing.photos.first.image.url(:thumb), onmouseover: "MM_setTextOfLayer('slider','','&lt;img src=&quot;'#{image_tag @listing.photos.first.image.url}'&quot;/&gt;')" %>
+        <img src="images/innersmallsliderimage2.png" onmouseover="MM_setTextOfLayer('slider','','&lt;img src=&quot;images/innerbigsliderimage2.png&quot;/&gt;')"/>
+        <img src="images/innersmallimage1.png" onmouseover="MM_setTextOfLayer('slider','','&lt;img src=&quot;images/innerbigsliderimage1.png&quot;/&gt;')"/>
+        <img src="images/innersmallsliderimage2.png" onmouseover="MM_setTextOfLayer('slider','','&lt;img src=&quot;images/innerbigsliderimage2.png&quot;/&gt;')"/>
+        <img src="images/innersmallimage1.png" onmouseover="MM_setTextOfLayer('slider','','&lt;img src=&quot;images/innerbigsliderimage1.png&quot;/&gt;')"/>
+        <img src="images/innersmallsliderimage2.png" class="last" onmouseover="MM_setTextOfLayer('slider','','&lt;img src=&quot;images/innerbigsliderimage2.png&quot;/&gt;')"/>
         <div class="tabbedpanel">
           <div id="TabbedPanels1" class="TabbedPanels wd_height">
             <ul class="TabbedPanelsTabGroup">
@@ -42,9 +51,6 @@
               <li class="TabbedPanelsTab" tabindex="0">Reviews</li>-->
             </ul>
             <div class="clear"></div>
-            <% if flash[:notice] %>
-                <div class="notice"><%= flash[:notice] %></div>
-            <% end %>
             <% if @listing.listingtype == "auto" %>
                 <%= render :partial => "show_autolisting" %>
             <% elsif @listing.listingtype == "moto" %>
