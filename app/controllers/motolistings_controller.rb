@@ -58,7 +58,9 @@ class MotolistingsController < ApplicationController
 
 
   def motolistingsresults
-    @motomakes = Motomakes.find(:all, :order => 'sort_order ASC', :select => 'distinct make')
+    @motomakes = Motomakes.find(:all, :order => 'make ASC', :select => 'distinct make')
+    #@motomakes = Motomakes.all.order("make ASC").select(:make).uniq
+    #Motomakes.all.select("DISTINCT make").order("make ASC")
     @motocategories = Motocategories.find(:all, :order => 'category ASC')
 
     #Comment this SearchLogic code when I can build the conditions strings from params and userlistings
