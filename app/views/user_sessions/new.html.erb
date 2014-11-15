@@ -42,7 +42,8 @@
                     <p>We respect your privacy.</p>
                     <p>We'll never send you emails unless you tell us it's okay.  Please review our <span class="formText"> <a href="#">Privacy Policy</a>.</span>
                     <div class="submit">
-                      <%= image_submit_tag "go_button1.jpg", :alt => "submit", :size => "48x28", :border => 0 %>
+                      <%#= image_submit_tag "go_button1.jpg", :alt => "submit", :size => "48x28", :border => 0 %>
+                      <%= f.submit 'Login', :id => "submitButton", :class => "sub" %>
                     </div>
                 <% end %>
               </div>
