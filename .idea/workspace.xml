@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="299c12d2-73e1-461a-8437-30d1f15cfe2a" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/motolistings_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/motolistings_controller.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/motolistings/motolistingsresults.html.erb" afterPath="$PROJECT_DIR$/app/views/motolistings/motolistingsresults.html.erb" />
     </list>
     <ignored path="smw_smw.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -35,11 +35,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="motolistings_controller.rb" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="motolistings_controller.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controllers/motolistings_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.31390134" vertical-offset="630" max-vertical-offset="2970">
+            <state vertical-scroll-proportion="0.0" vertical-offset="675" max-vertical-offset="2970">
               <caret line="56" column="4" selection-start-line="56" selection-start-column="4" selection-end-line="56" selection-end-column="4" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="motolistingsresults.html.erb" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/views/motolistings/motolistingsresults.html.erb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.5443038" vertical-offset="1696" max-vertical-offset="2550">
+              <caret line="136" column="214" selection-start-line="136" selection-start-column="214" selection-end-line="136" selection-end-column="214" />
               <folding />
             </state>
           </provider>
@@ -100,7 +110,6 @@
         <option value="$PROJECT_DIR$/app/views/listings/_edit_marinelisting.html.erb" />
         <option value="$PROJECT_DIR$/app/views/listings/_edit_motolisting.html.erb" />
         <option value="$PROJECT_DIR$/app/views/listings/_edit_powerlisting.html.erb" />
-        <option value="$PROJECT_DIR$/app/views/motolistings/motolistingsresults.html.erb" />
         <option value="$PROJECT_DIR$/app/views/listings/show.html.erb" />
         <option value="$PROJECT_DIR$/app/views/application/_header.html.erb" />
         <option value="$PROJECT_DIR$/app/views/home/_header.html.erb" />
@@ -119,6 +128,7 @@
         <option value="$PROJECT_DIR$/app/views/listings/index.html.erb" />
         <option value="$PROJECT_DIR$/app/models/motomakes.rb" />
         <option value="$PROJECT_DIR$/app/controllers/motolistings_controller.rb" />
+        <option value="$PROJECT_DIR$/app/views/motolistings/motolistingsresults.html.erb" />
       </list>
     </option>
   </component>
@@ -188,6 +198,28 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="smw_smw" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sm" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="motolistings" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -637,13 +669,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/motolistings/motolistingsresults.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-13.708333" vertical-offset="1651" max-vertical-offset="2460">
-          <caret line="132" column="69" selection-start-line="132" selection-start-column="69" selection-end-line="132" selection-end-column="69" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/listings/_show_autolisting.html.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="660">
@@ -805,8 +830,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/motolistings_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.31390134" vertical-offset="630" max-vertical-offset="2970">
+        <state vertical-scroll-proportion="0.0" vertical-offset="630" max-vertical-offset="2970">
           <caret line="56" column="4" selection-start-line="56" selection-start-column="4" selection-end-line="56" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/motolistings/motolistingsresults.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5443038" vertical-offset="1696" max-vertical-offset="2550">
+          <caret line="136" column="214" selection-start-line="136" selection-start-column="214" selection-end-line="136" selection-end-column="214" />
           <folding />
         </state>
       </provider>
