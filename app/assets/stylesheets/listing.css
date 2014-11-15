@@ -113,9 +113,9 @@ body.whipdetails .contact {
 
 
 .middilepost span {
-    color: #898989;
-    font-size: 11px;
-    text-transform: none;
+    color: #898989 !important;
+    font-size: 11px !important;
+    text-transform: none !important;
 	float:left;
 }
 
