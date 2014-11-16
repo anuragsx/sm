@@ -2,9 +2,6 @@
 <div class="page">
   <div class="rightcontent">
     <div class="contact"> <span>Find Your</span><span class="whip"> Whip</span>
-      <% if flash[:notice] %>
-          <div class="notice"><%= flash[:notice] %></div>
-      <% end %>
       <div class="checkbox">
         <%= render :partial => "common/search_form"%>
       </div>

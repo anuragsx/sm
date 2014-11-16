@@ -42,9 +42,21 @@
             <div class="clear"></div>
           </div>
           <p>Price: $<%=h wishlist.min_price %> - $<%=h wishlist.max_price %></p>
-          <p>Category:  <%=h wishlist.category %></p>
-          <p>Sub Category:  <%=h wishlist.subcategory %></p>
-          <p>Body:  <%=h wishlist.body %></p>
+          <% unless wishlist.category.blank?%>
+            <p>Category:  <%=h wishlist.category %></p>
+          <%end%>
+          <% unless wishlist.subcategory.blank?%>
+            <p>Sub Category:  <%=h wishlist.subcategory %></p>
+          <%end%>
+          <% unless wishlist.body.blank?%>
+            <p>Body:  <%=h wishlist.body %></p>
+          <%end%>
+          <% unless wishlist.make.blank?%>
+            <p>Make:  <%=h wishlist.make %></p>
+          <%end%>
+          <% unless wishlist.model.blank?%>
+            <p>Model:  <%=h wishlist.model %></p>
+          <%end%>
           <p>
             <!--<a href="#">Modify Item &raquo;</a>-->
             <%= link_to "Delete Wishlist Item", wishlist_path(wishlist), :confirm => 'Are you sure?', :method=>:delete, :class=>"remove"%>
