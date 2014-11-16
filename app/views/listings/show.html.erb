@@ -102,7 +102,7 @@
             <%= form_for(@favorites) do |f| %>
                 <%= f.hidden_field :user_id, :value => @sender.id %>
                 <%= f.hidden_field :listing_id, :value => @listing.id %>
-                <input type="submit" class="sub" value="Swap My Whip"/>
+                <input type="submit" class="sub" value="Add to Favorites"/>
             <% end %>
           </div>
           <% else %>

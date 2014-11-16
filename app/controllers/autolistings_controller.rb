@@ -22,6 +22,32 @@ class AutolistingsController < ApplicationController
 
 
   def autolistingsresults_new
+
+
+    #################################################
+    #For search box
+    #################################################
+    @user = current_user
+
+    @motocategories = Motocategories.find(:all, :order => 'category ASC')
+    @motomakes = Motomakes.find(:all, :order => 'sort_order ASC')
+    @marinecategories = Marinecategories.find(:all, :order => 'category ASC', :select => 'distinct category')
+
+    #@marinesubcategories = "" #Marinecategories.find(:all, :order => 'subcategory ASC')
+    @marinesubcategories = params[:category].blank? ? Marinecategories.find(:all, :order => 'subcategory ASC') : Marinecategories.find_all_by_category(params[:category], :order => "subcategory ASC").map{|m| [m.subcategory, m.subcategory]}
+    @marinemakes = Marinemakes.find(:all, :order => 'make ASC')
+    @powercategories = Powercategories.find(:all, :order => 'category ASC', :select => 'distinct category')
+
+    #@powersubcategories = "" #Powercategories.find(:all, :order => 'subcategory ASC')
+
+    @powersubcategories = params[:category].blank? ? Powercategories.find(:all, :order => 'subcategory ASC') : Powercategories.find_all_by_category(params[:category], :order => "subcategory ASC").map{|m| [m.subcategory, m.subcategory]}
+
+    @powermakes = Powermakes.find(:all, :order => 'sort_order ASC')
+
+
+
+
+
     @automakes = Automodels.find(:all, :order => 'make ASC', :select => 'distinct make')
 
     automodels_by_make = Automodels.find_all_by_make(params[:make], :order => "model ASC", :select => 'distinct model')
