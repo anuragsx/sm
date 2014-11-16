@@ -106,7 +106,12 @@
             <% if @perfectresults_count > 0 %>
                 <% @perfectresults.each do |listing| %>
                     <div class="post">
-                      <div class="leftpost"> <img class="pos_img" src="/assets/innersmallsliderimage2.png" width="114" height="91" />
+                      <div class="leftpost">
+                        <% if listing.photos.blank?%>
+                            <img border="0" src="/assets/no-photo-small.jpg?1388342718" alt="No Photo Available">
+                        <%else%>
+                            <%= image_tag listing.photos.first.image.url(:thumb), :class => "pos_img", :size => "114x91" %><!--<img class="pos_img" src="/assets/innersmallsliderimage2.png" width="114" height="91" />-->
+                        <%end%>
                         <div class="middilepost">
                           <div class="inline">
                             <h2><%=h listing.model %></h2>

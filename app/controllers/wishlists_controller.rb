@@ -16,7 +16,7 @@ class WishlistsController < ApplicationController
   def new_moto
   	@user = current_user
     @wishlist = @user.wishlists.new(params[:wishlist])
-    @motomakes = Motomakes.find(:all, :order => 'sort_order ASC', :select => 'distinct make')
+    @motomakes = Motomakes.find(:all, :order => 'make ASC', :select => 'distinct make')
     @motocategories = Motocategories.all
 
     respond_to do |format|
@@ -41,7 +41,7 @@ class WishlistsController < ApplicationController
   def new_power
   	@user = current_user
     @wishlist = @user.wishlists.new(params[:wishlist])
-    @powermakes = Powermakes.find(:all, :order => 'sort_order ASC')
+    @powermakes = Powermakes.find(:all, :order => 'make ASC')
     @powercategories = Powercategories.find(:all, :order => 'category ASC', :select => 'distinct category')
 		@powersubcategories = ""
 
