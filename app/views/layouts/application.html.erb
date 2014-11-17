@@ -148,6 +148,14 @@ elsif (controller.controller_name == 'wishlists' && controller.action_name == 'n
   @class = "fullwidth"
 elsif (controller.controller_name == 'powerlistings' && controller.action_name == 'new')
   @class = "fullwidth"
+elsif (controller.controller_name == 'autolistings' && controller.action_name == 'searchautos')
+  @class = "fullwidth"
+elsif (controller.controller_name == 'motolistings' && controller.action_name == 'searchmotos')
+  @class = "fullwidth"
+elsif (controller.controller_name == 'marinelistings' && controller.action_name == 'searchmarine')
+  @class = "fullwidth"
+elsif (controller.controller_name == 'powerlistings' && controller.action_name == 'searchpower')
+  @class = "fullwidth"
 else
     @class = "whipdetails twocolumns register"
 end

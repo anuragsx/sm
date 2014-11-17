@@ -22,7 +22,7 @@
                                     sent        /sent(.:format)                                                   messages#sent
                       deletesent_message DELETE /messages/:id/deletesent(.:format)                                messages#deletesent
                            reply_message GET    /messages/:id/reply(.:format)                                     messages#reply
-                    create_reply_message POST   /messages/:id/create_reply(.:format)                              messages#create_reply
+                    create_reply_message wST   /messages/:id/create_reply(.:format)                              messages#create_reply
                                 messages GET    /messages(.:format)                                               messages#index
                                          POST   /messages(.:format)                                               messages#create
                              new_message GET    /messages/new(.:format)                                           messages#new

@@ -74,7 +74,7 @@
                   </div>
                   <div class="clear"></div>
                 </div>
-
+                <%= link_to "Advanced Search", searchautos_path, :class=>"advance"%>
                 <!--<a href="#" class="advance">Advanced Search</a>-->
                 <%= hidden_field_tag :listing_type, "auto" %>
                 <%= hidden_field_tag :expired_at_gte, Date.today %>
@@ -118,6 +118,7 @@
                 </div>
                 <%= hidden_field_tag :listing_type, "moto" %>
                 <%= hidden_field_tag :expired_at_gte, Date.today %>
+                <%= link_to "Advanced Search", searchmotos_path, :class=>"advance"%>
                 <!--<a href="#" class="advance">Advanced Search</a>-->
                 <%= submit_tag "Basic Search", class: "submit" %>
             <% end %>
@@ -170,6 +171,7 @@
 
                 <%= hidden_field_tag :listing_type, "marine" %>
                 <%= hidden_field_tag :listing_type, Date.today %>
+                <%= link_to "Advanced Search", searchmarine_path, :class=>"advance"%>
                 <!--<a href="#" class="advance">Advanced Search</a>-->
                 <%= submit_tag "Basic Search", class: "submit" %>
             <% end %>
@@ -221,6 +223,7 @@
 
                 <%= hidden_field_tag :listing_type, "power" %>
                 <%= hidden_field_tag :listing_type, Date.today %>
+                <%= link_to "Advanced Search", searchpower_path, :class=>"advance"%>
                 <!--<a href="#" class="advance">Advanced Search</a>-->
                 <%= submit_tag "Basic Search", class: "submit" %>
             <% end %>

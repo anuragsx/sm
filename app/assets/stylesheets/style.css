@@ -678,6 +678,14 @@ body{overflow-x:hidden;}
     top: -23px;
     width: 495px;
 }
+h1.headingh1 {
+    color: #6EA456;
+    font-family: oswald;
+    font-size: 29px;
+    font-weight: normal;
+    margin: 18px 0;
+    text-transform: uppercase;
+}
 
 
 
