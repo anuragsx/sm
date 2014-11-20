@@ -22,27 +22,27 @@
               <%= @listing.year %> <%= @listing.make %> <%= @listing.category %>
           <%end%>
         </b>
-        <div class="rightsep"> <b><%= number_to_currency(@listing.price, :precision => 0) %></b> <span class="seprator"></span>
-          <ul>
-            <li>Share</li>
-            <li><img src="/assets/social_03.jpg" height="13" width="57" /></li>
-          </ul>
+        <div class="rightsep"> <b><%= number_to_currency(@listing.price, :precision => 0) %></b> <!--<span class="seprator"></span>-->
         </div>
       </div>
       <div id="slider">
         <% unless @listing.photos.blank?%>
-          <%= image_tag @listing.photos.first.image.url %>
+          <%= image_tag @listing.photos.first.image.url, :size => "709x408" %>
         <%end%>
       </div>
       <div id="gallery">
         <% unless @listing.photos.blank?%>
+            <%@listing.photos.each do |photo|%>
+                <img src="<%= photo.image.url(:thumb)%>" onmouseover="MM_setTextOfLayer('slider','','&lt;img src=&quot;<%= photo.image.url%>&quot; height=&quot;408&quot; width=&quot;709&quot;/&gt;')"/>
+            <%end%>
+            <!--
             <img src="/assets/innersmallimage1.png" onmouseover="MM_setTextOfLayer('slider','','&lt;img src=&quot;/assets/innerbigsliderimage1.png&quot;/&gt;')"/>
-            <%= image_tag @listing.photos.first.image.url(:thumb), onmouseover: "MM_setTextOfLayer('slider','','&lt;img src=&quot;'#{image_tag @listing.photos.first.image.url}'&quot;/&gt;')" %>
-            <img src="images/innersmallsliderimage2.png" onmouseover="MM_setTextOfLayer('slider','','&lt;img src=&quot;images/innerbigsliderimage2.png&quot;/&gt;')"/>
-            <img src="images/innersmallimage1.png" onmouseover="MM_setTextOfLayer('slider','','&lt;img src=&quot;images/innerbigsliderimage1.png&quot;/&gt;')"/>
-            <img src="images/innersmallsliderimage2.png" onmouseover="MM_setTextOfLayer('slider','','&lt;img src=&quot;images/innerbigsliderimage2.png&quot;/&gt;')"/>
-            <img src="images/innersmallimage1.png" onmouseover="MM_setTextOfLayer('slider','','&lt;img src=&quot;images/innerbigsliderimage1.png&quot;/&gt;')"/>
-            <img src="images/innersmallsliderimage2.png" class="last" onmouseover="MM_setTextOfLayer('slider','','&lt;img src=&quot;images/innerbigsliderimage2.png&quot;/&gt;')"/>
+            <img src="/assets/innersmallsliderimage2.png" onmouseover="MM_setTextOfLayer('slider','','&lt;img src=&quot;/assets/innerbigsliderimage2.png&quot;/&gt;')"/>
+            <img src="/assets/innersmallimage1.png" onmouseover="MM_setTextOfLayer('slider','','&lt;img src=&quot;/assets/innerbigsliderimage1.png&quot;/&gt;')"/>
+            <img src="/assets/innersmallsliderimage2.png" onmouseover="MM_setTextOfLayer('slider','','&lt;img src=&quot;/assets/innerbigsliderimage2.png&quot;/&gt;')"/>
+            <img src="/assets/innersmallimage1.png" onmouseover="MM_setTextOfLayer('slider','','&lt;img src=&quot;/assets/innerbigsliderimage1.png&quot;/&gt;')"/>
+            <img src="/assets/innersmallsliderimage2.png" class="last" onmouseover="MM_setTextOfLayer('slider','','&lt;img src=&quot;/assets/innerbigsliderimage2.png&quot;/&gt;')"/>
+            -->
         <%end%>
         <div class="tabbedpanel">
           <div id="TabbedPanels1" class="TabbedPanels wd_height">

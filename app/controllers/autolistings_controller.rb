@@ -44,7 +44,7 @@ class AutolistingsController < ApplicationController
 
     @powermakes = Powermakes.find(:all, :order => 'sort_order ASC')
 
-
+    ###################################################################################3
 
 
 
@@ -88,7 +88,7 @@ class AutolistingsController < ApplicationController
         @userlistings = @user.listings.all
         @userlistings.each do |userlisting|
           #add conditions to the @wishlistconidtions unless there is no value in the field...
-          unless params[:make].blank? && params[:model].blank? && params[:category].blank?
+          #unless params[:make].blank? && params[:model].blank? && params[:category].blank?
             unless userlisting.listingtype == ""
               @wishlistconditions['wishlists.listingtype'] = userlisting.listingtype
             end
@@ -101,7 +101,7 @@ class AutolistingsController < ApplicationController
             unless userlisting.body == ""
               @wishlistconditions['wishlists.body'] = userlisting.body
             end
-          end
+          #end
         end
         #Execute Perfectresults query by using listings search form conditions hash and wishlists conditions hash
         #@perfectresults = Listing.find(:all, :joins => :wishlists, :conditions => {:wishlists => @wishlistconditions})
@@ -120,7 +120,7 @@ class AutolistingsController < ApplicationController
   end
 
 
-=begin
+
 		
 	def autolistingsresults
 		@automakes = Automodels.find(:all, :order => 'make ASC', :select => 'distinct make')
@@ -186,7 +186,7 @@ class AutolistingsController < ApplicationController
       format.xml  { render :xml => @listing }
     end
   end
-=end
+
 
   # GET /listings/1
   # GET /listings/1.xml
