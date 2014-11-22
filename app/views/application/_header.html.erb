@@ -8,7 +8,7 @@
       </ul>
       <div class="login_p">
         <% if current_user %>
-            <%= link_to "Inbox", inbox_path %> <%= link_to "("+ unread_messages.to_s + ")", inbox_path %> |
+            <% if unread_messages==0 %><%= link_to "Inbox", inbox_path %><%else%><%= link_to "("+ unread_messages.to_s + ")", inbox_path %><%end%> |
             <%= link_to "Sent", sent_path %> |
             <%= link_to "Edit Profile", edit_user_path(:current) %> |
             <%= link_to "Logout", logout_path %>

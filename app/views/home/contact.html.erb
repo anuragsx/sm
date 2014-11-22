@@ -13,8 +13,8 @@
     </div>
     <div class="clear"></div>
     <div class="contactwidget">
-      <% if flash[:notice] %>
-          <div class="notice"><%= flash[:notice] %></div>
+      <% flash.each do |name, msg| %>
+          <%= content_tag :div, msg, class: "notice" %>
       <% end %>
       <%= form_for @message, :url => {:controller => "messages", :action => "create"} do |f| %>
           <% if @message.errors.any? %>

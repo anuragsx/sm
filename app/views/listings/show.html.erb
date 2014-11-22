@@ -1,10 +1,15 @@
+<style>
+    .img_cnt {
+        max-width:500px;
+        height:auto;
+        max-height:400px;
+        display: block;
+    }
+</style>
+
 <div id="content">
 <div class="page">
   <div class="rightcontent">
-    <div class="contact"> <span>Find Your</span><span class="whip"> Whip</span>
-      <div class="checkbox">
-        <%= render :partial => "common/search_form"%>
-      </div>
       <div class="ad1"> <img src="/assets/ad1.jpg" width="300" height="125" /> </div>
       <div class="ad2"> <img src="/assets/ad2.jpg" width="300" height="125" /> </div>
       <div class="ad3"> <img src="/assets/ad3.jpg" width="300" height="250" /> </div>
@@ -27,13 +32,13 @@
       </div>
       <div id="slider">
         <% unless @listing.photos.blank?%>
-          <%= image_tag @listing.photos.first.image.url, :size => "709x408" %>
+          <%= image_tag @listing.photos.first.image.url, :width => "709", :class=>"img_cnt" %>
         <%end%>
       </div>
       <div id="gallery">
         <% unless @listing.photos.blank?%>
             <%@listing.photos.each do |photo|%>
-                <img src="<%= photo.image.url(:thumb)%>" onmouseover="MM_setTextOfLayer('slider','','&lt;img src=&quot;<%= photo.image.url%>&quot; height=&quot;408&quot; width=&quot;709&quot;/&gt;')"/>
+                <img src="<%= photo.image.url(:thumb)%>" onmouseover="MM_setTextOfLayer('slider','','&lt;img src=&quot;<%= photo.image.url%>&quot; height=&quot;408&quot; width=&quot;709&quot; class=&quot;img_cnt&quot;/&gt;')"/>
             <%end%>
             <!--
             <img src="/assets/innersmallimage1.png" onmouseover="MM_setTextOfLayer('slider','','&lt;img src=&quot;/assets/innerbigsliderimage1.png&quot;/&gt;')"/>
@@ -62,7 +67,7 @@
                 <%= render :partial => "show_powerlisting" %>
             <% end %>
           </div>
-          <div class="clear"></div>
+
           <div class="head">
             <p class="boldclass">Contact Owner :</p>
           </div>
@@ -88,11 +93,11 @@
                 <form action="#">
                   <div class="subject">
                     <label>Subject*</label>
-                    <%= f.text_field :subject, size: 20%>
+                    <%= f.text_field :subject, size: ""%>
                   </div>
                   <div class="body">
                     <label>Body*</label>
-                    <%= f.text_area :body %>
+                    <%= f.text_area :body, size: "25x10" %>
                   </div>
                   <%#= image_submit_tag "sendbutton.jpg", :alt => "submit", :size => "54x25", :border => 0 %>
                   <input type="submit" class="sub" value="Contact Owner"/>

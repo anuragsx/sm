@@ -1,9 +1,9 @@
 <div id="content">
   <div class="page">
     <div class="leftcontent">
-      <div class="uppercontent"> <span>New Moto Listing</span>
-        <% if flash[:notice] %>
-            <div class="notice"><%= flash[:notice] %></div>
+      <div class="uppercontent"> <h1 class="headingh1">New <strong>Moto Listing</strong></h1>
+        <% flash.each do |name, msg| %>
+            <%= content_tag :div, msg, class: "notice" %>
         <% end %>
         <table width="100%" border="0" cellpadding="20" cellspacing="0">
           <tr>

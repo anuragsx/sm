@@ -1,7 +1,7 @@
 <div id="content">
   <div class="page">
     <div class="leftcontent">
-      <div class="uppercontent"> <h1 class="headingh1">Advance Search for  <strong>Marines</strong></h1>
+      <div class="uppercontent"> <h1 class="headingh1">Advance Search for  <strong>Power</strong></h1>
         <p><table width="883" border="0" cellpadding="20" cellspacing="0">
         <tr>
           <td width="100%" align="left" valign="top">
@@ -10,7 +10,7 @@
 
                 <%# f.fields_for @search.conditions do |listings| %>
                 <%= label_tag "Year Between:" %><br/>
-                <%= text_field_tag :year_gte, '', :size => 7 %> and <%= text_field_tag :year_lte, '', :size => 7 %><br/>
+                <%= text_field_tag :year, '', :size => 7 %> and <%= text_field_tag :year, '', :size => 7 %><br/>
                 <%= label_tag "Category:" %><br/>
                 <%= select_tag(:category, options_for_select(@powercategories.map {|s| [s.category, s.category]},:selected => params[:category]),
                                :prompt => "-Select a Category")%><br/>
@@ -20,7 +20,7 @@
                 <%= select_tag :make, options_for_select(@powermakes.map {|s| [s.make, s.make]},:selected => params[:make]),
                                {prompt: "Select a Make"} %><br/>
                 <%= label_tag "Price Between:" %><br/>
-                <%= text_field_tag :price_gte, '', :size => 7 %> and <%= text_field_tag :price_lte, '', :size => 7 %><br/>
+                <%= text_field_tag :price, '', :size => 7 %> and <%= text_field_tag :price, '', :size => 7 %><br/>
 
                 <%# listings.fields_for @search.conditions.owner do |owner| %>
                 <%= label_tag "State:" %><br/>
@@ -28,7 +28,7 @@
                 <%# end %>
 
                 <%= label_tag "Description:" %><br/>
-                <%= text_field_tag :desc_contains %><br/>
+                <%= text_field_tag :desc %><br/>
                 <%= hidden_field_tag :listing_type, "power" %>
                 <br/>
                 <%= submit_tag "Search Powersports", :id => "Submit", :class => "sub" %>

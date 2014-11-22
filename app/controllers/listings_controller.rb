@@ -113,6 +113,23 @@ class ListingsController < ApplicationController
   # GET /listings/1
   # GET /listings/1.xml
   def show
+    ###############################################
+    #For Search box on show page
+    @user = current_user
+    @automakes = Automodels.find(:all, :order => 'make ASC', :select => 'distinct make')
+    @automodels = params[:make].blank? ? Automodels.all : Automodels.find_all_by_make(params[:make], :order => "model ASC")
+    @autocategories = Autocategories.find(:all, :order => 'category ASC')
+    @motocategories = Motocategories.find(:all, :order => 'category ASC')
+    @motomakes = Motomakes.find(:all, :order => 'sort_order ASC')
+    @marinecategories = Marinecategories.find(:all, :order => 'category ASC', :select => 'distinct category')
+    @marinesubcategories = params[:category].blank? ? Marinecategories.find(:all, :order => 'subcategory ASC') : Marinecategories.find_all_by_category(params[:category], :order => "subcategory ASC").map{|m| [m.subcategory, m.subcategory]}
+    @marinemakes = Marinemakes.find(:all, :order => 'make ASC')
+    @powercategories = Powercategories.find(:all, :order => 'category ASC', :select => 'distinct category')
+    @powersubcategories = params[:category].blank? ? Powercategories.find(:all, :order => 'subcategory ASC') : Powercategories.find_all_by_category(params[:category], :order => "subcategory ASC").map{|m| [m.subcategory, m.subcategory]}
+    @powermakes = Powermakes.find(:all, :order => 'sort_order ASC')
+    ###################################################
+
+
     @listing = Listing.find(params[:id])
     if current_user
     	@message = Message.new

@@ -1,14 +1,13 @@
 <div id="content">
   <div class="page">
     <div class="leftcontent">
-      <div class="uppercontent"> <span>New Auto Listing</span>
-        <% if flash[:notice] %>
-            <div class="notice"><%= flash[:notice] %></div>
+      <div class="uppercontent"> <h1 class="headingh1">New <strong>Auto Listing</strong></h1>
+        <% flash.each do |name, msg| %>
+            <%= content_tag :div, msg, class: "notice" %>
         <% end %>
         <table width="100%" border="0" cellpadding="20" cellspacing="0">
           <tr>
             <td align="left" valign="top">
-              <h3>List My Whip<br /></h3>
               <table width="830" border="0" cellspacing="1" cellpadding="1">
                 <tr>
                   <td colspan="2" rowspan="2">

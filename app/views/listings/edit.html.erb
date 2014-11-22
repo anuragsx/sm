@@ -11,9 +11,9 @@
 
         </div>
         <p>
-          <% if flash[:notice] %>
-            <div class="notice"><%= flash[:notice] %></div>
-        <% end %>
+          <% flash.each do |name, msg| %>
+              <%= content_tag :div, msg, class: "notice" %>
+          <% end %>
         </p>
         <h3>
           <% if @listing.listingtype == "auto" %>

@@ -77,8 +77,21 @@
           <div class="clear"></div>
         </div>
 
+
+        <p style="color: #649D4A">
+          <strong>
+            <% if current_user %>
+                <td colspan="2">
+                  <%= pluralize(@perfectresults_count, "Perfect Match") %> found.
+                </td>
+            <% end %>
+          </strong>
+        </p>
+
+
         <% if current_user %>
             <% if @perfectresults_count > 0 %>
+                <p style="color: #649D4A">Perfect Matches found:</p>
                 <% @perfectresults.each do |listing| %>
                     <div class="post">
                       <div class="leftpost">
@@ -107,13 +120,25 @@
             <%end%>
         <%end%>
 
-        <% unless  @listings.blank?%>
+        <p style="color: #649D4A">
+          <strong>
+            <% if current_user %>
+                <%= pluralize(@listings_count, "Unmatched listing") %> found.
+            <% else %>
+                <%= pluralize(@listings_count, "listing") %> found.
+            <% end %>
+          </strong>
+        </p>
+
+        <% if @listings_count > 0 %>
+            <% if current_user%><p><strong>The following vehicles match your search request, but are not a perfect match for what you own. Please message the owner to see if your vehicle may be of interest to him/her.</strong></p><%end%>
             <% @listings.each do |listing| %>
+                <%#= listing.listingtype%>
                 <div class="post">
                   <div class="leftpost">
                     <% if listing.photos.blank?%>
                         <img border="0" src="/assets/no-photo-small.jpg?1388342718" alt="No Photo Available">
-                        <%else%>
+                    <%else%>
                         <%= image_tag listing.photos.first.image.url(:thumb), :class => "pos_img", :size => "114x91" %><!--<img class="pos_img" src="/assets/innersmallsliderimage2.png" width="114" height="91" />-->
                     <%end%>
 

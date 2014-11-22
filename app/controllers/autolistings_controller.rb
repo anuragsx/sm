@@ -6,61 +6,40 @@ class AutolistingsController < ApplicationController
   	@automakes = Automodels.find(:all, :order => 'make ASC', :select => 'distinct make')
   	@automodels = Automodels.find(:all, :order => 'model ASC', :select => 'distinct model')
   	@autocategories = Autocategories.all
-  	#@search = Listing.new_search(params[:search])
-  	#@listings = @search.all
-  	#@listings_count = @search.count
   end
   
 	def get_automodels
 		@automodels = Automodels.find_all_by_make(params[:make], :order => "model ASC", :select => 'distinct model').map{|m| [m.model, m.model]}
-		
-		#render :update do |page|
-			#page.replace_html('automodelsdiv', :partial => 'automodels_select', :object => @automodels) #, :locals => {:listings => listings})
-		#end
     render :json => @automodels
   end
 
 
   def autolistingsresults_new
-
-
     #################################################
     #For search box
     #################################################
     @user = current_user
-
     @motocategories = Motocategories.find(:all, :order => 'category ASC')
     @motomakes = Motomakes.find(:all, :order => 'sort_order ASC')
     @marinecategories = Marinecategories.find(:all, :order => 'category ASC', :select => 'distinct category')
 
-    #@marinesubcategories = "" #Marinecategories.find(:all, :order => 'subcategory ASC')
     @marinesubcategories = params[:category].blank? ? Marinecategories.find(:all, :order => 'subcategory ASC') : Marinecategories.find_all_by_category(params[:category], :order => "subcategory ASC").map{|m| [m.subcategory, m.subcategory]}
     @marinemakes = Marinemakes.find(:all, :order => 'make ASC')
     @powercategories = Powercategories.find(:all, :order => 'category ASC', :select => 'distinct category')
 
-    #@powersubcategories = "" #Powercategories.find(:all, :order => 'subcategory ASC')
-
     @powersubcategories = params[:category].blank? ? Powercategories.find(:all, :order => 'subcategory ASC') : Powercategories.find_all_by_category(params[:category], :order => "subcategory ASC").map{|m| [m.subcategory, m.subcategory]}
 
     @powermakes = Powermakes.find(:all, :order => 'sort_order ASC')
-
     ###################################################################################3
 
-
-
     @automakes = Automodels.find(:all, :order => 'make ASC', :select => 'distinct make')
-
     automodels_by_make = Automodels.find_all_by_make(params[:make], :order => "model ASC", :select => 'distinct model')
-
     automodels_all_make = Automodels.find(:all, :order => "model ASC", :select => 'distinct model')
-
     @automodels = params[:make].blank? ? automodels_all_make : automodels_by_make
-
     @autocategories = Autocategories.find(:all, :order => 'category ASC')
 
-    #Comment this SearchLogic code when I can build the conditions strings from params and userlistings
-    #@search = Listing.new_search(params[:search])
-    @listings = Listing.where("listingtype = ?", params["listing_type"])
+    #To search listing items
+    @listings = Listing.search_m(params)
     @listings_count = @listings.count
 
     ##Perfect Swap "Matching" functionality
@@ -68,7 +47,6 @@ class AutolistingsController < ApplicationController
       @user = current_user
       if @user.listings.count > 0
         #Get all params from search form and build a conditions string
-        #@listingconditions = params[:search][:conditions].reject{|key,value|value.nil?}
 
         #listingtype will always have a condition (because of the form hidden field), so this will initiate the conditions hash
         @wishlistconditions = {'listings.listingtype' => params["listing_type"]}
@@ -104,15 +82,13 @@ class AutolistingsController < ApplicationController
           #end
         end
         #Execute Perfectresults query by using listings search form conditions hash and wishlists conditions hash
-        #@perfectresults = Listing.find(:all, :joins => :wishlists, :conditions => {:wishlists => @wishlistconditions})
-        @perfectresults = Listing.find(:all, :joins => :wishlists, :conditions => @wishlistconditions)
+        #@perfectresults = Listing.find(:all, :joins => :wishlists, :conditions => @wishlistconditions)
+        @perfectresults = Listing.search_perfect_match(@wishlistconditions)
         @perfectresults_count = @perfectresults.size
-
       else
         @perfectresults_count = 0
       end
     end
-
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @listing }
@@ -173,7 +149,7 @@ class AutolistingsController < ApplicationController
         puts @wishlistconditions.inspect
 		  	#Execute Perfectresults query by using listings search form conditions hash and wishlists conditions hash
 				#@perfectresults = Listing.find(:all, :joins => :wishlists, :conditions => {:wishlists => @wishlistconditions})
-				@perfectresults = Listing.find(:all, :joins => :wishlists, :conditions => @wishlistconditions)
+				#@perfectresults = Listing.find(:all, :joins => :wishlists, :conditions => @wishlistconditions)
 				@perfectresults_count = @perfectresults.count
 				
 			else

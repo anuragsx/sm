@@ -59,13 +59,10 @@ class MotolistingsController < ApplicationController
 
   def motolistingsresults
     @motomakes = Motomakes.find(:all, :order => 'make ASC', :select => 'distinct make')
-    #@motomakes = Motomakes.all.order("make ASC").select(:make).uniq
-    #Motomakes.all.select("DISTINCT make").order("make ASC")
     @motocategories = Motocategories.find(:all, :order => 'category ASC')
 
     #Comment this SearchLogic code when I can build the conditions strings from params and userlistings
-    #@search = Listing.new_search(params[:search])
-    @listings = Listing.where("listingtype = ?", params["listing_type"])
+    @listings = Listing.search_m(params)
     @listings_count = @listings.count
 
     ##Perfect Swap "Matching" functionality
@@ -94,7 +91,8 @@ class MotolistingsController < ApplicationController
 
       #Execute Perfectresults query by using listings search form conditions hash and wishlists conditions hash
       #@perfectresults = Listing.find(:all, :joins => :wishlists, :conditions => {:wishlists => @wishlistconditions})
-      @perfectresults = Listing.find(:all, :joins => :wishlists, :conditions => @wishlistconditions)
+      #@perfectresults = Listing.find(:all, :joins => :wishlists, :conditions => @wishlistconditions)
+      @perfectresults = Listing.search_perfect_match(@wishlistconditions)
       @perfectresults_count = @perfectresults.count
     end
 

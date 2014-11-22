@@ -26,6 +26,54 @@ class Listing < ActiveRecord::Base
 	#default_scope :conditions => ["expired_at >= ?", Date.today]
 
   def self.search_m(params)
-   Listing.where("make = ? AND model = ? AND category = ? price = ?", params[:make], params[:model], params[:category], )
+    query_obj = Listing.where("listingtype = ?", params[:listing_type])
+    query_obj = query_obj.where("make = ?", "#{params[:make]}") unless params[:make].blank?
+    unless params[:model].blank?
+      query_obj = query_obj.where("model = ?", params[:model]) unless params[:model]=="Select your Model"
+    end
+    query_obj = query_obj.where("category = ?", "#{params[:category]}") unless params[:category].blank?
+    query_obj = query_obj.where("subcategory = ?", "#{params[:subcategory]}") unless params[:subcategory].blank?
+    unless params[:state].blank?
+      query_obj = joins(:users)
+      query_obj = query_obj.where("owner.state = ?", "#{params[:state]}") unless params[:state].blank?
+    end
+    query_obj = query_obj.where("price = ?", "#{params[:price]}") unless params[:price].blank?
+    query_obj = query_obj.where("mileage = ?", "#{params[:mileage]}") unless params[:mileage].blank?
+    query_obj = query_obj.where("exterior_color = ?", "#{params[:exterior_color]}") unless params[:exterior_color].blank?
+    query_obj = query_obj.where("interior_color = ?", "#{params[:interior_color]}") unless params[:interior_color].blank?
+    query_obj = query_obj.where("doors = ?", "#{params[:doors]}") unless params[:doors].blank?
+    query_obj = query_obj.where("engine = ?", "#{params[:engine]}") unless params[:engine].blank?
+    query_obj = query_obj.where("transmission = ?", "#{params[:transmission]}") unless params[:transmission].blank?
+    query_obj = query_obj.where("drive = ?", "#{params[:drive]}") unless params[:drive].blank?
+    query_obj = query_obj.where("fuel = ?", "#{params[:fuel]}") unless params[:fuel].blank?
+    query_obj = query_obj.where("desc = ?", "#{params[:desc]}") unless params[:desc].blank?
+    query_obj = query_obj.where("hull = ?", "#{params[:hull]}") unless params[:hull].blank?
+    query_obj
   end
+
+  def self.search_perfect_match(params)
+    query_obj = joins(:wishlists)
+    query_obj = query_obj.where("listings.listingtype = ?", "#{params['listings.listingtype']}") unless params['listings.listingtype'].blank?
+    query_obj = query_obj.where("listings.make = ?", "#{params['listings.make']}") unless params['listings.make'].blank?
+    unless params[params['listings.model']].blank?
+      query_obj = query_obj.where("listings.model = ?", params['listings.model']) unless params['listings.model']=="Select your Model"
+    end
+    query_obj = query_obj.where("listings.body = ?", "#{params['listings.body']}") unless params['listings.body'].blank?
+    query_obj = query_obj.where("listings.category = ?", "#{params['listings.category']}") unless params['listings.category'].blank?
+    query_obj = query_obj.where("listings.subcategory = ?", "#{params['listings.subcategory']}") unless params['listings.subcategory'].blank?
+
+
+    query_obj = query_obj.where("wishlists.listingtype = ?", "#{params['wishlists.listingtype']}") unless params['wishlists.listingtype'].blank?
+    query_obj = query_obj.where("wishlists.make = ?", "#{params['wishlists.make']}") unless params['wishlists.make'].blank?
+    unless params[params['wishlists.model']].blank?
+      query_obj = query_obj.where("wishlists.model = ?", params['wishlists.model']) unless params['wishlists.model']=="Select your Model"
+    end
+    query_obj = query_obj.where("wishlists.body = ?", "#{params['wishlists.body']}") unless params['wishlists.body'].blank?
+    query_obj = query_obj.where("wishlists.category = ?", "#{params['wishlists.category']}") unless params['wishlists.category'].blank?
+    query_obj = query_obj.where("wishlists.subcategory = ?", "#{params['wishlists.subcategory']}") unless params['wishlists.subcategory'].blank?
+
+    query_obj
+  end
+
+
 end

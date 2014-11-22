@@ -2,8 +2,8 @@
   <div class="page">
     <div class="leftcontent">
       <div class="uppercontent"> <h1 class="headingh1"><strong>Blog</strong></h1>
-        <% if flash[:notice] %>
-            <div class="notice"><%= flash[:notice] %></div>
+        <% flash.each do |name, msg| %>
+            <%= content_tag :div, msg, class: "notice" %>
         <% end %>
         <% unless @blogs.blank? %>
             <% @blogs.each do |blog|%>

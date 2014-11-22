@@ -1,85 +1,62 @@
+<style type="text/css">
+
+    .overlay {
+        background: no-repeat scroll center 105px transparent;
+        height: 199px;
+        position: absolute;
+        width: 351px;
+        z-ind/ex: 9999;
+        opacity:0;
+    }
+
+    .overlay h5 {
+        display: block;
+        font-family: Oswald;
+        font-size: 49px;
+        font-weight: bold;
+        line-height: 125px;
+        margin: 0;
+        text-align: center;
+    }
+    .overlay:hover
+    {
+        opacity:1;
+        background-color:rgba(0,0,0,.5)
+    }
+</style>
+
 <div id="content">
   <div class="page">
     <div class="leftcontent">
-      <div class="uppercontent"> <span>Create a Listing</span>
+      <div class="uppercontent"> <h1 class="headingh1">Create a <strong>Listing</strong></h1>
         <p>Please select a category to crate listing</p>
-        <table width="883" border="0" cellpadding="20" cellspacing="0">
-          <tr>
-            <td align="center" valign="top">
-              <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
-                <tr>
-                  <td width="25%" align="center" valign="top">
-                    <%= link_to image_tag("car_button.png", :mouseover => "car_bw.png", :alt => "Autos", :name => "automobiles",
-                                          :size => "66x66", :border => "0", :id => "automobiles"), new_autolisting_path %>
-                  </td>
-                  <td width="25%" align="center" valign="top">
-                    <%= link_to image_tag("motorcycle_button.png", :mouseover => "motorcycle_bw.png", :alt => "Motorcycles",
-                                          :name => "motorcycles", :size => "66x66", :border => "0", :id => "motorcycles"),
-                                new_motolisting_path %>
-                  </td>
-                  <td width="25%" align="center" valign="top">
-                    <%= link_to image_tag("marine_button.png", :mouseover => "marine_bw.png", :alt => "Marine",
-                                          :name => "marine", :size => "67x66", :border => "0", :id => "marine"),
-                                new_marinelisting_path %>
-                  </td>
-                  <td width="25%" align="center" valign="top">
-                    <%= link_to image_tag("powersports_button.png", :mouseover => "powersports_bw.png", :alt => "Power Sports",
 
-                                          :name => "power sports", :size => "67x66", :border => "0", :id => "power sports"),
-                                new_powerlisting_path %>
-                  </td>
-                </tr>
-                <tr>
-                  <td align="center" valign="top">
-                    <strong>
-                      <br />
-                      AUTOS<br />
-                    </strong>
-                    <p>Automobiles</p>
-                    <p>Pickup Trucks</p>
-                    <p>Sports Cars</p>
-                    <p>Classic Cars &amp; Trucks</p>
-                    <p>Other Vehicles</p>
-                  </td>
-                  <td align="center" valign="top">
-                    <strong>
-                      <br />
-                      MOTORCYCLES
-                    </strong>
-                    <br />
-                    <p>Road Bikes</p>
-                    <p>Dirts Bikes</p>
-                    <p>Mopeds &amp; Scooters</p>
-                    <p>Other Motorcycles</p>
-                  </td>
-                  <td align="center" valign="top">
-                    <strong>
-                      <br />
-                      MARINE<br />
-                    </strong>
-                    <p>Runabouts</p>
-                    <p>Sailboats</p>
-                    <p>Yachts</p>
-                    <p>Seadoo's</p>
-                    <p>Other Marine</p>
-                  </td>
-                  <td align="center" valign="top">
-                    <strong>
-                      <br />
-                      POWER SPORTS
-                    </strong>
-                    <br />
-                    <p>ATV's</p>
-                    <p>Gators</p>
-                    <p>Rock Crawlers</p>
-                    <p>Snow Mobiles</p>
-                    <p>Other All Terrain</p>
-                  </td>
-                </tr>
-              </table>
-            </td>
-          </tr>
-        </table>
+        <div class="lightbox">
+          <a href="<%= new_autolisting_url%>" rel="group" class="fancybox">
+            <div class="overlay">
+              <h5>AUTOMOTIVE</h5>
+            </div>
+            <img src="/assets/lightbox1.jpg" alt="" />
+          </a>
+          <a href="<%= new_marinelisting_url%>" rel="group" class="fancybox">
+            <div class="overlay">
+              <h5>MARINE</h5>
+            </div>
+            <img src="/assets/lightbox2.jpg" alt="" />
+          </a>
+          <a href="<%= new_motolisting_url%>" rel="group" class="fancybox">
+            <div class="overlay">
+              <h5>MOTORCYCLE</h5>
+            </div>
+            <img src="/assets/lightbox3.jpg" alt="" />
+          </a>
+          <a href="<%= new_powerlisting_url%>" rel="group" class="fancybox">
+            <div class="overlay">
+              <h5>POWER SPORTS</h5>
+            </div>
+            <img src="/assets/lightbox4.jpg" alt="" />
+          </a>
+        </div>
         <div class="clear"></div>
         </div>
   </div>

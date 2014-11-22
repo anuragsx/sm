@@ -27,7 +27,7 @@ class PowerlistingsController < ApplicationController
 		
 		#Comment this SearchLogic code when I can build the conditions strings from params and userlistings
 		#@search = Listing.new_search(params[:search])
-    @listings = Listing.where("listingtype = ?", params["listing_type"])
+    @listings = Listing.search_m(params)
     @listings_count = @listings.count
 		
 	##Perfect Swap "Matching" functionality
@@ -60,7 +60,7 @@ class PowerlistingsController < ApplicationController
 		
 			#Execute Perfectresults query by using listings search form conditions hash and wishlists conditions hash
 			#@perfectresults = Listing.find(:all, :joins => :wishlists, :conditions => {:wishlists => @wishlistconditions})
-			@perfectresults = Listing.find(:all, :joins => :wishlists, :conditions => @wishlistconditions)
+			@perfectresults = Listing.search_perfect_match(@wishlistconditions)
 			@perfectresults_count = @perfectresults.count
 		end
 				

@@ -2,9 +2,6 @@
   <div class="page">
     <div class="rightcontent">
       <div class="contact"> <span>Find Your</span><span class="whip"> Whip</span>
-        <div class="checkbox">
-            <%= render :partial => "common/search_form"%>
-        </div>
       <div class="ad1"> <img src="/assets/ad1.jpg" width="300" height="125" /> </div>
       <div class="ad2"> <img src="/assets/ad2.jpg" width="300" height="125" /> </div>
       <div class="ad3"> <img src="/assets/ad3.jpg" width="300" height="250" /> </div>
@@ -82,8 +79,8 @@
 
 
           <div class="contactwidget">
-            <% if flash[:notice] %>
-                <div class="notice"><%= flash[:notice] %></div>
+            <% flash.each do |name, msg| %>
+                <%= content_tag :div, msg, class: "notice" %>
             <% end %>
             <%= form_for @message, :url => {:controller => "messages", :action => "create"} do |f| %>
                 <% if @message.errors.any? %>

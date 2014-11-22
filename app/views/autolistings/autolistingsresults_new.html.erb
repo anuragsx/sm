@@ -1,11 +1,11 @@
-<div id="content">
+<div id="content" xmlns="http://www.w3.org/1999/html">
   <div class="page">
     <div class="rightcontent">
       <div class="contact"> <span>Find Your</span><span class="whip"> Whip</span>
         <div class="checkbox">
           <form action="#">
             <div id="auto">
-              <%= form_tag(autolistingsresults_new_autolistings_path)  do |f| %>
+              <%= form_tag(autolistingsresults_new_autolistings_path(:listing_type=>'auto'))  do |f| %>
                   <div class="question">
                     <label class="question">01. Make and Model</label>
                     <div class="select">
@@ -72,9 +72,22 @@
           <div class="clear"></div>
         </div>
 
+        <p style="color: #649D4A">
+        <strong>
+        <% if current_user %>
+            <td colspan="2">
+              <%= pluralize(@perfectresults_count, "Perfect Match") %> found.
+            </td>
+        <% end %>
+        </strong>
+        </p>
+
         <% if current_user %>
             <% if @perfectresults_count > 0 %>
+                <p style="color: #649D4A">Perfect Matches found:</p>
+
                 <% @perfectresults.each do |listing| %>
+                    <%#= listing.listingtype%>
                     <div class="post">
                       <div class="leftpost">
                         <% if listing.photos.blank?%>
@@ -84,16 +97,16 @@
                         <%end%>
                         <div class="middilepost">
                           <div class="inline">
-                            <h2><%=h listing.model %></h2>
+                            <h2><%=h listing.make %> - <%=h listing.model %></h2>
 
                             <span class="mileage">Milage : <%=h listing.mileage %></span> </div>
                           <%unless listing.owner.nil?%>
-                          <% if listing.owner.city && listing.owner.state %>
-                              <span><%=h listing.owner.city %>, <%=h listing.owner.state %></span> <img src="/assets/bubble.png" width="13" height="15" />
-                          <%end%>
+                              <% if listing.owner.city && listing.owner.state %>
+                                  <span><%=h listing.owner.city %>, <%=h listing.owner.state %></span> <img src="/assets/bubble.png" width="13" height="15" />
+                              <%end%>
                           <%end%>
                           <p class="description"></p>
-                          <a href="#">View Details &raquo;</a> </div>
+                          <%= link_to "View Details", listing_path(listing)%></div>
                       </div>
                       <div class="swap"> <span><sup>$</sup><%=h listing.price %></span> </div>
                       <div class="clear"></div>
@@ -102,33 +115,48 @@
             <%end%>
         <%end%>
 
-        <% unless  @listings.blank?%>
-            <% @listings.each do |listing| %>
-                <div class="post">
-                  <div class="leftpost">
-                    <% if listing.photos.blank?%>
-                        <img border="0" src="/assets/no-photo-small.jpg?1388342718" alt="No Photo Available">
-                    <%else%>
-                        <%= image_tag listing.photos.first.image.url(:thumb), :class => "pos_img", :size => "114x91" %><!--<img class="pos_img" src="/assets/innersmallsliderimage2.png" width="114" height="91" />-->
-                    <%end%>
-                    <div class="middilepost">
-                      <div class="inline">
-                        <h2><%=h listing.model %></h2>
-                        <span class="mileage">Milage : <%=h listing.mileage %></span> </div>
-                      <%unless listing.owner.nil?%>
+
+        <p style="color: #649D4A">
+          <strong>
+            <% if current_user %>
+                <%= pluralize(@listings_count, "Unmatched listing") %> found.
+            <% else %>
+                <%= pluralize(@listings_count, "listing") %> found.
+            <% end %>
+          </strong>
+        </p>
+
+        <%# if current_user %>
+            <% if @listings_count > 0 %>
+                <% if current_user%><p><strong>The following vehicles match your search request, but are not a perfect match for what you own. Please message the owner to see if your vehicle may be of interest to him/her.</strong></p><%end%>
+                <% @listings.each do |listing| %>
+                <%#= listing.listingtype%>
+                    <div class="post">
+                      <div class="leftpost">
+                        <% if listing.photos.blank?%>
+                            <img border="0" src="/assets/no-photo-small.jpg?1388342718" alt="No Photo Available">
+                        <%else%>
+                            <%= image_tag listing.photos.first.image.url(:thumb), :class => "pos_img", :size => "114x91" %><!--<img class="pos_img" src="/assets/innersmallsliderimage2.png" width="114" height="91" />-->
+                        <%end%>
+                        <div class="middilepost">
+                          <div class="inline">
+                            <h2><%=h listing.make %> - <%=h listing.model %></h2>
+
+                            <span class="mileage">Milage : <%=h listing.mileage %></span> </div>
+                          <%unless listing.owner.nil?%>
                           <% if listing.owner.city && listing.owner.state %>
                               <span><%=h listing.owner.city %>, <%=h listing.owner.state %></span> <img src="/assets/bubble.png" width="13" height="15" />
                           <%end%>
-                      <%end%>
-
-                      <p class="description"></p>
-                      <%= link_to "View Details", listing_path(listing)%></div>
-                  </div>
-                  <div class="swap"> <span><sup>$</sup><%=h listing.price %></span> </div>
-                  <div class="clear"></div>
-                </div>
+                          <%end%>
+                          <p class="description"></p>
+                          <%= link_to "View Details", listing_path(listing)%></div>
+                      </div>
+                      <div class="swap"> <span><sup>$</sup><%=h listing.price %></span> </div>
+                      <div class="clear"></div>
+                    </div>
+                <%end%>
             <%end%>
-        <%end%>
+        <%#end%>
 
         <!--<div class="paginationextra"> <span>Page 01 of 06</span> <img src="images/pagination.png" width="171" height="24" /> </div>-->
       </div>
