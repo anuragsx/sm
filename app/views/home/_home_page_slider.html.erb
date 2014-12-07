@@ -87,7 +87,7 @@
                 <div class="question">
                   <label class="question">01. Category</label>
                   <div class="select selectParent">
-                    <%= select_tag("category", options_from_collection_for_select(@motocategories,"id", "category",:selected => params[:category]),
+                    <%= select_tag(:category, options_for_select(@motocategories.map {|s| [s.category, s.category]},:selected => params[:category]),
                                    :prompt => "-Select a Category")%>
                   </div>
                   <div class="clear"></div>
@@ -100,19 +100,10 @@
                   </div>
                   <div class="clear"></div>
                 </div>
-                <!--
-                <div class="question">
-                  <label class="question">03. Max Price</label>
-                  <div class="select selectParent">
-                    <%#= text_field_tag :price_lt, '', :size => 6, :value => params[:price_lt] %>
-                  </div>
-                  <div class="clear"></div>
-                </div>
-                -->
                 <div class="question">
                   <label class="question">03. State</label>
                   <div class="select">
-                    <%= select_tag("state_is",options_from_collection_for_select(Listing::STATES, 'to_s' , 'to_s',:selected => params[:state_is]) , {:prompt => "-Select State"}) %>
+                    <%= select_tag("state",options_from_collection_for_select(Listing::STATES, 'to_s' , 'to_s',:selected => params[:state]) , {:prompt => "-Select State"}) %>
                   </div>
                   <div class="clear"></div>
                 </div>

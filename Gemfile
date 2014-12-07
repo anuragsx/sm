@@ -13,6 +13,7 @@ gem "authlogic"
 #gem 'will_paginate',  '~> 2.3.15'#, :source => 'http://gemcutter.org'
 #gem "will_paginate", :git => "https://github.com/p7r/will_paginate.git", :branch => "rails3"
 gem "will_paginate", '3.0.7'
+gem 'kaminari'
 gem 'rmagick'
 #gem 'fleximage'
 

@@ -33,7 +33,7 @@
                     <div class="clear"></div>
                   </div>
 
-                  <!--<a href="#" class="advance">Advanced Search</a>-->
+                  <%= link_to "Advanced Search", searchautos_path, :class=>"advance"%>
                   <%= hidden_field_tag :listing_type, "auto" %>
                   <%= hidden_field_tag :expired_at_gte, Date.today %>
                   <%= submit_tag "Basic Search", class: "submit" %>
@@ -97,9 +97,13 @@
                         <%end%>
                         <div class="middilepost">
                           <div class="inline">
-                            <h2><%=h listing.make %> - <%=h listing.model %></h2>
+                            <h2><%=h listing.year %> - <%=h listing.make %> - <%=h listing.model %></h2>
 
                             <span class="mileage">Milage : <%=h listing.mileage %></span> </div>
+                          <%unless listing.body.blank?%>
+                              <span>Category - <%=h listing.body %></span>
+                          <%end%>
+                          <br />
                           <%unless listing.owner.nil?%>
                               <% if listing.owner.city && listing.owner.state %>
                                   <span><%=h listing.owner.city %>, <%=h listing.owner.state %></span> <img src="/assets/bubble.png" width="13" height="15" />
@@ -140,9 +144,13 @@
                         <%end%>
                         <div class="middilepost">
                           <div class="inline">
-                            <h2><%=h listing.make %> - <%=h listing.model %></h2>
+                            <h2><%=h listing.year %> - <%=h listing.make %> - <%=h listing.model %></h2>
 
                             <span class="mileage">Milage : <%=h listing.mileage %></span> </div>
+                          <%unless listing.body.blank?%>
+                              <span>Category - <%=h listing.body %></span>
+                          <%end%>
+                          <br />
                           <%unless listing.owner.nil?%>
                           <% if listing.owner.city && listing.owner.state %>
                               <span><%=h listing.owner.city %>, <%=h listing.owner.state %></span> <img src="/assets/bubble.png" width="13" height="15" />

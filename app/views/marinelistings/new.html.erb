@@ -1,7 +1,7 @@
 <div id="content">
   <div class="page">
     <div class="leftcontent">
-      <div class="uppercontent"> <span>Create a New Power Sports Listing</span>
+      <div class="uppercontent"> <h1 class="headingh1">Create a New Power <strong>Sports Listing</strong></h1>
         <% flash.each do |name, msg| %>
             <%= content_tag :div, msg, class: "notice" %>
         <% end %>
@@ -100,7 +100,8 @@
                           <tr>
                             <td>
                               <br/>
-                              <%= f.submit 'Create Listing', :id => "Submit" %>
+                              <%#= f.submit 'Create Listing', :id => "Submit" %>
+                              <%= f.submit 'Create Listing', :id => "submitButton", :class => "sub" %>
                             </td>
                           </tr>
                         </table>

@@ -49,9 +49,10 @@
                     <div class="clear"></div>
                   </div>
 
+                  <%#= hidden_field_tag :listing_type, "marine" %>
+                  <%#= hidden_field_tag :listing_type, Date.today %>
+                  <%= link_to "Advanced Search", searchmarine_path, :class=>"advance"%>
                   <%= hidden_field_tag :listing_type, "marine" %>
-                  <%= hidden_field_tag :listing_type, Date.today %>
-                  <!--<a href="#" class="advance">Advanced Search</a>-->
                   <%= submit_tag "Basic Search", class: "submit" %>
               <% end %>
             </div>
@@ -113,9 +114,16 @@
                         <%end%>
                         <div class="middilepost">
                           <div class="inline">
-                            <h2><%=h listing.category %></h2>
-
-                            <span class="mileage">Milage : <%=h listing.mileage %></span> </div>
+                            <h2><%=h listing.year %> <%=h listing.make %></h2>
+                            <span class="mileage"></span> </div>
+                          <%unless listing.category.blank? %>
+                              <span>Category - <%=h listing.category %></span>
+                          <%end%>
+                          <br />
+                          <%unless listing.subcategory.blank?%>
+                              <span>Sub Category - <%=h listing.subcategory %></span>
+                          <%end%>
+                          <br />
                           <%unless listing.owner.nil?%>
                               <% if listing.owner.city && listing.owner.state %>
                                   <span><%=h listing.owner.city %>, <%=h listing.owner.state %></span> <img src="/assets/bubble.png" width="13" height="15" />
@@ -156,9 +164,16 @@
                     <%end%>
                     <div class="middilepost">
                       <div class="inline">
-                        <h2><%=h listing.make %> - <%=h listing.model %></h2>
-
-                        <span class="mileage">Milage : <%=h listing.mileage %></span> </div>
+                        <h2><%=h listing.year %> <%=h listing.make %></h2>
+                        <span class="mileage"></span> </div>
+                      <%unless listing.category.blank?%>
+                          <span>Category - <%=h listing.category %></span>
+                      <%end%>
+                      <br />
+                      <%unless listing.subcategory.blank?%>
+                          <span>Sub Category - <%=h listing.subcategory %></span>
+                      <%end%>
+                      <br />
                       <%unless listing.owner.nil?%>
                           <% if listing.owner.city && listing.owner.state %>
                               <span><%=h listing.owner.city %>, <%=h listing.owner.state %></span> <img src="/assets/bubble.png" width="13" height="15" />

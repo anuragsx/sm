@@ -42,6 +42,11 @@ class AutolistingsController < ApplicationController
     @listings = Listing.search_m(params)
     @listings_count = @listings.count
 
+    #pagination
+    #@listingsss = Listing.order(:make).page params[:page]
+
+
+
     ##Perfect Swap "Matching" functionality
     if current_user
       @user = current_user
@@ -62,13 +67,12 @@ class AutolistingsController < ApplicationController
           end
 
         #Get current_user listings and build a wishlists conditions string
-        @user = current_user
         @userlistings = @user.listings.all
         @userlistings.each do |userlisting|
           #add conditions to the @wishlistconidtions unless there is no value in the field...
           #unless params[:make].blank? && params[:model].blank? && params[:category].blank?
             unless userlisting.listingtype == ""
-              @wishlistconditions['wishlists.listingtype'] = userlisting.listingtype
+              @wishlistconditions['wishlists.listingtype'] = 'auto'
             end
             unless userlisting.make == ""
               @wishlistconditions['wishlists.make'] = userlisting.make
@@ -90,74 +94,6 @@ class AutolistingsController < ApplicationController
       end
     end
     respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @listing }
-    end
-  end
-
-
-
-		
-	def autolistingsresults
-		@automakes = Automodels.find(:all, :order => 'make ASC', :select => 'distinct make')
-		@automodels = Automodels.find_all_by_make(params[:search][:conditions][:make_is], :order => "model ASC", :select => 'distinct model').map{|m| [m.model, m.model]}
-		@autocategories = Autocategories.find(:all, :order => 'category ASC')
-		
-		#Comment this SearchLogic code when I can build the conditions strings from params and userlistings
-		#@search = Listing.new_search(params[:search])
-		#@listings = @search.all
-		#@listings_count = @search.count
-		
-	##Perfect Swap "Matching" functionality
-		if current_user
-			@user = current_user
-			if @user.listings.count > 0
-				#Get all params from search form and build a conditions string
-					#@listingconditions = params[:search][:conditions].reject{|key,value|value.nil?}
-			
-				#listingtype will always have a condition (because of the form hidden field), so this will initiate the conditions hash
-				@wishlistconditions = {'listings.listingtype' => params[:search][:conditions][:listingtype_is]}
-				unless params[:search][:conditions][:make_is] == ""
-					@wishlistconditions['listings.make'] = params[:search][:conditions][:make_is]
-				end
-				unless params[:search][:conditions][:model_is] == ""
-					@wishlistconditions['listings.model'] = params[:search][:conditions][:model_is]
-				end
-				unless params[:search][:conditions][:body_is] == ""
-					@wishlistconditions['listings.body'] = params[:search][:conditions][:body_is]
-				end
-		
-				#Get current_user listings and build a wishlists conditions string
-				@user = current_user
-				@userlistings = @user.listings.all
-				@userlistings.each do |userlisting|
-				#add conditions to the @wishlistconidtions unless there is no value in the field...
-					unless userlisting.listingtype == ""
-						@wishlistconditions['wishlists.listingtype'] = userlisting.listingtype
-					end
-					unless userlisting.make == ""
-						@wishlistconditions['wishlists.make'] = userlisting.make
-					end
-					unless userlisting.model == ""
-						@wishlistconditions['wishlists.model'] = userlisting.model
-					end
-					unless userlisting.body == ""
-						@wishlistconditions['wishlists.body'] = userlisting.body
-					end
-				end
-		    puts "----------------------------------------------"
-        puts @wishlistconditions.inspect
-		  	#Execute Perfectresults query by using listings search form conditions hash and wishlists conditions hash
-				#@perfectresults = Listing.find(:all, :joins => :wishlists, :conditions => {:wishlists => @wishlistconditions})
-				#@perfectresults = Listing.find(:all, :joins => :wishlists, :conditions => @wishlistconditions)
-				@perfectresults_count = @perfectresults.count
-				
-			else
-				@perfectresults_count = 0
-			end
-		end
-				
-		respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @listing }
     end

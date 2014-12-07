@@ -20,23 +20,47 @@ class Listing < ActiveRecord::Base
 	has_many :photos, :dependent => :destroy
 	has_many :wishlists, :foreign_key => "user_id", :primary_key => "user_id"
 #will_paginate stuff
-	cattr_reader :per_page
-  @@per_page = 50
+	#cattr_reader :per_page
+  #@@per_page = 50
 
 	#default_scope :conditions => ["expired_at >= ?", Date.today]
 
+  #self.per_page = 2
+  #paginates_per 1
+
+
   def self.search_m(params)
-    query_obj = Listing.where("listingtype = ?", params[:listing_type])
+    query_obj = Listing.joins(:owner)
+    query_obj = query_obj.where("listingtype = ?", params[:listing_type])
     query_obj = query_obj.where("make = ?", "#{params[:make]}") unless params[:make].blank?
+
     unless params[:model].blank?
       query_obj = query_obj.where("model = ?", params[:model]) unless params[:model]=="Select your Model"
     end
-    query_obj = query_obj.where("category = ?", "#{params[:category]}") unless params[:category].blank?
-    query_obj = query_obj.where("subcategory = ?", "#{params[:subcategory]}") unless params[:subcategory].blank?
-    unless params[:state].blank?
-      query_obj = joins(:users)
-      query_obj = query_obj.where("owner.state = ?", "#{params[:state]}") unless params[:state].blank?
+
+    if (params[:listing_type] == "auto")
+      query_obj = query_obj.where("body = ?", params[:category]) unless params[:category].blank?
+    else
+      query_obj = query_obj.where("category = ?", params[:category]) unless params[:category].blank?
     end
+
+    unless params[:sub_category].blank?
+      query_obj = query_obj.where("subcategory = ?", "#{params[:sub_category]}") unless params[:sub_category]=="Select your Subcategory"
+    end
+
+
+    query_obj = query_obj.where("users.state = ?", "#{params[:state]}") unless params[:state].blank?
+
+    if (!params[:year_gte].blank? && !params[:year_lte].blank?)
+      query_obj = query_obj.where(year: (params[:year_gte])..(params[:year_lte]))
+    end
+
+    if (!params[:price_min].blank? && !params[:price_max].blank?)
+      query_obj = query_obj.where(price: (params[:price_min])..(params[:price_max]))
+    end
+
+    query_obj = query_obj.where("length = ?", "#{params[:length]}") unless params[:length].blank?
+
     query_obj = query_obj.where("price = ?", "#{params[:price]}") unless params[:price].blank?
     query_obj = query_obj.where("mileage = ?", "#{params[:mileage]}") unless params[:mileage].blank?
     query_obj = query_obj.where("exterior_color = ?", "#{params[:exterior_color]}") unless params[:exterior_color].blank?
@@ -48,6 +72,7 @@ class Listing < ActiveRecord::Base
     query_obj = query_obj.where("fuel = ?", "#{params[:fuel]}") unless params[:fuel].blank?
     query_obj = query_obj.where("desc = ?", "#{params[:desc]}") unless params[:desc].blank?
     query_obj = query_obj.where("hull = ?", "#{params[:hull]}") unless params[:hull].blank?
+
     query_obj
   end
 
@@ -58,7 +83,7 @@ class Listing < ActiveRecord::Base
     unless params[params['listings.model']].blank?
       query_obj = query_obj.where("listings.model = ?", params['listings.model']) unless params['listings.model']=="Select your Model"
     end
-    query_obj = query_obj.where("listings.body = ?", "#{params['listings.body']}") unless params['listings.body'].blank?
+    query_obj = query_obj.where("listings.body = ?", "#{params['listings.category']}") unless params['listings.category'].blank?
     query_obj = query_obj.where("listings.category = ?", "#{params['listings.category']}") unless params['listings.category'].blank?
     query_obj = query_obj.where("listings.subcategory = ?", "#{params['listings.subcategory']}") unless params['listings.subcategory'].blank?
 
@@ -71,7 +96,8 @@ class Listing < ActiveRecord::Base
     query_obj = query_obj.where("wishlists.body = ?", "#{params['wishlists.body']}") unless params['wishlists.body'].blank?
     query_obj = query_obj.where("wishlists.category = ?", "#{params['wishlists.category']}") unless params['wishlists.category'].blank?
     query_obj = query_obj.where("wishlists.subcategory = ?", "#{params['wishlists.subcategory']}") unless params['wishlists.subcategory'].blank?
-
+    puts "--------------------------"
+    puts query_obj.inspect
     query_obj
   end
 
