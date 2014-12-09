@@ -2,7 +2,7 @@ class MotolistingsController < ApplicationController
   layout "application"
 	def searchmotos
   	#@search = Listing.new_search(params[:search])
-  	@motomakes = Motomakes.find(:all, :order => 'sort_order ASC', :select => 'distinct make')
+  	@motomakes = Motomakes.find(:all, :order => 'make ASC', :select => 'distinct make')
 		@motocategories = Motocategories.find(:all, :order => 'category ASC')
 		
   	#@listings = @search.all
