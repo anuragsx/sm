@@ -14,7 +14,9 @@ class AutolistingsController < ApplicationController
   end
 
 
+=begin
   def autolistingsresults_new
+    puts "=====================ddd============inside method=================="
     #################################################
     #For search box
     #################################################
@@ -48,9 +50,14 @@ class AutolistingsController < ApplicationController
 
 
     ##Perfect Swap "Matching" functionality
+    puts "----------curent user ----------------"
+    puts current_user.inspect
+    puts "----------curent user ----------------"
     if current_user
+
       @user = current_user
       if @user.listings.count > 0
+        puts "------------inside current user condition--------------"
         #Get all params from search form and build a conditions string
 
         #listingtype will always have a condition (because of the form hidden field), so this will initiate the conditions hash
@@ -87,12 +94,172 @@ class AutolistingsController < ApplicationController
         end
         #Execute Perfectresults query by using listings search form conditions hash and wishlists conditions hash
         #@perfectresults = Listing.find(:all, :joins => :wishlists, :conditions => @wishlistconditions)
+        puts "============================================="
         @perfectresults = Listing.search_perfect_match(@wishlistconditions)
         @perfectresults_count = @perfectresults.size
       else
         @perfectresults_count = 0
       end
     end
+    respond_to do |format|
+      format.html # show.html.erb
+      format.xml  { render :xml => @listing }
+    end
+  end
+=end
+
+
+  def autolistingsresults_new
+    puts "=====================ddd============inside method=================="
+    #################################################
+    #For search box
+    #################################################
+    @user = current_user
+    @motocategories = Motocategories.find(:all, :order => 'category ASC')
+    @motomakes = Motomakes.find(:all, :order => 'sort_order ASC')
+    @marinecategories = Marinecategories.find(:all, :order => 'category ASC', :select => 'distinct category')
+
+    @marinesubcategories = params[:category].blank? ? Marinecategories.find(:all, :order => 'subcategory ASC') : Marinecategories.find_all_by_category(params[:category], :order => "subcategory ASC").map{|m| [m.subcategory, m.subcategory]}
+    @marinemakes = Marinemakes.find(:all, :order => 'make ASC')
+    @powercategories = Powercategories.find(:all, :order => 'category ASC', :select => 'distinct category')
+
+    @powersubcategories = params[:category].blank? ? Powercategories.find(:all, :order => 'subcategory ASC') : Powercategories.find_all_by_category(params[:category], :order => "subcategory ASC").map{|m| [m.subcategory, m.subcategory]}
+
+    @powermakes = Powermakes.find(:all, :order => 'sort_order ASC')
+    ###################################################################################3
+
+    @automakes = Automodels.find(:all, :order => 'make ASC', :select => 'distinct make')
+    automodels_by_make = Automodels.find_all_by_make(params[:make], :order => "model ASC", :select => 'distinct model')
+    automodels_all_make = Automodels.find(:all, :order => "model ASC", :select => 'distinct model')
+    @automodels = params[:make].blank? ? automodels_all_make : automodels_by_make
+    @autocategories = Autocategories.find(:all, :order => 'category ASC')
+
+    #To search listing items
+    @listings = Listing.search_m(params)
+    @listings_count = @listings.count
+
+    #pagination
+    #@listingsss = Listing.order(:make).page params[:page]
+
+
+
+    ##Perfect Swap "Matching" functionality
+    puts "----------curent user ----------------"
+    puts current_user.inspect
+    puts "----------curent user ----------------"
+    if current_user
+
+      @user = current_user
+      if @user.listings.count > 0
+        puts "------------inside current user condition--------------"
+        #Get all params from search form and build a conditions string
+
+        #listingtype will always have a condition (because of the form hidden field), so this will initiate the conditions hash
+        @wishlistconditions = {'listings.listingtype' => params["listing_type"]}
+
+        unless params[:make] == ""
+          @wishlistconditions['listings.make'] = params[:make]
+        end
+        unless params[:model] == ""
+          @wishlistconditions['listings.model'] = params[:model]
+        end
+        unless params[:category] == ""
+          @wishlistconditions['listings.body'] = params[:category]
+        end
+
+        #Get current_user listings and build a wishlists conditions string
+        ##@userlistings = @user.listings.all
+        #@userlistings.each do |userlisting|
+          #add conditions to the @wishlistconidtions unless there is no value in the field...
+          #unless params[:make].blank? && params[:model].blank? && params[:category].blank?
+          #if userlisting.listingtype == ""
+            #@wishlistconditions['wishlists.listingtype'] = 'auto'
+          #end
+          #if params[:make] == ""
+           # @wishlistconditions['wishlists.make'] = userlisting.make
+          #end
+          #if params[:model] == ""
+           # @wishlistconditions['wishlists.model'] = userlisting.model
+          #end
+          #if params[:category] == ""
+           # @wishlistconditions['wishlists.body'] = userlisting.body
+          #end
+          #end
+        #end
+        #Execute Perfectresults query by using listings search form conditions hash and wishlists conditions hash
+        #@perfectresults = Listing.find(:all, :joins => :wishlists, :conditions => @wishlistconditions)
+        puts "============================================="
+        @perfectresults = Listing.search_perfect_match(@wishlistconditions)
+        @perfectresults_count = @perfectresults.size
+      else
+        @perfectresults_count = 0
+      end
+    end
+    respond_to do |format|
+      format.html # show.html.erb
+      format.xml  { render :xml => @listing }
+    end
+  end
+
+
+  def autolistingsresults
+    @automakes = Automodels.find(:all, :order => 'make ASC', :select => 'distinct make')
+    @automodels = Automodels.find_all_by_make(params[:search][:conditions][:make_is], :order => "model ASC", :select => 'distinct model').map{|m| [m.model, m.model]}
+    @autocategories = Autocategories.find(:all, :order => 'category ASC')
+
+    #Comment this SearchLogic code when I can build the conditions strings from params and userlistings
+    @search = Listing.new_search(params[:search])
+    @listings = @search.all
+    @listings_count = @search.count
+
+    ##Perfect Swap "Matching" functionality
+    if current_user
+      @user = current_user
+      if @user.listings.count > 0
+        #Get all params from search form and build a conditions string
+        #@listingconditions = params[:search][:conditions].reject{|key,value|value.nil?}
+
+        #listingtype will always have a condition (because of the form hidden field), so this will initiate the conditions hash
+        @wishlistconditions = {'listings.listingtype' => params[:search][:conditions][:listingtype_is]}
+        unless params[:search][:conditions][:make_is] == ""
+          @wishlistconditions['listings.make'] = params[:search][:conditions][:make_is]
+        end
+        unless params[:search][:conditions][:model_is] == ""
+          @wishlistconditions['listings.model'] = params[:search][:conditions][:model_is]
+        end
+        unless params[:search][:conditions][:body_is] == ""
+          @wishlistconditions['listings.body'] = params[:search][:conditions][:body_is]
+        end
+
+        #Get current_user listings and build a wishlists conditions string
+        @user = current_user
+        @userlistings = @user.listings.all
+        @userlistings.each do |userlisting|
+          #add conditions to the @wishlistconidtions unless there is no value in the field...
+          unless userlisting.listingtype == ""
+            @wishlistconditions['wishlists.listingtype'] = userlisting.listingtype
+          end
+          unless userlisting.make == ""
+            @wishlistconditions['wishlists.make'] = userlisting.make
+          end
+          unless userlisting.model == ""
+            @wishlistconditions['wishlists.model'] = userlisting.model
+          end
+          unless userlisting.body == ""
+            @wishlistconditions['wishlists.body'] = userlisting.body
+          end
+        end
+
+        #Execute Perfectresults query by using listings search form conditions hash and wishlists conditions hash
+        #@perfectresults = Listing.find(:all, :joins => :wishlists, :conditions => {:wishlists => @wishlistconditions})
+        @perfectresults = Listing.find(:all, :joins => :wishlists, :conditions => @wishlistconditions)
+        @perfectresults_count = @perfectresults.count
+
+      else
+        @perfectresults_count = 0
+      end
+    end
+
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @listing }
